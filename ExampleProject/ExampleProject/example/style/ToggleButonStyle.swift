@@ -1,11 +1,10 @@
-// creates a ToggleButonStyle for Button.
-// The button should have rounded corners, have white text, and dark gray background,
-// it should have a little bit more padding horisontally than vertically.
-// also make a preview
-// - Fixme: ⚠️️ turn the above into doc, use copilot
-// - Fixme: ⚠️️ rename to ActionButtonStyle? or something more generic, as it is used for back btn and toggle sidebar and fullscreen edit btn etc
 import SwiftUI
-
+/**
+ * creates a ToggleButonStyle for Button.
+ * - Description: The button should have rounded corners, have white text, and dark gray background,  it should have a little bit more padding horisontally than vertically. also make a preview
+ * - Fixme: ⚠️️ rename to ActionButtonStyle? or something more generic, as it is used for back btn and toggle sidebar and fullscreen edit btn etc
+ * - Fixme: ⚠️️ turn the above into doc, use copilot
+ */
 struct ToggleButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -21,8 +20,9 @@ extension Button {
       self.buttonStyle(ToggleButtonStyle())
    }
 }
-
-// Preview of the CustomToggleButtonStyle
+/**
+ * Preview of the CustomToggleButtonStyle
+ */
  #Preview {
     Button("Toggle") {
         // Action for the button

@@ -3,16 +3,16 @@ import SwiftUI
  * Content
  */
 extension MainHeader {
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    var body: some View {
       VStack {
-         // button
-         HStack {
+         HStack { // button
             toggleButton // top-left
             Spacer()
          }
-         // title
-         HStack {
+         HStack { // title
             titleText // bottom-left
             Spacer()
          }
@@ -46,7 +46,7 @@ extension MainHeader {
          }
       }
       .toggleButtonStyle
-      // only show this if sidebar is hidden
+      // Only show this if sidebar is hidden
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // - Fixme: ⚠️️ could we just toggle the opacity on one button instead?
    }
    /**

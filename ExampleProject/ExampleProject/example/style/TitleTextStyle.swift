@@ -1,7 +1,8 @@
 import SwiftUI
 import HybridColor
-
-// Define a custom view modifier for the title text style
+/**
+ * Define a custom view modifier for the title text style
+ */
 struct TitleTextStyle: ViewModifier {
    func body(content: Content) -> some View {
       content
@@ -9,10 +10,13 @@ struct TitleTextStyle: ViewModifier {
          .font(.system(size: 32, weight: .bold))
    }
 }
-
-// Extension to apply the title text style easily
+/**
+ * Extension to apply the title text style easily
+ */
 extension View {
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    var titleTextStyle: some View {
       self.modifier(TitleTextStyle())
    }

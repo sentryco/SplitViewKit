@@ -21,7 +21,8 @@ let package = Package(
             name: "SplitViewKit",
             dependencies: [
                .product(name: "HybridColor", package: "HybridColor")
-            ]
+            ],
+            exclude: ["ExampleProject"]  // Exclude the ExampleProject folder
         ),
         .testTarget(
             name: "SplitViewKitTests",

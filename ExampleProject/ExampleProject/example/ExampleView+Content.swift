@@ -73,7 +73,8 @@ extension ExampleView {
          splitConfig: splitConfig
       )
       MainView(
-         selectedMainIndex: $selectedMainIndex, 
+         title: DataModel.dataModel[selectedSideBarIndex].title,
+         selectedMainIndex: $selectedMainIndex,
          items: items,
          selectedItem: $selectedMainItem
       )
@@ -81,9 +82,9 @@ extension ExampleView {
       // when selectedMainItem changes, this changes
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
-         let _ = {
-            Swift.print("MainView.navigationDestination - selectedMainIndex: \(selectedMainIndex)")
-         }()
+//         let _ = {
+//            Swift.print("MainView.navigationDestination - selectedMainIndex: \(selectedMainIndex)")
+//         }()
          detailView(splitConfig: splitConfig)
 //         item.detailDestination()
          // - Fixme: ⚠️️ generate DetailView via model instead 👈

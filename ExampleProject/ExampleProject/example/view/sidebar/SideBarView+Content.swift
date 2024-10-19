@@ -41,6 +41,8 @@ extension SideBarView {
     * - Fixme: ⚠️️ add doc
     */
    var list: some View {
-      SideBarList(selectedSideBarIndex: $selectedSideBarIndex)
+      SideBarList(
+         selectedSideBarIndex: $selectedSideBarIndex // - Fixme: ⚠️️ doc this
+      )
    }
 }

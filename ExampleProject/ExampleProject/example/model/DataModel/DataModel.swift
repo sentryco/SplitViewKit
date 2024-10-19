@@ -1,6 +1,6 @@
 import SwiftUI
 /**
- * Model
+ * Used for SideBar and MainColumn items
  * - Fixme: ⚠️️ add abstract
  * - Fixme: ⚠️️ should we make this identifiable as well or?
  * - Fixme: ⚠️️ Rename MainModel, maybe
@@ -16,14 +16,9 @@ import SwiftUI
     let uuid: UUID = .init()
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ This is the title I suppose?
+    * - Fixme: ⚠️️ This is the title I suppose? 👈
     */
     let text: String
-   /**
-    * - Fixme: ⚠️️ We can probably make this some View or something generic? ask copilot?
-    * - Fixme: ⚠️️ Add doc, use copilot
-    */
-//   public let detailDestination: () -> AnyView
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ remove this, not in use
@@ -47,3 +42,9 @@ internal typealias DataModels = [DataModel]
 //   case animal(DDAnimal)
 //   case food(DDFood)
 //}
+
+/**
+ * - Fixme: ⚠️️ We can probably make this some View or something generic? ask copilot?
+ * - Fixme: ⚠️️ Add doc, use copilot
+ */
+//   public let detailDestination: () -> AnyView

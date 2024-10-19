@@ -2,7 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * Content
- * - Fixme: ⚠️️ add preview
+ * - Fixme: ⚠️️ Add preview
  */
 extension MainView {
    /**
@@ -21,12 +21,12 @@ extension MainView {
     */
    var header: some View {
       MainHeader(
-         title: selectedItem?.text ?? "Placeholder"
+         title: title /*?? "Placeholder"*/ /*selectedItem?.text*/
       )
       .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
    }
    /**
-    * listContainer
+    * vStack
     */
    var vStack: some View {
       VStack(spacing: .zero) {
@@ -42,7 +42,7 @@ extension MainView {
     * mainList
     */
    var mainList: some View {
-      MainList.init(
+      MainList(
          selectedMainIndex: $selectedMainIndex,
          selectedItem: $selectedItem,
          items: items

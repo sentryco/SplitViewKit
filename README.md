@@ -100,3 +100,4 @@ Add this to xcode or your SPM package file:
 - Add dependency overview to readme. we use HybridColor etc
 - Add better support for 2-coulmn working right out of the box. Or add notes on how to do it
 - Experiment with overflow working in detail column
+- Maybe add buttons that toggle different split-view modes? 👈 (explore how this should look first etc)

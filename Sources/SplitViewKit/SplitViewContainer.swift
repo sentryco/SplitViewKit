@@ -72,9 +72,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 }
 
 // 🏀 Continue here
-// - Fixme: ⚠️️ doc params 🏀
-// - Fixme: ⚠️️ Somehow move detail content creation to the detail-view scope? 
-// - Fixme: ⚠️️ Fix the placeholder text getting stuck in main etc
+// - Fixme: ⚠️️ doc params 
+// - Fixme: ⚠️️ Somehow move detail content creation to the detail-view scope? 🏀
 // - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead 👈 param-drill the sizeClass as well, its confusing if its not passed correctly it can jump to compact in the wrong scope where it should be regular etc
 // - Fixme: ⚠️️ Also maybe add more interesting content to detail? 👈
 // - Fixme: ⚠️️ Maybe also add a sheet and alert to test them in split, portrait, compact window etc

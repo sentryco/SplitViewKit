@@ -8,8 +8,3 @@ struct MainModel { let title: String, content: DetailData }
  * - Fixme: ⚠️️ rename to ...array
  */
 typealias MainData = [MainModel]
-/**
- * - Fixme: ⚠️️ add doc
- * - Fixme: ⚠️️ rename to DetailModel?
- */
-typealias DetailData = [String]

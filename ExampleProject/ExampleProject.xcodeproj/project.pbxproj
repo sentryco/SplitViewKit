@@ -11,6 +11,8 @@
 		F13FE4CC2CC4694F0039CC7B /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FE4CB2CC4694F0039CC7B /* MainModel.swift */; };
 		F13FE4CF2CC46CED0039CC7B /* SideBarModel+Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FE4CE2CC46CED0039CC7B /* SideBarModel+Getter.swift */; };
 		F13FE4D12CC46EAA0039CC7B /* SideBarModel+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FE4D02CC46EAA0039CC7B /* SideBarModel+Const.swift */; };
+		F13FE4D32CC473F40039CC7B /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FE4D22CC473F40039CC7B /* DetailData.swift */; };
+		F13FE4D52CC478540039CC7B /* ListTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FE4D42CC478540039CC7B /* ListTextStyle.swift */; };
 		F14DAD1E2CBD7C6300B6F3FD /* ExampleProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DAD1D2CBD7C6300B6F3FD /* ExampleProjectApp.swift */; };
 		F14DAD222CBD7C6400B6F3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD212CBD7C6400B6F3FD /* Assets.xcassets */; };
 		F14DAD252CBD7C6400B6F3FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD242CBD7C6400B6F3FD /* Preview Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		F13FE4CB2CC4694F0039CC7B /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		F13FE4CE2CC46CED0039CC7B /* SideBarModel+Getter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarModel+Getter.swift"; sourceTree = "<group>"; };
 		F13FE4D02CC46EAA0039CC7B /* SideBarModel+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarModel+Const.swift"; sourceTree = "<group>"; };
+		F13FE4D22CC473F40039CC7B /* DetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
+		F13FE4D42CC478540039CC7B /* ListTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTextStyle.swift; sourceTree = "<group>"; };
 		F14DAD1A2CBD7C6300B6F3FD /* ExampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14DAD1D2CBD7C6300B6F3FD /* ExampleProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProjectApp.swift; sourceTree = "<group>"; };
 		F14DAD212CBD7C6400B6F3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				F13FE4CD2CC46B9E0039CC7B /* SideBarModel */,
 				F13FE4CB2CC4694F0039CC7B /* MainModel.swift */,
+				F13FE4D22CC473F40039CC7B /* DetailData.swift */,
 				F13FE4C72CC4686C0039CC7B /* DataModel */,
 			);
 			path = model;
@@ -263,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E5834A2CC416E800A59A2B /* ListButtonStyle.swift */,
+				F13FE4D42CC478540039CC7B /* ListTextStyle.swift */,
 				F1E583752CC41DCD00A59A2B /* ActionButtonStyle.swift */,
 				F1E583772CC4215000A59A2B /* TitleTextStyle.swift */,
 			);
@@ -380,6 +386,7 @@
 				F1E583612CC416E800A59A2B /* DetailView+Content.swift in Sources */,
 				F1E583662CC416E800A59A2B /* MainView.swift in Sources */,
 				F1E5835F2CC416E800A59A2B /* DetailHeader+Content.swift in Sources */,
+				F13FE4D32CC473F40039CC7B /* DetailData.swift in Sources */,
 				F1E583692CC416E800A59A2B /* ListButtonStyle.swift in Sources */,
 				F1E583822CC4294100A59A2B /* SideBarList+Content.swift in Sources */,
 				F1E5836B2CC416E800A59A2B /* SideBarHeader+Content.swift in Sources */,
@@ -389,6 +396,7 @@
 				F1E583852CC42DED00A59A2B /* DetailList.swift in Sources */,
 				F1E5835E2CC416E800A59A2B /* DetailHeader.swift in Sources */,
 				F1E5836C2CC416E800A59A2B /* SideBarHeader+Preview.swift in Sources */,
+				F13FE4D52CC478540039CC7B /* ListTextStyle.swift in Sources */,
 				F13FE4CF2CC46CED0039CC7B /* SideBarModel+Getter.swift in Sources */,
 				F1E583702CC416E800A59A2B /* ExampleView.swift in Sources */,
 				F1E5836E2CC416E800A59A2B /* SideBarView+Content.swift in Sources */,

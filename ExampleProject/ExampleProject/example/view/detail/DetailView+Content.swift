@@ -54,6 +54,6 @@ extension DetailView {
     * List
     */
    var list: some View {
-      DetailList(content: content) // content is injected
+      DetailList(detailData: detailData) // content is injected
    }
 }

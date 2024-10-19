@@ -17,24 +17,15 @@ extension DataModel {
       // - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?
       let mainModel: MainModel = sideBarData[sideBarItemIndex].content[mainItemIndex]
       let detailView = DetailView(
-         title: mainModel.title//,
+         title: mainModel.title,
+         detailData: mainModel.content//,
          /*isDetailFullScreen: isDetailFullScreen*/
-      ) { // (mainRowModel: mainRowModel) // detailView(mainRowModel: mainRowModel[i]) //                Text("it works: \(i)")
+      ) 
+//      { // (mainRowModel: mainRowModel) // detailView(mainRowModel: mainRowModel[i]) //                Text("it works: \(i)")
          // detail content
          // - Fixme: ⚠️️ move into a vstack ?
-         VStack(spacing: 0) {
-            ForEach(mainModel.content, id: \.self) { (_ title: String) in
-               HStack {
-                  Text(title)
-                     .foregroundStyle(Color.whiteOrBlack.opacity(0.8))
-                     .font(.system(size: 24, weight: .regular))
-                  Spacer()
-               }
-               .padding(.horizontal) // adds left and right padding
-            }
-         }
-         .padding(.vertical, 12)
-      }
+         
+//      }
       return detailView
       // - Fixme: ⚠️️ remove the bellow, do param drilling instead
          .environmentObject(splitConfig) // we have to reapply the environmentobject when we create new detailviews etc

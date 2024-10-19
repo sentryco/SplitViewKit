@@ -9,7 +9,7 @@ import SwiftUI
  * - Fixme: ⚠️️ Add preview 👈
  * - Fixme: ⚠️️⚠️️⚠️️ Make this internal 👈
  */
-public struct DetailView<Content: View>: View {
+public struct DetailView: View { // <Content: View>
    /**
     * - Note: It seems fine to keep this here
     * - Fixme: ⚠️️ add doc regarding what it does etc
@@ -26,7 +26,8 @@ public struct DetailView<Content: View>: View {
     * - Note: This view is responsible for displaying the content of the detail view.
     * - Fixme: ⚠️️ Add description, use copilot
     */
-   @ViewBuilder public var content: () -> Content
+   // @ViewBuilder public var content: () -> Content
+   let detailData: DetailData
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ Rename title to headerTitle?
@@ -35,9 +36,10 @@ public struct DetailView<Content: View>: View {
     *   - title: title for header
     *   - content: Detail-list content (injected)
     */
-   public init(title: String, @ViewBuilder content: @escaping () -> Content) {
+   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
       self.title = title
-      self.content = content
+      // self.content = content
+      self.detailData = detailData
    }
 }
 

@@ -31,25 +31,16 @@ extension SideBarHeader {
     */
    var titleText: some View {
       Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
-         // .frame(maxWidth: .infinity)
+         .titleTextStyle
          .padding(.vertical, 6)
-         .foregroundColor(Color.whiteOrBlack.opacity(0.8))
-         .font(.system(size: 32, weight: .bold))
    }
    /**
-    * - Fixme: ⚠️️ Add doc
+    * Always show this
     */
    @ViewBuilder var toggleButton: some View {
-      // We should not show this, if in compact mode
-      // Show this only if toggle is true
-      let _ = {
-         Swift.print("SideBarHeader.sizeClass: \(sizeClass)")
-      }()
-      // ⚠️️ always show this
       Button("Hide sidebar") {
-         print("toggle") // Action for the button
-         //
-         if sizeClass == .regular { // if 3 column.
+//         Swift.print("toggle") // Action for the button
+         if sizeClass == .regular { // if 3 column
             splitConfig.columnVisibility = .doubleColumn // go to double column
          } // else compact. switch to main
          splitConfig.preferredCompactColumn = .content

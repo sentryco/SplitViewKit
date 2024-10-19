@@ -50,13 +50,11 @@ extension MainHeader {
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // - Fixme: ⚠️️ could we just toggle the opacity on one button instead?
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * Title text
     */
    var titleText: some View {
       Text(title) // center
-      // .background(.yellow) // ⚠️️ debug
+         .titleTextStyle
          .padding(.vertical, 6)
-         .foregroundColor(Color.whiteOrBlack.opacity(0.8))
-         .font(.system(size: 32, weight: .bold))
    }
 }

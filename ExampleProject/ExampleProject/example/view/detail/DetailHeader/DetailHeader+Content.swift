@@ -35,42 +35,35 @@ extension DetailHeader {
     */
    var titleText: some View {
       Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
+         .titleTextStyle
          .padding(.vertical, 6)
-         .foregroundColor(Color.whiteOrBlack.opacity(0.8))
-         .font(.system(size: 32, weight: .bold))
    }
    /**
-    * - Fixme: ⚠️️ We might not need fullscreen toggle
-    * - Fixme: ⚠️️ Add ghost btn to keep height etc
-    * - Fixme: ⚠️️ Make it possible to disable showing detailfullscreen btn
+    * - Note: detailfullscreen btn is here to show how we can go fullscreen with detail
+    * - Note: Its a niche usecase. Not needed for most uses.
     * - Fixme: ⚠️️ Remove animation for this button, it looks buggy. Use copilot etc
-    * - Fixme: ⚠️️ Rename this button to fullScreenToggleButton?
+    * - Fixme: ⚠️️ Rename this button to fullScreenToggleButton? 👈
     */
    var toggleButton: some View {
       let buttonTitleStr: String = splitConfig.isDetailFullScreen ? "Hide fullscreen" : "Show full-screen"
       return Button(buttonTitleStr) {
-         Swift.print("isDetailFullScreen: \(splitConfig.isDetailFullScreen)")
+         // Swift.print("isDetailFullScreen: \(splitConfig.isDetailFullScreen)")
+         // - Fixme: ⚠️️ doc the code bellow
          splitConfig.columnVisibility = splitConfig.isDetailFullScreen ? .all : .detailOnly
-         // splitConfig.preferredCompactColumn = .detail
-         // onButtonAction()
       }
       .toggleButtonStyle
       // Only show if regular sized
-      .opacity(sizeClass == .regular ? 1.0 : 0.0) // we use opacity to not change the topbar height to be more narrow etc
+      .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
    }
    /**
     * Back button
     * - Note: custom back-btn for detail-view, hide default back-btn etc... custom back-btn for detail when in compact mode
-    * - Fixme: ⚠️️ improve doc
     */
    var backButton: some View {
-      let _ = {
-         Swift.print("✨backButton.sizeClass: \(String(describing: sizeClass))")
-      }()
       return Button("Back") {
          dismiss()
       }
-      // only show if in compact mode
+      // Only show if in compact mode
       .opacity(sizeClass == .compact ? 1.0 : 0.0) // we use opacity to not change the topbar height to be more narrow etc
    }
 }

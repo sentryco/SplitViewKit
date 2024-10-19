@@ -38,6 +38,7 @@
 		F1E583722CC416E800A59A2B /* ExampleView+Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583572CC416E800A59A2B /* ExampleView+Getter.swift */; };
 		F1E583732CC416E800A59A2B /* ExampleView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */; };
 		F1E583762CC41DCD00A59A2B /* ToggleButonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */; };
+		F1E583782CC4215000A59A2B /* TitleTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583772CC4215000A59A2B /* TitleTextStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		F1E583572CC416E800A59A2B /* ExampleView+Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExampleView+Getter.swift"; sourceTree = "<group>"; };
 		F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExampleView+Preview.swift"; sourceTree = "<group>"; };
 		F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButonStyle.swift; sourceTree = "<group>"; };
+		F1E583772CC4215000A59A2B /* TitleTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,19 +136,19 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		F1E5833C2CC416E800A59A2B /* util */ = {
+		F1E5833C2CC416E800A59A2B /* DetailHeader */ = {
 			isa = PBXGroup;
 			children = (
 				F1E5833A2CC416E800A59A2B /* DetailHeader.swift */,
 				F1E5833B2CC416E800A59A2B /* DetailHeader+Content.swift */,
 			);
-			path = util;
+			path = DetailHeader;
 			sourceTree = "<group>";
 		};
 		F1E5833F2CC416E800A59A2B /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				F1E5833C2CC416E800A59A2B /* util */,
+				F1E5833C2CC416E800A59A2B /* DetailHeader */,
 				F1E5833D2CC416E800A59A2B /* DetailView.swift */,
 				F1E5833E2CC416E800A59A2B /* DetailView+Content.swift */,
 			);
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */,
+				F1E583772CC4215000A59A2B /* TitleTextStyle.swift */,
 			);
 			path = style;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				F1E583682CC416E800A59A2B /* MainView+Preview.swift in Sources */,
 				F1E583712CC416E800A59A2B /* ExampleView+Content.swift in Sources */,
 				F1E583652CC416E800A59A2B /* MainRowButtonStyle.swift in Sources */,
+				F1E583782CC4215000A59A2B /* TitleTextStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

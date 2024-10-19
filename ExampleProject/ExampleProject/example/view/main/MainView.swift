@@ -8,7 +8,7 @@ struct MainView: View {
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     */
-   @State var selectedMainIndex: Int = 0
+   @Binding var selectedMainIndex: Int// = 0
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ Rename to detailModels? or models or? or keep as is?

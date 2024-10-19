@@ -8,6 +8,7 @@ import SplitViewKit
 //      isDetailFullScreen: .constant(false)
    )
    return MainView(
+      selectedMainIndex: .constant(0),
       items: items, 
       selectedItem: .constant(nil)//,
       /*isSidebarShown: .constant(false), */

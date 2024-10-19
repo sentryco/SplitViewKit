@@ -68,26 +68,29 @@ extension ExampleView {
     * - Returns: - Fixme: ⚠️️ Add doc
     */
    @ViewBuilder func mainView(splitConfig: SplitConfig) -> some View {
-      let items = DataModel.dataModel.getMainModels(
+      let items: DataModels = DataModel.dataModel.getMainModels(
          sideBarItemIndex: selectedSideBarIndex,
          splitConfig: splitConfig
       )
-      let view = MainView(
+      MainView(
+         selectedMainIndex: $selectedMainIndex, 
          items: items,
          selectedItem: $selectedMainItem
       )
       // Attach navDest code to view
       // when selectedMainItem changes, this changes
       #if os(iOS)
-      view.navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
-         // Swift.print("MainView.navigationDestination")
+      .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
+         let _ = {
+            Swift.print("MainView.navigationDestination - selectedMainIndex: \(selectedMainIndex)")
+         }()
          detailView(splitConfig: splitConfig)
 //         item.detailDestination()
          // - Fixme: ⚠️️ generate DetailView via model instead 👈
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
-      view.navigationDestination(isPresented: rebind) {
-         // Swift.print("navigationDestination")
+      .navigationDestination(isPresented: rebind) {
+//          Swift.print("navigationDestination")
          detailView(splitConfig: splitConfig)
       }
       #endif

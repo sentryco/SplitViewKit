@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * View that is the destination for main
@@ -39,4 +38,4 @@ public struct DetailView<Content: View>: View {
       self.content = content()
    }
 }
-#endif
+

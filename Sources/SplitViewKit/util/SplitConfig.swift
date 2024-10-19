@@ -31,7 +31,7 @@ extension SplitConfig{
    // - Fixme: ⚠️️ his is also true if 1 col + preferredCompactColumn == .sidebar I think
    // - Fixme: ⚠️️ rename to to something else?
    public func isShowingSideBar(sizeClass: UserInterfaceSizeClass?) -> Bool {
-      Swift.print("SplitConfig - isShowingSideBar sizeClass:  \(sizeClass)")
+      Swift.print("SplitConfig - isShowingSideBar sizeClass:  \(String(describing: sizeClass))")
       let isShowingSideBar = (columnVisibility == .all && sizeClass == .regular) || (preferredCompactColumn == .sidebar && sizeClass == .compact)
       Swift.print("SplitConfig - isShowingSideBar:  \(isShowingSideBar)")
       return isShowingSideBar

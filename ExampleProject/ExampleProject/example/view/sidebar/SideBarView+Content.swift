@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 import HybridColor
 /**
@@ -74,4 +73,3 @@ extension SideBarView {
       .listRowInsets(.init())
    }
 }
-#endif

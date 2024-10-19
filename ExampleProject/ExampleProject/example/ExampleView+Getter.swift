@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * Getter - model
@@ -18,4 +17,4 @@ extension ExampleView {
       )
    }
 }
-#endif
+

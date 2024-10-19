@@ -1,4 +1,3 @@
-#if DEBUG
 import Foundation
 /**
  * Hashable implementation
@@ -19,4 +18,4 @@ extension DataModel {
       hasher.combine(uuid)
    }
 }
-#endif
+

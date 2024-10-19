@@ -1,0 +1,24 @@
+{
+  "originHash" : "c98b415851b2550c87ce23bd3cc041b0a07aea3b82dcc2bbd41ea9ff7126f65a",
+  "pins" : [
+    {
+      "identity" : "hybridcolor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sentryco/HybridColor",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6592be98979ff0201e94f0b7a29e98f3c292715b"
+      }
+    },
+    {
+      "identity" : "splitviewkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sentryco/SplitViewKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5f8222cf736de2f92239290472544544be52f43a"
+      }
+    }
+  ],
+  "version" : 3
+}

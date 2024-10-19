@@ -9,6 +9,8 @@ extension UserInterfaceSizeClass {
       switch self {
       case .compact: "compact"
       case .regular: "regular"
+      @unknown default:
+         fatalError("⚠️️ not supported")
       }
    }
 }

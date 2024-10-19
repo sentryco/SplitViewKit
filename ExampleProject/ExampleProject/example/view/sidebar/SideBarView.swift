@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * - Fixme: ⚠️️ Add doc
@@ -10,4 +9,4 @@ public struct SideBarView: View {
     */
    @Binding var selectedSideBarIndex: Int
 }
-#endif
+

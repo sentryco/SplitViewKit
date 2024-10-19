@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * - Fixme: ⚠️️ Change name to to ..Credential...
@@ -22,4 +21,4 @@ struct MainView: View {
     */
    @Binding var selectedItem: DataModel?
 }
-#endif
+

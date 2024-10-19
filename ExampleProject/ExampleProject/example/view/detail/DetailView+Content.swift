@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * Content
@@ -52,4 +51,3 @@ extension DetailView {
          .background(isTest ? .indigo.opacity(0.5) : .clear) // warn    debug
    }
 }
-#endif

@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * - Fixme: ⚠️️ remove animated effect when tapping main items, ask copilot etc
@@ -35,5 +34,3 @@ extension Button {
       return self.buttonStyle(style)
    }
 }
-
-#endif

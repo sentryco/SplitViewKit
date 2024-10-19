@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * Body
@@ -108,5 +107,5 @@ extension ExampleView {
       model.destination()
    }
 }
-#endif
+
  

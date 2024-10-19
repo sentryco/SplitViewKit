@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * DebugExampleView
@@ -55,4 +54,4 @@ public struct ExampleView: View {
       self.selectedMainItem = selectedMainItem
    }
 }
-#endif
+

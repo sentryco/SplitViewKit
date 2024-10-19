@@ -1,4 +1,4 @@
-# SplitViewLib
+# SplitViewKit
 
 > Easily config multi-column apps (iPad and macOS)
 
@@ -51,6 +51,14 @@ SplitViewContainer<SideBar: View, Content: View, Detail: View>(sideBar: SideBar,
 ```
 
 You can control the column visibility and preferred compact column through the `columnVisibility` and `preferredCompactColumn` properties respectively.
+
+## Installation
+
+Add this to xcode or your SPM package file:
+
+```swift
+.package(url: "https://github.com/sentryco/SplitViewKit", branch: "main")
+```
 
 ## Notes
 

@@ -1,4 +1,3 @@
-#if DEBUG
 import SwiftUI
 /**
  * Model
@@ -31,7 +30,7 @@ public struct DataModel: Hashable { // hashable is needed for the presentNavigat
     */
    public let color: Color
 }
-#endif
+
 
 // - Fixme: ⚠️️ maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
 //enum SideBarItem: String, Identifiable, CaseIterable {

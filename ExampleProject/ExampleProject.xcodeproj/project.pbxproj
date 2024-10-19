@@ -37,6 +37,7 @@
 		F1E583712CC416E800A59A2B /* ExampleView+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583562CC416E800A59A2B /* ExampleView+Content.swift */; };
 		F1E583722CC416E800A59A2B /* ExampleView+Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583572CC416E800A59A2B /* ExampleView+Getter.swift */; };
 		F1E583732CC416E800A59A2B /* ExampleView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */; };
+		F1E583762CC41DCD00A59A2B /* ToggleButonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		F1E583562CC416E800A59A2B /* ExampleView+Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExampleView+Content.swift"; sourceTree = "<group>"; };
 		F1E583572CC416E800A59A2B /* ExampleView+Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExampleView+Getter.swift"; sourceTree = "<group>"; };
 		F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExampleView+Preview.swift"; sourceTree = "<group>"; };
+		F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 		F1E583742CC418E000A59A2B /* style */ = {
 			isa = PBXGroup;
 			children = (
+				F1E583752CC41DCD00A59A2B /* ToggleButonStyle.swift */,
 			);
 			path = style;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E583762CC41DCD00A59A2B /* ToggleButonStyle.swift in Sources */,
 				F1E583722CC416E800A59A2B /* ExampleView+Getter.swift in Sources */,
 				F1E583612CC416E800A59A2B /* DetailView+Content.swift in Sources */,
 				F1E583662CC416E800A59A2B /* MainView.swift in Sources */,

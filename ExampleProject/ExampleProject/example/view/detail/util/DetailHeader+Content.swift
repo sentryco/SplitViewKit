@@ -65,7 +65,7 @@ extension DetailHeader {
     */
    var backButton: some View {
       let _ = {
-         Swift.print("✨backButton.sizeClass: \(sizeClass)")
+         Swift.print("✨backButton.sizeClass: \(String(describing: sizeClass))")
       }()
       return Button("Back") {
          dismiss()

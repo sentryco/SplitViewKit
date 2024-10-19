@@ -1,4 +1,5 @@
 import SwiftUI
+import SplitViewKit
 /**
  * Body
  * - Fixme: ⚠️️⚠️️⚠️️ Store selectOnIndexState for accounts and settings in this scope, so we can persist them etc

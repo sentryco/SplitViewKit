@@ -1,4 +1,5 @@
 import SwiftUI
+import SplitViewKit
 /**
  * We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc
  * - Fixme: ⚠️️ main header should have back button maybe, if we cant get back to sidebar in compact mode etc? if so, we must hide show-side menu. so flip these etc

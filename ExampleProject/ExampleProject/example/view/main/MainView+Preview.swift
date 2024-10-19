@@ -1,4 +1,5 @@
 import SwiftUI
+import SplitViewKit
 
 #Preview {
    let items = DataModel.dataModel.getMainModels(

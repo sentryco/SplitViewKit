@@ -7,7 +7,7 @@ public class SplitConfig: ObservableObject {
     * I think all, will look strange for landscape 70% split-view, automatic should go to .double at that size, so use auto?
     * - Note: Setting this to .double.. will also work fine. 
     */
-   @Published public var columnVisibility: NavigationSplitViewVisibility = .all
+   @Published public var columnVisibility: NavigationSplitViewVisibility// = .all
    /**
     * Prfered column when split-view is only 1 column
     * - Note: Can be `.sidebar`, `.detail` or `.content` (aka main-column)
@@ -21,7 +21,15 @@ public class SplitConfig: ObservableObject {
     * - Fixme: ⚠️️ Add abstract description
     * - Fixme: ⚠️️ Consider renaming to focusedColumnn? or not?
     */
-   @Published public var preferredCompactColumn: NavigationSplitViewColumn = .content
+   @Published public var preferredCompactColumn: NavigationSplitViewColumn // = .content
+   /**
+    * - Fixme: ⚠️️ add doc
+    * - Note: Required init for publc classes
+    */
+   public init(columnVisibility: NavigationSplitViewVisibility = .all, preferredCompactColumn: NavigationSplitViewColumn = .content) {
+      self.columnVisibility = columnVisibility
+      self.preferredCompactColumn = preferredCompactColumn
+   }
 }
 /**
  * Getter

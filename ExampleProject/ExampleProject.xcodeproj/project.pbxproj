@@ -224,6 +224,7 @@
 		F1E583592CC416E800A59A2B /* example */ = {
 			isa = PBXGroup;
 			children = (
+				F1E583742CC418E000A59A2B /* style */,
 				F1E583392CC416E800A59A2B /* model */,
 				F1E583542CC416E800A59A2B /* view */,
 				F1E583552CC416E800A59A2B /* ExampleView.swift */,
@@ -232,6 +233,13 @@
 				F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */,
 			);
 			path = example;
+			sourceTree = "<group>";
+		};
+		F1E583742CC418E000A59A2B /* style */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

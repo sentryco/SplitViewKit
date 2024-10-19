@@ -1,4 +1,5 @@
 import SwiftUI
+import SplitViewKit
 /**
  * - Abstract: sidebar header with custom sideBar btn above title (only show it if sidebar is hidden)
  * - Note: We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc

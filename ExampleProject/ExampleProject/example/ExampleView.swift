@@ -11,13 +11,13 @@ import SwiftUI
  * - Fixme: ⚠️️ rename to MainView? or AppView? or is ExampleView fine? yepp keep as is
  * - Fixme: ⚠️️ clearify around selected index and selected item etc. unify? its unclear atm why we have both etc
  */
-public struct ExampleView: View {
+struct ExampleView: View {
    /**
     * State variable to track the selected index in the sidebar
     * - Description: Used to track the current sidebar item selection
     * - Fixme: ⚠️️ Add description, use copilot
     */
-   @State public var selectedSideBarIndex: Int = 0
+   @State var selectedSideBarIndex: Int = 0
    /**
     * This state variable is defined at this scope because it is required by both the main and detail views.
     * - Description: Used to track the current main item selection
@@ -27,28 +27,28 @@ public struct ExampleView: View {
     * - Fixme: ⚠️️ Rename to mainSelectedIndex? or keep as is?
     * - Fixme: ⚠️️ make this optional as well, no selection etc
     */
-   @State public var selectedMainIndex: Int = 0
+   @State var selectedMainIndex: Int = 0
    /**
     * State variable to track the currently selected item
     * - Note: When this is set, mainview changes
     * - Fixme: ⚠️️ Add description, use copilot
     * - Fixme: ⚠️️ Rename to selectedModel 👈 or keep as is?
     */
-   @State public var selectedMainItem: DataModel?
+   @State var selectedMainItem: DataModel?
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
+    * - Fixme: ⚠️️ make this non-optional?
     */
    @Environment(\.horizontalSizeClass) var sizeClass: UserInterfaceSizeClass?
    /**
-    * - Note: Needed for public to work
     * - Fixme: ⚠️️ add description
     * - Parameters:
     *   - selectedSideBarIndex:  - Fixme: ⚠️️ add doc
     *   - selectedMainIndex:  - Fixme: ⚠️️ add doc
     *   - selectedMainItem:  - Fixme: ⚠️️ add doc
     */
-   public init(selectedSideBarIndex: Int = 0, selectedMainIndex: Int = 0, selectedMainItem: DataModel? = nil) {
+   init(selectedSideBarIndex: Int = 0, selectedMainIndex: Int = 0, selectedMainItem: DataModel? = nil) {
       self.selectedSideBarIndex = selectedSideBarIndex
       self.selectedMainIndex = selectedMainIndex
       self.selectedMainItem = selectedMainItem

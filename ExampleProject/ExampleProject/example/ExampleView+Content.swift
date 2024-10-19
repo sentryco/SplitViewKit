@@ -14,12 +14,12 @@ extension ExampleView {
     */
    public var body: some View {
       SplitViewContainer(
-         sideBar: { (_ splitConfig: SplitConfig) in /*(_ isSidebarShown: Binding<Bool>, _ preferredCompactColumn: Binding<NavigationSplitViewColumn>) in*/
-            sideBarView(splitConfig: splitConfig) // Add sideBarView /*isSidebarShown: isSidebarShown, preferredCompactColumn: preferredCompactColumn*/
-         }, content: { (_ splitConfig: SplitConfig) in /* (_ isSidebarShown: Binding<Bool>, _ preferredCompactColumn: Binding<NavigationSplitViewColumn>) in*/
-            mainView(splitConfig: splitConfig) // Add mainView /*isSidebarShown: isSidebarShown, preferredCompactColumn: preferredCompactColumn*/
-         }, detail: { (_ splitConfig: SplitConfig) in /*_ isDetailFullScreen: Binding<Bool>*/
-            detailView(splitConfig: splitConfig/*isDetailFullScreen: isDetailFullScreen*/) // Add DetailView
+         sideBar: { (_ splitConfig: SplitConfig) in
+            sideBarView(splitConfig: splitConfig) // Add sideBarView
+         }, content: { (_ splitConfig: SplitConfig) in
+            mainView(splitConfig: splitConfig) // Add mainView
+         }, detail: { (_ splitConfig: SplitConfig) in
+            detailView(splitConfig: splitConfig) // Add DetailView
          }
       )
    }
@@ -34,40 +34,40 @@ extension ExampleView {
     * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     * - Fixme: ⚠️️ We need to populate detail on sidebar change, this can be done by setting the initial state, at least if we use navlinkdata construct etc, see production code
     * - Fixme: ⚠️️ maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
-    * - Parameter toggleColumn: - Fixme: ⚠️️ add doc
+    * - Parameter splitConfig: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   @ViewBuilder func sideBarView(splitConfig: SplitConfig/*isSidebarShown: Binding<Bool>, preferredCompactColumn: Binding<NavigationSplitViewColumn>*/) -> some View {
+   @ViewBuilder func sideBarView(splitConfig: SplitConfig) -> some View {
       SideBarView(
          selectedSideBarIndex: $selectedSideBarIndex
       )
       // - Fixme: ⚠️️ move the bellow into SideBarView scope?
-         // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
-         .onChange(of: selectedSideBarIndex) { _, _ in // ⚠️️ debug
+      // - Fixme: ⚠️️ get rid of index, just use item. it has uuid etc
+      // when we cahnge index, the selecteItem is set
+      // when this state selectedMainItem changes, view are regenerated
+         .onChange(of: selectedSideBarIndex) { _, _ in // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
              Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
-            // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc
-            // - Fixme: ⚠️️ use switch on the bellow
-            if sizeClass == .regular { // Only auto select mainitem if all columns are visible etc
-               $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel(
+            switch sizeClass { 
+            case .regular: // Only auto select mainitem if all columns are visible etc
+               $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc
                   sideBarItemIndex: selectedSideBarIndex,
                   mainItemIndex: selectedMainIndex,
-                  splitConfig: splitConfig
-//                  isDetailFullScreen: .constant(false) // ⚠️️ not important
+                  splitConfig: splitConfig // navsplitconfig binding
                ) // Set selected-item based on selected-indecies
-            } else { // in compact
-               splitConfig.preferredCompactColumn = .content // ⚠️️ this is an api bug fix
+            case .compact: // in compact
+               splitConfig.preferredCompactColumn = .content // Move to content mode (⚠️️ this is an API bug fix for apples navigationsplitview)
+            default:
+              fatalError("⚠️️ not supported")
             }
          }
    }
    /**
     * Creates the center column view (aka mainview)
     * - Parameters:
-    *   - toggleColumn: - Fixme: ⚠️️ Add doc
-    *   - isSidebarShown: - Fixme: ⚠️️ add doc
-    *   - preferredCompactColumn: - Fixme: ⚠️️ add doc
+    *   - splitConfig: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ Add doc
     */
-   @ViewBuilder func mainView(splitConfig: SplitConfig/*isSidebarShown: Binding<Bool>, preferredCompactColumn: Binding<NavigationSplitViewColumn>*/) -> some View {
+   @ViewBuilder func mainView(splitConfig: SplitConfig) -> some View {
       let items = DataModel.dataModel.getMainModels(
          sideBarItemIndex: selectedSideBarIndex,
          splitConfig: splitConfig
@@ -77,36 +77,33 @@ extension ExampleView {
          selectedItem: $selectedMainItem
       )
       // Attach navDest code to view
-      // - Fixme: ⚠️️ fix the bellow somehow. elaborate?
-      // - Fixme: ⚠️️ add more doc for the bellow etc
+      // when selectedMainItem changes, this changes
       #if os(iOS)
       view.navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
-         Swift.print("MainView.navigationDestination")
-         return item.detailDestination()
+         // Swift.print("MainView.navigationDestination")
+         detailView(splitConfig: splitConfig)
+//         item.detailDestination()
+         // - Fixme: ⚠️️ generate DetailView via model instead 👈
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
       view.navigationDestination(isPresented: rebind) {
          // Swift.print("navigationDestination")
-         $selectedItem.wrappedValue?.detailDestination()
+         detailView(splitConfig: splitConfig)
       }
       #endif
    }
    /**
     * There is also the option of using binding
     * - Fixme: ⚠️️ Make this a static func with selectionIndex as param?
-    * - Parameter isDetailFullScreen: - Fixme: ⚠️️ add doc
+    * - Parameter splitConfig: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   @ViewBuilder func detailView(splitConfig: SplitConfig) -> some View {
-      // - Fixme: ⚠️️ add type to bellow
-      let model = DataModel.dataModel.getMainModel(
+   func detailView(splitConfig: SplitConfig) -> some View {
+      DataModel.getDetailView(
+         sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,
          mainItemIndex: selectedMainIndex,
-         splitConfig: splitConfig
-         // isDetailFullScreen: isDetailFullScreen
+         splitConfig: splitConfig // navSplitConfig
       )
-      model.detailDestination()
    }
 }
-
- 

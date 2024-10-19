@@ -3,15 +3,21 @@ import SwiftUI
  * Typealias
  */
 extension DataModel {
+   // - Fixme: ⚠️️ add doc
+   typealias SideBarModel = (title: String, content: MainData)
    /**
     * - Note: We keep these in the MainModel scope
     * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ rename to ...array
     */
-   typealias SideBarData = [(title: String, content: MainData)]
+   typealias SideBarData = [SideBarModel]
+   // - Fixme: ⚠️️ add doc
+   typealias MainModel = (title: String, content: DetailData)
    /**
     * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ rename to ...array
     */
-   typealias MainData = [(title: String, content: DetailData)]
+   typealias MainData = [MainModel]
    /**
     * - Fixme: ⚠️️ add doc
     */

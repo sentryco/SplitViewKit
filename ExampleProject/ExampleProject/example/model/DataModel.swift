@@ -9,28 +9,29 @@ import SwiftUI
  *                It includes properties for unique identification, display text,
  *                navigation destination, and color.
  */
-public struct DataModel: Hashable { // hashable is needed for the presentNavigation value to work
+ struct DataModel: Hashable { // hashable is needed for the presentNavigation value to work
    /**
     * UUID is needed for hashable
     */
-   public let uuid: UUID = .init()
+    let uuid: UUID = .init()
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ This is the title I suppose?
     */
-   public let text: String
+    let text: String
    /**
     * - Fixme: ⚠️️ We can probably make this some View or something generic? ask copilot?
     * - Fixme: ⚠️️ Add doc, use copilot
     */
-   public let detailDestination: () -> AnyView
+//   public let detailDestination: () -> AnyView
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ remove this, not in use
     */
-   public let color: Color
+    let color: Color
 }
-
+// - Fixme: ⚠️️ move to own file etc?
+internal typealias DataModels = [DataModel]
 
 // - Fixme: ⚠️️ maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
 //enum SideBarItem: String, Identifiable, CaseIterable {

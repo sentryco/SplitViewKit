@@ -6,5 +6,5 @@ import SwiftUI
 struct MainList: View {
    @Binding var selectedMainIndex: Int
    @Binding var selectedItem: DataModel?
-   var items: [DataModel]
+   var items: DataModels
 }

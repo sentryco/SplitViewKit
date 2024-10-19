@@ -1,12 +1,16 @@
 import SwiftUI
 /**
- * - Fixme: ⚠️️ remove animated effect when tapping main items, ask copilot etc
+ * - Fixme: ⚠️️ Remove animated effect when tapping main items, ask copilot etc
  */
 struct ListButtonStyle: ButtonStyle {
    var bgColor: Color
-   // toggle selected and unselected color with this etc
+   /**
+    * Toggle selected and unselected color with this etc
+    */
    var textColor: Color
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    func makeBody(configuration: Configuration) -> some View {
       HStack(spacing: 0) {
          configuration.label // text instance

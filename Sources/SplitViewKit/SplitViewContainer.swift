@@ -74,7 +74,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 // 🏀 Continue here
 // - Fixme: ⚠️️ Somehow move detail content creation to the detail-view scope? 🏀
 // - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead 👈
-// - Fixme: ⚠️️ Keep testing, keep cleaning, keep re-writing readme
+// - Fixme: ⚠️️ keep cleaning, 
+// - Fixme: ⚠️️ keep re-writing readme 👈
 // - Fixme: ⚠️️ Test to see if macOS still works okay 👈
 // - Fixme: ⚠️️ Add support for dark / lightmode (make different b/w gifs etc) 👈
 // - Fixme: ⚠️️ make a package

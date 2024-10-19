@@ -82,12 +82,12 @@ extension ExampleView {
       #if os(iOS)
       view.navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
          Swift.print("MainView.navigationDestination")
-         return item.destination()
+         return item.detailDestination()
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
       view.navigationDestination(isPresented: rebind) {
          // Swift.print("navigationDestination")
-         $selectedItem.wrappedValue?.destination()
+         $selectedItem.wrappedValue?.detailDestination()
       }
       #endif
    }
@@ -105,7 +105,7 @@ extension ExampleView {
          splitConfig: splitConfig
          // isDetailFullScreen: isDetailFullScreen
       )
-      model.destination()
+      model.detailDestination()
    }
 }
 

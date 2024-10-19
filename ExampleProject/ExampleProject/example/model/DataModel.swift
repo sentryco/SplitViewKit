@@ -3,7 +3,7 @@ import SwiftUI
  * Model
  * - Fixme: ⚠️️ add abstract
  * - Fixme: ⚠️️ should we make this identifiable as well or?
- * - Fixme: ⚠️️ Rename MainModel
+ * - Fixme: ⚠️️ Rename MainModel, maybe
  * - Fixme: ⚠️️⚠️️ Use NavLinkData instead of this? elaborate?
  * - Description: Represents a model for debugging account information in the application.
  *                It includes properties for unique identification, display text,
@@ -22,11 +22,11 @@ public struct DataModel: Hashable { // hashable is needed for the presentNavigat
    /**
     * - Fixme: ⚠️️ We can probably make this some View or something generic? ask copilot?
     * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ Rename to detailDestination?
     */
-   public let destination: () -> AnyView
+   public let detailDestination: () -> AnyView
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
+    * - Fixme: ⚠️️ remove this, not in use
     */
    public let color: Color
 }

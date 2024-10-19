@@ -2,10 +2,9 @@ import SwiftUI
 /**
  * creates a ToggleButonStyle for Button.
  * - Description: The button should have rounded corners, have white text, and dark gray background,  it should have a little bit more padding horisontally than vertically. also make a preview
- * - Fixme: ⚠️️ rename to ActionButtonStyle? or something more generic, as it is used for back btn and toggle sidebar and fullscreen edit btn etc
  * - Fixme: ⚠️️ turn the above into doc, use copilot
  */
-struct ToggleButtonStyle: ButtonStyle {
+struct ActionButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(.horizontal, 4)
@@ -17,7 +16,7 @@ struct ToggleButtonStyle: ButtonStyle {
 }
 extension Button {
    var toggleButtonStyle: some View {
-      self.buttonStyle(ToggleButtonStyle())
+      self.buttonStyle(ActionButtonStyle())
    }
 }
 /**
@@ -28,5 +27,5 @@ extension Button {
         // Action for the button
         print("hello")
     }
-    .buttonStyle(ToggleButtonStyle())
+    .buttonStyle(ActionButtonStyle())
 }

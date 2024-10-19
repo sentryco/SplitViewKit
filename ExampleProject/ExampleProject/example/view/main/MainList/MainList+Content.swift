@@ -37,9 +37,7 @@ extension MainList {
       Button(items[i].text) {
          $selectedMainIndex.wrappedValue = i
          $selectedItem.wrappedValue = items[i] // set navigation on action
-      }.mainRowButtonStyle(
-         bgColor: items[i].color,
-         textColor: Color.whiteOrBlack.opacity(($selectedMainIndex.wrappedValue == i) ? 0.8 : 0.5) // set selected color
-      )
+      }
+      .listButtonStyle(isSelected: $selectedMainIndex.wrappedValue == i)
    }
 }

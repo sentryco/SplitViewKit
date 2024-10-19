@@ -2,7 +2,7 @@ import SwiftUI
 /**
  * - Fixme: ⚠️️ Change name to to ..Credential...
  * - Fixme: ⚠️️ Add preview
- * - Fixme: ⚠️️⚠️️⚠️️ Rename to MainView? 👈 - Fixme: ⚠️️ rename to MainColumn? MainColumnView?
+ * - Fixme: ⚠️️⚠️️⚠️️ Rename to MainView? 👈 - Fixme: ⚠️️ rename to MainColumn? MainColumnView? or keep?
  */
 struct MainView: View {
    /**
@@ -12,7 +12,7 @@ struct MainView: View {
    //   @Binding var selectedMainIndex: Int
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ Rename to detailModels? or models or?
+    * - Fixme: ⚠️️ Rename to detailModels? or models or? or keep as is?
     */
    var items: [DataModel]
    /**

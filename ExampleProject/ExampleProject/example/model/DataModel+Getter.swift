@@ -10,7 +10,6 @@ extension DataModel.SideBarData {
     * - Parameter sideBarItemIndex: - Fixme: ⚠️️ add doc via copilot
     * - Parameter isDetailFullScreen: - Fixme: ⚠️️ remove this somehow
     * - Returns: - Fixme: ⚠️️ add doc via copilot
-    * - Fixme: ⚠️️ rename to detailToggle
     */
    func getMainModels(sideBarItemIndex: Int, splitConfig: SplitConfig) -> [DataModel] { // isDetailFullScreen: Binding<Bool>
       self.enumerated().map { (_ offset: Int, _ element: Element) in
@@ -18,7 +17,7 @@ extension DataModel.SideBarData {
             sideBarItemIndex: sideBarItemIndex,
             mainItemIndex: offset,
             splitConfig: splitConfig
-//            isDetailFullScreen: isDetailFullScreen
+            // isDetailFullScreen: isDetailFullScreen
          )
       }
    }
@@ -29,13 +28,12 @@ extension DataModel.SideBarData {
     *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot
     *   - isDetailFullScreen: - Fixme: ⚠️️ remove this
     * - Returns: - Fixme: ⚠️️ add doc via copilot
-    * - Fixme: ⚠️️ rename to detailToggle
     */
    func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
       .init(
          // - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?
          text: self[sideBarItemIndex].content[mainItemIndex].title,
-         destination: {
+         detailDestination: {
             AnyView(
                getDetailView(
                   sideBarItemIndex: sideBarItemIndex,
@@ -54,7 +52,6 @@ extension DataModel.SideBarData {
     *   - sideBarItemIndex: - Fixme: ⚠️️ add doc via copilot
     *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot
     * - Returns: - Fixme: ⚠️️ add doc via copilot
-    * - Fixme: ⚠️️ rename to detailToggle
     */
    func getDetailView(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
       // - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?

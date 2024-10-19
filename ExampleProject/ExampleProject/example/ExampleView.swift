@@ -8,8 +8,8 @@ import SwiftUI
  * - Fixme: ⚠️️ Maybe we do the prefsmain manually, and not with ListContainer, what?
  * - Fixme: ⚠️️ Make sure things work for iPhone and mac as well 👈
  * - Fixme: ⚠️️ Add description, use copilot 👈
- * - Fixme: ⚠️️ rename to MainView? or AppView? or is ExampleView fine?
- * - Fixme: ⚠️️ clearify around selected index and selected item etc. unify?
+ * - Fixme: ⚠️️ rename to MainView? or AppView? or is ExampleView fine? yepp keep as is
+ * - Fixme: ⚠️️ clearify around selected index and selected item etc. unify? its unclear atm why we have both etc
  */
 public struct ExampleView: View {
    /**
@@ -24,7 +24,7 @@ public struct ExampleView: View {
     * - Note: We keep this at this scope, because both main and detail needs it
     *         we could store it in main, and have a binding here, but for now this is how it is
     * - Fixme: ⚠️️ Add description, use copilot
-    * - Fixme: ⚠️️ Rename to mainSelectedIndex?
+    * - Fixme: ⚠️️ Rename to mainSelectedIndex? or keep as is?
     * - Fixme: ⚠️️ make this optional as well, no selection etc
     */
    @State public var selectedMainIndex: Int = 0
@@ -32,7 +32,7 @@ public struct ExampleView: View {
     * State variable to track the currently selected item
     * - Note: When this is set, mainview changes
     * - Fixme: ⚠️️ Add description, use copilot
-    * - Fixme: ⚠️️ Rename to selectedModel 👈
+    * - Fixme: ⚠️️ Rename to selectedModel 👈 or keep as is?
     */
    @State public var selectedMainItem: DataModel?
    /**

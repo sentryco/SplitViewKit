@@ -72,9 +72,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 }
 
 // 🏀 Continue here
-// - Fixme: ⚠️️ By moving the example code to the example project, we simplify the module as well etc
-// - Fixme: ⚠️️ Centralize the styles more 👈
-// - Fixme: ⚠️️ Somehow move detail content creation to the detail-view scope?
+// - Fixme: ⚠️️ Somehow move detail content creation to the detail-view scope? 🏀
 // - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead 👈
 // - Fixme: ⚠️️ Keep testing, keep cleaning, keep re-writing readme
 // - Fixme: ⚠️️ Test to see if macOS still works okay 👈

@@ -1,4 +1,5 @@
 import SwiftUI
+import SplitViewKit
 /**
  * Content
  */

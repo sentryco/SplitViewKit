@@ -54,4 +54,5 @@ public struct ExampleView: View {
       self.selectedMainItem = selectedMainItem
    }
 }
-
+// - Fixme: ⚠️️ doc this
+internal var isTest: Bool = true

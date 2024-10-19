@@ -1,4 +1,6 @@
 import SwiftUI
+import HybridColor
+import SplitViewKit
 
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
    SideBarHeader(

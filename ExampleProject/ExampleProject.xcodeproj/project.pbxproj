@@ -10,7 +10,6 @@
 		F14DAD1E2CBD7C6300B6F3FD /* ExampleProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DAD1D2CBD7C6300B6F3FD /* ExampleProjectApp.swift */; };
 		F14DAD222CBD7C6400B6F3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD212CBD7C6400B6F3FD /* Assets.xcassets */; };
 		F14DAD252CBD7C6400B6F3FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD242CBD7C6400B6F3FD /* Preview Assets.xcassets */; };
-		F14DAD2D2CBD7D4F00B6F3FD /* SplitViewLib in Frameworks */ = {isa = PBXBuildFile; productRef = F14DAD2C2CBD7D4F00B6F3FD /* SplitViewLib */; };
 		F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1E583332CC4149E00A59A2B /* SplitViewKit */; };
 		F1E5835A2CC416E800A59A2B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583352CC416E800A59A2B /* DataModel.swift */; };
 		F1E5835B2CC416E800A59A2B /* DataModel+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583362CC416E800A59A2B /* DataModel+Data.swift */; };
@@ -79,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14DAD2D2CBD7D4F00B6F3FD /* SplitViewLib in Frameworks */,
 				F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,7 +251,6 @@
 			);
 			name = ExampleProject;
 			packageProductDependencies = (
-				F14DAD2C2CBD7D4F00B6F3FD /* SplitViewLib */,
 				F1E583332CC4149E00A59A2B /* SplitViewKit */,
 			);
 			productName = ExampleProject;
@@ -560,10 +557,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F14DAD2C2CBD7D4F00B6F3FD /* SplitViewLib */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SplitViewLib;
-		};
 		F1E583332CC4149E00A59A2B /* SplitViewKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */;

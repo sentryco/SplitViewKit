@@ -1,5 +1,6 @@
 import SwiftUI
 import HybridColor
+import SplitViewKit
 /**
  * Getters
  */

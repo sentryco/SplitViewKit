@@ -1,9 +1,10 @@
 import SwiftUI
+import SplitViewKit
 // We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc
 // - Fixme: ⚠️️ add a fullscreen toggle here. basically setting preferredCompactColumn to detail, and
 // - Fixme: ⚠️️ add preview
 /**
- *
+ * - Fixme: ⚠️️ add doc
  */
 struct DetailHeader: View {
    let title: String

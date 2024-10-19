@@ -70,8 +70,6 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
       self.detail = detail
    }
 }
-// - Fixme: ⚠️️ doc this
-internal var isTest: Bool = true
 
 // 🏀 Continue here
 // - Fixme: ⚠️️ By moving the example code to the example project, we simplify the module as well etc

@@ -1,5 +1,5 @@
 import SwiftUI
-import SplitViewLib
+import SplitViewKit
 
 // @main: Marks the entry point of the SwiftUI application.
 // we have a xcode project so we can test with simulator and compact mode etc

@@ -115,3 +115,4 @@ Add this to xcode or your SPM package file:
 - When going to compact mode. Widths are not updated (currently orientation change only updates this)
 - Look for an event that is called when we go into different compact / regular modes etc
 - Test to see if macOS works out of the box
+- Add anim to hide / show of sidebar-visibility-button

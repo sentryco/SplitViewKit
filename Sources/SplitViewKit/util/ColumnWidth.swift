@@ -49,7 +49,7 @@ extension ColumnWidth {
       )
       return .init(
          min: nil,
-         ideal: isNarrow ? 180 : 340,
+         ideal: isNarrow ? 200 : 340,
          max: nil
       )
    }

@@ -15,11 +15,11 @@ extension ExampleView {
     */
    public var body: some View {
       SplitViewContainer(
-         sideBar: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+         sideBar: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
             sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
-         }, content: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+         }, content: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
             mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
-         }, detail: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+         }, detail: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
             detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
          }
       )
@@ -42,16 +42,18 @@ extension ExampleView {
     *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
+   @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
       SideBarView(
          selectedSideBarIndex: $selectedSideBarIndex, // selected sidebar index binding
-         sizeClass: sizeClass
+         sizeClass: sizeClass,
+         splitConfig: splitConfig
       )
       // When we cahnge index, the selecteItem is set
       // When this state selectedMainItem changes, view are regenerated
          .onChange(of: selectedSideBarIndex) { _, _ in // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
             // Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
-            switch sizeClass { 
+            guard let sizeClass = sizeClass.wrappedValue else { print("⚠️️ error"); return }
+            switch sizeClass {
             case .regular: // Only auto select mainitem if all columns are visible etc
                $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc
                   sideBarItemIndex: selectedSideBarIndex,
@@ -72,7 +74,7 @@ extension ExampleView {
     *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ Add doc
     */
-   @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
+   @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
       let items: DataModels = DataModel.dataModel.getMainModels(
          sideBarItemIndex: selectedSideBarIndex,
          splitConfig: splitConfig
@@ -81,17 +83,18 @@ extension ExampleView {
          title: DataModel.dataModel[selectedSideBarIndex].title,
          selectedMainIndex: $selectedMainIndex,
          items: items,
-         selectedItem: $selectedMainItem,
+         selectedItem: $selectedMainItem, 
+         splitConfig: splitConfig, 
          sizeClass: sizeClass
       )
       // Attach navDest code to view, when selectedMainItem changes, this changes
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
-         detailView(splitConfig: splitConfig)
+         detailView(splitConfig: splitConfig, sizeClass: sizeClass)
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
       .navigationDestination(isPresented: rebind) {
-         detailView(splitConfig: splitConfig)
+         detailView(splitConfig: splitConfig, sizeClass: sizeClass)
       }
       #endif
    }
@@ -103,7 +106,7 @@ extension ExampleView {
     *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   func detailView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
+   func detailView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
       DetailView.initiate( //  generate DetailView via model
          sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,

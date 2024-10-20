@@ -11,7 +11,9 @@ import SplitViewKit
       title: DataModel.dataModel[0].title,
       selectedMainIndex: .constant(0), // - Fixme: ⚠️️ make this state
       items: items,
-      selectedItem: .constant(nil) // - Fixme: ⚠️️ make this state
+      selectedItem: .constant(nil), // - Fixme: ⚠️️ make this state
+      splitConfig: .init(), // .constant()
+      sizeClass: .constant(.regular)
       /* isSidebarShown: .constant(false), */
       // preferredCompactColumn: .constant(.content)
    )

@@ -1,5 +1,5 @@
 import SwiftUI
-// import HybridColor
+import HybridColor
 /**
  * Preview (iPad / macOS)
  * - Description: This is the bare-bone reference design for SplitViewContainer
@@ -14,7 +14,7 @@ import SwiftUI
    ExampleView()
    // .previewLayout(.sizeThatFits)
    // .padding()
-      .background(Color.black/*blackOrWhite*/.opacity(1))
+      .background(Color.blackOrWhite.opacity(1))
       .environment(\.colorScheme, .dark) // dark
 }
 // swiftui: I want to use a smaller sideBar for portait, and wider sideBar for landscape mode for ipad

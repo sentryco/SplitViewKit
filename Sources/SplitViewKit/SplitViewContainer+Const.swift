@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * Const - typealias
- * - Description: Signature
+ * - Description: Signatures for the splitview column closures
  * - Fixme: ⚠️️ why is not splitconfig a binding here?
  */
 extension SplitViewContainer {

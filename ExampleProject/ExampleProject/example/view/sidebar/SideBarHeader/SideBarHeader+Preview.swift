@@ -6,7 +6,7 @@ import SplitViewKit
    SideBarHeader(
       title: "Sidebar",//,
       sizeClass: .constant(.regular),
-      splitConfig: .constant(.init())
+      splitConfig: .init() // .constant()
       /*isSideBarShown: .constant(false),*/
 //      preferredCompactColumn: .constant(.sidebar)
    )

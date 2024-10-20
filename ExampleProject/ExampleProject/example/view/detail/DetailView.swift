@@ -32,7 +32,7 @@ public struct DetailView: View { // <Content: View>
    /**
     * - Fixme: ⚠️️ add doc
     */
-   @Binding var splitConfig: SplitConfig
+   /*@Binding */var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
@@ -64,12 +64,14 @@ extension DetailView {
     *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot
     * - Returns: - Fixme: ⚠️️ add doc via copilot
     */
-   static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
+   static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
       // - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?
       let mainModel: MainModel = sideBarData[sideBarItemIndex].content[mainItemIndex]
       let detailView = DetailView(
          title: mainModel.title,
-         detailData: mainModel.content
+         detailData: mainModel.content,
+         splitConfig: splitConfig, 
+         sizeClass: sizeClass
       )
       return detailView
       // - Fixme: ⚠️️ remove the bellow, do param drilling instead

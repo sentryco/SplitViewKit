@@ -4,7 +4,7 @@ import HybridColor
 #Preview {
    MainHeader(
       title: "Accounts",
-      splitConfig: .constant(.init()),
+      splitConfig: .init(),// .constant()
       sizeClass: .constant(.regular)
       /*isSideBarShown: .constant(false),*/
       /*preferredCompactColumn: .constant(.content)*/

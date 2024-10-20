@@ -35,7 +35,7 @@ extension SideBarView {
       SideBarHeader(
          title: "Sidebar",
          sizeClass: $sizeClass,
-         splitConfig: $splitConfig
+         splitConfig: splitConfig
       )
          .background(isTest ? .green.opacity(0.5) : .clear) // ⚠️️ debug
    }

@@ -21,7 +21,9 @@ extension MainView {
     */
    var header: some View {
       MainHeader(
-         title: title /*?? "Placeholder"*/ /*selectedItem?.text*/
+         title: title,
+         splitConfig: splitConfig,
+         sizeClass: $sizeClass
       )
       .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
    }

@@ -47,7 +47,11 @@ extension DetailView {
     * - Fixme: ⚠️️ add doc
     */
    func detailHeader(title: String) -> some View {
-      DetailHeader(title: title) /*, isDetailFullScreen: $isDetailFullScreen*/
+      DetailHeader(
+         title: title,
+         splitConfig: splitConfig,
+         sizeClass: $sizeClass
+      )
          .background(isTest ? .indigo.opacity(0.5) : .clear) // warn    debug
    }
    /**

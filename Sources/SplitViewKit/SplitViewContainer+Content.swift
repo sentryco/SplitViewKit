@@ -46,6 +46,7 @@ extension SplitViewContainer{
     * - Fixme: ⚠️️ try to get rid of the forced unwrap
     * - Fixme: ⚠️️ try to figure out a better way to use sizeClass with out rebinding it etc
     * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
+    * - Note: We got rid of environmentObject and now do param drill instead, param-drill the sizeClass and splitConfig, environment variables is confusing if its not passed correctly, it can jump to compact in the wrong scope where it should be regular etc, and doesnt attach if views are replaced, like detailview etc 
     * - Parameter winWidth: window width (from geomtry-reader)
     * - Returns: Nav-split-view
     */
@@ -56,14 +57,9 @@ extension SplitViewContainer{
       ) {
          sideBar(splitConfig, .init(get: { sizeClass }, set: { _ in }))
             .sideBarViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-            //.environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
-         // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
-            //.environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
       } content: {
          content(splitConfig, .init(get: { sizeClass }, set: { _ in }))
             .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-//            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
-//            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
       } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc
          // NavigationStack { // ⚠️️ Seem to fix things a little, but is presenting is the issue, figure it out
          detail(splitConfig, .init(get: { sizeClass }, set: { _ in })) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
@@ -84,3 +80,8 @@ extension SplitViewContainer{
       )
    }
 }
+            //.environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
+         // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
+            //.environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
+            //            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
+//            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead

@@ -42,7 +42,7 @@ extension ColumnWidth {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   static func sideBarColumn(deviceOrientation: UIDeviceOrientation = getDeviceOrientation(), winWidth: CGFloat) -> ColumnWidth? {
+   static func sideBarColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/
       let isNarrow: Bool = isNarrow(
          deviceOrientation: deviceOrientation,
          winWidth: winWidth
@@ -56,7 +56,7 @@ extension ColumnWidth {
    /**
     * - Fixme: ⚠️️ add param doc
     */
-   static func mainColumn(deviceOrientation: UIDeviceOrientation = getDeviceOrientation(), winWidth: CGFloat) -> ColumnWidth? {
+   static func mainColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/
       let isNarrow: Bool = isNarrow(
          deviceOrientation: deviceOrientation,
          winWidth: winWidth
@@ -71,7 +71,7 @@ extension ColumnWidth {
    // - Fixme: ⚠️️ maybe we can add overflow?
    // - Fixme: ⚠️️ maybe we can make view resist shrinking?
    // - Fixme: ⚠️️ add doc
-   static func detailColumn(deviceOrientation: UIDeviceOrientation = getDeviceOrientation(), winWidth: CGFloat) -> ColumnWidth? {
+   static func detailColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */
       .init(
          min: nil, //deviceOrientation.isLandscape ? 500 : 400,
          ideal: 500,
@@ -82,19 +82,19 @@ extension ColumnWidth {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   static func sideBarColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
+   static func sideBarColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*true: UIDeviceOrientation = .landscapeLeft*/
       .init(min: 250, ideal: 250, max: 400)
    }
    /**
     * - Fixme: ⚠️️ add doc
     */
-   static func mainColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
+   static func mainColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = .landscapeLeft*/
       .init(min: 250, ideal: 300, max: 400)
    }
    /**
     * - Fixme: ⚠️️ add doc
     */
-   static func detailColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
+   static func detailColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = .landscapeLeft*/
       .init(min: 200, ideal: 250, max: nil)
    }
    #endif
@@ -104,11 +104,15 @@ extension ColumnWidth {
  * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ move into UIDeviceOrientation scope?
  * - Parameters:
- *   - deviceOrientation: - Fixme: ⚠️️ add doc
  *   - winWidth: - Fixme: ⚠️️ add doc
+ *   - isLandscape: - Fixme: ⚠️️ add doc
  * - Returns: - Fixme: ⚠️️ add doc
  */
-func isNarrow(deviceOrientation: UIDeviceOrientation, winWidth: CGFloat) -> Bool {
+func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool { /*deviceOrientation: UIDeviceOrientation*/
+   #if os(iOS)
    let isWindowWidthLessThanScreenWidth: Bool = winWidth < UIScreen.main.bounds.width
-   return deviceOrientation.isPortrait || isWindowWidthLessThanScreenWidth
+   return !isLandscape || isWindowWidthLessThanScreenWidth // deviceOrientation.isPortrait
+   #elseif os(macOS)
+   return false // - Fixme: ⚠️️ doc this
+   #endif
 }

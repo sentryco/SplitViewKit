@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 extension UserInterfaceSizeClass {
@@ -14,6 +15,7 @@ extension UserInterfaceSizeClass {
       }
    }
 }
+#if os(iOS)
 /**
  * Helper
  */
@@ -30,3 +32,4 @@ extension UserInterfaceSizeClass {
       return self == .regular && orientation.isLandscape && winWidth < screenWidth
    }
 }
+#endif

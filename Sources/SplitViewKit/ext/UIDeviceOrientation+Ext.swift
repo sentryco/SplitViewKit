@@ -1,4 +1,14 @@
 import SwiftUI
+// - Fixme: ⚠️️ add doc
+// macOS always reads as landscape
+internal var isLandscape: Bool {
+   #if os(macOS)
+   true
+   #elseif os(iOS)
+   getDeviceOrientation().isLandscape
+   #endif
+}
+#if os(iOS)
 /**
  * - Note: because using: UIApplication.shared.statusBarOrientation.isLandscape results in this message: 'statusBarOrientation' was deprecated in iOS 13.0: Use the interfaceOrientation property of the window scene instead.
  * - Note: Some notes on this: https://stackoverflow.com/questions/65573508/swiftui-determining-current-device-and-orientation?noredirect=1&lq=1
@@ -53,3 +63,4 @@ internal func getDeviceOrientation() -> UIDeviceOrientation {
    }
    return orientation
 }
+#endif

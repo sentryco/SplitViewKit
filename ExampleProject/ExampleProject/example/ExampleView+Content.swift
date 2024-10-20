@@ -45,11 +45,11 @@ extension ExampleView {
     */
    @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
       SideBarView(
-         selectedSideBarIndex: $selectedSideBarIndex, // selected sidebar index binding
+         selectedSideBarIndex: $selectedSideBarIndex, // Selected sidebar index binding
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      // - Fixme: ⚠️️ make handleSideBarChange ?
+      // - Fixme: ⚠️️ Make handleSideBarChange ?
       .onChange(of: selectedSideBarIndex) { handleSideBarChange(splitConfig, sizeClass) }
    }
    

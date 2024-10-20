@@ -102,7 +102,7 @@ extension DebugContainer {
       var orientationView: some View {
          Group {
             Text("Orientation: ").foregroundColor(Color.white) +
-            Text("\(getDeviceOrientation().isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
+            Text("\(/*getDeviceOrientation().*/isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
          }
 //            .foregroundColor(Color.white)
 //            .padding(.horizontal, 4)

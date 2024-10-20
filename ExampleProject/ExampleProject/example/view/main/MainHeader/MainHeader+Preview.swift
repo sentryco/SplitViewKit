@@ -1,11 +1,14 @@
 import SwiftUI
+import HybridColor
 
 #Preview {
    MainHeader(
-      title: "Accounts"
+      title: "Accounts",
+      splitConfig: .constant(.init()),
+      sizeClass: .constant(.regular)
       /*isSideBarShown: .constant(false),*/
       /*preferredCompactColumn: .constant(.content)*/
    )
-   .background(Color.black/*blackOrWhite*/.opacity(1))
+   .background(Color.blackOrWhite/**/.opacity(1))
    .environment(\.colorScheme, .dark) // dark
 }

@@ -4,7 +4,9 @@ import SplitViewKit
 
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
    SideBarHeader(
-      title: "Sidebar"//,
+      title: "Sidebar",//,
+      sizeClass: .constant(.regular),
+      splitConfig: .constant(.init())
       /*isSideBarShown: .constant(false),*/
 //      preferredCompactColumn: .constant(.sidebar)
    )

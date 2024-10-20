@@ -54,19 +54,19 @@ extension SplitViewContainer{
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, .init(get: { sizeClass! }, set: { _ in }))
+         sideBar(splitConfig, .init(get: { sizeClass }, set: { _ in }))
             .sideBarViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
             //.environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
          // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
             //.environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
       } content: {
-         content(splitConfig, .init(get: { sizeClass! }, set: { _ in }))
+         content(splitConfig, .init(get: { sizeClass }, set: { _ in }))
             .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
 //            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
 //            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
       } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc
          // NavigationStack { // ⚠️️ Seem to fix things a little, but is presenting is the issue, figure it out
-         detail(splitConfig, .init(get: { sizeClass! }, set: { _ in })) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, .init(get: { sizeClass }, set: { _ in })) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
          // }
       }

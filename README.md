@@ -2,6 +2,8 @@
 
 > Easily config multi-column apps (iPad and macOS)
 
+<img width="436,5" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
+
 ## Problems:
 
 - 🧩 There is a lot of edge-cases when implementing `NavigationSplitView` to fit your needs
@@ -89,6 +91,10 @@ Add this to xcode or your SPM package file:
 - WWDC video on navigationsplitview: https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com
 - Very comprehensive custom split-view completely built from the ground up: https://github.com/stevengharris/SplitView
 
+## Compact mode demo:
+
+<img width="436,5" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
+
 ## Todo:
 
 - Consider renaming package to `SplitContainerView` or `SplitViewWrapper`
@@ -103,3 +109,7 @@ Add this to xcode or your SPM package file:
 - Add code example to readme
 - Test support for dark / lightmode (make different b/w gifs etc) 
 - Add alert for settings items in the example code
+- Figure out how to avoid subduing the colors in compact mode
+- When going to compact mode. Widths are not updated (currently orientation change only updates this)
+- Look for an event that is called when we go into different compact / regular modes etc
+- Test to see if macOS works out of the box

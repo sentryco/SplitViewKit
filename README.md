@@ -122,3 +122,4 @@ Add this to xcode or your SPM package file:
 - Clean up the readme a bit
 - Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc
 - Look into using TupleView ? 
+- Add anim to hide / show of sidebar-visibility-button

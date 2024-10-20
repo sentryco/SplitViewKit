@@ -8,6 +8,7 @@ import SwiftUI
  * - Fixme: ⚠️️ add doc and abstract
  * - Fixme: ⚠️️ this is only relevant for iOS, fence it as such
  * - Fixme: ⚠️️ move it into UIDeviceOrientation+Extensio scope
+ * - Fixme: ⚠️️ does it work for macOS as well or?
  */
 internal func getDeviceOrientation() -> UIDeviceOrientation {
    var orientation = UIDevice.current.orientation

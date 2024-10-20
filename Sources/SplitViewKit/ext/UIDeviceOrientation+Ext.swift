@@ -6,6 +6,8 @@ import SwiftUI
  * - Fixme: ⚠️️ fix later
  * - Fixme: ⚠️️ aperantly this can also be used: UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
  * - Fixme: ⚠️️ add doc and abstract
+ * - Fixme: ⚠️️ this is only relevant for iOS, fence it as such
+ * - Fixme: ⚠️️ move it into UIDeviceOrientation+Extensio scope
  */
 internal func getDeviceOrientation() -> UIDeviceOrientation {
    //   let identifier: String = "getDeviceOrientation"

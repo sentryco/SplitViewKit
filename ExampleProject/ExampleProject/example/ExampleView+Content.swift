@@ -33,7 +33,9 @@ extension ExampleView {
     * - Note: The selection in the first column affects the second, and the selection in the second column affects the third
     * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     * - Fixme: ⚠️️ We need to populate detail on sidebar change, this can be done by setting the initial state, at least if we use navlinkdata construct etc, see production code
-    * - Fixme: ⚠️️ maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
+    * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
+    * - Fixme: ⚠️️ Get rid of index, just use item. it has uuid etc
+    * - Fixme: ⚠️️ Move the bellow into SideBarView scope?
     * - Parameter splitConfig: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
@@ -41,10 +43,8 @@ extension ExampleView {
       SideBarView(
          selectedSideBarIndex: $selectedSideBarIndex
       )
-      // - Fixme: ⚠️️ move the bellow into SideBarView scope?
-      // - Fixme: ⚠️️ get rid of index, just use item. it has uuid etc
-      // when we cahnge index, the selecteItem is set
-      // when this state selectedMainItem changes, view are regenerated
+      // When we cahnge index, the selecteItem is set
+      // When this state selectedMainItem changes, view are regenerated
          .onChange(of: selectedSideBarIndex) { _, _ in // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
              Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
             switch sizeClass { 
@@ -78,20 +78,13 @@ extension ExampleView {
          items: items,
          selectedItem: $selectedMainItem
       )
-      // Attach navDest code to view
-      // when selectedMainItem changes, this changes
+      // Attach navDest code to view, when selectedMainItem changes, this changes
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
-//         let _ = {
-//            Swift.print("MainView.navigationDestination - selectedMainIndex: \(selectedMainIndex)")
-//         }()
          detailView(splitConfig: splitConfig)
-//         item.detailDestination()
-         // - Fixme: ⚠️️ generate DetailView via model instead 👈
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
       .navigationDestination(isPresented: rebind) {
-//          Swift.print("navigationDestination")
          detailView(splitConfig: splitConfig)
       }
       #endif
@@ -103,7 +96,7 @@ extension ExampleView {
     * - Returns: - Fixme: ⚠️️ add doc
     */
    func detailView(splitConfig: SplitConfig) -> some View {
-      DataModel.getDetailView(
+      DetailView.initiate( //  generate DetailView via model
          sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,
          mainItemIndex: selectedMainIndex,

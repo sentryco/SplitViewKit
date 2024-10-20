@@ -12,12 +12,11 @@ extension SplitViewContainer {
     * - Note: Here is a way to track rotation change (it does not rerender view, you need geomreader for that): https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
-    * - Fixme: ⚠️️ Store "section-fraction" size in userdefault (also check out how we did this in legacy code): https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
     */
    public var body: some View {
       ZStack {
-         navigationSplitViewContainer
+         navigationSplitViewContainer // bellow debug container
          debugContainer // floats above navSplitView
       }
    }
@@ -30,12 +29,10 @@ extension SplitViewContainer{
     * - Fixme: ⚠️️ Add doc
     * - Fixme: ⚠️️ We might be able to use geomtryReader to detect 70% if sizeClass doesnt detect it etc
     * - Fixme: ⚠️️ Add type to geometry param
+    * - Fixme: ⚠️️ This is only relevant for iOS, add support for macOS
     */
    var navigationSplitViewContainer: some View {
-//      let _ = {
-//         Swift.print("SplitViewContainer.navigationSplitViewContainer() - sizeClass : \(sizeClass)")
-//      }()
-      return GeometryReader { geometry in // ⚠️️ geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
+      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          if getDeviceOrientation().isLandscape {
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
@@ -47,17 +44,19 @@ extension SplitViewContainer{
    /**
     * Create navigationSplitView
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass
+    * - Parameter winWidth: - Fixme: ⚠️️ add doc
+    * - Returns: - Fixme: ⚠️️ add doc
     */
    func navigationSplitView(winWidth: CGFloat) -> some View {
       return NavigationSplitView( // Initializes a NavigationSplitView
-         columnVisibility: $splitConfig.columnVisibility, /*Binding<NavigationSplitViewVisibility>(get: { columnVisibility }, set: { _ in let _ = {}() })*//*columnVisibility*/ // Binding to control column arrangement
-         preferredCompactColumn: $splitConfig.preferredCompactColumn /*Binding<NavigationSplitViewColumn>(get: { preferredCompactColumn }, set: { _ in let _ = {}() })*/ // Binding to set the preferred visible column in compact mode
+         columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
+         preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig) /*$isSideBarShown, $preferredCompactColumn*/
+         sideBar(splitConfig)
             .sideBarViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
-         // - Fixme: ⚠️️ we have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
-            .environmentObject(splitConfig)// - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
+            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
+         // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
+            .environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
       } content: {
          content(splitConfig) /*$isSideBarShown, $preferredCompactColumn*/
             .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
@@ -79,8 +78,6 @@ extension SplitViewContainer{
     * - Fixme: ⚠️️ Add more doc
     */
    var debugContainer: some View {
-      DebugContainer()
-//         .environment(\.horizontalSizeClass, sizeClass) // - Fixme: ⚠️️  just param drill this I think
-         .environmentObject(splitConfig) // - Fixme: ⚠️️  just param drill this I think
+      DebugContainer(splitConfig: splitConfig, sizeClass: sizeClass)
    }
 }

@@ -4,43 +4,43 @@
 
 ## Problems:
 
-- There is a lot of edge-cases when implementing `NavigationSplitView` to fit your needs
-- Updating column width based on device orientation. Not possible by default as columnWidths does not update after init.
-- Manage column arrangment, 3-1 columns, when resizing to smaller windows / changing device-orientation (iPad)
-- Making sure portrait, landscape, smaller windows look good. (iPad)
-- Use the same `NavigationSplitView` for iPad and macOS (iPhone uses NavStack)
-- Ensure that side-bar can be revealed and got to from main and detail 
-- Ensure "70% window in landscape" has enough space for each column, or toggle to double etc
-- Ensure moving detail to fullscreen works 
-- Detect windows in `.regular` mode or `.compact` mode (iPad)
-- `navigationDestination` works differently for iPad and macOS 
-- You are sort of forced to use apples hovering sidebar icon, which might break your design
-- Apple has left countless bugs in the `navigationsplitview` API that has not been fixed. 
-- Aligning column header height, can be a challange because of apples inconsistent header API conventions accross OSes
-- Different iPads need different column widths to look really good  (iPad mini / iPad 11 / iPad 13) 
-- Ensure that sheets and popups work in different orientations and compact windows
+- 🧩 There is a lot of edge-cases when implementing `NavigationSplitView` to fit your needs
+- 🔄 Updating column width based on device orientation. Not possible by default as columnWidths does not update after init.
+- 📐 Manage column arrangement, 3-1 columns, when resizing to smaller windows / changing device-orientation (iPad)
+- 👀 Making sure portrait, landscape, smaller windows look good. (iPad)
+- 📱 Use the same `NavigationSplitView` for iPad and macOS (iPhone uses NavStack)
+- 🚪 Ensure that side-bar can be revealed and got to from main and detail 
+- 🖥️ Ensure "70% window in landscape" has enough space for each column, or toggle to double etc
+- 🎬 Ensure moving detail to fullscreen works 
+- 📏 Detect windows in `.regular` mode or `.compact` mode (iPad)
+- 🗺️ `navigationDestination` works differently for iPad and macOS 
+- 🍎 You are sort of forced to use Apple's hovering sidebar icon, which might break your design
+- 🐞 Apple has left countless bugs in the `navigationsplitview` API that has not been fixed. 
+- 📏 Aligning column header height, can be a challenge because of Apple's inconsistent header API conventions across OSes
+- 📱 Different iPads need different column widths to look really good  (iPad mini / iPad 11 / iPad 13) 
+- 🗒️ Ensure that sheets and popups work in different orientations and compact windows
 
 ## Solution:
 
-- Variables to access `sizeClass` to detect `.regular` or `.compact` mode
-- Assert "70% landscape mode" precicsly. Not detecable via sizeClass alone.
-- Easily debug "focused column", "column arrangment" and "current window-mode" (regular / compact)
-- Convenient `rebind` method for the `navigationDestination` support in macOS (mac and ios has different conventions)
-- Assert Device-orientation "Portrait" / "Landscape" 
-- Device orientation helpers based on GeomtryReader. This is the only way to customize "column-widths" on "device-rotation" event.
-- Set custom sizes for "column-widths" based on: `column-arrangment-config`, `OS`, `device-orientation`, `window-mode` (regular / compact)
-- Ready-made "side-bar" toggle bindings that works in all orientations, and sizeClasses
-- Workarounds for know apple unfixed "navsplitview" API bugs
-- Example project to find your bearings and find edge cases outside your own project
+- 🔍 Variables to access `sizeClass` to detect `.regular` or `.compact` mode
+- 📏 Assert "70% landscape mode" precisely. Not detectable via sizeClass alone.
+- 🐞 Easily debug "focused column", "column arrangement" and "current window-mode" (regular / compact)
+- 🔁 Convenient `rebind` method for the `navigationDestination` support in macOS (mac and ios have different conventions)
+- 🔄 Assert Device-orientation "Portrait" / "Landscape" 
+- 📐 Device orientation helpers based on GeometryReader. This is the only way to customize "column-widths" on "device-rotation" event.
+- 📏 Set custom sizes for "column-widths" based on: `column-arrangement-config`, `OS`, `device-orientation`, `window-mode` (regular / compact)
+- 🚪 Ready-made "side-bar" toggle bindings that work in all orientations, and sizeClasses
+- 🐜 Workarounds for known Apple unfixed "navsplitview" API bugs
+- 📖 Example project to find your bearings and find edge cases outside your own project
 
 ## Mindset:
 
-- 3-column split-view (works for 2-column as well, but requires some tweaks)
-- Support for Portrait / Landscape
-- iPad / macOS (iPhone uses NavStack)
-- Support for split-screen and "resized-windows" for iPad
-- Bring-your-own header nav (apples header nav also works)
-- Bring-your-own column content
+- 📏 3-column split-view (works for 2-column as well, but requires some tweaks)
+- 🔄 Support for Portrait / Landscape
+- 📱 iPad / macOS (iPhone uses NavStack)
+- 🖥️ Support for split-screen and "resized-windows" for iPad
+- 🎧 Bring-your-own header nav (apples header nav also works)
+- 📦 Bring-your-own column content
 
 ## Usage
 
@@ -101,3 +101,5 @@ Add this to xcode or your SPM package file:
 - Add better support for 2-coulmn working right out of the box. Or add notes on how to do it
 - Experiment with overflow working in detail column
 - Maybe add buttons that toggle different split-view modes? 👈 (explore how this should look first etc)
+- Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
+- Add code example to readme

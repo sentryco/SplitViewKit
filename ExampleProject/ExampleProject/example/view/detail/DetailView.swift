@@ -43,6 +43,7 @@ extension DetailView {
    /**
     * - Fixme: ⚠️️ Add doc
     * - Fixme: ⚠️️ Move somewhere else?
+    * - Fixme: ⚠️️⚠️️⚠️️ rework this to regular init
     * - Parameters:
     *   - sideBarItemIndex: - Fixme: ⚠️️ add doc via copilot
     *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot

@@ -27,7 +27,6 @@ extension ExampleView {
  * View
  */
 extension ExampleView {
-   
    /**
     * Creates the sidebar view
     * - Note: The selection in the first column affects the second, and the selection in the second column affects the third
@@ -36,8 +35,8 @@ extension ExampleView {
     * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
     * - Fixme: ⚠️️ Get rid of index, just use item. it has uuid etc
     * - Fixme: ⚠️️ Move the bellow into SideBarView scope?
-    * - Fixme: ⚠️️ move onChange to own method?
-    * - Fixme: ⚠️️ add more doc
+    * - Fixme: ⚠️️ Move onChange to own method?
+    * - Fixme: ⚠️️ Add more doc
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
     *   - sizeClass: - Fixme: ⚠️️ add doc
@@ -49,22 +48,10 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-         .onChange(of: selectedSideBarIndex) { _, _ in // When we cahnge index, the selecteItem is set,  When this state selectedMainItem changes, view are regenerated, Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
-            guard let sizeClass = sizeClass.wrappedValue else { print("⚠️️ error"); return }
-            switch sizeClass {
-            case .regular: // Only auto select mainitem if all columns are visible etc
-               $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc
-                  sideBarItemIndex: selectedSideBarIndex,
-                  mainItemIndex: selectedMainIndex,
-                  splitConfig: splitConfig // navsplitconfig binding
-               ) // Set selected-item based on selected-indecies
-            case .compact: // in compact
-               splitConfig.preferredCompactColumn = .content // Move to content mode (⚠️️ this is an API bug fix for apples navigationsplitview)
-            default:
-              fatalError("⚠️️ not supported")
-            }
-         }
+      // - Fixme: ⚠️️ make handleSideBarChange ?
+      .onChange(of: selectedSideBarIndex) { handleSideBarChange(splitConfig, sizeClass) }
    }
+   
    /**
     * Creates the center column view (aka mainview)
     * - Fixme: ⚠️️ add doc
@@ -86,6 +73,7 @@ extension ExampleView {
          splitConfig: splitConfig, 
          sizeClass: sizeClass
       )
+      // - Fixme: ⚠️️ move to handleMainSelectionStateChange?
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in // Attach navDest code to view, when selectedMainItem changes, this changes
          detailView(splitConfig: splitConfig, sizeClass: sizeClass)
@@ -106,7 +94,7 @@ extension ExampleView {
     * - Returns: - Fixme: ⚠️️ add doc
     */
    func detailView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
-      DetailView.initiate( //  generate DetailView via model
+      DetailView.initiate( // Generate DetailView via model
          sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,
          mainItemIndex: selectedMainIndex,
@@ -115,4 +103,3 @@ extension ExampleView {
       )
    }
 }
-// Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")

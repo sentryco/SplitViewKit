@@ -38,11 +38,12 @@ extension MainList {
     */
    func rowItem(i: Int) -> some View {
       Button(items[i].text) {
-         $selectedMainIndex.wrappedValue = i // - Fixme: ⚠️️ this shouldnt be needed, selectItem should be indefiable etc?
-         $selectedItem.wrappedValue = items[i] // triggers detail content change
+         selectedMainIndex = i // - Fixme: ⚠️️ this shouldnt be needed, selectItem should be indefiable etc?
+         selectedItem = items[i] // triggers detail content change
       }
       .listButtonStyle(
          isSelected: $selectedMainIndex.wrappedValue == i
+//         isSelected: selectedItem?.uuid == items[i].uuid
       )
    }
 }

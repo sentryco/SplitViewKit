@@ -2,7 +2,7 @@ import SwiftUI
 /**
  * Const - typealias
  * - Description: Signatures for the splitview column closures
- * - Fixme: ⚠️️ why is not splitconfig a binding here?
+ * - Fixme: ⚠️️ why is not splitconfig a binding here? i guess because its an ObservedObject and they dont need to be bindings? look into it
  */
 extension SplitViewContainer {
    /**

@@ -38,7 +38,7 @@ extension MainView {
          mainList
          Spacer() // pins the stack to the top
       }
-      .contentMargins(.horizontal, 0)
+      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
       .background(isTest ? .blue.opacity(0.3) : .clear) // ⚠️️ debug
 
    }

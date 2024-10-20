@@ -3,6 +3,8 @@ import SwiftUI
  * DebugExampleView
  * - Note: Has an interesting NavigationWrapper (but uses de-precated API,
  *         but can be used for inspo): https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/
+ * - Note: We manage selection state in this implementation scope, and not in the helper splitview scope
+ * - Note: I guess we manage all selection states here, as the columns can move into singular column mode in compact mode, or double etc
  * - Fixme: ⚠️️ Add navigation view, isn't that done?
  * - Fixme: ⚠️️ Try to style the list. We can style mainlist fine, but not prefsmainlist, why is that? still relevant?
  * - Fixme: ⚠️️ Maybe we do the prefsmain manually, and not with ListContainer, what?
@@ -26,6 +28,7 @@ struct ExampleView: View {
     * - Fixme: ⚠️️ Add description, use copilot
     * - Fixme: ⚠️️ Rename to mainSelectedIndex? or keep as is?
     * - Fixme: ⚠️️ make this optional as well, no selection etc
+    * - Fixme: ⚠️️ it's possible to remove this. will require parsing with uuid etc, and passing main-model into detail. do it later
     */
    @State var selectedMainIndex: Int = 0
    /**
@@ -55,6 +58,7 @@ struct ExampleView: View {
    }
 }
 /**
- * - Fixme: ⚠️️ doc this
+ * Debugging with background colors
+ * - Fixme: ⚠️️ add more doc
  */
 internal var isTest: Bool = true

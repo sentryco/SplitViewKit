@@ -1,13 +1,17 @@
 import SwiftUI
 /**
  * - Fixme: ⚠️️ add doc
- * - Fixme: ⚠️️ add preview
+ * - Fixme: ⚠️️ add preview 👈
  */
 struct DetailList: View {
    /**
     * - Fixme: ⚠️️ add doc
     */
    let detailData: DetailData
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   @State internal var isSheetPresented = false
    /**
     * - Fixme: ⚠️️ add doc
     */

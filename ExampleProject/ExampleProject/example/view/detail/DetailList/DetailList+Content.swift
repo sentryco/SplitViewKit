@@ -23,7 +23,16 @@ extension DetailList {
     * Get row
     */
    func getRow(title: String) -> some View {
-      Text(title)
-         .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))
+      Button {
+         isSheetPresented = true
+         Swift.print("Open sheet: \(title)")
+      } label: {
+         Text(title)
+            .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))
+      }
+      .sheet(isPresented: $isSheetPresented) {
+         // Content of the sheet goes here
+         Text("Sheet for \(title)")
+      }
    }
 }

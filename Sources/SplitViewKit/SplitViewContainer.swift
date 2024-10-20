@@ -78,8 +78,6 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 }
 
 // 🏀 Continue here
-// - Fixme: ⚠️️ Add support for dark / lightmode (make different b/w gifs etc) 👈🏀
-// - Fixme: ⚠️️ use different gray shades for differenciating the columns etc 🏀🏀🏀
 // - Fixme: ⚠️️ Maybe also add a sheet and alert to test them in split, portrait, compact window etc 👈🏀 when we press detail items etc
 // - Fixme: ⚠️️ improve doc with cursor
 // - Fixme: ⚠️️ Add Github actions for building. and badge for org readme etc. and add gifs for all readmes etc

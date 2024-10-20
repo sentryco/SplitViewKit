@@ -85,7 +85,7 @@ extension DataModel {
    static fileprivate let settings: SideBarModel = {
       SideBarModel(title: "Settings", content: [
          MainModel(
-            title: "setting 1",
+            title: "Setting 1",
             content: [
                "a",
                "b",
@@ -93,7 +93,7 @@ extension DataModel {
             ]
          ),
          MainModel(
-            title: "setting 2",
+            title: "Setting 2",
             content: [
                "1",
                "2",
@@ -103,7 +103,6 @@ extension DataModel {
       ])
    }()
 }
-
 /**
  * - Note: We keep these in the MainModel scope
  * - Fixme: ⚠️️ add doc

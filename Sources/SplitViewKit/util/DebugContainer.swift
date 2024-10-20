@@ -70,8 +70,8 @@ extension DebugContainer {
             }
          }
          .padding(.horizontal, 24) // Padding
-         .padding(.vertical, 16) // Padding
-         .background(Color.whiteOrBlack.opacity(0.2)) // Black background
+         .padding(.vertical, 32) // Padding
+         .background(Color.whiteOrBlack.opacity(0.1)) // Black background
          .cornerRadius(10) // Rounded corners
       }
       var configView: some View {

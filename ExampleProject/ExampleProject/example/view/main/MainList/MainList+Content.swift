@@ -43,7 +43,6 @@ extension MainList {
       }
       .listButtonStyle(
          isSelected: $selectedMainIndex.wrappedValue == i
-//         isSelected: selectedItem?.uuid == items[i].uuid
       )
    }
 }

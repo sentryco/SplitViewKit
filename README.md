@@ -91,15 +91,15 @@ Add this to xcode or your SPM package file:
 
 ## Todo:
 
-- Consider renaming to `SplitContainerView` or `SplitViewWrapper`
-- Consider moving `SplitViewContainer` to its own repository
-- Consider adding placeholder views when there is no selection etc
+- Consider renaming package to `SplitContainerView` or `SplitViewWrapper`
+- Consider adding placeholder views when there is no selection etc (currently there is always a selection)
 - Add orientation debug label: "portrait", "landscape" to the bottom debugcontainer
 - An option for 70% landscape mode could be to not use .all, and use .double instead
-- Add orientation and screen, window size to debugcontainer
 - Add dependency overview to readme. we use HybridColor etc
 - Add better support for 2-coulmn working right out of the box. Or add notes on how to do it
-- Experiment with overflow working in detail column
-- Maybe add buttons that toggle different split-view modes? 👈 (explore how this should look first etc)
+- Experiment with overflow working in detail column (maybe not, better to contain content)
+- Maybe add buttons that toggle different split-view modes? (explore how this should look first etc)
 - Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
 - Add code example to readme
+- Test support for dark / lightmode (make different b/w gifs etc) 
+- Add alert for settings items in the example code

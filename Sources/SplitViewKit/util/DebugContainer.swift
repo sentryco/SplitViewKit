@@ -44,6 +44,7 @@ extension DebugContainer {
          // .padding(.vertical, 16) // Move a bit up from the bottom
 //         .background(Color.black.opacity(0.6))
       }
+      .padding(.vertical, 16) // Padding
    }
 }
 extension DebugContainer {
@@ -70,7 +71,7 @@ extension DebugContainer {
             }
          }
          .padding(.horizontal, 24) // Padding
-         .padding(.vertical, 32) // Padding
+         .padding(.vertical, 16) // Padding
          .background(Color.whiteOrBlack.opacity(0.1)) // Black background
          .cornerRadius(10) // Rounded corners
       }

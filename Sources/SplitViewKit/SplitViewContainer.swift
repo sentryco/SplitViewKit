@@ -81,6 +81,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 // - Fixme: ⚠️️ Maybe also add a sheet and alert to test them in split, portrait, compact window etc 👈🏀 when we press detail items etc
 // - Fixme: ⚠️️ improve doc with cursor
 // - Fixme: ⚠️️ Add Github actions for building. and badge for org readme etc. and add gifs for all readmes etc
+// - Fixme: ⚠️️ Add ability to pass columnwidths in the init
+// - Fixme: ⚠️️ When going to compact mode. Widths are not updated (currently orientation change only updates this). 🏀
 
 // later
 // - Fixme: ⚠️️ Test to see if macOS still works okay 

@@ -12,12 +12,12 @@ struct DebugContainer: View {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   /*@Binding var*/let splitConfig: SplitConfig
+   @Binding var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
-   /*@Binding var*/let sizeClass: UserInterfaceSizeClass?
+   @Binding var sizeClass: UserInterfaceSizeClass?
 }
 /**
  * Content

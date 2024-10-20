@@ -44,6 +44,7 @@ extension SplitViewContainer{
    /**
     * Create navigationSplitView
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass
+    * - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
     * - Parameter winWidth: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
@@ -58,7 +59,7 @@ extension SplitViewContainer{
          // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
             .environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
       } content: {
-         content(splitConfig) /*$isSideBarShown, $preferredCompactColumn*/
+         content(splitConfig)
             .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
             .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
             .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
@@ -68,9 +69,6 @@ extension SplitViewContainer{
             .detailViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
          // }
       }
-      // - Fixme: ⚠️️⚠️️⚠️️ Make this a binding we can change from the UI 👈
-      // - Fixme: ⚠️️ Try prominent-detail, and automatic, probably bet for portrait ipad etc
-      // - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
       .navigationSplitViewStyle(.balanced) // .automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over // .navigationSplitViewStyle(.prominentDetail)
    }
    /**
@@ -78,6 +76,9 @@ extension SplitViewContainer{
     * - Fixme: ⚠️️ Add more doc
     */
    var debugContainer: some View {
-      DebugContainer(splitConfig: splitConfig, sizeClass: sizeClass)
+      DebugContainer(
+         splitConfig: .init(get: { splitConfig }, set: { _ in }), // nav-split-view config
+         sizeClass: .init(get: { sizeClass }, set: { _ in })
+      )
    }
 }

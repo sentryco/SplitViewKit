@@ -41,12 +41,12 @@ extension ExampleView {
     */
    @ViewBuilder func sideBarView(splitConfig: SplitConfig) -> some View {
       SideBarView(
-         selectedSideBarIndex: $selectedSideBarIndex
+         selectedSideBarIndex: $selectedSideBarIndex // selected sidebar index binding
       )
       // When we cahnge index, the selecteItem is set
       // When this state selectedMainItem changes, view are regenerated
          .onChange(of: selectedSideBarIndex) { _, _ in // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
-             Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
+            // Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
             switch sizeClass { 
             case .regular: // Only auto select mainitem if all columns are visible etc
                $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc

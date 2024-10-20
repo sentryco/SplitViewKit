@@ -73,13 +73,13 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 // 🏀 Continue here
 // fix the index duplication mess 
 // - Fixme: ⚠️️ Maybe also add a sheet and alert to test them in split, portrait, compact window etc 👈 when we press detail items etc
-// - Fixme: ⚠️️ use different gray shades for differenciating the columns etc
+// - Fixme: ⚠️️ use different gray shades for differenciating the columns etc 🏀
 // - Fixme: ⚠️️ Make the bottom debug text flaoting in a capsule container etc
 // - Fixme: ⚠️️ adjust debugContainer layout if in compact mode etc, or make one that fits all cases
 // - Fixme: ⚠️️ add the other analytics to debugcontainer aswell, make it multi-row etc and seperate each text with different colors etc?
 // - Fixme: ⚠️️ Test to see if macOS still works okay 👈
 // - Fixme: ⚠️️ Add support for dark / lightmode (make different b/w gifs etc) 👈
-// - Fixme: ⚠️️ Add GA actions for building. and badge for org readme etc. and add gifs for all readmes etc
-// improve doc 
-// add emojies to problem / solution
-// - Fixme: ⚠️️ move debugContainer into example project scope
+// - Fixme: ⚠️️ Add Githuub actions for building. and badge for org readme etc. and add gifs for all readmes etc
+// - Fixme: ⚠️️ improve doc 
+// - Fixme: ⚠️️ add emojies to problem / solution
+// - Fixme: ⚠️️ move debugContainer into example project scope 🏀

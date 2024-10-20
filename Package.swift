@@ -22,7 +22,8 @@ let package = Package(
             dependencies: [
                .product(name: "HybridColor", package: "HybridColor")
             ],
-            exclude: ["ExampleProject"]  // Exclude the ExampleProject folder
+            // fix the bellow. it has the wrong path atm it seems
+            exclude: [/*"ExampleProject"*/]  // Exclude the ExampleProject folder
         ),
         .testTarget(
             name: "SplitViewKitTests",

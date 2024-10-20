@@ -2,34 +2,21 @@ import SwiftUI
 /**
  * Content
  * - Note: We use navigationsplitview, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
- * - Note: `navSplitView` might have built in support for resizing on ipad etc, so we don't have to build it etc. a problem might be navbar, that we opt not to use,
+ * - Note: `navSplitView` might have built in support for resizing on iPad etc, so we don't have to build it etc. a problem might be navbar, that we opt not to use,
  */
 extension SplitViewContainer {
    /**
     * Body
     * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
-    * - Note: It's also possible to do this with .onRotation and then toggle the two views. the clue is to load a new view. But using geomreader, there is less need for a state variable etc
+    * - Note: It's also possible to do this with `.onRotation` and then toggle the two views. the clue is to load a new view. But using geomreader, there is less need for a state variable etc
     * - Note: Here is a way to track rotation change (it does not rerender view, you need geomreader for that): https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
-    */
-   public var body: some View {
-      ZStack {
-         navigationSplitViewContainer // bellow debug container
-         debugContainer // floats above navSplitView
-      }
-   }
-}
-/**
- * Components
- */
-extension SplitViewContainer{
-   /**
-    * - Fixme: ⚠️️ Add doc
+    *  - Fixme: ⚠️️ Add doc
     * - Fixme: ⚠️️ This is only relevant for iOS, so we could skip the geomreader for macos 👈
     */
-   var navigationSplitViewContainer: some View {
+   public var body: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          if getDeviceOrientation().isLandscape { // macOS always reads as landscape
@@ -39,6 +26,11 @@ extension SplitViewContainer{
          }
       }
    }
+}
+/**
+ * Components
+ */
+extension SplitViewContainer{
    /**
     * Create navigationSplitView
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!

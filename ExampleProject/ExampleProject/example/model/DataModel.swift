@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * Used for SideBar and MainColumn items
- * - Fixme: ⚠️️ add abstract
+ * - Fixme: ⚠️️ Add abstract
  * - Fixme: ⚠️️ should we make this identifiable as well or?
  * - Fixme: ⚠️️ Rename MainModel, maybe
  * - Fixme: ⚠️️⚠️️ Use NavLinkData instead of this? elaborate?

@@ -26,7 +26,7 @@ extension MainView {
          splitConfig: splitConfig,
          sizeClass: $sizeClass
       )
-      .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
+      .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
    /**
     * vStack
@@ -39,7 +39,7 @@ extension MainView {
          Spacer() // pins the stack to the top
       }
       .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
-      .background(isTest ? .blue.opacity(0.3) : .clear) // ⚠️️ debug
+      .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
 
    }
    /**

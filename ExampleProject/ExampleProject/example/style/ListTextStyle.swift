@@ -15,7 +15,7 @@ struct ListTextStyle: ViewModifier {
          content
             .foregroundColor(color)
             .font(.system(size: 24, weight: .regular))
-            .padding(.horizontal) // adds left and right padding
+//            .padding(.horizontal) // adds left and right padding
          Spacer()
       }
       .padding(.horizontal) // adds left and right padding

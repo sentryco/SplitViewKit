@@ -1,19 +1,19 @@
 import Foundation
 /**
- * - Fixme: ⚠️️ add doc
+ * - Fixme: ⚠️️ Add doc
  */
 struct MainModel {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Add doc
     */
    let title: String
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Add doc
     */
    let content: DetailData
 }
 /**
- * - Fixme: ⚠️️ add doc
- * - Fixme: ⚠️️ rename to ...array
+ * - Fixme: ⚠️️ Add doc
+ * - Fixme: ⚠️️ Rename to ...array
  */
 typealias MainData = [MainModel]

@@ -56,9 +56,9 @@ extension DataModel {
    /**
     * Model structure
     * - Note: Sorted dictionary based on array of tuples
-    * - Fixme: ⚠️️ add more
-    * - Fixme: ⚠️️ use structs here
-    * - Fixme: ⚠️️ Also maybe add more interesting content to detail? 
+    * - Fixme: ⚠️️ Add more
+    * - Fixme: ⚠️️ Use structs here
+    * - Fixme: ⚠️️ Also maybe add more interesting content to detail?
     */
    static let dataModel: SideBarData = [accounts, settings]
    /**
@@ -67,18 +67,17 @@ extension DataModel {
    static fileprivate let accounts: SideBarModel = {
       SideBarModel(title: "Accounts", content: [// sidebar-item
          MainModel(
-            title: "account one", // main-item
+            title: "Account one", // main-item
             content: [
-               "acc1" // detail-item
+               "User A" // detail-item
             ]
          ),
          MainModel(
-            title: "account two",
+            title: "Account two",
             content: [
-               "acc2"
+               "User B"
             ]
-         )
-                                               ])
+         )                                     ])
    }()
    /**
     * Settings

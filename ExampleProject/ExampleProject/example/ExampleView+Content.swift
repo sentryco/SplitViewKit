@@ -19,7 +19,8 @@ extension ExampleView {
             mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
          }, detail: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
             detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
-         }
+         },
+         isDebug: true // adds floating debug analytics
       )
    }
 }

@@ -61,4 +61,4 @@ struct ExampleView: View {
  * Debugging with background colors
  * - Fixme: ⚠️️ add more doc
  */
-internal var isTest: Bool = true
+internal var isTest: Bool = false

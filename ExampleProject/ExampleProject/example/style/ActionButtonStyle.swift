@@ -2,11 +2,11 @@ import SwiftUI
 /**
  * creates a ToggleButonStyle for Button.
  * - Description: The button should have rounded corners, have white text, and dark gray background,  it should have a little bit more padding horisontally than vertically. also make a preview
- * - Fixme: ⚠️️ turn the above into doc, use copilot
+ * - Fixme: ⚠️️ Turn the above into doc, use copilot
  */
 struct ActionButtonStyle: ButtonStyle {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Add doc
     */
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -19,7 +19,7 @@ struct ActionButtonStyle: ButtonStyle {
 }
 extension Button {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Add doc
     */
    var toggleButtonStyle: some View {
       self.buttonStyle(ActionButtonStyle())

@@ -17,7 +17,7 @@ extension DetailView {
       .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
       // - Fixme: ⚠️️ doc this
       // .scrollContentBackground(.hidden) // ⚠️️ debug
-      .background(isTest ? .orange.opacity(0.3) : .clear) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
       // - Fixme: ⚠️️ is this needed?
       // .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
       // #if os(iOS) // We hide this in splitview for iPad as well
@@ -52,7 +52,7 @@ extension DetailView {
          splitConfig: splitConfig,
          sizeClass: $sizeClass
       )
-         .background(isTest ? .indigo.opacity(0.5) : .clear) // warn    debug
+         .background(isTest ? .indigo.opacity(0.5) : .whiteOrBlack.opacity(0.06)) // warn    debug
    }
    /**
     * List

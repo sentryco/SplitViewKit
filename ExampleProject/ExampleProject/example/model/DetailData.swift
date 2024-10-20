@@ -1,6 +1,6 @@
 import Foundation
 /**
- * - Fixme: ⚠️️ add doc
- * - Fixme: ⚠️️ rename to DetailModel?
+ * - Fixme: ⚠️️ Add doc
+ * - Fixme: ⚠️️ Rename to DetailModel?
  */
 typealias DetailData = [String]

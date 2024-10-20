@@ -16,7 +16,7 @@ extension SideBarView {
       // - Fixme: ⚠️️⚠️️⚠️️ move this to list scope?
       .scrollContentBackground(.hidden) // ⚠️️ debug
       // - Fixme: ⚠️️ move this to list scope?
-      .background(isTest ? .teal.opacity(0.3) : .clear) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+      .background(isTest ? .teal.opacity(0.3) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
       // - Fixme: ⚠️️⚠️️⚠️️ move this to list scope? 👈
       .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
       .contentMargins(.vertical, .zero) // ⚠️️ key to removeing top margin, we cant use .contentMargins(.horizontal, .zero) as it will remove the rounded backgrounds for the section
@@ -37,7 +37,7 @@ extension SideBarView {
          sizeClass: $sizeClass,
          splitConfig: splitConfig
       )
-         .background(isTest ? .green.opacity(0.5) : .clear) // ⚠️️ debug
+      .background(isTest ? .green.opacity(0.5) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug
    }
    /**
     * - Fixme: ⚠️️ add doc

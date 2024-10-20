@@ -30,6 +30,15 @@ public struct DetailView: View { // <Content: View>
    // @ViewBuilder public var content: () -> Content
    let detailData: DetailData
    /**
+    * - Fixme: ⚠️️ add doc
+    */
+   @Binding var splitConfig: SplitConfig
+   /**
+    * - Description: Used to detect if app is compact or regular mode etc
+    * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
+    */
+   @Binding var sizeClass: UserInterfaceSizeClass?
+   /**
     * - Fixme: ⚠️️ Add doc, use copilot
     * - Fixme: ⚠️️ Rename title to headerTitle?
     * - Fixme: ⚠️️ add model content instead?
@@ -37,11 +46,11 @@ public struct DetailView: View { // <Content: View>
     *   - title: title for header
     *   - content: Detail-list content (injected)
     */
-   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
-      self.title = title
-      // self.content = content
-      self.detailData = detailData
-   }
+//   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
+//      self.title = title
+//      // self.content = content
+//      self.detailData = detailData
+//   }
 }
 /**
  * DetailView init

@@ -2,24 +2,25 @@ import SwiftUI
 import SplitViewKit
 /**
  * Body
- * - Fixme: ⚠️️⚠️️⚠️️ Store selectOnIndexState for accounts and settings in this scope, so we can persist them etc
+ * - Fixme: ⚠️️⚠️️⚠️️ Store `selectOnIndexState` for accounts and settings in this scope, so we can persist them etc
  * - Fixme: ⚠️️ Add solution to main app
  * - Fixme: ⚠️️ Does this work for mac? nope, why not?
  */
 extension ExampleView {
    /**
     * Body
+    * - Fixme: ⚠️️ sizeClass might not need to be a binding
     * - Fixme: ⚠️️ Add doc
     * - Fixme: ⚠️️ We need custom destination, we can maybe just add one navigation call to root of list if we can inject destination 👈 try some different things out
     */
    public var body: some View {
       SplitViewContainer(
-         sideBar: { (_ splitConfig: SplitConfig) in
-            sideBarView(splitConfig: splitConfig) // Add sideBarView
-         }, content: { (_ splitConfig: SplitConfig) in
-            mainView(splitConfig: splitConfig) // Add mainView
-         }, detail: { (_ splitConfig: SplitConfig) in
-            detailView(splitConfig: splitConfig) // Add DetailView
+         sideBar: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+            sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
+         }, content: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+            mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
+         }, detail: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass>) in
+            detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
          }
       )
    }
@@ -36,12 +37,15 @@ extension ExampleView {
     * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
     * - Fixme: ⚠️️ Get rid of index, just use item. it has uuid etc
     * - Fixme: ⚠️️ Move the bellow into SideBarView scope?
-    * - Parameter splitConfig: - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - splitConfig: - Fixme: ⚠️️ add doc
+    *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   @ViewBuilder func sideBarView(splitConfig: SplitConfig) -> some View {
+   @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
       SideBarView(
-         selectedSideBarIndex: $selectedSideBarIndex // selected sidebar index binding
+         selectedSideBarIndex: $selectedSideBarIndex, // selected sidebar index binding
+         sizeClass: sizeClass
       )
       // When we cahnge index, the selecteItem is set
       // When this state selectedMainItem changes, view are regenerated
@@ -65,9 +69,10 @@ extension ExampleView {
     * Creates the center column view (aka mainview)
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
+    *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ Add doc
     */
-   @ViewBuilder func mainView(splitConfig: SplitConfig) -> some View {
+   @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
       let items: DataModels = DataModel.dataModel.getMainModels(
          sideBarItemIndex: selectedSideBarIndex,
          splitConfig: splitConfig
@@ -76,7 +81,8 @@ extension ExampleView {
          title: DataModel.dataModel[selectedSideBarIndex].title,
          selectedMainIndex: $selectedMainIndex,
          items: items,
-         selectedItem: $selectedMainItem
+         selectedItem: $selectedMainItem,
+         sizeClass: sizeClass
       )
       // Attach navDest code to view, when selectedMainItem changes, this changes
       #if os(iOS)
@@ -92,15 +98,18 @@ extension ExampleView {
    /**
     * There is also the option of using binding
     * - Fixme: ⚠️️ Make this a static func with selectionIndex as param?
-    * - Parameter splitConfig: - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - splitConfig: - Fixme: ⚠️️ add doc
+    *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   func detailView(splitConfig: SplitConfig) -> some View {
+   func detailView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass>) -> some View {
       DetailView.initiate( //  generate DetailView via model
          sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,
          mainItemIndex: selectedMainIndex,
-         splitConfig: splitConfig // navSplitConfig
+         splitConfig: splitConfig, // navSplitConfig
+         sizeClass: sizeClass
       )
    }
 }

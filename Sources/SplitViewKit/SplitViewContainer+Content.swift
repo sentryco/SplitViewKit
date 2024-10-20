@@ -27,14 +27,12 @@ extension SplitViewContainer {
 extension SplitViewContainer{
    /**
     * - Fixme: ⚠️️ Add doc
-    * - Fixme: ⚠️️ We might be able to use geomtryReader to detect 70% if sizeClass doesnt detect it etc
-    * - Fixme: ⚠️️ Add type to geometry param
-    * - Fixme: ⚠️️ This is only relevant for iOS, add support for macOS
+    * - Fixme: ⚠️️ This is only relevant for iOS, so we could skip the geomreader for macos 👈
     */
    var navigationSplitViewContainer: some View {
-      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
+      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
-         if getDeviceOrientation().isLandscape {
+         if getDeviceOrientation().isLandscape { // macOS always reads as landscape
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
          } else {
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
@@ -43,37 +41,41 @@ extension SplitViewContainer{
    }
    /**
     * Create navigationSplitView
-    * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass
+    * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!
     * - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ try to get rid of the forced unwrap
+    * - Fixme: ⚠️️ try to figure out a better way to use sizeClass with out rebinding it etc
+    * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
+    * - Parameter winWidth: window width (from geomtry-reader)
+    * - Returns: Nav-split-view
     */
    func navigationSplitView(winWidth: CGFloat) -> some View {
       return NavigationSplitView( // Initializes a NavigationSplitView
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig)
+         sideBar(splitConfig, .init(get: { sizeClass! }, set: { _ in }))
             .sideBarViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
+            //.environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
          // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
-            .environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
+            //.environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
       } content: {
-         content(splitConfig)
+         content(splitConfig, .init(get: { sizeClass! }, set: { _ in }))
             .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
-            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
+//            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
+//            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead
       } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc
          // NavigationStack { // ⚠️️ Seem to fix things a little, but is presenting is the issue, figure it out
-         detail(splitConfig) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, .init(get: { sizeClass! }, set: { _ in })) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
          // }
       }
-      .navigationSplitViewStyle(.balanced) // .automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over // .navigationSplitViewStyle(.prominentDetail)
+      .navigationSplitViewStyle(.balanced) // .automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column
     * - Fixme: ⚠️️ Add more doc
+    * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
     */
    var debugContainer: some View {
       DebugContainer(

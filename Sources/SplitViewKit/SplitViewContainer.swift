@@ -69,7 +69,6 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
       self.detail = detail
    }
 }
-
 // 🏀 Continue here
 // - Fixme: ⚠️️ move debug container init into example proj scope? and fence it as debug
 // - Fixme: ⚠️️ doc params

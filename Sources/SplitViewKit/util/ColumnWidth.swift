@@ -28,21 +28,32 @@ struct ColumnWidth {
  * - Fixme: ⚠️️ add support for serving different values for landscape and portraite mode, ask copilot how etc
  * - Fixme: ⚠️️ add support for inserting these from the splitviewcontainer init
  * - Fixme: ⚠️️ we also have to account for compact size of navsplitview here
+ * - Fixme: ⚠️️⚠️️⚠️️ why are these calls return optional?
  */
 extension ColumnWidth {
    #if os(iOS)
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    static func sideBarColumn(deviceOrientation: UIDeviceOrientation = getDeviceOrientation(), winWidth: CGFloat) -> ColumnWidth? {
-      let isNarrow: Bool = isNarrow(deviceOrientation: deviceOrientation, winWidth: winWidth)
+      let isNarrow: Bool = isNarrow(
+         deviceOrientation: deviceOrientation,
+         winWidth: winWidth
+      )
       return .init(
          min: nil,
          ideal: isNarrow ? 200 : 340,
          max: nil
       )
    }
-   // - Fixme: ⚠️️ add param doc
+   /**
+    * - Fixme: ⚠️️ add param doc
+    */
    static func mainColumn(deviceOrientation: UIDeviceOrientation = getDeviceOrientation(), winWidth: CGFloat) -> ColumnWidth? {
-      let isNarrow: Bool = isNarrow(deviceOrientation: deviceOrientation, winWidth: winWidth)
+      let isNarrow: Bool = isNarrow(
+         deviceOrientation: deviceOrientation,
+         winWidth: winWidth
+      )
       return .init(
          min: nil,
          ideal: isNarrow ? 240 : 300,
@@ -61,18 +72,35 @@ extension ColumnWidth {
       )
    }
    #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    static func sideBarColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
       .init(min: 250, ideal: 250, max: 400)
    }
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    static func mainColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
       .init(min: 250, ideal: 300, max: 400)
    }
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    static func detailColumn(deviceOrientation: UIDeviceOrientation = .landscapeLeft, winWidth: CGFloat) -> ColumnWidth? {
       .init(min: 200, ideal: 250, max: nil)
    }
    #endif
 }
-// - Fixme: ⚠️️ add doc
+/**
+ * - Fixme: ⚠️️ rename to isNarrowFit or isSnugFit?
+ * - Fixme: ⚠️️ add doc
+ * - Fixme: ⚠️️ move into UIDeviceOrientation scope?
+ * - Parameters:
+ *   - deviceOrientation: - Fixme: ⚠️️ add doc
+ *   - winWidth: - Fixme: ⚠️️ add doc
+ * - Returns: - Fixme: ⚠️️ add doc
+ */
 func isNarrow(deviceOrientation: UIDeviceOrientation, winWidth: CGFloat) -> Bool {
    let isWindowWidthLessThanScreenWidth: Bool = winWidth < UIScreen.main.bounds.width
    return deviceOrientation.isPortrait || isWindowWidthLessThanScreenWidth

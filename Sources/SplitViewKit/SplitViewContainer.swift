@@ -76,10 +76,4 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
       self.isDebug = isDebug
    }
 }
-
-// 🏀 Continue here
-// - Fixme: ⚠️️ improve doc with cursor 👈🏀
-// - Fixme: ⚠️️ Add Github actions for building. and badge for org readme etc. and add gifs for all readmes etc 🏀
-// - Fixme: ⚠️️ Add ability to pass columnwidths in the init 👈
-
  

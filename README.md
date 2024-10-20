@@ -6,6 +6,7 @@
 
 <img width="436" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
 
+
 ## Problems:
 
 - 🧩 There is a lot of edge-cases when implementing `NavigationSplitView` to fit your needs
@@ -19,10 +20,11 @@
 - 📏 Detect windows in `.regular` mode or `.compact` mode (iPad)
 - 🗺️ `navigationDestination` works differently for iPad and macOS 
 - 🍎 You are sort of forced to use Apple's hovering sidebar icon, which might break your design
-- 🐞 Apple has left countless bugs in the `navigationsplitview` API that has not been fixed. 
+- 💥 Apple has left countless bugs in the `navigationsplitview` API that has not been fixed. 
 - 📏 Aligning column header height, can be a challenge because of Apple's inconsistent header API conventions across OSes
 - 📱 Different iPads need different column widths to look really good  (iPad mini / iPad 11 / iPad 13) 
 - 🗒️ Ensure that sheets and popups work in different orientations and compact windows
+- 🐛 Debugging is a challenge because of the many edge cases to account for
 
 ## Solution:
 
@@ -115,3 +117,8 @@ Add this to xcode or your SPM package file:
 - When going to compact mode. Widths are not updated (currently orientation change only updates this)
 - Look for an event that is called when we go into different compact / regular modes etc
 - Test to see if macOS works out of the box
+- improve doc with cursor 
+- Add ability to pass columnwidths in the init 
+- Clean up the readme a bit
+- Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc
+- Look into using TupleView ? 

@@ -52,6 +52,3 @@ extension View {
       return self.modifier(modifier)
    }
 }
-// .toolbar(.hidden, for: .navigationBar) // Hides default navbar
-// - Fixme: ⚠️️ Disable removing the bellow. or make own version of it?
-// - Fixme: ⚠️️ Move column widths to const / userdefault

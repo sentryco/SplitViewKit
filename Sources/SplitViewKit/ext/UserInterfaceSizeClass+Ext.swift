@@ -21,6 +21,8 @@ extension UserInterfaceSizeClass {
    /**
     * - Note: The way we can detect landscape_70_percentage_mode is if: sizeClass == .regular && orientation == .landscape && winWidth < appWidth
     * - Note: if 70% mode. use double or adjust column sizes. get is70percentage bool to work etc
+    * - Parameter winWidth: - Fixme: ⚠️️ add doc
+    * - Returns: - Fixme: ⚠️️ add doc
     */
    func is_landscape_70_percentage_mode(winWidth: CGFloat) -> Bool {
       let orientation = getDeviceOrientation()

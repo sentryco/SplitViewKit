@@ -69,7 +69,6 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
       self.detail = detail
    }
 }
-
 // 🏀 Continue here
 // fix the index duplication mess 
 // - Fixme: ⚠️️ Maybe also add a sheet and alert to test them in split, portrait, compact window etc 👈 when we press detail items etc
@@ -80,3 +79,4 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 // - Fixme: ⚠️️ Test to see if macOS still works okay 👈
 // - Fixme: ⚠️️ Add support for dark / lightmode (make different b/w gifs etc) 👈
 // - Fixme: ⚠️️ Add GA actions for building. and badge for org readme etc. and add gifs for all readmes etc
+// - Fixme: ⚠️️ move debugContainer into example project scope

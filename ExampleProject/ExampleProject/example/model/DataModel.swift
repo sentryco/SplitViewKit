@@ -45,8 +45,6 @@ extension DataModel {
       hasher.combine(uuid)
    }
 }
-
-
 /**
  * - Fixme: ⚠️️ move to own file etc?
  */

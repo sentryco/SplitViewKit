@@ -10,6 +10,8 @@ struct DetailViewModifier: ViewModifier {
    /**
     * Body
     * - Note: there is also: `navigationSplitViewColumnWidth`
+    * - Fixme: ⚠️️ remove the optionality in columnWidth
+    * - Fixme: ⚠️️ add doc regarding why columnWidth is optional
     */
    func body(content: Content) -> some View {
       let view = content
@@ -19,8 +21,7 @@ struct DetailViewModifier: ViewModifier {
          // This modifier allows the view to extend into the safe area on all sides, effectively ignoring the safe area insets. This is useful when you want your view to take up the entire screen, including under the status bar, navigation bar, and tab bar.
          .edgesIgnoringSafeArea(.all)
          #endif
-      // - Fixme: ⚠️️ remove the optionality bellow
-      if let columnWidth = ColumnWidth.detailColumn(winWidth: winWidth) { // - Fixme: ⚠️️ add doc regarding why this is optional
+      if let columnWidth = ColumnWidth.detailColumn(winWidth: winWidth) {
          view
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
                min: columnWidth.min,  // Sets the minimum width of the navigation split view column
@@ -46,5 +47,3 @@ extension View {
       return self.modifier(modifier)
    }
 }
-// .navigationBarHidden(true)
-// - Fixme: ⚠️️ remove the back btn somehow, figure it out, replace with custom back btn etc

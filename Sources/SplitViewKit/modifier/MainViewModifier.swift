@@ -5,6 +5,9 @@ import SwiftUI
  * - Fixme: ⚠️️⚠️️⚠️️ rename to MainViewModifier? 👈👈ball
  */
 fileprivate struct MainViewModifier: ViewModifier {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    let winWidth: CGFloat
    /**
     * Body
@@ -44,15 +47,3 @@ extension View {
       return self.modifier(modifier)
    }
 }
-//         .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
-//            min: 250, // Sets the minimum width of the navigation split view column
-//            ideal: 300, // Sets the ideal width of the navigation split view column
-//            max: 400 // Sets the maximum width of the navigation split view column
-//         ) // .navigationSplitViewColumnWidth(200)
-//         .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
-//            min: 100, // Sets the minimum width of the navigation split view column
-//            ideal: 400, // Sets the ideal width of the navigation split view column
-//            max: 300 // Sets the maximum width of the navigation split view column
-//         ) // proposed and constrains
-// - Fixme: ⚠️️ also add the bellow?
-//.navigationBarHidden(true) // Removes the top default nav-bar

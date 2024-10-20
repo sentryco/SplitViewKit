@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * - Note: We can detect 70% mode with that custom 70% code and geometryreader etc
- * - Note: We can detect single column mode by checking sizeclass == .compact
+ * - Note: We can detect single column mode by checking `sizeclass == .compact`
  */
 public class SplitConfig: ObservableObject {
    /**
@@ -44,9 +44,9 @@ extension SplitConfig {
     * - Returns: - Fixme: ⚠️️ add doc
     */
    public func isShowingSideBar(sizeClass: UserInterfaceSizeClass?) -> Bool {
-      Swift.print("SplitConfig - isShowingSideBar sizeClass:  \(String(describing: sizeClass))")
+      // Swift.print("SplitConfig - isShowingSideBar sizeClass:  \(String(describing: sizeClass))")
       let isShowingSideBar = (columnVisibility == .all && sizeClass == .regular) || (preferredCompactColumn == .sidebar && sizeClass == .compact)
-      Swift.print("SplitConfig - isShowingSideBar:  \(isShowingSideBar)")
+      // Swift.print("SplitConfig - isShowingSideBar:  \(isShowingSideBar)")
       return isShowingSideBar
    }
    /**

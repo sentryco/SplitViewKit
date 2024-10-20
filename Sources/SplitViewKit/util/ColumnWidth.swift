@@ -10,18 +10,24 @@ import UIKit
  * - Fixme: ⚠️️ Add support for storing columnwidths in userdefault, esp for macOS, for ipad the columns are fixed when using native swiftui navsplitview
  * - Fixme: ⚠️️ There is a suggestion we have to use UIKIt to get dynamic widths after rotation working: https://www.perplexity.ai/search/i-need-to-update-navigationspl-LShSqv4.Txa02kNQFk7Uqg#4
  * - Fixme: ⚠️️ Maybe store "section-fraction" size in userdefault (also check out how we did this in legacy code): https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state
+ * - Fixme: ⚠️️ add doc regarding why max and min are optional etc
+ * - Fixme: ⚠️️ make this public?
  */
 struct ColumnWidth {
-    let min: CGFloat?
-    let ideal: CGFloat
-    let max: CGFloat?
-    // - Fixme: ⚠️️ add doc
-   // - Fixme: ⚠️️ add doc regarding why mac and min are optional etc
-    init(min: CGFloat?, ideal: CGFloat, max: CGFloat?) {
-        self.min = min
-        self.ideal = ideal
-        self.max = max
-    }
+   let min: CGFloat?
+   let ideal: CGFloat
+   let max: CGFloat?
+   /**
+    * - Parameters:
+    *   - min: - Fixme: ⚠️️ add doc
+    *   - ideal: - Fixme: ⚠️️ add doc
+    *   - max: - Fixme: ⚠️️ add doc
+    */
+   init(min: CGFloat?, ideal: CGFloat, max: CGFloat?) {
+      self.min = min
+      self.ideal = ideal
+      self.max = max
+   }
 }
 /**
  * Const

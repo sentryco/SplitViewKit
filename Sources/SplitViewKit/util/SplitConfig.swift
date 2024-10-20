@@ -1,5 +1,6 @@
 import SwiftUI
 /**
+ * - Description: Manages configuration settings for the `NavigationSplitView` in `SplitViewKit`, including visibility and preferred column in compact mode.
  * - Note: We can detect 70% mode with that custom 70% code and geometryreader etc
  * - Note: We can detect single column mode by checking `sizeclass == .compact`
  */

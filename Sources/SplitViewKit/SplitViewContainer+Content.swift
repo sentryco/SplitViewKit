@@ -7,13 +7,13 @@ import SwiftUI
 extension SplitViewContainer {
    /**
     * Body
+    * - Description: This is the main body of the `SplitViewContainer`. It manages the layout and state of the navigation split view, handling orientation changes and view updates.
     * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
     * - Note: It's also possible to do this with `.onRotation` and then toggle the two views. the clue is to load a new view. But using geomreader, there is less need for a state variable etc
     * - Note: Here is a way to track rotation change (it does not rerender view, you need geomreader for that): https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
-    * - Fixme: ⚠️️ Add description
     * - Fixme: ⚠️️ This is only relevant for iOS, so we could skip the geomreader for macos 👈
     * - Fixme: ⚠️️⚠️️ maybe toggle on isDebug and not create the ZStack etc
     */
@@ -30,7 +30,7 @@ extension SplitViewContainer {
 extension SplitViewContainer {
    /**
     * splitViewContainer
-    * - Fixme: ⚠️️ add doc
+    * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
     * - Fixme: ⚠️️⚠️️ maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
     */
    var splitViewContainer: some View {
@@ -45,6 +45,7 @@ extension SplitViewContainer {
    }
    /**
     * Create navigationSplitView
+    * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!
     * - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
     * - Fixme: ⚠️️ try to get rid of the forced unwrap
@@ -74,7 +75,7 @@ extension SplitViewContainer {
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column
-    * - Fixme: ⚠️️ Add more doc
+    * - Description: Displays a floating debug container that provides real-time information about the current configuration of the navigation split view, including the focused column and column configuration settings.
     * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
     */
    @ViewBuilder var debugContainer: some View {

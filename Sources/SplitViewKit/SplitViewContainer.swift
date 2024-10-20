@@ -17,54 +17,54 @@ import SwiftUI
  * - Note: more navigation and splitview code: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
  * - Note: Comprehensive doc on navsplitview: https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/
  * - Note: Pretty gd: https://www.appcoda.com/navigationsplitview-swiftui/
+ * - Note: Alternative names for this: `SplitContainerView`? or `SplitViewWrapper`?
  * Mindset:
  *  small (iPhone, iPad window): [primary w/ tagbar] -> [detail]
  *  medium (iPad portrait): [Compact-SideBar, primary, Detail] (here we might need to just have a reveal btn that shows sidebar etc)
  *  large (iPad, macOS): [SideBar, primary, detail]
- * - Fixme: ⚠️️ We should store the ideal sizes in a typalias? Elaborate?
- * - Fixme: ⚠️️ Rename to `SplitContainerView`? or `SplitViewWrapper`?
- * - Fixme: ⚠️️⚠️️ Move `SplitViewContainer` to own repo? or? add the debug class as well etc
- * - Fixme: ⚠️️ add grayscale debug colors, better for gif for OSS readme etc
- * - Fixme: ⚠️️ Look into TupleView construct?
  */
 public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: View {
    /**
     * Left `side-menu-bar`
-    * - Fixme: ⚠️️ add doc, use copilot
+    * - Description: Represents the sidebar component of the split view. This sidebar acts as a navigation or menu column in the split view layout, typically containing navigation links or menu items that control what is displayed in the main content area.
     */
    @ViewBuilder var sideBar: SideBarAlias
    /**
     * Center `main-content`
-    * - Fixme: ⚠️️ add doc, use copilot
+    * - Description: Represents the central content area of the split view. This is the primary view where the main application content is displayed. It typically contains the bulk of the user interface and interactive elements, serving as the focal point of user engagement within the app.
     */
    @ViewBuilder var content: MainAlias
    /**
     * Right side `detail-view`
-    * - Fixme: ⚠️️ add doc, use copilot
+    * - Description: Represents the detail component of the split view. This view is typically used to display more detailed information about an item selected from the main content area. It can also serve as a space for secondary actions and insights that complement the primary content.
     */
    @ViewBuilder var detail: DetailAlias
    /**
-    * - Description: Used to detect if app is compact or regular mode etc
-    * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
+    * - Abstract: Used to detect if the app is in compact or regular mode.
+    * - Description: This environment property helps in determining the horizontal size class of the current environment. It's crucial for adapting the UI elements based on the available space. It should be accessed from the correct scope to ensure accurate detection of the mode, as incorrect scope access can lead to misidentification between compact and regular modes.
+    * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
    @Environment(\.horizontalSizeClass) var sizeClass: UserInterfaceSizeClass?
    /**
-    * - Fixme: ⚠️️ add doc
+    * State object for managing the configuration of the split view.
+    * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
     */
    @StateObject internal var splitConfig: SplitConfig = .init()
    /**
-    * - Fixme: ⚠️️ add doc
+    * Indicates whether the split view container should display debugging information.
+    * - Description: When set to `true`, the split view container will show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
     */
    let isDebug: Bool
    /**
     * Init
+    * - Description: Initializes the split view container with the provided views and configuration settings.
     * - Fixme: ⚠️️ Add ability set columnVisibility in the init? as a param?
     * - Fixme: ⚠️️ Add ability set preferredCompactColumn in the init? as a param?
     * - Parameters:
     *   - sideBar: menuColumn content closure (left)
     *   - content: mainColumn content closure (center)
     *   - detail: detailColumn content closure (right)
-    *   - isDebug: - Fixme: ⚠️️ add doc
+    *   - isDebug: Indicates if debugging information should be displayed. Useful for development and troubleshooting.
     */
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
@@ -76,4 +76,3 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
       self.isDebug = isDebug
    }
 }
- 

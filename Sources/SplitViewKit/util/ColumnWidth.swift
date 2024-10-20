@@ -12,6 +12,7 @@ import UIKit
  * - Fixme: ⚠️️ Maybe store "section-fraction" size in userdefault (also check out how we did this in legacy code): https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state
  * - Fixme: ⚠️️ add doc regarding why max and min are optional etc
  * - Fixme: ⚠️️ make this public?
+ * - Fixme: ⚠️️ for iPad 13" we should use a bit less narrow widths for narrow mode
  */
 struct ColumnWidth {
    let min: CGFloat?
@@ -48,7 +49,7 @@ extension ColumnWidth {
       )
       return .init(
          min: nil,
-         ideal: isNarrow ? 200 : 340,
+         ideal: isNarrow ? 180 : 340,
          max: nil
       )
    }
@@ -62,7 +63,7 @@ extension ColumnWidth {
       )
       return .init(
          min: nil,
-         ideal: isNarrow ? 240 : 300,
+         ideal: isNarrow ? 200 : 300,
          max: nil
       )
    }

@@ -6,7 +6,7 @@ import SplitViewKit
    SideBarView(
       selectedSideBarIndex: .constant(0),
       sizeClass: .constant(.regular),
-      splitConfig: .init()//.constant()
+      splitConfig: .init()
    )
       .background(Color.blackOrWhite.opacity(1))
       .environment(\.colorScheme, .dark) // dark

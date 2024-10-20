@@ -5,6 +5,9 @@ import SwiftUI
  * - Fixme: ⚠️️ turn the above into doc, use copilot
  */
 struct ActionButtonStyle: ButtonStyle {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(.horizontal, 4)
@@ -15,6 +18,9 @@ struct ActionButtonStyle: ButtonStyle {
     }
 }
 extension Button {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    var toggleButtonStyle: some View {
       self.buttonStyle(ActionButtonStyle())
    }

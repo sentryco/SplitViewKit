@@ -1,8 +1,15 @@
 import SwiftUI
-
-// Define a custom view modifier for the list text style
+/**
+ * Define a custom view modifier for the list text style
+ */
 struct ListTextStyle: ViewModifier {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    let color: Color // rename to textColor
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    func body(content: Content) -> some View {
       HStack {
          content
@@ -14,9 +21,13 @@ struct ListTextStyle: ViewModifier {
       .padding(.horizontal) // adds left and right padding
    }
 }
-
-// Extension to apply the list text style easily
+/**
+ * Extension to apply the list text style easily
+ */
 extension View {
+   /**
+    * listTextStyle
+    */
    func listTextStyle(color: Color) -> some View {
       self.modifier(ListTextStyle(color: color))
    }

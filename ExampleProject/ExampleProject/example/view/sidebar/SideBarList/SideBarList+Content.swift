@@ -19,10 +19,11 @@ extension SideBarList {
    }
    /**
     * List content
-    * - Fixme: ⚠️️ - Fixme: ⚠️️ get model from init param instead?
+    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ get model from init param instead?
+    * - Fixme: ⚠️️ use enumerated on the ForEach instead?
     */
    var sideBarListContent: some View {
-      // - Fixme: ⚠️️ use enumerated on the bellow instead
       ForEach(0..<DataModel.dataModel.count, id: \.self) { (_ i: Int) in
          Button(DataModel.dataModel[i].title) {
             // Triggers change in main-view content to switch

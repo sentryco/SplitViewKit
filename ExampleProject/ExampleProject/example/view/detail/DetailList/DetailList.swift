@@ -3,11 +3,19 @@ import SwiftUI
  * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ add preview
  */
-struct DetailList: View { /*<Content: View>*/
+struct DetailList: View {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    let detailData: DetailData
-//   @ViewBuilder public var content: Content
-   public init(detailData: DetailData) { /*@ViewBuilder content: () -> Content*/
-//      self.content = content()
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   public init(detailData: DetailData) {
       self.detailData = detailData
    }
 }
+/*<Content: View>*/
+//      self.content = content()
+/*@ViewBuilder content: () -> Content*/
+//   @ViewBuilder public var content: Content

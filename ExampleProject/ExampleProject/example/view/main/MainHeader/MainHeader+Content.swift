@@ -29,20 +29,15 @@ extension MainHeader {
    /**
     * - Fixme: ⚠️️ We need to add
     * - Fixme: ⚠️️ Add doc
+    * - Note: We should show this if in compact mode, Show this only if toggle is true
     * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     */
    @ViewBuilder var toggleButton: some View {
-      // We should show this if in compact mode
-      // Show this only if toggle is true
-      Button("Show sidebar") {
-         // Action for the button
-         Swift.print("Toggle")
-         // - Fixme: ⚠️️ use switch here
+      Button("Show sidebar") { // Action for the button
          if sizeClass == .regular {
             splitConfig.columnVisibility = .all // shows all 3 columns
          } else { // if compact
-            // splitConfig.preferredCompactColumn = .sidebar // set focused
-            dismiss() // (⚠️️ api bug) this is how we consistantly can go back to sidebar in compact mode
+            dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
          }
       }
       .toggleButtonStyle
@@ -58,3 +53,4 @@ extension MainHeader {
          .padding(.vertical, 6)
    }
 }
+// splitConfig.preferredCompactColumn = .sidebar // set focused

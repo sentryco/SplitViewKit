@@ -18,6 +18,7 @@ extension MainView {
 extension MainView {
    /**
     * Header
+    * - Fixme: ⚠️️ add doc
     */
    var header: some View {
       MainHeader(
@@ -29,6 +30,7 @@ extension MainView {
    }
    /**
     * vStack
+    * - Fixme: ⚠️️ add doc
     */
    var vStack: some View {
       VStack(spacing: .zero) {
@@ -42,6 +44,7 @@ extension MainView {
    }
    /**
     * mainList
+    * - Fixme: ⚠️️ add doc
     */
    var mainList: some View {
       MainList(

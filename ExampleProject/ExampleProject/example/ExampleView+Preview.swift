@@ -10,7 +10,7 @@ import HybridColor
  * - Fixme: ⚠️️ Make a simple debug preview with rectangles etc that has tests for colapse toggle etc? 👈
  */
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
-   // - Fixme: ⚠️️ There seems to be some deault sizing in the splitview. figure it out!
+   // - Fixme: ⚠️️ There seems to be some deault-sizing in the split-view. figure it out!
    ExampleView()
    // .previewLayout(.sizeThatFits)
    // .padding()

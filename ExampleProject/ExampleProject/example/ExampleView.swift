@@ -8,8 +8,8 @@ import SwiftUI
  * - Fixme: ⚠️️ Maybe we do the prefsmain manually, and not with ListContainer, what?
  * - Fixme: ⚠️️ Make sure things work for iPhone and mac as well 👈
  * - Fixme: ⚠️️ Add description, use copilot 👈
- * - Fixme: ⚠️️ rename to MainView? or AppView? or is ExampleView fine? yepp keep as is
- * - Fixme: ⚠️️ clearify around selected index and selected item etc. unify? its unclear atm why we have both etc
+ * - Fixme: ⚠️️ Rename to MainView? or AppView? or is ExampleView fine? yepp keep as is
+ * - Fixme: ⚠️️ Clearify around selected index and selected item etc. unify? its unclear atm why we have both etc
  */
 struct ExampleView: View {
    /**
@@ -38,11 +38,11 @@ struct ExampleView: View {
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
-    * - Fixme: ⚠️️ make this non-optional?
+    * - Fixme: ⚠️️ Make this non-optional?
     */
    @Environment(\.horizontalSizeClass) var sizeClass: UserInterfaceSizeClass?
    /**
-    * - Fixme: ⚠️️ add description
+    * - Fixme: ⚠️️ Add description
     * - Parameters:
     *   - selectedSideBarIndex:  - Fixme: ⚠️️ add doc
     *   - selectedMainIndex:  - Fixme: ⚠️️ add doc
@@ -54,5 +54,7 @@ struct ExampleView: View {
       self.selectedMainItem = selectedMainItem
    }
 }
-// - Fixme: ⚠️️ doc this
+/**
+ * - Fixme: ⚠️️ doc this
+ */
 internal var isTest: Bool = true

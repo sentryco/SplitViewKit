@@ -39,7 +39,6 @@ extension SideBarHeader {
     */
    @ViewBuilder var toggleButton: some View {
       Button("Hide sidebar") {
-//         Swift.print("toggle") // Action for the button
          if sizeClass == .regular { // if 3 column
             splitConfig.columnVisibility = .doubleColumn // go to double column
          } // else compact. switch to main

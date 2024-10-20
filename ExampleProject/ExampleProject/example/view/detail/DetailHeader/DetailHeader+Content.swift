@@ -21,9 +21,7 @@ extension DetailHeader {
             Spacer()
          }
       }
-      // .padding(.vertical, 6)
       .padding(.horizontal) // Adds left and right padding
-      // .background(.pink) // ⚠️️ debug
    }
 }
 /**
@@ -40,7 +38,7 @@ extension DetailHeader {
    }
    /**
     * - Note: detailfullscreen btn is here to show how we can go fullscreen with detail
-    * - Note: Its a niche usecase. Not needed for most uses.
+    * - Note: It's a niche usecase. Not needed for most uses.
     * - Fixme: ⚠️️ Remove animation for this button, it looks buggy. Use copilot etc
     */
    var fullScreenToggleButton: some View {
@@ -66,3 +64,5 @@ extension DetailHeader {
       .opacity(sizeClass == .compact ? 1.0 : 0.0) // we use opacity to not change the topbar height to be more narrow etc
    }
 }
+// .background(.pink) // ⚠️️ debug
+// .padding(.vertical, 6)

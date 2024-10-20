@@ -23,34 +23,18 @@ public struct DetailView: View { // <Content: View>
     */
    public var title: String
    /**
-    * The content view of the DebugDetailView
-    * - Note: This view is responsible for displaying the content of the detail view.
     * - Fixme: ⚠️️ Add description, use copilot
     */
-   // @ViewBuilder public var content: () -> Content
    let detailData: DetailData
    /**
     * - Fixme: ⚠️️ add doc
     */
-   /*@Binding */var splitConfig: SplitConfig
+   var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
    @Binding var sizeClass: UserInterfaceSizeClass?
-   /**
-    * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ Rename title to headerTitle?
-    * - Fixme: ⚠️️ add model content instead?
-    * - Parameters:
-    *   - title: title for header
-    *   - content: Detail-list content (injected)
-    */
-//   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
-//      self.title = title
-//      // self.content = content
-//      self.detailData = detailData
-//   }
 }
 /**
  * DetailView init
@@ -65,7 +49,7 @@ extension DetailView {
     * - Returns: - Fixme: ⚠️️ add doc via copilot
     */
    static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
-      // - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?
+      // - Fixme: ⚠️️ Use safeArray here, and return optional, add fileprivate helper?
       let mainModel: MainModel = sideBarData[sideBarItemIndex].content[mainItemIndex]
       let detailView = DetailView(
          title: mainModel.title,
@@ -75,7 +59,7 @@ extension DetailView {
       )
       return detailView
       // - Fixme: ⚠️️ remove the bellow, do param drilling instead
-         .environmentObject(splitConfig) // we have to reapply the environmentobject when we create new detailviews etc
+         .environmentObject(splitConfig) // We have to reapply the environmentobject when we create new detailviews etc
    }
 }
 // { // (mainRowModel: mainRowModel) // detailView(mainRowModel: mainRowModel[i]) //                Text("it works: \(i)")
@@ -84,3 +68,16 @@ extension DetailView {
 //      }
 //,
 /*isDetailFullScreen: isDetailFullScreen*/
+/**
+ * - Fixme: ⚠️️ Add doc, use copilot
+ * - Fixme: ⚠️️ Rename title to headerTitle?
+ * - Fixme: ⚠️️ add model content instead?
+ * - Parameters:
+ *   - title: title for header
+ *   - content: Detail-list content (injected)
+ */
+//   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
+//      self.title = title
+//      // self.content = content
+//      self.detailData = detailData
+//   }

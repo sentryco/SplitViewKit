@@ -13,7 +13,7 @@ extension SideBarView {
          list
       }
       .contentMargins(.horizontal, .zero)
-      // - Fixme: ⚠️️⚠️️⚠️️⚠️️ move this to list scope?
+      // - Fixme: ⚠️️⚠️️⚠️️ move this to list scope?
       .scrollContentBackground(.hidden) // ⚠️️ debug
       // - Fixme: ⚠️️ move this to list scope?
       .background(isTest ? .teal.opacity(0.3) : .clear) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)

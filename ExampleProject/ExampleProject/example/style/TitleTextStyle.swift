@@ -4,6 +4,9 @@ import HybridColor
  * Define a custom view modifier for the title text style
  */
 struct TitleTextStyle: ViewModifier {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    func body(content: Content) -> some View {
       content
          .foregroundColor(Color.whiteOrBlack.opacity(0.8))

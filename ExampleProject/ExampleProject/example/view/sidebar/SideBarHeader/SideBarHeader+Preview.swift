@@ -4,12 +4,13 @@ import SplitViewKit
 
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
    SideBarHeader(
-      title: "Sidebar",//,
+      title: "Sidebar",
       sizeClass: .constant(.regular),
-      splitConfig: .init() // .constant()
-      /*isSideBarShown: .constant(false),*/
-//      preferredCompactColumn: .constant(.sidebar)
+      splitConfig: .init()
    )
    .background(Color.black/*blackOrWhite*/.opacity(1))
    .environment(\.colorScheme, .dark) // dark
 }
+// .constant()
+/*isSideBarShown: .constant(false),*/
+//      preferredCompactColumn: .constant(.sidebar)

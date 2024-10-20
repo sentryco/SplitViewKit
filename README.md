@@ -19,7 +19,7 @@
 - Aligning column header height, can be a challange because of apples inconsistent header API conventions accross OSes
 - Different iPads need different column widths to look really good  (iPad mini / iPad 11 / iPad 13) 
 - Ensure that sheets and popups work in different orientations and compact windows
- 
+
 ## Solution:
 
 - Variables to access `sizeClass` to detect `.regular` or `.compact` mode

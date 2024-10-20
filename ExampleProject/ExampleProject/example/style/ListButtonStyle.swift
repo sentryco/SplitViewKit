@@ -3,6 +3,9 @@ import SwiftUI
  * - Fixme: ⚠️️ Remove animated effect when tapping main items, ask copilot etc
  */
 struct ListButtonStyle: ButtonStyle {
+   /**
+    * bgColor
+    */
    var bgColor: Color
    /**
     * Toggle selected and unselected color with this etc

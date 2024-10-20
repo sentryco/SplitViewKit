@@ -16,6 +16,6 @@ public struct SideBarView: View {
    /**
     *  - Fixme: ⚠️️ add doc
     */
-   /*@Binding */var splitConfig: SplitConfig
+   var splitConfig: SplitConfig
 }
 

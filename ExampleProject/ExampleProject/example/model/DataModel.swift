@@ -5,6 +5,7 @@ import SwiftUI
  * - Fixme: ⚠️️ should we make this identifiable as well or?
  * - Fixme: ⚠️️ Rename MainModel, maybe
  * - Fixme: ⚠️️⚠️️ Use NavLinkData instead of this? elaborate?
+ * - Fixme: ⚠️️ maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
  * - Description: Represents a model for debugging account information in the application.
  *                It includes properties for unique identification, display text,
  *                navigation destination, and color.
@@ -25,26 +26,28 @@ import SwiftUI
     */
     let color: Color
 }
-// - Fixme: ⚠️️ move to own file etc?
-internal typealias DataModels = [DataModel]
+/**
+ * Hashable implementation
+ */
+extension DataModel {
+   /**
+    * - Fixme: ⚠️️ Add doc
+    * - Fixme: ⚠️️ Move to ext?
+    */
+   public static func == (lhs: DataModel, rhs: DataModel) -> Bool {
+      lhs.uuid == rhs.uuid
+   }
+   /**
+    * Implementing hash(into:) for conformance to Hashable
+    * - Fixme: ⚠️️ Move to ext
+    */
+   public func hash(into hasher: inout Hasher) {
+      hasher.combine(uuid)
+   }
+}
 
-// - Fixme: ⚠️️ maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
-//enum SideBarItem: String, Identifiable, CaseIterable {
-//   var id: String { rawValue }
-//   
-//   case users
-//   case animals
-//   case food
-//}
-
-//enum DetailItem: Hashable {
-//   case user(DDUser)
-//   case animal(DDAnimal)
-//   case food(DDFood)
-//}
 
 /**
- * - Fixme: ⚠️️ We can probably make this some View or something generic? ask copilot?
- * - Fixme: ⚠️️ Add doc, use copilot
+ * - Fixme: ⚠️️ move to own file etc?
  */
-//   public let detailDestination: () -> AnyView
+internal typealias DataModels = [DataModel]

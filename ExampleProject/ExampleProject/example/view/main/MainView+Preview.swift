@@ -1,6 +1,8 @@
 import SwiftUI
 import SplitViewKit
-
+/**
+ * - Fixme: ⚠️️ add doc
+ */
 #Preview {
    let items: DataModels = DataModel.dataModel.getMainModels(
       sideBarItemIndex: 0,
@@ -9,12 +11,12 @@ import SplitViewKit
    )
    return MainView(
       title: DataModel.dataModel[0].title,
-      selectedMainIndex: .constant(0), // - Fixme: ⚠️️ make this state
+      selectedMainIndex: .constant(0), // - Fixme: ⚠️️ make this state?
       items: items,
-      selectedItem: .constant(nil), // - Fixme: ⚠️️ make this state
-      splitConfig: .init(), // .constant()
+      selectedItem: .constant(nil), // - Fixme: ⚠️️ make this state?
+      splitConfig: .init(),
       sizeClass: .constant(.regular)
-      /* isSidebarShown: .constant(false), */
-      // preferredCompactColumn: .constant(.content)
    )
 }
+/* isSidebarShown: .constant(false), */
+// preferredCompactColumn: .constant(.content)

@@ -2,9 +2,7 @@ import SwiftUI
 import SplitViewKit
 /**
  * Body
- * - Fixme: ⚠️️⚠️️⚠️️ Store `selectOnIndexState` for accounts and settings in this scope, so we can persist them etc
- * - Fixme: ⚠️️ Add solution to main app
- * - Fixme: ⚠️️ Does this work for mac? nope, why not?
+ * - Fixme: ⚠️️ Does this work for mac? nope, why not? try later
  */
 extension ExampleView {
    /**
@@ -37,6 +35,8 @@ extension ExampleView {
     * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
     * - Fixme: ⚠️️ Get rid of index, just use item. it has uuid etc
     * - Fixme: ⚠️️ Move the bellow into SideBarView scope?
+    * - Fixme: ⚠️️ move onChange to own method?
+    * - Fixme: ⚠️️ add more doc
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
     *   - sizeClass: - Fixme: ⚠️️ add doc
@@ -48,10 +48,7 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      // When we cahnge index, the selecteItem is set
-      // When this state selectedMainItem changes, view are regenerated
-         .onChange(of: selectedSideBarIndex) { _, _ in // Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
-            // Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")
+         .onChange(of: selectedSideBarIndex) { _, _ in // When we cahnge index, the selecteItem is set,  When this state selectedMainItem changes, view are regenerated, Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
             guard let sizeClass = sizeClass.wrappedValue else { print("⚠️️ error"); return }
             switch sizeClass {
             case .regular: // Only auto select mainitem if all columns are visible etc
@@ -69,6 +66,7 @@ extension ExampleView {
    }
    /**
     * Creates the center column view (aka mainview)
+    * - Fixme: ⚠️️ add doc
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
     *   - sizeClass: - Fixme: ⚠️️ add doc
@@ -87,9 +85,8 @@ extension ExampleView {
          splitConfig: splitConfig, 
          sizeClass: sizeClass
       )
-      // Attach navDest code to view, when selectedMainItem changes, this changes
       #if os(iOS)
-      .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in
+      .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in // Attach navDest code to view, when selectedMainItem changes, this changes
          detailView(splitConfig: splitConfig, sizeClass: sizeClass)
       }
       #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
@@ -101,6 +98,7 @@ extension ExampleView {
    /**
     * There is also the option of using binding
     * - Fixme: ⚠️️ Make this a static func with selectionIndex as param?
+    * - Fixme: ⚠️️ add doc
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
     *   - sizeClass: - Fixme: ⚠️️ add doc
@@ -116,3 +114,4 @@ extension ExampleView {
       )
    }
 }
+// Swift.print("selectedSideBarIndex: \(selectedSideBarIndex)")

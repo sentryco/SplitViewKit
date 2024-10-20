@@ -6,22 +6,21 @@ extension MainList {
    /**
     * listContainer
     * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ we are using vstack not list here so remove the bellow? actually we should probably use list?, because its more suitable for the case
     */
    var body: some View {
       VStack(spacing: 0) {
          rowViews
       }
       .padding(.vertical, 12) // Add top and bottom padding for the list etc
-      // - Fixme: ⚠️️ we are using vstack not list here so remove the bellow? actually we should probably use list?, because its more suitable for the case
-      // .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
    }
    /**
     * List content
     * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ move this into MainContent swift file for simplicity?
+    * - Fixme: ⚠️️ put this into a stack or list?
     */
    @ViewBuilder var rowViews: some View {
-      // - Fixme: ⚠️️ put this into a stack or list?
       ForEach(Array(items.enumerated()), id: \.offset) {  i, _ in
          rowItem(i: i)
       }
@@ -47,3 +46,4 @@ extension MainList {
       )
    }
 }
+// .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer

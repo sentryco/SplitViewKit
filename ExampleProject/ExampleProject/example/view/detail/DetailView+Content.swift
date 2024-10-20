@@ -33,7 +33,7 @@ extension DetailView {
  */
 extension DetailView {
    /**
-    * - Fixme: ⚠️️ add dox
+    * - Fixme: ⚠️️ add doc
     */
    var vStack: some View {
       VStack(spacing: .zero) {

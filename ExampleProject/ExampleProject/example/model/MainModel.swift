@@ -2,7 +2,16 @@ import Foundation
 /**
  * - Fixme: ⚠️️ add doc
  */
-struct MainModel { let title: String, content: DetailData }
+struct MainModel {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   let title: String
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   let content: DetailData
+}
 /**
  * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ rename to ...array

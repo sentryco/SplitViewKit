@@ -6,7 +6,9 @@ import SplitViewKit
  * - Fixme: ⚠️️⚠️️⚠️️ Rename to MainView? 👈 - Fixme: ⚠️️ rename to MainColumn? MainColumnView? or keep?
  */
 struct MainView: View {
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    var title: String
    /**
     * - Fixme: ⚠️️ Add doc, use copilot
@@ -26,7 +28,7 @@ struct MainView: View {
     * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ make this ObeervedObject later
     */
-   /*@Binding */var splitConfig: SplitConfig
+   var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs

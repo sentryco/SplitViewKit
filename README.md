@@ -4,7 +4,7 @@
 
 > Easily config multi-column apps (iPad and macOS)
 
-<img width="436,5" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
+<img width="218" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
 
 ## Problems:
 
@@ -95,7 +95,7 @@ Add this to xcode or your SPM package file:
 
 ## Compact mode demo:
 
-<img width="436,5" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
+<img width="218" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
 

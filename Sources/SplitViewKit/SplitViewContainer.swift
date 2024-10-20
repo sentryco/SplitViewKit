@@ -53,6 +53,10 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     */
    @StateObject internal var splitConfig: SplitConfig = .init()
    /**
+    * - Fixme: ⚠️️ add doc
+    */
+   let isDebug: Bool
+   /**
     * Init
     * - Fixme: ⚠️️ Add ability set columnVisibility in the init? as a param?
     * - Fixme: ⚠️️ Add ability set preferredCompactColumn in the init? as a param?
@@ -60,13 +64,16 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     *   - sideBar: menuColumn content closure (left)
     *   - content: mainColumn content closure (center)
     *   - detail: detailColumn content closure (right)
+    *   - isDebug: - Fixme: ⚠️️ add doc
     */
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
-               detail: @escaping DetailAlias) {
+               detail: @escaping DetailAlias,
+               isDebug: Bool = false) {
       self.sideBar = sideBar
       self.content = content
       self.detail = detail
+      self.isDebug = isDebug
    }
 }
 
@@ -82,4 +89,3 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
 // - Fixme: ⚠️️ Add Githuub actions for building. and badge for org readme etc. and add gifs for all readmes etc
 // - Fixme: ⚠️️ improve doc 
 // - Fixme: ⚠️️ add emojies to problem / solution
-// - Fixme: ⚠️️ move debugContainer into example project scope 🏀

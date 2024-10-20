@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * - Abstract: SplitView analytics
- * - Description: Add this to implementation code to debug splitview state.
+ * - Note: We have to add debug container to the splitviewcontainer view, as we need access to the spliconfig state, which can only be acccessed inside splitviewcontainer or its injected descendants
  * - Note: Bottom center container
  * - Note: 2 texts with columnConfig: 3-col, 2-col, 1-col, focusedColumn: sidebar, main, detail
  * - Note: We get debug data from the states of: `NavigationSplitViewColumn` `NavigationSplitViewVisibility`
@@ -9,19 +9,20 @@ import SwiftUI
  * - Fixme: ⚠️️ Fence this as debug, show only when testing? also add isTest bool?
  * - Fixme: ⚠️️ add assert for 70% mode window
  * - Fixme: ⚠️️ add orientation debug label: "portrait", "landscape"
+ * - Fixme: ⚠️️ make preview 👈
  */
-public struct DebugContainer: View {
+struct DebugContainer: View {
    /**
     * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ make this ObservedObject instead? etc that would avoid rebinding etc
     */
-   @Binding public var splitConfig: SplitConfig
+   @Binding var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     * - Fixme: ⚠️️ figure out how to avoid rebinding on environment variable?
     */
-   @Binding public var sizeClass: UserInterfaceSizeClass?
+   @Binding var sizeClass: UserInterfaceSizeClass?
 }
 /**
  * Content
@@ -30,7 +31,7 @@ extension DebugContainer {
    /**
     * - Fixme: ⚠️️ Move to own ext?
     */
-   public var body: some View {
+   var body: some View {
       VStack {
          Spacer() // Pins content to the bottom
          HStack {

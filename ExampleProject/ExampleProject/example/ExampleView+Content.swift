@@ -12,20 +12,6 @@ extension ExampleView {
     * - Fixme: ⚠️️ We need custom destination, we can maybe just add one navigation call to root of list if we can inject destination 👈 try some different things out
     */
    public var body: some View {
-      ZStack {
-         splitViewContainer // Bellow debug container
-         debugContainer // Floats above navSplitView
-      }
-   }
-}
-/**
- * View
- */
-extension ExampleView {
-   /**
-    * splitViewContainer
-    */
-   var splitViewContainer: some View {
       SplitViewContainer(
          sideBar: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
             sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
@@ -36,6 +22,12 @@ extension ExampleView {
          }
       )
    }
+}
+/**
+ * View
+ */
+extension ExampleView {
+   
    /**
     * Creates the sidebar view
     * - Note: The selection in the first column affects the second, and the selection in the second column affects the third

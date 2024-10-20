@@ -13,10 +13,27 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
-    *  - Fixme: ⚠️️ Add doc
+    * - Fixme: ⚠️️ Add description
     * - Fixme: ⚠️️ This is only relevant for iOS, so we could skip the geomreader for macos 👈
+    * - Fixme: ⚠️️⚠️️ maybe toggle on isDebug and not create the ZStack etc
     */
    public var body: some View {
+      ZStack {
+         splitViewContainer // Bellow debug container
+         debugContainer // Floats above navSplitView
+      }
+   }
+}
+/**
+ * Components
+ */
+extension SplitViewContainer {
+   /**
+    * splitViewContainer
+    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️⚠️️ maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
+    */
+   var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          if getDeviceOrientation().isLandscape { // macOS always reads as landscape
@@ -26,11 +43,6 @@ extension SplitViewContainer {
          }
       }
    }
-}
-/**
- * Components
- */
-extension SplitViewContainer{
    /**
     * Create navigationSplitView
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!
@@ -65,15 +77,12 @@ extension SplitViewContainer{
     * - Fixme: ⚠️️ Add more doc
     * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
     */
-   var debugContainer: some View {
-      DebugContainer(
-         splitConfig: .init(get: { splitConfig }, set: { _ in }), // nav-split-view config
-         sizeClass: .init(get: { sizeClass }, set: { _ in })
-      )
+   @ViewBuilder var debugContainer: some View {
+      if isDebug {
+         DebugContainer(
+            splitConfig: .init(get: { splitConfig }, set: { _ in }), // nav-split-view config
+            sizeClass: .init(get: { sizeClass }, set: { _ in })
+         )
+      } // else nothing
    }
 }
-            //.environment(\.horizontalSizeClass, sizeClass) // ⚠️️ Doesn't work if applied to navsplitview
-         // - Fixme: ⚠️️ We have to do param drilling after all, because we load views via interaction later, then the environment variable isnt reapplied. and the app crashes
-            //.environmentObject(splitConfig)// - Fixme: ⚠️️ Get rid of environmentObject soon, param drill instead
-            //            .environment(\.horizontalSizeClass, sizeClass) // ⚠️️ doesn't work if applied to navsplitview
-//            .environmentObject(splitConfig) // - Fixme: ⚠️️ get rid of environmentObject soon, param drill instead

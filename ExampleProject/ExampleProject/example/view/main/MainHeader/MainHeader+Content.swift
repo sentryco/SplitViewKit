@@ -20,6 +20,7 @@ extension MainHeader {
       // - Fixme: ⚠️️ could this cause an issue, is it needed?
       .frame(maxWidth: .infinity) // ⚠️️ forces the view to not shrink to text, but rather expand to its parent width
       .padding(.horizontal) // adds left and right padding
+      .padding(.vertical)
    }
 }
 /**

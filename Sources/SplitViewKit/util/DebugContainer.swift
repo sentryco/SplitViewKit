@@ -44,7 +44,7 @@ extension DebugContainer {
          // .padding(.vertical, 16) // Move a bit up from the bottom
 //         .background(Color.black.opacity(0.6))
       }
-      .padding(.vertical, 16) // Padding
+      //.padding(.vertical, 16) // Padding
    }
 }
 extension DebugContainer {

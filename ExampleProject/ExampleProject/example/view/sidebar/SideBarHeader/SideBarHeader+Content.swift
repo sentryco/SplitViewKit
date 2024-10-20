@@ -20,6 +20,7 @@ extension SideBarHeader {
          }
       }
       .padding(.horizontal) // Adds left and right padding
+      .padding(.vertical)
    }
 }
 /**

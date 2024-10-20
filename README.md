@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml)
+
 # SplitViewKit
 
 > Easily config multi-column apps (iPad and macOS)

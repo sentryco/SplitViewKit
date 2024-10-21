@@ -87,13 +87,27 @@ Add this to xcode or your SPM package file:
 
 ## References
 
-- [Stack Navigation on macOS](https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4)
-- [SwiftUI macOS Navigation Basics](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
+- Stack Navigation on macOS [https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4](https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4)
+- SwiftUI macOS Navigation Basics [https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
 - Comprehensive SplitNavigationView [https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/](https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/) 
 ## Todo: 
 - Add notes about why you should probably not fight splitview "schenanegence" too much. as apple has taken care of a lot of edge cases underthe hood, and if you start to customize too much, these edgecases will start to break etc
-- WWDC video on navigationsplitview: https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com
-- Very comprehensive custom split-view completely built from the ground up: https://github.com/stevengharris/SplitView
+- WWDC video on navigationsplitview: [https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com](https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com)
+- Very comprehensive custom split-view completely built from the ground up: [https://github.com/stevengharris/SplitView](https://github.com/stevengharris/SplitView)
+- Pretty gd: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
+
+## Resources:
+
+- SwiftUI Repaint View Components on Device Rotation [link](https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation)
+- NavigationSplitView Documentation [link](https://developer.apple.com/documentation/swiftui/navigationsplitview)
+- Different Forms of Navigation in SwiftUI [link](https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/)
+- Developer Forums Thread on Navigation Issues [link](https://forums.developer.apple.com/forums/thread/708721)
+- NavigationStack inside NavigationSplitView Detail in SwiftUI [link](https://stackoverflow.com/questions/77464914/navigationstack-inside-navigationsplitview-detail-in-swiftui)
+- SwiftUI macOS Navigation Basics [link](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
+- How to Detect Device Rotation in SwiftUI [link](https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation)
+- Stack Overflow Answer on Device Orientation [link](https://stackoverflow.com/a/78889492)
+- UIKit UIInterfaceOrientation Documentation [link](https://developer.apple.com/documentation/uikit/uiinterfaceorientation)
+- SwiftUI SplitView Compact Column Control [link](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 
 ## Compact mode demo:
 
@@ -101,27 +115,25 @@ Add this to xcode or your SPM package file:
 
 ## Todo:
 
-- Consider renaming package to `SplitContainerView` or `SplitViewWrapper`
-- Consider adding placeholder views when there is no selection etc (currently there is always a selection)
-- Add orientation debug label: "portrait", "landscape" to the bottom debugcontainer
+- Clean up the readme a bit 👈🔥
+- Add ability to pass columnwidths in the init 👈
+- Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc 
+- Add code example to readme 👈
+- Test to see if macOS works out of the box 👈
+- Test support for dark / lightmode (make different b/w gifs etc) 👈
+- Remove SplitViewKitTests Unit tests. from code and github actions 👈
+- Figure out how to avoid subduing the colors in compact mode 👈
+- When going to compact mode. Widths are not updated (currently orientation change only updates this) 👈
+- Look for an event that is called when we go into different compact / regular modes etc 👈
 - An option for 70% landscape mode could be to not use .all, and use .double instead
 - Add dependency overview to readme. we use HybridColor etc
-- Add better support for 2-coulmn working right out of the box. Or add notes on how to do it
-- Experiment with overflow working in detail column (maybe not, better to contain content)
-- Maybe add buttons that toggle different split-view modes? (explore how this should look first etc)
 - Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
-- Add code example to readme
-- Test support for dark / lightmode (make different b/w gifs etc) 
-- Add alert for settings items in the example code
-- Figure out how to avoid subduing the colors in compact mode
-- When going to compact mode. Widths are not updated (currently orientation change only updates this)
-- Look for an event that is called when we go into different compact / regular modes etc
-- Test to see if macOS works out of the box
-- improve doc with cursor 🏀
-- Add ability to pass columnwidths in the init 
-- Clean up the readme a bit
-- Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc
 - Look into using TupleView ? Research how it works etc
 - Add anim to hide / show of sidebar-visibility-button
-- Add resource section with all the links in the repo. ask cursor to collect all of the links 👈
-- Remove SplitViewKitTests Unit tests. from code and github actions 
+
+## Future improvements:
+
+- Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it
+- Consider experimenting with overflow working in detail column (maybe not, better to contain content)
+- Consider adding buttons that toggle different split-view modes? (explore how this should look first etc)
+- Consider improving the datamodel in the example project. Make it simpler

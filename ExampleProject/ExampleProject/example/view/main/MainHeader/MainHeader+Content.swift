@@ -4,7 +4,7 @@ import SwiftUI
  */
 extension MainHeader {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The main view of the header, which includes a toggle button for the sidebar and a title.
     */
    var body: some View {
       VStack {
@@ -28,8 +28,7 @@ extension MainHeader {
  */
 extension MainHeader {
    /**
-    * - Fixme: ⚠️️ We need to add
-    * - Fixme: ⚠️️ Add doc
+    * - Description: A button that toggles the visibility of the sidebar depending on the current size class.
     * - Note: We should show this if in compact mode, Show this only if toggle is true
     * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     */
@@ -42,11 +41,11 @@ extension MainHeader {
          }
       }
       .toggleButtonStyle
-      // Only show this if sidebar is hidden
-      .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // - Fixme: ⚠️️ could we just toggle the opacity on one button instead?
+      .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden
    }
    /**
     * Title text
+    * - Description: The title of the header, which is displayed prominently at the top of the view.
     */
    var titleText: some View {
       Text(title) // center
@@ -54,4 +53,3 @@ extension MainHeader {
          .padding(.vertical, 6)
    }
 }
-// splitConfig.preferredCompactColumn = .sidebar // set focused

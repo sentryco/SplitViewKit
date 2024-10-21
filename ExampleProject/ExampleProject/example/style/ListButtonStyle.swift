@@ -1,18 +1,21 @@
 import SwiftUI
 /**
+ * - Description: Applies the list button style to the view, enhancing the appearance of the list button.
  * - Fixme: ⚠️️ Remove animated effect when tapping main items, ask copilot etc
  */
 struct ListButtonStyle: ButtonStyle {
    /**
-    * bgColor
+    * The background color of the button.
+    * - Description: The background color of the button.
     */
    var bgColor: Color
    /**
-    * Toggle selected and unselected color with this etc
+    * The text color of the button.
+    * - Description: Toggle selected and unselected color with this etc
     */
    var textColor: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Applies the list button style to the view, enhancing the appearance of the list button.
     */
    func makeBody(configuration: Configuration) -> some View {
       HStack(spacing: 0) {
@@ -31,7 +34,9 @@ struct ListButtonStyle: ButtonStyle {
  */
 extension Button {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Applies the list button style to the button, enhancing the appearance based on selection state.
+    * - Parameter isSelected: A Boolean value that determines the opacity of the text color. If true, the opacity is set to 0.8, otherwise it is set to 0.5.
+    * - Returns: A view modified with the list button style.
     */
    func listButtonStyle(isSelected: Bool) -> some View {
       self.listButtonStyle(
@@ -40,7 +45,11 @@ extension Button {
       )
    }
    /**
-    * Convenient
+    * Applies the custom list button style to a button.
+    * - Parameters:
+    *   - bgColor: The background color of the button.
+    *   - textColor: The text color of the button.
+    * - Returns: A view representing the button styled with the specified background and text colors.
     */
    fileprivate func listButtonStyle(bgColor: Color, textColor: Color) -> some View {
       let style = ListButtonStyle(bgColor: bgColor, textColor: textColor)

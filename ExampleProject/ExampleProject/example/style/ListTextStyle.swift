@@ -4,21 +4,20 @@ import SwiftUI
  */
 struct ListTextStyle: ViewModifier {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The color of the list text.
     */
-   let color: Color // rename to textColor
+   let color: Color // Rename to textColor
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Applies the list text style to the view, enhancing the appearance of the list text.
     */
    func body(content: Content) -> some View {
       HStack {
          content
             .foregroundColor(color)
             .font(.system(size: 24, weight: .regular))
-//            .padding(.horizontal) // adds left and right padding
          Spacer()
       }
-      .padding(.horizontal) // adds left and right padding
+      .padding(.horizontal) // Adds left and right padding
    }
 }
 /**
@@ -26,7 +25,9 @@ struct ListTextStyle: ViewModifier {
  */
 extension View {
    /**
-    * listTextStyle
+    * Applies the list text style to the view, enhancing the appearance of the list text.
+    * - Parameter color: The color to apply to the list text.
+    * - Returns: A view modified with the list text style.
     */
    func listTextStyle(color: Color) -> some View {
       self.modifier(ListTextStyle(color: color))

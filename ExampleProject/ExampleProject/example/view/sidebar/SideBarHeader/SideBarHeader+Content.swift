@@ -5,7 +5,7 @@ import HybridColor
  */
 extension SideBarHeader {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: The header of the sidebar, which includes the title and a size class indicator.
     * - Fixme: ⚠️️ We should hide the toggle button if column is sidebar, and size is compact, etc. deal with it later
     */
    var body: some View {
@@ -28,7 +28,7 @@ extension SideBarHeader {
  */
 extension SideBarHeader {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: The title text of the sidebar header
     */
    var titleText: some View {
       Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
@@ -36,12 +36,12 @@ extension SideBarHeader {
          .padding(.vertical, 6)
    }
    /**
-    * Always show this
+    * - Description: The toggle button of the sidebar header
     */
    @ViewBuilder var toggleButton: some View {
       Button("Hide sidebar") {
-         if sizeClass == .regular { // if 3 column
-            splitConfig.columnVisibility = .doubleColumn // go to double column
+         if sizeClass == .regular { // If 3 column
+            splitConfig.columnVisibility = .doubleColumn // Go to double column
          } // else compact. switch to main
          splitConfig.preferredCompactColumn = .content
       }

@@ -1,10 +1,10 @@
 import SwiftUI
 /**
- * - Fixme: ⚠️️ add doc
+ * - Description: The list of items in the sidebar.
  */
 struct SideBarList: View {
    /**
-    *  - Fixme: ⚠️️ add doc
+    * - Description: The selected index of the sidebar item.
     */
    @Binding var selectedSideBarIndex: Int
 }

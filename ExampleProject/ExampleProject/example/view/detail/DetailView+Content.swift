@@ -6,23 +6,16 @@ import SplitViewKit
 extension DetailView {
    /**
     * Body
+    * - Fixme: ⚠️️ doc contentMargins, use copilot
+    * - Fixme: ⚠️️ contentMargins does not seem to have an effect on iPad, maybe macOS only?
     */
    public var body: some View {
-      // - Fixme: ⚠️️ move to own var. vstack?
-      vStack
-      // - Fixme: ⚠️️ doc this, use copilot
-      // - Fixme: ⚠️️ does not seem to have an effect on iPad, maybe macOS only?
+      vStack 
       .contentMargins(.vertical, .zero) // ⚠️️ Seems like this is key for the detail list only, or else we get a big gap at the top
-      // .cleanList()
       .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
-      // - Fixme: ⚠️️ doc this
-      // .scrollContentBackground(.hidden) // ⚠️️ debug
       .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
-      // - Fixme: ⚠️️ is this needed?
-      // .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
-      // #if os(iOS) // We hide this in splitview for iPad as well
       .toolbar(.hidden, for: .navigationBar) // Hides default navbar (⚠️️ seems like this is needed here aswell)
-      #if os(macOS) // #elseif
+      #if os(macOS) 
       .navigationBarBackButtonHidden(true) // Hide the back button text
       .ignoresSafeArea(.all)
       #endif
@@ -33,7 +26,7 @@ extension DetailView {
  */
 extension DetailView {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Provides a vertical stack layout for the detail view components.
     */
    var vStack: some View {
       VStack(spacing: .zero) {
@@ -44,7 +37,9 @@ extension DetailView {
    }
    /**
     * Detail header
-    * - Fixme: ⚠️️ add doc
+    * - Description: Creates a header for the detail view, which includes the title and manages layout responsiveness based on the current size class and split configuration.
+    * - Parameters:
+    *   - title: The text to be displayed in the header of the detail view.
     */
    func detailHeader(title: String) -> some View {
       DetailHeader(
@@ -56,8 +51,10 @@ extension DetailView {
    }
    /**
     * List
+    * - Description: Displays the list of detail data in the detail view.
     */
    var list: some View {
-      DetailList(detailData: detailData) // content is injected
+      DetailList(detailData: detailData)
    }
 }
+// .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer

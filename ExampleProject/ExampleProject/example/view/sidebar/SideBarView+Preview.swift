@@ -1,7 +1,7 @@
 import SwiftUI
 import HybridColor
 import SplitViewKit
-
+// SideBarView preview
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
    SideBarView(
       selectedSideBarIndex: .constant(0),

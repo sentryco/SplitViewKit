@@ -2,6 +2,7 @@ import SwiftUI
 import SplitViewKit
 /**
  * View that is the destination for main
+ * - Description: The detail view is the destination for the main view. It is responsible for displaying the detail data and managing the layout and responsiveness based on the current size class and split configuration.
  * - Fixme: ⚠️️ Experiment with nav-coordinator and wrapper etc from stack https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/
  * - Fixme: ⚠️️ Rename to DetailColumnView? or keep as is?
  * - Fixme: ⚠️️ Also store selected index? why?
@@ -10,24 +11,24 @@ import SplitViewKit
  * - Fixme: ⚠️️ Add preview 👈
  * - Fixme: ⚠️️⚠️️⚠️️ Make this internal 👈
  */
-public struct DetailView: View { // <Content: View>
+public struct DetailView: View {
    /**
     * - Note: It seems fine to keep this here
-    * - Fixme: ⚠️️ add doc regarding what it does etc
+    * - Description: This environment property allows the view to dismiss itself, typically used in modal presentations or when navigating back in a navigation stack.
     */
    #if os(iOS) 
    @Environment(\.dismiss) var dismiss: DismissAction
    #endif
    /**
-    * - Fixme: ⚠️️ add doc, use copilot
+    * - Description: This property stores the title of the detail view, which is displayed at the top of the view.
     */
    public var title: String
    /**
-    * - Fixme: ⚠️️ Add description, use copilot
+    * - Description: Stores the detailed data associated with a specific item selected from the main view. This data is used to populate the detail view's content.
     */
    let detailData: DetailData
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Configuration for managing the split view behavior in the detail view, affecting how the view adapts to different screen sizes and orientations.
     */
    var splitConfig: SplitConfig
    /**
@@ -41,13 +42,13 @@ public struct DetailView: View { // <Content: View>
  */
 extension DetailView {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: Initializes a `DetailView` instance using the provided sidebar and main item indices, along with configuration for split view and size class.
     * - Fixme: ⚠️️ Move somewhere else?
     * - Fixme: ⚠️️⚠️️⚠️️ rework this to regular init
     * - Parameters:
-    *   - sideBarItemIndex: - Fixme: ⚠️️ add doc via copilot
-    *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot
-    * - Returns: - Fixme: ⚠️️ add doc via copilot
+    *   - sideBarItemIndex: The index of the selected item in the sidebar, used to determine which main item list to display.
+    *   - mainItemIndex: The index of the selected item in the main list, used to fetch the detailed data for the detail view.
+    * - Returns: A `DetailView` configured with the data corresponding to the selected main item.
     */
    static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
       // - Fixme: ⚠️️ Use safeArray here, and return optional, add fileprivate helper?
@@ -59,26 +60,5 @@ extension DetailView {
          sizeClass: sizeClass
       )
       return detailView
-      // - Fixme: ⚠️️ remove the bellow, do param drilling instead
-         .environmentObject(splitConfig) // We have to reapply the environmentobject when we create new detailviews etc
    }
 }
-// { // (mainRowModel: mainRowModel) // detailView(mainRowModel: mainRowModel[i]) //                Text("it works: \(i)")
-// detail content
-// - Fixme: ⚠️️ move into a vstack ?
-//      }
-//,
-/*isDetailFullScreen: isDetailFullScreen*/
-/**
- * - Fixme: ⚠️️ Add doc, use copilot
- * - Fixme: ⚠️️ Rename title to headerTitle?
- * - Fixme: ⚠️️ add model content instead?
- * - Parameters:
- *   - title: title for header
- *   - content: Detail-list content (injected)
- */
-//   init(title: String, detailData: DetailData) { /*@ViewBuilder content: @escaping () -> Content*/
-//      self.title = title
-//      // self.content = content
-//      self.detailData = detailData
-//   }

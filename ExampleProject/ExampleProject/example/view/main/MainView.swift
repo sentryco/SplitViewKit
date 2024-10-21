@@ -1,32 +1,34 @@
 import SwiftUI
 import SplitViewKit
 /**
- * - Fixme: ⚠️️ Change name to to ..Credential...
- * - Fixme: ⚠️️ Add preview
- * - Fixme: ⚠️️⚠️️⚠️️ Rename to MainView? 👈 - Fixme: ⚠️️ rename to MainColumn? MainColumnView? or keep?
+ * - Description: MainView is the primary view component in the application, responsible for displaying the main content area including a list of items and detailed view based on user selection.
+ * - Note: Alternative names: `MainColumn` or `MainColumnView`
  */
 struct MainView: View {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The title of the MainView which is displayed as the header.
     */
    var title: String
    /**
-    * - Fixme: ⚠️️ Add doc, use copilot
+    * - Description: The index of the currently selected main item in the list.
+    * - Note: This index is used to manage the state of the selected item across different components of the application.
     */
-   @Binding var selectedMainIndex: Int // = 0
+   @Binding var selectedMainIndex: Int
    /**
-    * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ Rename to detailModels? or models or? or keep as is?
+    * - Description: Represents a collection of data models used in the MainView.
+    * - Note: This property holds all the items that can be selected in the main list.
+    * - Note: Alternative name: `mainModels` 
     */
    let items: DataModels
    /**
-    * - Fixme: ⚠️️ Add doc, use copilot
-    * - Fixme: ⚠️️ Rename to selectedDetailModel? or selectedModel or selectedMainItem?
+    * - Description: Represents the currently selected item in the MainView, allowing for detailed interaction and data presentation based on user selection.
+    * - Note: Alternative name: `selectedDetailModel`, `selectedModel` or `selectedMainItem`
     */
    @Binding var selectedItem: DataModel?
    /**
-    * - Fixme: ⚠️️ add doc
-    * - Fixme: ⚠️️ make this ObeervedObject later
+    * - Description: Used to configure the split view behavior in the MainView.
+    * - Note: This property allows for customization of the split view behavior, enabling or disabling the split view based on user interaction or application state.
+    * - Fixme: ⚠️️ make this ObservedObject later
     */
    var splitConfig: SplitConfig
    /**

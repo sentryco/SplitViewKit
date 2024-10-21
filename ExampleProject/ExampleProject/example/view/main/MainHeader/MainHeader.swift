@@ -1,17 +1,18 @@
 import SwiftUI
 import SplitViewKit
 /**
- * We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc
- * - Fixme: ⚠️️ main header should have back button maybe, if we cant get back to sidebar in compact mode etc? if so, we must hide show-side menu. so flip these etc
+ * - Description: A custom struct for the header of the main view.
+ * - Note: We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc
+ * - Fixme: ⚠️️ Main header should have back button maybe, if we cant get back to sidebar in compact mode etc? if so, we must hide show-side menu. so flip these etc
  */
 struct MainHeader: View {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The title of the MainHeader, which is displayed prominently at the top of the view.
     */
    let title: String
    /**
-    * - Fixme: ⚠️️ add doc
-    * - Fixme: ⚠️️ make this ObeervedObject later
+    * - Description: Configuration for the split view behavior in the header, affecting how the view adapts to different screen sizes and orientations.
+    * - Fixme: ⚠️️ Make this ObservedObject later
     */
    var splitConfig: SplitConfig
    /**
@@ -20,7 +21,7 @@ struct MainHeader: View {
     */
    @Binding var sizeClass: UserInterfaceSizeClass?
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Dismisses the current view, typically used to navigate back in the navigation stack.
     */
    @Environment(\.dismiss) internal var dismiss
 }

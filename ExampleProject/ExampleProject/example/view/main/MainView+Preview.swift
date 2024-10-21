@@ -1,22 +1,19 @@
 import SwiftUI
 import SplitViewKit
 /**
- * - Fixme: ⚠️️ add doc
+ * Preview for the main view
  */
 #Preview {
    let items: DataModels = DataModel.dataModel.getMainModels(
       sideBarItemIndex: 0,
-      splitConfig: SplitConfig() // ⚠️️ this will probably crash, maybe store as a state? in a debug container etc?
-      // isDetailFullScreen: .constant(false)
+      splitConfig: SplitConfig() // ⚠️️ This will probably crash, maybe store as a state? in a debug container etc?
    )
    return MainView(
       title: DataModel.dataModel[0].title,
-      selectedMainIndex: .constant(0), // - Fixme: ⚠️️ make this state?
+      selectedMainIndex: .constant(0), // - Fixme: ⚠️️ Make this state?
       items: items,
-      selectedItem: .constant(nil), // - Fixme: ⚠️️ make this state?
+      selectedItem: .constant(nil), // - Fixme: ⚠️️ Make this state?
       splitConfig: .init(),
       sizeClass: .constant(.regular)
    )
 }
-/* isSidebarShown: .constant(false), */
-// preferredCompactColumn: .constant(.content)

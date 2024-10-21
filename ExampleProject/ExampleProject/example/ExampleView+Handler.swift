@@ -3,7 +3,11 @@ import SplitViewKit
 
 extension ExampleView {
    /**
-    * When we change index, the selecteItem is set, when this state selectedMainItem changes, view are regenerated, Attach the on change code (I think this auto shows the last selected item etc, elaborate?)
+    * Handles changes in the sidebar selection.
+    * - Description: This function updates the `selectedMainItem` based on the current sidebar index. When `selectedMainItem` is updated, the views are regenerated to reflect the new selection. This mechanism ensures that the view automatically displays the last selected item when the sidebar changes.
+    * - Parameters:
+    *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
+    *   - sizeClass: The current size class of the user interface, which may affect layout decisions.
     */
    func handleSideBarChange(_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) {
       guard let sizeClass = sizeClass.wrappedValue else { print("⚠️️ error"); return }

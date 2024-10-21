@@ -5,7 +5,7 @@ import SwiftUI
 extension SideBarList {
    /**
     * List
-    * - Fixme: ⚠️️ move into own file etc?
+    * - Description: The list of items in the sidebar.
     */
    var body: some View {
       List {
@@ -19,9 +19,9 @@ extension SideBarList {
    }
    /**
     * List content
-    * - Fixme: ⚠️️ add doc
-    * - Fixme: ⚠️️ get model from init param instead?
-    * - Fixme: ⚠️️ use enumerated on the ForEach instead?
+    * - Description: The content of the list of items in the sidebar.
+    * - Fixme: ⚠️️ Get model from init param instead?
+    * - Fixme: ⚠️️ Use enumerated on the ForEach instead?
     */
    var sideBarListContent: some View {
       ForEach(0..<DataModel.dataModel.count, id: \.self) { (_ i: Int) in

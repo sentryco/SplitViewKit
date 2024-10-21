@@ -1,15 +1,15 @@
 import Foundation
 import SplitViewKit
 /**
- * - Fixme: ⚠️️ add doc
+ * Represents the model for the sidebar in the application, containing a title and associated main content.
  */
 struct SideBarModel {
    /**
-    * - Fixme: ⚠️️ add doc
+    * The title of the sidebar, used as a heading or label.
     */
    let title: String
    /**
-    * - Fixme: ⚠️️ add doc
+    * The main content of the sidebar, which holds the primary data displayed in the sidebar.
     */
    let content: MainData
 }
@@ -18,11 +18,11 @@ struct SideBarModel {
  */
 extension SideBarData {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Retrieves the main models for the sidebar.
     * - Parameters:
-    *   - sideBarItemIndex: - Fixme: ⚠️️ Add doc via copilot
-    *   - isDetailFullScreen: - Fixme: ⚠️️ Remove this somehow
-    * - Returns: - Fixme: ⚠️️ Add doc via copilot
+    *   - sideBarItemIndex: The index of the sidebar item to retrieve the main models for.
+    *   - splitConfig: The configuration for the split view.
+    * - Returns: An array of DataModel objects representing the main content of the sidebar.
     */
    func getMainModels(sideBarItemIndex: Int, splitConfig: SplitConfig) -> DataModels {
       self.enumerated().map { (_ offset: Int, _ element: Element) in
@@ -34,18 +34,17 @@ extension SideBarData {
       }
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * Retrieves a specific main model from the sidebar data based on the provided indices.
     * - Parameters:
-    *   - sideBarItemIndex: - Fixme: ⚠️️ add doc via copilot
-    *   - mainItemIndex: - Fixme: ⚠️️ add doc via copilot
-    *   - isDetailFullScreen: - Fixme: ⚠️️ remove this
-    * - Returns: - Fixme: ⚠️️ add doc via copilot
-    * - Fixme: ⚠️️ use safeArray here, and return optional, add fileprivate helper?
+    *   - sideBarItemIndex: The index of the sidebar item from which to retrieve the main model.
+    *   - mainItemIndex: The index of the main item within the sidebar item to retrieve.
+    *   - splitConfig: The configuration for the split view, affecting how the view adapts to different screen sizes and orientations.
+    * - Returns: An optional DataModel if indices are within the range, otherwise nil.
     */
    func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
       .init(
          text: self[sideBarItemIndex].content[mainItemIndex].title,
-         color: .clear // .red
+         color: .clear
       )
    }
 }
@@ -56,16 +55,17 @@ extension DataModel {
    /**
     * Model structure
     * - Note: Sorted dictionary based on array of tuples
-    * - Fixme: ⚠️️ Add more
-    * - Fixme: ⚠️️ Use structs here
+    * - Description: Represents a static dictionary that maps sidebar titles to their respective content models, facilitating easy access and management of sidebar data.
+    * - Fixme: ⚠️️ Use structs here?
     * - Fixme: ⚠️️ Also maybe add more interesting content to detail?
     */
    static let dataModel: SideBarData = [accounts, settings]
    /**
     * Accounts
+    * - Description: Represents the "Accounts" section in the sidebar, containing individual account information.
     */
    static fileprivate let accounts: SideBarModel = {
-      SideBarModel(title: "Accounts", content: [// sidebar-item
+      SideBarModel(title: "Accounts", content: [ // sidebar-item
          MainModel(
             title: "Account one", // main-item
             content: [
@@ -77,10 +77,12 @@ extension DataModel {
             content: [
                "User B"
             ]
-         )                                     ])
+         )
+      ])
    }()
    /**
     * Settings
+    * - Description: Represents the "Settings" section in the sidebar, containing settings information.
     */
    static fileprivate let settings: SideBarModel = {
       SideBarModel(title: "Settings", content: [
@@ -105,7 +107,7 @@ extension DataModel {
 }
 /**
  * - Note: We keep these in the MainModel scope
- * - Fixme: ⚠️️ add doc
+ * - Description: This typealias represents an array of `SideBarModel` used to structure the sidebar data in the application.
  * - Fixme: ⚠️️ rename to ...array
  */
 typealias SideBarData = [SideBarModel]

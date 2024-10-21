@@ -5,7 +5,7 @@ import HybridColor
  */
 struct TitleTextStyle: ViewModifier {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Applies the title text style to the view, enhancing the appearance of the title text.
     */
    func body(content: Content) -> some View {
       content
@@ -18,9 +18,10 @@ struct TitleTextStyle: ViewModifier {
  */
 extension View {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: Applies the title text style to the view, enhancing the appearance of the title text.
     */
    var titleTextStyle: some View {
-      self.modifier(TitleTextStyle())
+      let style = TitleTextStyle()
+      return self.modifier(style)
    }
 }

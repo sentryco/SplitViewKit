@@ -1,11 +1,11 @@
 import SwiftUI
 import SplitViewKit
 /**
- * - Fixme: ⚠️️ Add doc
+ * - Description: The sidebar view, which includes the header and the list of items.
  */
 public struct SideBarView: View {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Description: The selected index of the sidebar item.
     */
    @Binding var selectedSideBarIndex: Int
    /**
@@ -14,7 +14,7 @@ public struct SideBarView: View {
     */
    @Binding var sizeClass: UserInterfaceSizeClass?
    /**
-    *  - Fixme: ⚠️️ add doc
+    * - Description: The split configuration of the sidebar.
     */
    var splitConfig: SplitConfig
 }

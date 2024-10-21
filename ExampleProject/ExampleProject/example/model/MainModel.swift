@@ -1,19 +1,19 @@
 import Foundation
 /**
- * - Fixme: ⚠️️ Add doc
+ * - Description: Represents a main model, which is a container for a title and detailed content.
  */
 struct MainModel {
    /**
-    * - Fixme: ⚠️️ Add doc
+    * The title of the main model, used as a heading or label.
     */
    let title: String
    /**
-    * - Fixme: ⚠️️ Add doc
+    * The detailed content of the main model, which holds the primary data displayed.
     */
    let content: DetailData
 }
 /**
- * - Fixme: ⚠️️ Add doc
+ * - Description: Represents an array of `MainModel`, used to structure the main data in the application.
  * - Fixme: ⚠️️ Rename to ...array
  */
 typealias MainData = [MainModel]

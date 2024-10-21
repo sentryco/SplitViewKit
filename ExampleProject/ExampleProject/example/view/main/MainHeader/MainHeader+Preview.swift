@@ -4,11 +4,9 @@ import HybridColor
 #Preview {
    MainHeader(
       title: "Accounts",
-      splitConfig: .init(),// .constant()
+      splitConfig: .init(),
       sizeClass: .constant(.regular)
    )
-   .background(Color.blackOrWhite/**/.opacity(1))
+   .background(Color.blackOrWhite.opacity(1))
    .environment(\.colorScheme, .dark) // dark
 }
-/*isSideBarShown: .constant(false),*/
-/*preferredCompactColumn: .constant(.content)*/

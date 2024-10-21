@@ -2,7 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * Content
- * - Fixme: ⚠️️ Add preview
+ * - Description: The content of the main view
  */
 extension MainView {
    /**
@@ -18,7 +18,7 @@ extension MainView {
 extension MainView {
    /**
     * Header
-    * - Fixme: ⚠️️ add doc
+    * - Description: The header of the main view
     */
    var header: some View {
       MainHeader(
@@ -30,21 +30,21 @@ extension MainView {
    }
    /**
     * vStack
-    * - Fixme: ⚠️️ add doc
+    * - Description: The main stack of the main view
     */
    var vStack: some View {
       VStack(spacing: .zero) {
          header
          mainList
-         Spacer() // pins the stack to the top
+         Spacer() // Pins the stack to the top
       }
-      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
+      .contentMargins(.horizontal, .zero) // Sets the horizontal margins of the content to zero, effectively aligning the content flush with the horizontal edges of its container.
       .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
 
    }
    /**
     * mainList
-    * - Fixme: ⚠️️ add doc
+    * - Description: The list of items in the main view
     */
    var mainList: some View {
       MainList(

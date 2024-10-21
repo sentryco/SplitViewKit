@@ -4,7 +4,7 @@ import SwiftUI
  */
 extension DetailList {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: This extension provides the layout and behavior for the list of details in the `DetailList` view.
     */
    var body: some View {
       VStack(spacing: .zero) {

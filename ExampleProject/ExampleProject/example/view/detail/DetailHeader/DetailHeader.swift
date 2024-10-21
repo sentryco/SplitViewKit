@@ -2,17 +2,19 @@ import SwiftUI
 import SplitViewKit
 /**
  * We use custom struct for header. we don't reuse across columns because each header has different toggle buttons etc
+ * - Description: This struct represents the header view for the detail view in the application. It includes a title, manages the split view configuration, and adapts to different size classes. The header also provides a dismiss action to navigate back.
  * - Fixme: ⚠️️ add a fullscreen toggle here. basically setting preferredCompactColumn to detail, and
- * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ add preview
  */
 struct DetailHeader: View {
    /**
-    * - Fixme: ⚠️️ add doc
+    * The title displayed in the header of the detail view.
+    * - Description: The title of the detail view, which is displayed in the header.
     */
    let title: String
    /**
-    * - Fixme: ⚠️️ add doc
+    * Configuration for managing the split view behavior in the header view, affecting how the view adapts to different screen sizes and orientations.
+    * - Description: The configuration for managing the split view behavior in the header view, affecting how the view adapts to different screen sizes and orientations.
     */
    var splitConfig: SplitConfig
    /**
@@ -21,8 +23,7 @@ struct DetailHeader: View {
     */
    @Binding var sizeClass: UserInterfaceSizeClass?
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The environment dismiss action to navigate back to the previous view.
     */
    @Environment(\.dismiss) internal var dismiss
 }
-/*@Binding */

@@ -13,11 +13,7 @@ import SwiftUI
  * - Note: We also might change the splitview contraption later, but not the content it consumes etc, so seperation is useful
  * - Note: We use `NavSplitView` over `HSplitView`, because we also Use navSplitview in the ipad, so we can get synergies etc
  * - Note: This has auto-hide when size gets small enough for sidebar
- * - Note: Lots of useful code for mac navigation: https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4
- * - Note: more navigation and splitview code: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
- * - Note: Comprehensive doc on navsplitview: https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/
- * - Note: Pretty gd: https://www.appcoda.com/navigationsplitview-swiftui/
- * - Note: Alternative names for this: `SplitContainerView`? or `SplitViewWrapper`?
+ * - Note: Alternative names for this: `SplitContainerView`? or `SplitViewWrapper`? 
  * Mindset:
  *  small (iPhone, iPad window): [primary w/ tagbar] -> [detail]
  *  medium (iPad portrait): [Compact-SideBar, primary, Detail] (here we might need to just have a reveal btn that shows sidebar etc)

@@ -2,6 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * content
+ * - Description: The main content of the sidebar, which includes the header and the list of items.
  */
 extension SideBarView {
    /**
@@ -28,8 +29,9 @@ extension SideBarView {
 extension SideBarView {
    /**
     * Header
+    * - Description: The header of the sidebar, which includes the title and a size class indicator.
     * - Note: headers are pushed down slightly because of native safe-frame etc
-    * - Fixme: ⚠️️ add more info about safe-area and how it affects header content etc
+    * - Fixme: ⚠️️ Add more info about safe-area and how it affects header content etc
     */
    var sideBarHeader: some View {
       SideBarHeader(
@@ -40,7 +42,7 @@ extension SideBarView {
       .background(isTest ? .green.opacity(0.5) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The list of items in the sidebar.
     */
    var list: some View {
       SideBarList(

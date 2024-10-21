@@ -67,7 +67,7 @@ Add this to xcode or your SPM package file:
 - In SplitView, when in Portrait it can either occupy 40% of 60% of the screen
 - In Landscape it can occupy 30%, 50%, and 70% of the screen
 - There are some bugs in `NavigationSplitView` [https://forums.developer.apple.com/forums/thread/708721](https://forums.developer.apple.com/forums/thread/708721) 
-
+- Using `NavigationSplitView` is highly recommended over building your own SplitView with HStack etc. As a lot of features come toll free with `NavigationSplitView` 
  
 ## References
 
@@ -76,8 +76,6 @@ Here are some general tutorials and articles on how to use `NavigationSplitView`
 - Stack Navigation on macOS [https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4](https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4)
 - SwiftUI macOS Navigation Basics [https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
 - Comprehensive SplitNavigationView [https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/](https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/) 
-## Todo: 
-- Add notes about why you should probably not fight splitview "schenanegence" too much. as apple has taken care of a lot of edge cases underthe hood, and if you start to customize too much, these edgecases will start to break etc
 - WWDC video on navigationsplitview: [https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com](https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com)
 - Very comprehensive custom split-view completely built from the ground up: [https://github.com/stevengharris/SplitView](https://github.com/stevengharris/SplitView)
 - Pretty gd: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)

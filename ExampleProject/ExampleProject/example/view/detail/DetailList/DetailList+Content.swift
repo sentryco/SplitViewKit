@@ -32,7 +32,10 @@ extension DetailList {
       }
       .sheet(isPresented: $isSheetPresented) {
          // Content of the sheet goes here
-         Text("Sheet for \(title)")
+         Button("Dismiss") {
+            isSheetPresented.toggle()
+         }
+         .toggleButtonStyle
       }
    }
 }

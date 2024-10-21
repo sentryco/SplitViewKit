@@ -30,18 +30,21 @@ extension MainHeader {
    /**
     * - Description: A button that toggles the visibility of the sidebar depending on the current size class.
     * - Note: We should show this if in compact mode, Show this only if toggle is true
-    * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
+    * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
+    * - Fixme: ⚠️️ Try to move anim and opacity into the button style
     */
    @ViewBuilder var toggleButton: some View {
-      Button("Show sidebar") { // Action for the button
+      Button(action: { // Show sidebar
          if sizeClass == .regular {
             splitConfig.columnVisibility = .all // shows all 3 columns
          } else { // if compact
             dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
          }
-      }
-      .toggleButtonStyle
+      }) {}
+         .iconButtonStyle(iconName: "square.righthalf.fill")
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden
+      // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
+      .animation(.easeInOut(duration: 0.3), value: splitConfig.isShowingSideBar(sizeClass: sizeClass))
    }
    /**
     * Title text

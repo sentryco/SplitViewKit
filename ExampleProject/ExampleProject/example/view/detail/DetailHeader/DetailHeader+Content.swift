@@ -41,18 +41,20 @@ extension DetailHeader {
     * - Description: Toggles the detail view between full-screen and regular mode.
     * - Note: detailfullscreen btn is here to show how we can go fullscreen with detail
     * - Note: It's a niche usecase. Not needed for most uses.
-    * - Fixme: ⚠️️ Remove animation for this button, it looks buggy. Use copilot etc
+    * - Fixme: ⚠️️ Remove default animation for this button, it looks buggy. Use copilot etc
+    * - Fixme: ⚠️️ Find minimize icon
     */
    var fullScreenToggleButton: some View {
-      let buttonTitleStr: String = splitConfig.isDetailFullScreen ? "Hide fullscreen" : "Show full-screen"
-      return Button(buttonTitleStr) {
+      let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right"
+      return Button(action: { // Hide / Show fullscreen
          // This line toggles the visibility of columns based on whether the detail view is currently in full-screen mode.
          // If in full-screen mode, it shows all columns; otherwise, it shows only the detail column.
          splitConfig.columnVisibility = splitConfig.isDetailFullScreen ? .all : .detailOnly
-      }
-      .toggleButtonStyle
-      // Only show if regular sized
-      .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+      }) {}
+         .iconButtonStyle(iconName: iconName)
+         .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+         // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
+         .animation(.easeInOut(duration: 0.3), value: sizeClass == .regular)
    }
    /**
     * Back button
@@ -60,10 +62,12 @@ extension DetailHeader {
     * - Note: Custom back-btn for detail-view, hide default back-btn etc... custom back-btn for detail when in compact mode
     */
    var backButton: some View {
-      return Button("Back") {
+      Button(action: {
          dismiss()
-      }
+      }) {}
+         .iconButtonStyle(iconName: "chevron.left")
       // Only show if in compact mode
       .opacity(sizeClass == .compact ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+      .animation(.easeInOut(duration: 0.3), value: sizeClass == .compact)
    }
 }

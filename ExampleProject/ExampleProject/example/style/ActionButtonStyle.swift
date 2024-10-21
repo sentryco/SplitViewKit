@@ -19,6 +19,7 @@ struct ActionButtonStyle: ButtonStyle {
 extension Button {
    /**
     * - Description: Applies the action button style to the button, enhancing the appearance of the action button.
+    * - Fixme: ⚠️️ rename to action....
     */
    var toggleButtonStyle: some View {
       let style = ActionButtonStyle()
@@ -33,5 +34,5 @@ extension Button {
         // Action for the button
         print("hello")
     }
-    .buttonStyle(ActionButtonStyle())
+    .toggleButtonStyle
 }

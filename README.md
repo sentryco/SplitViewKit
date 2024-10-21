@@ -85,6 +85,12 @@ Add this to xcode or your SPM package file:
 - `.doubleColumn` – Show the content column and detail area of a three-column navigation split view.
 - `.detailOnly` – Hide the leading two columns of a three-column split view. In other words, only the detail area shows.
 
+## NavigationSplitViewStyle
+
+- **Automatic**: This is the default setting, providing a context-specific style.
+- **Balanced**: This style reduces the size of the detail view to accommodate the leading columns side-by-side.
+- **Prominent Detail**: This style maintains the size of the detail view, with the leading columns overlayed on top of it.
+
 ## References
 
 - Stack Navigation on macOS [https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4](https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4)
@@ -98,16 +104,17 @@ Add this to xcode or your SPM package file:
 
 ## Resources:
 
-- SwiftUI Repaint View Components on Device Rotation [link](https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation)
-- NavigationSplitView Documentation [link](https://developer.apple.com/documentation/swiftui/navigationsplitview)
-- Different Forms of Navigation in SwiftUI [link](https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/)
-- Developer Forums Thread on Navigation Issues [link](https://forums.developer.apple.com/forums/thread/708721)
-- NavigationStack inside NavigationSplitView Detail in SwiftUI [link](https://stackoverflow.com/questions/77464914/navigationstack-inside-navigationsplitview-detail-in-swiftui)
-- SwiftUI macOS Navigation Basics [link](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
-- How to Detect Device Rotation in SwiftUI [link](https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation)
-- Stack Overflow Answer on Device Orientation [link](https://stackoverflow.com/a/78889492)
-- UIKit UIInterfaceOrientation Documentation [link](https://developer.apple.com/documentation/uikit/uiinterfaceorientation)
-- SwiftUI SplitView Compact Column Control [link](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
+- SwiftUI Repaint View Components on Device Rotation [https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation](https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation)
+- NavigationSplitView Documentation [https://developer.apple.com/documentation/swiftui/navigationsplitview](https://developer.apple.com/documentation/swiftui/navigationsplitview)
+- Different Forms of Navigation in SwiftUI [https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/](https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/)
+- Developer Forums Thread on Navigation Issues [https://forums.developer.apple.com/forums/thread/708721](https://forums.developer.apple.com/forums/thread/708721)
+- NavigationStack inside NavigationSplitView Detail in SwiftUI [https://stackoverflow.com/questions/77464914/navigationstack-inside-navigationsplitview-detail-in-swiftui](https://stackoverflow.com/questions/77464914/navigationstack-inside-navigationsplitview-detail-in-swiftui)
+- SwiftUI macOS Navigation Basics [https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
+- How to Detect Device Rotation in SwiftUI [https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation](https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation)
+- Stack Overflow Answer on Device Orientation [https://stackoverflow.com/a/78889492](https://stackoverflow.com/a/78889492)
+- UIKit UIInterfaceOrientation Documentation [https://developer.apple.com/documentation/uikit/uiinterfaceorientation](https://developer.apple.com/documentation/uikit/uiinterfaceorientation)
+- SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
+- SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
 ## Compact mode demo:
 
@@ -115,7 +122,6 @@ Add this to xcode or your SPM package file:
 
 ## Todo:
 
-- Add icon based buttons for sidebar, back and fullscreen 👈🏀
 - Add anim to hide / show of sidebar-visibility-button 👈
 - Clean up the readme a bit 
 - Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc )

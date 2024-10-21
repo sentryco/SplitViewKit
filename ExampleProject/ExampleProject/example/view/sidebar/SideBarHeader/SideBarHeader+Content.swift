@@ -37,15 +37,16 @@ extension SideBarHeader {
    }
    /**
     * - Description: The toggle button of the sidebar header
+    * - Note: We always show this button. We never hide it
     */
    @ViewBuilder var toggleButton: some View {
-      Button("Hide sidebar") {
+      Button(action: { // Hide sidebar
          if sizeClass == .regular { // If 3 column
             splitConfig.columnVisibility = .doubleColumn // Go to double column
          } // else compact. switch to main
          splitConfig.preferredCompactColumn = .content
-      }
-      .toggleButtonStyle
+      }) {}
+         .iconButtonStyle(iconName: "square.lefthalf.fill")
    }
 }
 

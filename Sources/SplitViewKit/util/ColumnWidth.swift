@@ -42,9 +42,9 @@ extension ColumnWidth {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   static func sideBarColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/
+   static func sideBarColumn(isLandScape: Bool = isLandscape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/ /*getDeviceOrientation().*/
       let isNarrow: Bool = isNarrow(
-         deviceOrientation: deviceOrientation,
+         isLandscape: isLandscape,
          winWidth: winWidth
       )
       return .init(
@@ -60,9 +60,9 @@ extension ColumnWidth {
     *   - winWidth: The width of the window.
     * - Returns: A `ColumnWidth` instance with the ideal width set based on whether the device is in narrow mode. The minimum and maximum widths are not set (nil).
     */
-   static func mainColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? {
+   static func mainColumn(isLandScape: Bool = isLandscape, winWidth: CGFloat) -> ColumnWidth? { /*getDeviceOrientation().*/
       let isNarrow: Bool = isNarrow(
-         deviceOrientation: deviceOrientation,
+         isLandscape: isLandscape,
          winWidth: winWidth
       )
       return .init(
@@ -78,7 +78,7 @@ extension ColumnWidth {
     *   - winWidth: The width of the window.
     * - Returns: A `ColumnWidth` instance with the ideal width set to 500. The minimum and maximum widths are not set (nil).
     */
-   static func detailColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */
+   static func detailColumn(isLandScape: Bool = /*getDeviceOrientation().*/isLandscape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */
       .init(
          min: nil, //deviceOrientation.isLandscape ? 500 : 400,
          ideal: 500,

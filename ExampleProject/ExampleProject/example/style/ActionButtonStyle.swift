@@ -21,7 +21,8 @@ extension Button {
     * - Description: Applies the action button style to the button, enhancing the appearance of the action button.
     */
    var toggleButtonStyle: some View {
-      self.buttonStyle(ActionButtonStyle())
+      let style = ActionButtonStyle()
+      return self.buttonStyle(style)
    }
 }
 /**

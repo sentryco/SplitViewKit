@@ -48,13 +48,4 @@ extension SideBarHeader {
       .toggleButtonStyle
    }
 }
-// - Fixme: ⚠️️ add IconButtonStyle which should be a button style
-// use apple system icon: left_arrow
-// have rounded corners 4px
-// have a background color that is darkGray / lightGray
-// have a fill color for icon that is white / black .opacity(0.6)
-// icon should be 16px w/h
-// icon should have 4px padding all arround
-// the icon should be settable from extension iconButtonStyle(iconName: "")
-// make one for left arrow, right arrow, full_screen, back_chevron_icon,
-// make it animate transperancy on showing / hiding
+

@@ -43,8 +43,8 @@ extension SideBarData {
     */
    func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
       .init(
-         text: self[sideBarItemIndex].content[mainItemIndex].title,
-         color: .clear
+         text: self[sideBarItemIndex].content[mainItemIndex].title//,
+//         color: .clear
       )
    }
 }

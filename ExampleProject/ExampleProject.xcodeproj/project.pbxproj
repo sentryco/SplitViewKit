@@ -46,6 +46,7 @@
 		F1E583822CC4294100A59A2B /* SideBarList+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583812CC4294100A59A2B /* SideBarList+Content.swift */; };
 		F1E583852CC42DED00A59A2B /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583842CC42DED00A59A2B /* DetailList.swift */; };
 		F1E583872CC430E800A59A2B /* DetailList+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583862CC430E800A59A2B /* DetailList+Content.swift */; };
+		F1E9FE442CC6EE4A003C64D7 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FE432CC6EE4A003C64D7 /* IconButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		F1E583812CC4294100A59A2B /* SideBarList+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarList+Content.swift"; sourceTree = "<group>"; };
 		F1E583842CC42DED00A59A2B /* DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailList.swift; sourceTree = "<group>"; };
 		F1E583862CC430E800A59A2B /* DetailList+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailList+Content.swift"; sourceTree = "<group>"; };
+		F1E9FE432CC6EE4A003C64D7 /* IconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				F13FE4D42CC478540039CC7B /* ListTextStyle.swift */,
 				F1E583752CC41DCD00A59A2B /* ActionButtonStyle.swift */,
 				F1E583772CC4215000A59A2B /* TitleTextStyle.swift */,
+				F1E9FE432CC6EE4A003C64D7 /* IconButtonStyle.swift */,
 			);
 			path = style;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				F1E5836C2CC416E800A59A2B /* SideBarHeader+Preview.swift in Sources */,
 				F13FE4D52CC478540039CC7B /* ListTextStyle.swift in Sources */,
 				F1E583702CC416E800A59A2B /* ExampleView.swift in Sources */,
+				F1E9FE442CC6EE4A003C64D7 /* IconButtonStyle.swift in Sources */,
 				F1E5836E2CC416E800A59A2B /* SideBarView+Content.swift in Sources */,
 				F1E583622CC416E800A59A2B /* MainHeader.swift in Sources */,
 				F1E5837B2CC4240200A59A2B /* MainList.swift in Sources */,

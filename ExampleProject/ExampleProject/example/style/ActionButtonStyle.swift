@@ -2,7 +2,6 @@ import SwiftUI
 /**
  * Creates a ToggleButonStyle for Button
  * - Description: The button should have rounded corners, have white text, and dark gray background,  it should have a little bit more padding horisontally than vertically. also make a preview
- * - Fixme: ⚠️️ Turn the above into doc, use copilot
  */
 struct ActionButtonStyle: ButtonStyle {
    /**

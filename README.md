@@ -116,7 +116,6 @@ Add this to xcode or your SPM package file:
 ## Todo:
 
 - Clean up the readme a bit 👈🔥
-- Add ability to pass columnwidths in the init 👈
 - Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc 
 - Add code example to readme 👈
 - Test to see if macOS works out of the box 👈
@@ -125,6 +124,7 @@ Add this to xcode or your SPM package file:
 - Figure out how to avoid subduing the colors in compact mode 👈
 - When going to compact mode. Widths are not updated (currently orientation change only updates this) 👈
 - Look for an event that is called when we go into different compact / regular modes etc 👈
+- Add icon based buttons for sidebar, back and fullscreen 👈
 - An option for 70% landscape mode could be to not use .all, and use .double instead
 - Add dependency overview to readme. we use HybridColor etc
 - Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping

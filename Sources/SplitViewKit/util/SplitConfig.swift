@@ -59,4 +59,11 @@ extension SplitConfig {
    public var isDetailFullScreen: Bool {
       columnVisibility == .detailOnly
    }
+   /**
+    * Convenient rebinder
+    * - Fixme: ⚠️️ Add description
+    */
+   internal var reBind: Binding<SplitConfig> {
+      .init(get: { self }, set: { _ in })
+   }
 }

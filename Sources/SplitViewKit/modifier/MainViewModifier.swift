@@ -9,6 +9,8 @@ fileprivate struct MainViewModifier: ViewModifier {
     * - Description: The width of the window. This value is used to calculate the width of the main column in the split view.
     */
    let winWidth: CGFloat
+   // - Fixme: ⚠️️ add doc
+   let columnWidth: /*any*/ ColumnWidthKind
    /**
     * Body
     */
@@ -21,7 +23,7 @@ fileprivate struct MainViewModifier: ViewModifier {
          .ignoresSafeArea(.all) // Ignores all safe areas
          #endif
       // - Fixme: ⚠️️ remove the optionality bellow
-      if let columnWidth = ColumnWidth.mainColumn(winWidth: winWidth) {
+      if let columnWidth = columnWidth.mainColumn(winWidth: winWidth) {
          view
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
                min: columnWidth.min,  // Sets the minimum width of the navigation split view column
@@ -29,7 +31,7 @@ fileprivate struct MainViewModifier: ViewModifier {
                max: columnWidth.max // Sets the maximum width of the navigation split view column
             )  
       } else {
-         view
+         view // If there is no columnwidth, we use native default column widths etc
       }
    }
 }
@@ -42,8 +44,8 @@ extension View {
     * - Parameter winWidth: The width of the window.
     * - Returns: A View with the main view modifier applied.
     */
-   internal func mainViewModifier(winWidth: CGFloat) -> some View {
-      let modifier = MainViewModifier(winWidth: winWidth)
+   internal func mainViewModifier(winWidth: CGFloat, columnWidth: any ColumnWidthKind) -> some View {
+      let modifier = MainViewModifier(winWidth: winWidth, columnWidth: columnWidth)
       return self.modifier(modifier)
    }
 }

@@ -18,6 +18,7 @@ struct DebugContainer: View {
     * - Description: A binding to the SplitConfig object, which holds the configuration state for the SplitView.
     * - Note: This binding allows the DebugContainer to access and display the current configuration of the SplitView.
     * - Fixme: ⚠️️ make this ObservedObject instead? etc that would avoid rebinding etc
+    * - Fixme: ⚠️️ why does this need to be binding and not other places?, test without binding?
     */
    @Binding var splitConfig: SplitConfig
    /**
@@ -122,7 +123,7 @@ extension DebugContainer {
 }
 /**
  * Debug view
- * pin the preiew to test this only etc
+ * - Description: Pin the preiew to test this only etc
  * - Fixme: ⚠️️ add darkmode and previewcontainer etc
  * - Fixme: ⚠️️ test at smaller sizes as well
  */

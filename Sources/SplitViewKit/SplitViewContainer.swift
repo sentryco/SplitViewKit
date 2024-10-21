@@ -44,8 +44,13 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    /**
     * State object for managing the configuration of the split view.
     * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
+    * - Fixme: ⚠️️ could we make this optional?
     */
    @StateObject internal var splitConfig: SplitConfig = .init()
+   /**
+    * - Fixme: ⚠️️ add description
+    */
+   let columnWidth: ColumnWidthKind
    /**
     * Indicates whether the split view container should display debugging information.
     * - Description: When set to `true`, the split view container will show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
@@ -54,8 +59,9 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.
-    * - Fixme: ⚠️️ Add ability set columnVisibility in the init? as a param?
-    * - Fixme: ⚠️️ Add ability set preferredCompactColumn in the init? as a param?
+    * - Fixme: ⚠️️ Add ability set columnVisibility in the init? as a param? 👈
+    * - Fixme: ⚠️️ Add ability set preferredCompactColumn in the init? as a param? 👈
+    * - Fixme: ⚠️️ just add splitview as init param 👈 🏀
     * - Parameters:
     *   - sideBar: menuColumn content closure (left)
     *   - content: mainColumn content closure (center)
@@ -65,10 +71,12 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
                detail: @escaping DetailAlias,
+               columnWidth: ColumnWidthKind = DefaultColumnWidth(),
                isDebug: Bool = false) {
       self.sideBar = sideBar
       self.content = content
       self.detail = detail
+      self.columnWidth = columnWidth
       self.isDebug = isDebug
    }
 }

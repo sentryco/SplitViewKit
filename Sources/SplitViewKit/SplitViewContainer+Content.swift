@@ -50,6 +50,7 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
     * - Fixme: ⚠️️ try to get rid of the forced unwrap
     * - Fixme: ⚠️️ try to figure out a better way to use sizeClass with out rebinding it etc
+    * - Fixme: ⚠️️ we might need to wrap detail in `NavigationStack` in some cases where presenting became an issue. or not. if not. remove this fixme
     * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
     * - Note: We got rid of environmentObject and now do param drill instead, param-drill the sizeClass and splitConfig, environment variables is confusing if its not passed correctly, it can jump to compact in the wrong scope where it should be regular etc, and doesnt attach if views are replaced, like detailview etc 
     * - Parameter winWidth: window width (from geomtry-reader)
@@ -60,18 +61,16 @@ extension SplitViewContainer {
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, .init(get: { sizeClass }, set: { _ in }))
-            .sideBarViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
+         sideBar(splitConfig, sizeClass.reBind)
+            .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } content: {
-         content(splitConfig, .init(get: { sizeClass }, set: { _ in }))
-            .mainViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-      } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc
-         // NavigationStack { // ⚠️️ Seem to fix things a little, but is presenting is the issue, figure it out
-         detail(splitConfig, .init(get: { sizeClass }, set: { _ in })) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
-            .detailViewModifier(winWidth: winWidth) // - Fixme: ⚠️️ Doc this line, use copilot
-         // }
+         content(splitConfig, sizeClass.reBind)
+            .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
+      } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc (this caution might not be relevant anymore)
+         detail(splitConfig, sizeClass.reBind) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+            .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
-      .navigationSplitViewStyle(.balanced) // .automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
+      .navigationSplitViewStyle(.balanced) // `.automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column
@@ -81,8 +80,8 @@ extension SplitViewContainer {
    @ViewBuilder var debugContainer: some View {
       if isDebug {
          DebugContainer(
-            splitConfig: .init(get: { splitConfig }, set: { _ in }), // nav-split-view config
-            sizeClass: .init(get: { sizeClass }, set: { _ in })
+            splitConfig: splitConfig.reBind, // nav-split-view config
+            sizeClass: sizeClass.reBind
          )
       } // else nothing
    }

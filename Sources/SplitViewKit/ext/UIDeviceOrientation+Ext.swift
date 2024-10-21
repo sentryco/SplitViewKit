@@ -1,6 +1,9 @@
 import SwiftUI
-// - Fixme: ⚠️️ add doc
-// macOS always reads as landscape
+/**
+ * Determines if the device is in a landscape orientation.
+ * - Returns: A Boolean value indicating whether the device orientation is landscape.
+ * - Note: On macOS, it always returns true as macOS windows are typically considered landscape.
+ */
 internal var isLandscape: Bool {
    #if os(macOS)
    true
@@ -10,15 +13,13 @@ internal var isLandscape: Bool {
 }
 #if os(iOS)
 /**
+ * - Description: Retrieves the current orientation of the device using UIDevice.current.orientation and validates it against the interface orientation from the window scene.
  * - Note: because using: UIApplication.shared.statusBarOrientation.isLandscape results in this message: 'statusBarOrientation' was deprecated in iOS 13.0: Use the interfaceOrientation property of the window scene instead.
  * - Note: Some notes on this: https://stackoverflow.com/questions/65573508/swiftui-determining-current-device-and-orientation?noredirect=1&lq=1
- * - Fixme: ⚠️️ rotating to a new orientation does not update the view, figure out a solution 🏀
- * - Fixme: ⚠️️ fix later
- * - Fixme: ⚠️️ aperantly this can also be used: UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
- * - Fixme: ⚠️️ add doc and abstract
- * - Fixme: ⚠️️ this is only relevant for iOS, fence it as such
- * - Fixme: ⚠️️ move it into UIDeviceOrientation+Extensio scope
- * - Fixme: ⚠️️ does it work for macOS as well or?
+ * - Note: Rotating to a new orientation does not update the view, but it works if we use GeometryReader. to instantiate a new view 
+ * - Fixme: ⚠️️ Aperantly this can also be used: UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
+ * - Fixme: ⚠️️ This is only relevant for iOS, fence it as such
+ * - Fixme: ⚠️️ Move it into UIDeviceOrientation+Extensio scope 👈
  */
 internal func getDeviceOrientation() -> UIDeviceOrientation {
    var orientation = UIDevice.current.orientation

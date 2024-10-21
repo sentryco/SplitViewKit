@@ -54,9 +54,13 @@ extension ColumnWidth {
       )
    }
    /**
-    * - Fixme: ⚠️️ add param doc
+    * Returns a `ColumnWidth` instance for the main column based on the device orientation and window width.
+    * - Parameters:
+    *   - isLandScape: A Boolean value indicating whether the device is in landscape orientation. Default value is the current device orientation.
+    *   - winWidth: The width of the window.
+    * - Returns: A `ColumnWidth` instance with the ideal width set based on whether the device is in narrow mode. The minimum and maximum widths are not set (nil).
     */
-   static func mainColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/
+   static func mainColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
          deviceOrientation: deviceOrientation,
          winWidth: winWidth
@@ -67,10 +71,13 @@ extension ColumnWidth {
          max: nil
       )
    }
-   // - Fixme: ⚠️️ maybe set this to more for min to avoid narrow look and feel.
-   // - Fixme: ⚠️️ maybe we can add overflow?
-   // - Fixme: ⚠️️ maybe we can make view resist shrinking?
-   // - Fixme: ⚠️️ add doc
+   /**
+    * This function generates a `ColumnWidth` instance for the detail column of the SplitView.
+    * - Parameters:
+    *   - isLandScape: A Boolean value indicating whether the device is in landscape orientation. Default value is the current device orientation.
+    *   - winWidth: The width of the window.
+    * - Returns: A `ColumnWidth` instance with the ideal width set to 500. The minimum and maximum widths are not set (nil).
+    */
    static func detailColumn(isLandScape: Bool = getDeviceOrientation().isLandScape, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */
       .init(
          min: nil, //deviceOrientation.isLandscape ? 500 : 400,
@@ -80,19 +87,31 @@ extension ColumnWidth {
    }
    #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
    /**
-    * - Fixme: ⚠️️ add doc
+    * This function generates a `ColumnWidth` instance for the sidebar column of the SplitView on macOS.
+    * - Parameters:
+    *   - isLandScape: A Boolean value indicating whether the device is in landscape orientation. Default value is true.
+    *   - winWidth: The width of the window.
+    * - Returns: A `ColumnWidth` instance with the minimum and ideal width set to 250 and the maximum width set to 400.
     */
-   static func sideBarColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*true: UIDeviceOrientation = .landscapeLeft*/
+   static func sideBarColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? {
       .init(min: 250, ideal: 250, max: 400)
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * This function generates a `ColumnWidth` instance for the main column of the SplitView on macOS.
+    * - Parameters:
+    *   - isLandScape: A Boolean value indicating whether the device is in landscape orientation. Default value is true.
+    *   - winWidth: The width of the window.
+    * - Returns: A `ColumnWidth` instance with the minimum width set to 250, the ideal width set to 300, and the maximum width set to 400.
     */
    static func mainColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = .landscapeLeft*/
       .init(min: 250, ideal: 300, max: 400)
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * This function generates a `ColumnWidth` instance for the detail column of the SplitView on macOS.
+    * - Parameters:
+    *   - isLandScape: A Boolean value indicating whether the device is in landscape orientation. Default value is true.
+    *   - winWidth: The width of the window.
+    * - Returns: A `ColumnWidth` instance with the minimum width set to 200, the ideal width set to 250, and the maximum width not set (nil).
     */
    static func detailColumn(isLandScape: Bool = true, winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = .landscapeLeft*/
       .init(min: 200, ideal: 250, max: nil)
@@ -103,10 +122,11 @@ extension ColumnWidth {
  * - Fixme: ⚠️️ rename to isNarrowFit or isSnugFit?
  * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ move into UIDeviceOrientation scope?
+ * - Description: This function checks if the window is considered narrow based on the device orientation and window width.
  * - Parameters:
- *   - winWidth: - Fixme: ⚠️️ add doc
- *   - isLandscape: - Fixme: ⚠️️ add doc
- * - Returns: - Fixme: ⚠️️ add doc
+ *   - winWidth: The width of the window.
+ *   - isLandscape: A Boolean value indicating whether the device is in landscape orientation.
+ * - Returns: A Boolean value indicating whether the window is considered narrow.
  */
 func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool { /*deviceOrientation: UIDeviceOrientation*/
    #if os(iOS)

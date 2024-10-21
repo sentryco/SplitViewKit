@@ -2,6 +2,7 @@ import SwiftUI
 import HybridColor
 /**
  * - Abstract: SplitView analytics
+ * - Description: This section provides an overview of the DebugContainer, which is used for displaying debug information related to the SplitView configuration and state.
  * - Note: We have to add debug container to the splitviewcontainer view, as we need access to the spliconfig state, which can only be acccessed inside splitviewcontainer or its injected descendants
  * - Note: Bottom center container
  * - Note: 2 texts with columnConfig: 3-col, 2-col, 1-col, focusedColumn: sidebar, main, detail
@@ -14,7 +15,8 @@ import HybridColor
  */
 struct DebugContainer: View {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: A binding to the SplitConfig object, which holds the configuration state for the SplitView.
+    * - Note: This binding allows the DebugContainer to access and display the current configuration of the SplitView.
     * - Fixme: ⚠️️ make this ObservedObject instead? etc that would avoid rebinding etc
     */
    @Binding var splitConfig: SplitConfig
@@ -30,7 +32,8 @@ struct DebugContainer: View {
  */
 extension DebugContainer {
    /**
-    * - Fixme: ⚠️️ Move to own ext?
+    * - Description: The body property of the DebugContainer, which defines the view hierarchy for displaying debug information.
+    * - Note: This view is structured to pin its content to the bottom center of the screen, utilizing a VStack and HStack for layout.
     */
    var body: some View {
       VStack {
@@ -40,24 +43,24 @@ extension DebugContainer {
             DebugView(splitConfig: $splitConfig, sizeClass: $sizeClass)
             Spacer() // Pins content to center
          }
-         // I think the bellow is done automtically by the native safe area etc
-         // .padding(.vertical, 16) // Move a bit up from the bottom
-//         .background(Color.black.opacity(0.6))
       }
-      //.padding(.vertical, 16) // Padding
    }
 }
 extension DebugContainer {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: This is a subview within the DebugContainer that displays the current configuration of the SplitView, including the column visibility, preferred compact column, size class, and device orientation.
     */
    struct DebugView: View {
       static let fontSize: CGFloat = 18
       static let hSpacing: CGFloat = 12
       static let vSpacing: CGFloat = 8
-      // - Fixme: ⚠️️ add doc
+      /**
+       * - Description: A binding to the SplitConfig object, which holds the configuration state for the SplitView.
+       */
       @Binding var splitConfig: SplitConfig
-      // - Fixme: ⚠️️ add doc
+      /**
+       * - Description: Used to detect if app is compact or regular mode etc
+       */
       @Binding var sizeClass: UserInterfaceSizeClass?
       var body: some View {
          VStack(spacing: Self.vSpacing) {
@@ -75,37 +78,44 @@ extension DebugContainer {
          .background(Color.whiteOrBlack.opacity(0.1)) // Black background
          .cornerRadius(10) // Rounded corners
       }
+      /**
+       * - Description: Displays the current configuration of the SplitView, including the column visibility, preferred compact column, size class, and device orientation.
+       */
       var configView: some View {
          Group {
             Text("Config: ").foregroundColor(Color.white) +
             Text("\(splitConfig.columnVisibility.description)").foregroundColor(Color.white.opacity(0.7))
          }
-//            .padding(.horizontal, 4)
             .font(.system(size: Self.fontSize))
       }
+      /**
+       * - Description: Displays the current preferred compact column of the SplitView.
+       */
       var columnView: some View {
          Group {
             Text("Column: ").foregroundColor(Color.white) +
             Text("\(splitConfig.preferredCompactColumn.description)").foregroundColor(Color.white.opacity(0.7))
          }
-//            .padding(.horizontal, 4)
             .font(.system(size: Self.fontSize))
       }
+      /**
+       * - Description: Displays the current size class of the SplitView.
+       */
       var sizeView: some View {
          Group {
             Text("Size: ").foregroundColor(Color.white) +
             Text("\(sizeClass?.description ?? "")").foregroundColor(Color.white.opacity(0.7))
          }
-//            .padding(.horizontal, 4)
             .font(.system(size: Self.fontSize))
       }
+      /**
+       * - Description: Displays the current orientation of the SplitView.
+       */
       var orientationView: some View {
          Group {
             Text("Orientation: ").foregroundColor(Color.white) +
-            Text("\(/*getDeviceOrientation().*/isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
+            Text("\(isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
          }
-//            .foregroundColor(Color.white)
-//            .padding(.horizontal, 4)
             .font(.system(size: Self.fontSize))
       }
    }
@@ -132,8 +142,9 @@ extension DebugContainer {
       .environment(\.colorScheme, .dark)
    }
 }
-// debug container
-// to make sure debug-container looks good
+/**
+ * - Description: Preview for the DebugContainer
+ */
 #Preview {
    let splitConfig = SplitConfig(
       columnVisibility: .all,
@@ -145,8 +156,6 @@ extension DebugContainer {
          splitConfig: .constant(splitConfig),
          sizeClass: .constant(.regular)
       )
-      // .frame(maxWidth: .infinity)
-      // .background(Color.blackOrWhite)
       .environment(\.colorScheme, .dark)
    }
 }

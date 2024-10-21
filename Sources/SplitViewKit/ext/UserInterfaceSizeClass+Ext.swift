@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 extension UserInterfaceSizeClass {
@@ -23,8 +22,8 @@ extension UserInterfaceSizeClass {
    /**
     * - Note: The way we can detect landscape_70_percentage_mode is if: sizeClass == .regular && orientation == .landscape && winWidth < appWidth
     * - Note: if 70% mode. use double or adjust column sizes. get is70percentage bool to work etc
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter winWidth: The width of the window in points.
+    * - Returns: A Boolean indicating whether the device is in a 70% landscape mode.
     */
    func is_landscape_70_percentage_mode(winWidth: CGFloat) -> Bool {
       let orientation = getDeviceOrientation()

@@ -1,10 +1,10 @@
 import SwiftUI
 /**
- * - Fixme: ⚠️️ doc why this exists etc
+ * - Description: This struct is a ViewModifier that modifies the detail view in a split view setup. It adjusts the width of the navigation split view column based on the window width.
  */
 struct DetailViewModifier: ViewModifier {
    /**
-    * - Fixme: ⚠️️ add doc
+    * The width of the window in which the detail view is displayed.
     */
    let winWidth: CGFloat
    /**
@@ -39,8 +39,8 @@ struct DetailViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter winWidth: The width of the window in which the detail view is displayed.
+    * - Returns: A View with the detail view modifier applied.
     */
    internal func detailViewModifier(winWidth: CGFloat) -> some View{
       let modifier = DetailViewModifier(winWidth: winWidth)

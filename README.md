@@ -117,9 +117,11 @@ Add this to xcode or your SPM package file:
 - When going to compact mode. Widths are not updated (currently orientation change only updates this)
 - Look for an event that is called when we go into different compact / regular modes etc
 - Test to see if macOS works out of the box
-- improve doc with cursor 
+- improve doc with cursor 🏀
 - Add ability to pass columnwidths in the init 
 - Clean up the readme a bit
 - Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc
-- Look into using TupleView ? 
+- Look into using TupleView ? Research how it works etc
 - Add anim to hide / show of sidebar-visibility-button
+- Add resource section with all the links in the repo. ask cursor to collect all of the links 👈
+- Remove SplitViewKitTests Unit tests. from code and github actions 

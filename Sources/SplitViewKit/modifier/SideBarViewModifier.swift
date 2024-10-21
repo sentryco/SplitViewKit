@@ -8,12 +8,12 @@ import SwiftUI
  */
 fileprivate struct SideBarViewModifier: ViewModifier {
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Description: The width of the window.
     */
    let winWidth: CGFloat
    /**
+    * - Description: This function modifies the view by setting the toolbar, navigation bar, and scroll indicators according to the platform (iOS or macOS). It also sets the width of the navigation split view column based on the window width.
     * - Note: regarding `.toolbar(removing: .sidebarToggle)` ref: https://stackoverflow.com/a/78889492
-    * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ Should we only customize scrollIndicators in the caller code?
     */
    func body(content: Content) -> some View {
@@ -43,9 +43,9 @@ fileprivate struct SideBarViewModifier: ViewModifier {
  */
 extension View {
    /**
-    * Convenient
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * Applies the SideBarViewModifier to the view.
+    * - Parameter winWidth: The width of the window in which the sidebar view is displayed.
+    * - Returns: A View with the sidebar view modifier applied.
     */
    internal func sideBarViewModifier(winWidth: CGFloat) -> some View {
       let modifier = SideBarViewModifier(winWidth: winWidth)

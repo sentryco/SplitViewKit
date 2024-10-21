@@ -115,21 +115,20 @@ Add this to xcode or your SPM package file:
 
 ## Todo:
 
-- Clean up the readme a bit 👈🔥
-- Try not setting column width for ipad. see if OS adjusts it etc? 👈 might solve the issue regarding compact mode event detection etc 
-- Add code example to readme 👈
-- Test to see if macOS works out of the box 👈
-- Test support for dark / lightmode (make different b/w gifs etc) 👈
-- Remove SplitViewKitTests Unit tests. from code and github actions 👈
-- Figure out how to avoid subduing the colors in compact mode 👈
+- Add icon based buttons for sidebar, back and fullscreen 👈🏀
+- Add anim to hide / show of sidebar-visibility-button 👈
+- Clean up the readme a bit 
+- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc )
+- Add code example to readme 
+- Test to see if macOS works out of the box 
+- Remove SplitViewKitTests Unit tests. from code and github actions 
+- Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 👈
 - When going to compact mode. Widths are not updated (currently orientation change only updates this) 👈
-- Look for an event that is called when we go into different compact / regular modes etc 👈
-- Add icon based buttons for sidebar, back and fullscreen 👈
+- Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc?
 - An option for 70% landscape mode could be to not use .all, and use .double instead
-- Add dependency overview to readme. we use HybridColor etc
-- Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
+- Add dependency overview to readme. we use HybridColor etc 
 - Look into using TupleView ? Research how it works etc
-- Add anim to hide / show of sidebar-visibility-button
+- Test support for dark / lightmode (make different b/w gifs etc) 
 
 ## Future improvements:
 

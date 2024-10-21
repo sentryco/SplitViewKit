@@ -9,6 +9,8 @@ import SwiftUI
  * - Fixme: ⚠️️ Rename MainModel, maybe
  * - Fixme: ⚠️️⚠️️ Use NavLinkData instead of this? elaborate?
  * - Fixme: ⚠️️ Maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
+ * - Fixme: ⚠️️ a better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
+ * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
  */
  struct DataModel: Hashable { // hashable is needed for the presentNavigation value to work
    /**
@@ -25,7 +27,7 @@ import SwiftUI
     * - Description: The color used to style the text of the data model, enhancing its visual distinction.
     * - Fixme: ⚠️️⚠️️⚠️️ remove this, not in use
     */
-    let color: Color
+//    let color: Color
 }
 /**
  * Hashable implementation

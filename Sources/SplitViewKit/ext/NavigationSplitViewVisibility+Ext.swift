@@ -1,7 +1,6 @@
 import SwiftUI
 /**
  * - Description: Extension to add descriptive functionality to NavigationSplitViewVisibility.
- * - Fixme: ⚠️️ move to own file etc
  */
 extension NavigationSplitViewVisibility {
    /**
@@ -13,9 +12,13 @@ extension NavigationSplitViewVisibility {
     */
    var description: String {
       switch self {
+         // - Fixme: ⚠️️ add doc for this case
       case NavigationSplitViewVisibility.all: "all 3 columns"
+         // - `.doubleColumn` – Show the content column and detail area of a three-column navigation split view.
       case NavigationSplitViewVisibility.doubleColumn: "double-column"
+         // - `.detailOnly` – Hide the leading two columns of a three-column split view. In other words, only the detail area shows.
       case NavigationSplitViewVisibility.detailOnly: "detail-only"
+         // - `.automatic` – Use the default leading column visibility for the current device. This is the default setting.
       case NavigationSplitViewVisibility.automatic: "automatic"
       default: "Not supported"
       }

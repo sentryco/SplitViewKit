@@ -6,57 +6,53 @@
 
 <img width="436" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
 
+# Table of Contents
 
-## Problems:
+1. [Problem](#problems)
+2. [Solution](#solution)
+3. [Example Usage](#example-usage)
+4. [Installation](#installation)
+5. [Gotchas](#gotchas)
+6. [References](#references)
+7. [Resources](#resources)
+8. [Todo](#todo)
+9. [Future Improvements](#future-improvements)
 
-- 🧩 There is a lot of edge-cases when implementing `NavigationSplitView` to fit your needs
-- 🔄 Updating column width based on device orientation. Not possible by default as columnWidths does not update after init.
-- 📐 Manage column arrangement, 3-1 columns, when resizing to smaller windows / changing device-orientation (iPad)
-- 👀 Making sure portrait, landscape, smaller windows look good. (iPad)
-- 📱 Use the same `NavigationSplitView` for iPad and macOS (iPhone uses NavStack)
-- 🚪 Ensure that side-bar can be revealed and got to from main and detail 
-- 🖥️ Ensure "70% window in landscape" has enough space for each column, or toggle to double etc
-- 🎬 Ensure moving detail to fullscreen works 
-- 📏 Detect windows in `.regular` mode or `.compact` mode (iPad)
-- 🗺️ `navigationDestination` works differently for iPad and macOS 
-- 🍎 You are sort of forced to use Apple's hovering sidebar icon, which might break your design
-- 💥 Apple has left countless bugs in the `navigationsplitview` API that has not been fixed. 
-- 📏 Aligning column header height, can be a challenge because of Apple's inconsistent header API conventions across OSes
-- 📱 Different iPads need different column widths to look really good  (iPad mini / iPad 11 / iPad 13) 
-- 🗒️ Ensure that sheets and popups work in different orientations and compact windows
-- 🐛 Debugging is a challenge because of the many edge cases to account for
+## Problem:
+
+1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for.
+2. Managing column widths for different modes is a challenge.
+3. Managing the navigation UI in different modes is a challenge 
 
 ## Solution:
 
-- 🔍 Variables to access `sizeClass` to detect `.regular` or `.compact` mode
-- 📏 Assert "70% landscape mode" precisely. Not detectable via sizeClass alone.
-- 🐞 Easily debug "focused column", "column arrangement" and "current window-mode" (regular / compact)
-- 🔁 Convenient `rebind` method for the `navigationDestination` support in macOS (mac and ios have different conventions)
-- 🔄 Assert Device-orientation "Portrait" / "Landscape" 
-- 📐 Device orientation helpers based on GeometryReader. This is the only way to customize "column-widths" on "device-rotation" event.
-- 📏 Set custom sizes for "column-widths" based on: `column-arrangement-config`, `OS`, `device-orientation`, `window-mode` (regular / compact)
-- 🚪 Ready-made "side-bar" toggle bindings that work in all orientations, and sizeClasses
-- 🐜 Workarounds for known Apple unfixed "navsplitview" API bugs
-- 📖 Example project to find your bearings and find edge cases outside your own project
+1. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
+2. The framework supports providing your own `column-width` calculations 
+3. The framework supports providing your own navigation UI for the different modes 
 
-## Mindset:
+## Example:
 
-- 📏 3-column split-view (works for 2-column as well, but requires some tweaks)
-- 🔄 Support for Portrait / Landscape
-- 📱 iPad / macOS (iPhone uses NavStack)
-- 🖥️ Support for split-screen and "resized-windows" for iPad
-- 🎧 Bring-your-own header nav (apples header nav also works)
-- 📦 Bring-your-own column content
-
-## Usage
-
-To use `SplitViewContainer`, you need to provide three SwiftUI views: `SideBar`, `Content`, and `Detail`. These views represent the left side menu-bar, the center main content, and the right side detail-view respectively.
+- To use `SplitViewContainer`, you need to provide three SwiftUI views: `SideBar`, `Content`, and `Detail`. These views represent the left side menu-bar, the center main content, and the right side detail-view. 
+- You can control the column visibility and preferred compact column through the `columnVisibility` and `preferredCompactColumn` properties in the SplitConfig struct.
+- There is also a comprehensive example project included in this package. See the xcode project for more details.
 
 ```swift
-SplitViewContainer<SideBar: View, Content: View, Detail: View>(sideBar: SideBar, content: Content, detail: Detail)
-```
+import SwiftUI
+import SplitViewKit
 
-You can control the column visibility and preferred compact column through the `columnVisibility` and `preferredCompactColumn` properties respectively.
+struct ContentView: View {
+    var body: some View {
+        SplitViewContainer(
+            sideBar: { _,_ in Color.red }, // Set your sidebar content here
+            content: { _,_ in Color.green }, // Set your center content here
+            detail: { _,_ in Color.blue }, // Set your detail content here
+            columnWidth: DefaultColumnWidth(), // Set custom column widths here
+            splitConfig: SplitConfig() // set initial column arrangment here
+        )
+    }
+}
+```
+ 
 
 ## Installation
 
@@ -65,33 +61,17 @@ Add this to xcode or your SPM package file:
 ```swift
 .package(url: "https://github.com/sentryco/SplitViewKit", branch: "main")
 ```
-
-## Notes
-
-- `SplitViewContainer` is kept in its own class to reduce complexity in the implementation file.
-- `NavsplitView` is used over `HSplitView` to get synergies with the iPad.
-- The package is designed with the mindset of different device sizes: small (iPhone, iPad window), medium (iPad portrait), and large (iPad, macOS).
-
+ 
 ## Gotchas:
 
-- The iPad will use regular for both portrait and landscape when it's running full screen
-- For SlideOver modes, it becomes compact for all sizes except for when the app is using 70% width in Landscape.
 - In SplitView, when in Portrait it can either occupy 40% of 60% of the screen
 - In Landscape it can occupy 30%, 50%, and 70% of the screen
+- There are some bugs in `NavigationSplitView` [https://forums.developer.apple.com/forums/thread/708721](https://forums.developer.apple.com/forums/thread/708721) 
 
-## NavigationSplitViewVisibility
-
-- `.automatic` – Use the default leading column visibility for the current device. This is the default setting.
-- `.doubleColumn` – Show the content column and detail area of a three-column navigation split view.
-- `.detailOnly` – Hide the leading two columns of a three-column split view. In other words, only the detail area shows.
-
-## NavigationSplitViewStyle
-
-- **Automatic**: This is the default setting, providing a context-specific style.
-- **Balanced**: This style reduces the size of the detail view to accommodate the leading columns side-by-side.
-- **Prominent Detail**: This style maintains the size of the detail view, with the leading columns overlayed on top of it.
-
+ 
 ## References
+
+Here are some general tutorials and articles on how to use `NavigationSplitView` that was useful to read while building this framework.
 
 - Stack Navigation on macOS [https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4](https://betterprogramming.pub/stack-navigation-on-macos-41a40d8ec3a4)
 - SwiftUI macOS Navigation Basics [https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
@@ -103,6 +83,8 @@ Add this to xcode or your SPM package file:
 - Pretty gd: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
 
 ## Resources:
+
+These are some of the resources that was founds when solving edge cases for the `NavigationSplitView`
 
 - SwiftUI Repaint View Components on Device Rotation [https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation](https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation)
 - NavigationSplitView Documentation [https://developer.apple.com/documentation/swiftui/navigationsplitview](https://developer.apple.com/documentation/swiftui/navigationsplitview)
@@ -122,14 +104,12 @@ Add this to xcode or your SPM package file:
 
 ## Todo:
 
-- Add anim to hide / show of sidebar-visibility-button 👈
-- Clean up the readme a bit 
-- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc )
-- Add code example to readme 
+- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 👈
+- Add code example to readme 🏀 use cursor
 - Test to see if macOS works out of the box 
 - Remove SplitViewKitTests Unit tests. from code and github actions 
-- Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 👈
-- When going to compact mode. Widths are not updated (currently orientation change only updates this) 👈
+- Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
+- When going to compact mode. Widths are not updated (currently orientation change only updates this) 
 - Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc?
 - An option for 70% landscape mode could be to not use .all, and use .double instead
 - Add dependency overview to readme. we use HybridColor etc 

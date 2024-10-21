@@ -1,5 +1,8 @@
 import SwiftUI
-
+/**
+ * - Note: The iPad will use regular for both portrait and landscape when it's running full screen
+ * - Note: For SlideOver modes, it becomes compact for all sizes except for when the app is using 70% width in Landscape.
+ */
 extension UserInterfaceSizeClass {
    /**
     * - Note: 70% landscape -> regular

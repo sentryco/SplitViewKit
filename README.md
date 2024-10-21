@@ -42,17 +42,17 @@ import SplitViewKit
 
 struct ContentView: View {
     var body: some View {
+        // Interact and react to splitview via splitConfig and sizeClass parameters
         SplitViewContainer(
-            sideBar: { _,_ in Color.red }, // Set your sidebar content here
-            content: { _,_ in Color.green }, // Set your center content here
-            detail: { _,_ in Color.blue }, // Set your detail content here
+            sideBar: { splitConfig, sizeClass in Color.red }, // Set your sidebar content here
+            content: { splitConfig, sizeClass in Color.green }, // Set your center content here
+            detail: { splitConfig, sizeClass in Color.blue }, // Set your detail content here
             columnWidth: DefaultColumnWidth(), // Set custom column widths here
             splitConfig: SplitConfig() // set initial column arrangment here
         )
     }
 }
 ```
- 
 
 ## Installation
 
@@ -104,8 +104,7 @@ These are some of the resources that was founds when solving edge cases for the 
 
 ## Todo:
 
-- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 👈
-- Add code example to readme 🏀 use cursor
+- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 
 - Test to see if macOS works out of the box 
 - Remove SplitViewKitTests Unit tests. from code and github actions 
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 

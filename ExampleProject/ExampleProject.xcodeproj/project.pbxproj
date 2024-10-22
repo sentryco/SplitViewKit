@@ -47,6 +47,7 @@
 		F1E583852CC42DED00A59A2B /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583842CC42DED00A59A2B /* DetailList.swift */; };
 		F1E583872CC430E800A59A2B /* DetailList+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583862CC430E800A59A2B /* DetailList+Content.swift */; };
 		F1E9FE442CC6EE4A003C64D7 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FE432CC6EE4A003C64D7 /* IconButtonStyle.swift */; };
+		F1E9FE472CC725EB003C64D7 /* HybridColor in Frameworks */ = {isa = PBXBuildFile; productRef = F1E9FE462CC725EB003C64D7 /* HybridColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E9FE472CC725EB003C64D7 /* HybridColor in Frameworks */,
 				F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +300,7 @@
 			name = ExampleProject;
 			packageProductDependencies = (
 				F1E583332CC4149E00A59A2B /* SplitViewKit */,
+				F1E9FE462CC725EB003C64D7 /* HybridColor */,
 			);
 			productName = ExampleProject;
 			productReference = F14DAD1A2CBD7C6300B6F3FD /* ExampleProject.app */;
@@ -329,6 +332,7 @@
 			mainGroup = F14DAD112CBD7C6300B6F3FD;
 			packageReferences = (
 				F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */,
+				F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */,
 			);
 			productRefGroup = F14DAD1B2CBD7C6300B6F3FD /* Products */;
 			projectDirPath = "";
@@ -610,6 +614,14 @@
 				kind = branch;
 			};
 		};
+		F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sentryco/HybridColor";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -617,6 +629,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */;
 			productName = SplitViewKit;
+		};
+		F1E9FE462CC725EB003C64D7 /* HybridColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */;
+			productName = HybridColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

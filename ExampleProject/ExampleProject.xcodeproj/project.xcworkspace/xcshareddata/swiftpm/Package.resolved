@@ -1,5 +1,5 @@
 {
-  "originHash" : "c98b415851b2550c87ce23bd3cc041b0a07aea3b82dcc2bbd41ea9ff7126f65a",
+  "originHash" : "3f064c3ff2610aa62a0cdd02c2330a803a4b7e83f9bddc499506d4df75a12967",
   "pins" : [
     {
       "identity" : "hybridcolor",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/sentryco/SplitViewKit",
       "state" : {
         "branch" : "main",
-        "revision" : "418d453b6adf9c14af06ce191039080e6da02eb0"
+        "revision" : "84fc620ef0a5c95f622c1302d0eb5631e2af5a35"
       }
     }
   ],

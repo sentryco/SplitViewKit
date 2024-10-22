@@ -101,17 +101,21 @@ These are some of the resources that was founds when solving edge cases for the 
 <img width="436" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
+- Add dependency overview to readme. we use HybridColor etc for the example project. Maybe remove it from package. and just load it in xcode? 🏀🏀
 
-- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 
-- Test to see if macOS works out of the box 
-- Remove SplitViewKitTests Unit tests. from code and github actions 
+- Remove SplitViewKitTests Unit tests. from code and github actions 🏀🏀
+
+- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 👈
+
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
-- When going to compact mode. Widths are not updated (currently orientation change only updates this) 
+
+- When going to compact mode. Widths are not updated (currently orientation change only updates this) This might be fixed, if we reply on default column width for ipad etc 
+
 - Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc?
-- An option for 70% landscape mode could be to not use .all, and use .double instead
-- Add dependency overview to readme. we use HybridColor etc 
-- Look into using TupleView ? Research how it works etc
+
 - Test support for dark / lightmode (make different b/w gifs etc) 
+
+- Test to see if macOS works out of the box 
 
 ## Future improvements:
 
@@ -119,3 +123,5 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider experimenting with overflow working in detail column (maybe not, better to contain content)
 - Consider adding buttons that toggle different split-view modes? (explore how this should look first etc)
 - Consider improving the datamodel in the example project. Make it simpler
+- Maybe look into using TupleView ? Research how it works etc. And how it might fit in here?
+- Add an option for 70% landscape mode could be to not use .all, and use .double instead

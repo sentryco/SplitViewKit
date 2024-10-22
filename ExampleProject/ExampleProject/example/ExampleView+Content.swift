@@ -50,7 +50,7 @@ extension ExampleView {
          splitConfig: splitConfig
       )
       .onChange(of: selectedSideBarIndex) {
-         Self.handleSideBarChange(splitConfig, sizeClass)
+         handleSideBarChange(splitConfig, sizeClass)
       } // forward state change to handleSideBarChange
    }
    /**

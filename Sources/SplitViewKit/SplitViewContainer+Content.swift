@@ -22,7 +22,8 @@ extension SplitViewContainer {
          splitViewContainer // Bellow debug container
          debugContainer // Floats above navSplitView
       }
-      .onChange(of: sizeClass) { oldValue, newValue in
+      // - Fixme: ⚠️️ keep in mind 70% splitview is still regular, try to see if there is an event still from regular to regular
+      .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
          if newValue == .compact {
             print("👉 Switched to compact size class")
          } else if newValue == .regular {
@@ -42,6 +43,7 @@ extension SplitViewContainer {
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
+         // - Fixme: ⚠️️ trace this event
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          if /*getDeviceOrientation().*/isLandscape { // - Fixme: ⚠️️ add doc
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need

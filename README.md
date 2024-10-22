@@ -112,6 +112,10 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Test to see if macOS works out of the box 
 
+- Remove hybridcolor dep from debugcontainer. 
+
+- or maybe add debug container through init wrapper
+
 ## Future improvements:
 
 - Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it

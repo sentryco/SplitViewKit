@@ -14,13 +14,13 @@ let package = Package(
     ],
     dependencies: [
       // this wont be needed if we move example code to example project etc. do it later
-      // .package(url: "https://github.com/sentryco/HybridColor", branch: "main")
+       .package(url: "https://github.com/sentryco/HybridColor", branch: "main")
     ],
     targets: [
         .target(
             name: "SplitViewKit",
             dependencies: [
-               // .product(name: "HybridColor", package: "HybridColor")
+                .product(name: "HybridColor", package: "HybridColor")
             ],
             // fix the bellow. it has the wrong path atm it seems
             exclude: [/*"ExampleProject"*/]  // Exclude the ExampleProject folder

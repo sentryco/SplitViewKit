@@ -22,7 +22,7 @@ extension CustomColumnWidth {
     *   - winWidth: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
-   public func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? { /*isLandScape: Bool = isLandscape, */ /*deviceOrientation: UIDeviceOrientation = getDeviceOrientation()*/ /*getDeviceOrientation().*/
+   public func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
          isLandscape: isLandscape,
          winWidth: winWidth
@@ -40,7 +40,7 @@ extension CustomColumnWidth {
     *   - winWidth: The width of the window.
     * - Returns: A `ColumnWidth` instance with the ideal width set based on whether the device is in narrow mode. The minimum and maximum widths are not set (nil).
     */
-   public func mainColumn(winWidth: CGFloat) -> ColumnWidth? { /*getDeviceOrientation().*/ /*isLandScape: Bool = isLandscape, */
+   public func mainColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
          isLandscape: isLandscape,
          winWidth: winWidth

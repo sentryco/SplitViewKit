@@ -37,7 +37,7 @@ extension ExampleView {
     * - Fixme: ⚠️️ We need to populate detail on sidebar change, this can be done by setting the initial state, at least if we use navlinkdata construct etc, see production code
     * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
     * - Fixme: ⚠️️ Remove index, just use item. it has uuid etc.
-    * - Fixme: ⚠️️ Move the event handler into SideBarView scope?
+    * - Fixme: ⚠️️ Move the event handler into SideBarView scope? mainview should update when we change selectedSideBarIndex etc
     * - Parameters:
     *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
@@ -49,14 +49,22 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
+      // - Fixme: ⚠️️ We can also try to move it into sideBar body i think
+      #if os(iOS) // For iPhone and iPad
+      .toolbar(removing: .sidebarToggle) // this is available from ios 17 I think
+      .navigationBarHidden(true) // Removes the top default nav-bar
+      #elseif os(macOS) // For macOS apps
+      .toolbar(removing: .sidebarToggle) // Hides the sidebar toggle for macos
+      .scrollIndicators(.hidden) // Important, or else scrollbar is shown when resizing etc
+      #endif
       .onChange(of: selectedSideBarIndex) {
          handleSideBarChange(splitConfig, sizeClass)
-      } // forward state change to handleSideBarChange
+      } // Forward state change to handleSideBarChange
    }
    /**
     * Creates the center column view (aka mainview)
     * - Description: This function constructs the main view of the application, which displays a list of items based on the selected sidebar index. It dynamically updates the content based on user interactions with the sidebar.
-    * - Fixme: ⚠️️ move navigationDestination to handleMainSelectionStateChange?
+    * - Fixme: ⚠️️ Move navigationDestination to handleMainSelectionStateChange?
     * - Parameters:
     *   - splitConfig: - Fixme: ⚠️️ add doc
     *   - sizeClass: - Fixme: ⚠️️ add doc
@@ -75,6 +83,14 @@ extension ExampleView {
          splitConfig: splitConfig, 
          sizeClass: sizeClass
       )
+      // - Fixme: ⚠️️ Move this into main body
+      #if os(iOS)
+      .toolbar(.hidden, for: .navigationBar) // Removes the top default nav-bar
+      .toolbar(removing: .sidebarToggle) // this available from ios 17 I think, might only be needed in sidebar? scope? probably
+      #elseif os(macOS)
+      .ignoresSafeArea(.all) // Ignores all safe areas
+      #endif
+      // - Fixme: ⚠️️ Move this into main body maybe?
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in // Attach navDest code to view, when selectedMainItem changes, this changes
          detailView(splitConfig: splitConfig, sizeClass: sizeClass)
@@ -102,5 +118,12 @@ extension ExampleView {
          splitConfig: splitConfig, // navSplitConfig
          sizeClass: sizeClass
       )
+      // - Fixme: ⚠️️ try to move this into body scope of detailview etc?
+      #if os(iOS)
+      .toolbar(.hidden, for: .navigationBar) // Removes the top default nav-bar
+      #elseif os(macOS)
+      // This modifier allows the view to extend into the safe area on all sides, effectively ignoring the safe area insets. This is useful when you want your view to take up the entire screen, including under the status bar, navigation bar, and tab bar.
+      .edgesIgnoringSafeArea(.all)
+      #endif
    }
 }

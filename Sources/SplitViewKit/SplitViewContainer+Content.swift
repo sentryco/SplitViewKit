@@ -39,16 +39,18 @@ extension SplitViewContainer {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
+    * - Note: GeomReader fires when moving from 70% to full. (iPad)
+    * - Note: SizeClass does not fire when moving from 70% to fullscreen.
     * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
-         // - Fixme: ⚠️️ trace this event
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
-         if /*getDeviceOrientation().*/isLandscape { // - Fixme: ⚠️️ add doc
+         // - Fixme: ⚠️️ maybe if we load new view on size change?
+         if isLandscape { // - Fixme: ⚠️️ Add doc
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
          } else {
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
@@ -68,6 +70,9 @@ extension SplitViewContainer {
     * - Returns: Nav-split-view
     */
    func navigationSplitView(winWidth: CGFloat) -> some View {
+      let _ = {
+         Swift.print("refresh navigationSplitView")
+      }()
       return NavigationSplitView( // Initializes a NavigationSplitView
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode

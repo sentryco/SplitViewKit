@@ -101,9 +101,6 @@ These are some of the resources that was founds when solving edge cases for the 
 <img width="436" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
-- Add dependency overview to readme. we use HybridColor etc for the example project. Maybe remove it from package. and just load it in xcode? 🏀🏀
-
-- Remove SplitViewKitTests Unit tests. from code and github actions 🏀🏀
 
 - Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 👈
 
@@ -123,5 +120,6 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider experimenting with overflow working in detail column (maybe not, better to contain content)
 - Consider adding buttons that toggle different split-view modes? (explore how this should look first etc)
 - Consider improving the datamodel in the example project. Make it simpler
-- Maybe look into using TupleView ? Research how it works etc. And how it might fit in here?
-- Add an option for 70% landscape mode could be to not use .all, and use .double instead
+- Consider looking into using TupleView ? Research how it works etc. And how it might fit in here?
+- Consider adding an option for 70% landscape mode could be to not use .all, and use .double instead
+- Consider adding basic implementation on how to retain column-widths with user-default for macOS

@@ -13,13 +13,14 @@ extension ExampleView {
     */
    public var body: some View {
       SplitViewContainer(
-         sideBar: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
+         sideBar: { splitConfig, sizeClass in
             sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
-         }, content: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
+         }, content: { splitConfig, sizeClass in
             mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
-         }, detail: { (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) in
+         }, detail: { splitConfig, sizeClass in
             detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
          },
+         columnWidth: DefaultColumnWidth(),
          isDebug: true // Adds floating debug analytics
       )
    }

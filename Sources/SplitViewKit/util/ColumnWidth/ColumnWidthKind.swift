@@ -6,6 +6,7 @@ import UIKit
  * Extend this to customize column widths
  * - Note: Kind must implement these calls
  * - Fixme: ⚠️️ add doc
+ * - Fixme: ⚠️️ add default implementation that just returns nil which then uses the default column width
  */
 public protocol ColumnWidthKind {
    /**
@@ -26,6 +27,26 @@ public protocol ColumnWidthKind {
     * - Returns: - Fixme: ⚠️️ add doc
     */
    func detailColumn(winWidth: CGFloat) -> ColumnWidth?
+}
+/**
+ * Defaults
+ */
+extension ColumnWidthKind {
+   public func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
+      nil
+   }
+   public func mainColumn(winWidth: CGFloat) -> ColumnWidth? {
+      nil
+   }
+   public func detailColumn(winWidth: CGFloat) -> ColumnWidth? {
+      nil
+   }
+}
+// Default ColumnWidths
+// - Fixme: ⚠️️ rename to default etc. rename the other to Custom. and move to example scope etc
+// - Fixme: ⚠️️ move into own file etc
+public struct NativeColumnWidth: ColumnWidthKind {
+   public init() {}
 }
 /**
  * Helper

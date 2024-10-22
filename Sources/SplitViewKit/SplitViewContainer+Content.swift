@@ -39,11 +39,14 @@ extension SplitViewContainer {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
-    * - Fixme: ⚠️️⚠️️ maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
+    * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          // - Fixme: ⚠️️ trace this event
+         let _ = {
+            Swift.print("📐 Geometry changed: \(geometry.size) ")
+         }()
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          if /*getDeviceOrientation().*/isLandscape { // - Fixme: ⚠️️ add doc
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need

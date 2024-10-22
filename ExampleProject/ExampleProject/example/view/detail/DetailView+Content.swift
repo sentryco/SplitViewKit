@@ -10,15 +10,17 @@ extension DetailView {
     * - Fixme: ⚠️️ contentMargins does not seem to have an effect on iPad, maybe macOS only?
     */
    public var body: some View {
-      vStack 
-      .contentMargins(.vertical, .zero) // ⚠️️ Seems like this is key for the detail list only, or else we get a big gap at the top
-      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
-      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
-      .toolbar(.hidden, for: .navigationBar) // Hides default navbar (⚠️️ seems like this is needed here aswell)
-      #if os(macOS) 
-      .navigationBarBackButtonHidden(true) // Hide the back button text
-      .ignoresSafeArea(.all)
-      #endif
+      vStack
+         #if os(iOS)
+         .toolbar(.hidden, for: .navigationBar) // Removes the top default nav-bar
+         #elseif os(macOS)
+         // This modifier allows the view to extend into the safe area on all sides, effectively ignoring the safe area insets. This is useful when you want your view to take up the entire screen, including under the status bar, navigation bar, and tab bar.
+         .edgesIgnoringSafeArea(.all)
+         .navigationBarBackButtonHidden(true) // Hide the back button text
+         .ignoresSafeArea(.all)
+         // .toolbar(.hidden, for: .navigationBar) // Hides default navbar (⚠️️ seems like this is needed here aswell)
+         #endif
+         .padding(.vertical, 12) // - Fixme: ⚠️️ doc this etc
    }
 }
 /**
@@ -34,6 +36,9 @@ extension DetailView {
          list
          Spacer() // pins the content to the top (needed for vstack, not for list)
       }
+      .contentMargins(.vertical, .zero) // ⚠️️ Seems like this is key for the detail list only, or else we get a big gap at the top
+      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this
+      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
    }
    /**
     * Detail header

@@ -7,12 +7,11 @@ extension DetailList {
     * - Description: This extension provides the layout and behavior for the list of details in the `DetailList` view.
     */
    var body: some View {
-      VStack(spacing: .zero) {
+      VStack(spacing: .zero) { // Vertical stack
          ForEach(detailData, id: \.self) { (_ title: String) in
             getRow(title: title)
          }
       }
-      .padding(.vertical, 12)
    }
 }
 /**

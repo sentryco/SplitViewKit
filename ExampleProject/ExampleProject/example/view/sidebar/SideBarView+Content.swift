@@ -9,24 +9,30 @@ extension SideBarView {
     * Body
     */
    public var body: some View {
-      VStack(spacing: 0) {
-         sideBarHeader
-         list
-      }
-      .contentMargins(.horizontal, .zero)
-      // - Fixme: ⚠️️⚠️️⚠️️ move this to list scope?
-      .scrollContentBackground(.hidden) // ⚠️️ debug
-      // - Fixme: ⚠️️ move this to list scope?
-      .background(isTest ? .teal.opacity(0.3) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
-      // - Fixme: ⚠️️⚠️️⚠️️ move this to list scope? 👈
-      .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
-      .contentMargins(.vertical, .zero) // ⚠️️ key to removeing top margin, we cant use .contentMargins(.horizontal, .zero) as it will remove the rounded backgrounds for the section
+      vStack
+      #if os(iOS) // For iPhone and iPad
+      .toolbar(removing: .sidebarToggle) // This is available from iOS 17 I think
+      .navigationBarHidden(true) // Removes the top default nav-bar
+      #elseif os(macOS) // For macOS apps
+      .toolbar(removing: .sidebarToggle) // Hides the sidebar toggle for macos
+      .scrollIndicators(.hidden) // Important, or else scrollbar is shown when resizing etc
+      #endif
    }
 }
 /**
  * Components
  */
 extension SideBarView {
+   /**
+    * vstack
+    */
+   var vStack: some View {
+      VStack(spacing: 0) {
+         sideBarHeader
+         list
+      }
+      .background(isTest ? .teal.opacity(0.3) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+   }
    /**
     * Header
     * - Description: The header of the sidebar, which includes the title and a size class indicator.

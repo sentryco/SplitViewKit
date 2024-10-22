@@ -15,7 +15,11 @@ extension SideBarList {
             #endif
             .listRowInsets(.init())
       }
-      .padding(.vertical, 12)
+      .scrollContentBackground(.hidden) // remove list bg
+      .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
+      .contentMargins(.vertical, .zero) // ⚠️️ key to removeing top margin, we cant use .contentMargins(.horizontal, .zero) as it will remove the rounded backgrounds for the section
+      .contentMargins(.horizontal, .zero)
+      .padding(.vertical, 12) // - Fixme: ⚠️️ doc this etc
    }
    /**
     * List content

@@ -44,7 +44,7 @@ extension DetailView {
    /**
     * - Description: Initializes a `DetailView` instance using the provided sidebar and main item indices, along with configuration for split view and size class.
     * - Fixme: ⚠️️ Move somewhere else?
-    * - Fixme: ⚠️️⚠️️⚠️️ rework this to regular init
+    * - Fixme: ⚠️️⚠️️⚠️️ Rework this to regular init 👈
     * - Parameters:
     *   - sideBarItemIndex: The index of the selected item in the sidebar, used to determine which main item list to display.
     *   - mainItemIndex: The index of the selected item in the main list, used to fetch the detailed data for the detail view.

@@ -10,15 +10,15 @@ fileprivate struct MainViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ Add doc
     */
    let columnWidth: ColumnWidthKind
    /**
     * Body
-    * - Fixme: ⚠️️ add description
+    * - Fixme: ⚠️️ Add description
     */
    func body(content: Content) -> some View {
-      // - Fixme: ⚠️️ remove the optionality bellow
+      // - Fixme: ⚠️️ Remove the optionality bellow
       if let columnWidth = columnWidth.mainColumn(winWidth: winWidth) {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column

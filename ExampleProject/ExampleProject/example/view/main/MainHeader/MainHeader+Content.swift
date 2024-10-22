@@ -41,7 +41,7 @@ extension MainHeader {
             dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
          }
       }) {}
-         .iconButtonStyle(iconName: "square.righthalf.fill")
+         .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden
       // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
       .animation(.easeInOut(duration: 0.3), value: splitConfig.isShowingSideBar(sizeClass: sizeClass))

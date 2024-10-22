@@ -45,7 +45,7 @@ extension DetailHeader {
     * - Fixme: ⚠️️ Find minimize icon
     */
    var fullScreenToggleButton: some View {
-      let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right"
+      let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right" // - Fixme: ⚠️️ describe what this icon looks like
       return Button(action: { // Hide / Show fullscreen
          // This line toggles the visibility of columns based on whether the detail view is currently in full-screen mode.
          // If in full-screen mode, it shows all columns; otherwise, it shows only the detail column.

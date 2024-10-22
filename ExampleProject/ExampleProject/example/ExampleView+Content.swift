@@ -20,7 +20,7 @@ extension ExampleView {
          }, detail: { splitConfig, sizeClass in
             detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
          },
-         columnWidth: NativeColumnWidth(),
+         columnWidth: CustomColumnWidth(),
          isDebug: true // Adds floating debug analytics
       )
    }

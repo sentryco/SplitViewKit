@@ -101,14 +101,12 @@ These are some of the resources that was founds when solving edge cases for the 
 <img width="436" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
+ 
+- When going to compact mode. Widths are not updated (currently orientation change only updates this) 🏀
 
-- Try not setting column width for ipad. see if OS adjusts it etc? ( might solve the issue regarding compact mode event detection etc ) 👈
+- Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc? 👈
 
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
-
-- When going to compact mode. Widths are not updated (currently orientation change only updates this) This might be fixed, if we reply on default column width for ipad etc 
-
-- Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc?
 
 - Test support for dark / lightmode (make different b/w gifs etc) 
 

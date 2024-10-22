@@ -42,12 +42,6 @@ extension ColumnWidthKind {
       nil
    }
 }
-// Default ColumnWidths
-// - Fixme: ⚠️️ rename to default etc. rename the other to Custom. and move to example scope etc
-// - Fixme: ⚠️️ move into own file etc
-public struct NativeColumnWidth: ColumnWidthKind {
-   public init() {}
-}
 /**
  * Helper
  */

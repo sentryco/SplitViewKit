@@ -1,4 +1,5 @@
 import Foundation
+import SplitViewKit
 /**
  * Const
  * - Note: Must be public to be initiatable in init

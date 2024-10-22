@@ -56,7 +56,7 @@ extension ColumnWidthKind {
     *   - isLandscape: A Boolean value indicating whether the device is in landscape orientation.
     * - Returns: A Boolean value indicating whether the window is considered narrow.
     */
-   func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool { /*deviceOrientation: UIDeviceOrientation*/
+   public func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool { /*deviceOrientation: UIDeviceOrientation*/
       #if os(iOS)
       let isWindowWidthLessThanScreenWidth: Bool = winWidth < UIScreen.main.bounds.width
       return !isLandscape || isWindowWidthLessThanScreenWidth // deviceOrientation.isPortrait

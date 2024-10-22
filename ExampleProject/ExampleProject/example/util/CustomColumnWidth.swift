@@ -8,13 +8,13 @@ import SplitViewKit
  * - Fixme: ⚠️️ we also have to account for compact size of navsplitview here
  * - Fixme: ⚠️️⚠️️⚠️️ why are these calls return optional?
  */
-public struct DefaultColumnWidth: ColumnWidthKind {
+public struct CustomColumnWidth: ColumnWidthKind {
    // - Note: Must be present when struct is public
    public init() {}
 }
 
 #if os(iOS)
-extension DefaultColumnWidth {
+extension CustomColumnWidth {
    /**
     * - Fixme: ⚠️️ add description
     * - Parameters:
@@ -67,7 +67,7 @@ extension DefaultColumnWidth {
    }
 }
 #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly
-extension DefaultColumnWidth {
+extension CustomColumnWidth {
    /**
     * This function generates a `ColumnWidth` instance for the sidebar column of the SplitView on macOS.
     * - Parameters:

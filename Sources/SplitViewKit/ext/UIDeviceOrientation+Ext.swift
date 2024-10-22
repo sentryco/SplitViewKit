@@ -3,8 +3,9 @@ import SwiftUI
  * Determines if the device is in a landscape orientation.
  * - Returns: A Boolean value indicating whether the device orientation is landscape.
  * - Note: On macOS, it always returns true as macOS windows are typically considered landscape.
+ * - Fixme: ⚠️️ rename to something less generic. isDevice.. is...Orientation or something
  */
-internal var isLandscape: Bool {
+public var isLandscape: Bool {
    #if os(macOS)
    true
    #elseif os(iOS)

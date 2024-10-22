@@ -36,8 +36,8 @@ extension ExampleView {
     * - Note: ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     * - Fixme: ⚠️️ We need to populate detail on sidebar change, this can be done by setting the initial state, at least if we use navlinkdata construct etc, see production code
     * - Fixme: ⚠️️ Maybe setting detail index to nil in compactmode will avoid moving directly to detailview from sidebar?
-    * - Fixme: ⚠️️ Get rid of index, just use item. it has uuid etc
-    * - Fixme: ⚠️️ Move the bellow into SideBarView scope?
+    * - Fixme: ⚠️️ Remove index, just use item. it has uuid etc.
+    * - Fixme: ⚠️️ Move the event handler into SideBarView scope?
     * - Parameters:
     *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
@@ -49,8 +49,9 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      // - Fixme: ⚠️️ Make handleSideBarChange ?
-      .onChange(of: selectedSideBarIndex) { handleSideBarChange(splitConfig, sizeClass) }
+      .onChange(of: selectedSideBarIndex) {
+         Self.handleSideBarChange(splitConfig, sizeClass)
+      } // forward state change to handleSideBarChange
    }
    /**
     * Creates the center column view (aka mainview)

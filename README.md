@@ -116,6 +116,8 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - or maybe add debug container through init wrapper
 
+- Format the description comments to be 80 character wide
+
 ## Future improvements:
 
 - Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it

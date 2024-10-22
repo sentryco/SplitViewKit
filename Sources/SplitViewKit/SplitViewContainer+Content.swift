@@ -22,6 +22,13 @@ extension SplitViewContainer {
          splitViewContainer // Bellow debug container
          debugContainer // Floats above navSplitView
       }
+      .onChange(of: sizeClass) { oldValue, newValue in
+         if newValue == .compact {
+            print("👉 Switched to compact size class")
+         } else if newValue == .regular {
+            print("👉 Switched to regular size class")
+         }
+      }
    }
 }
 /**
@@ -47,13 +54,12 @@ extension SplitViewContainer {
     * Create navigationSplitView
     * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
     * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!
-    * - Fixme: ⚠️️ Make a binding navigationSplitViewStyle: NavigationSplitViewStyle
-    * - Fixme: ⚠️️ try to get rid of the forced unwrap
+    * - Fixme: ⚠️️ Make a binding `navigationSplitViewStyle: NavigationSplitViewStyle
     * - Fixme: ⚠️️ try to figure out a better way to use sizeClass with out rebinding it etc
     * - Fixme: ⚠️️ we might need to wrap detail in `NavigationStack` in some cases where presenting became an issue. or not. if not. remove this fixme
     * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
     * - Note: We got rid of environmentObject and now do param drill instead, param-drill the sizeClass and splitConfig, environment variables is confusing if its not passed correctly, it can jump to compact in the wrong scope where it should be regular etc, and doesnt attach if views are replaced, like detailview etc 
-    * - Parameter winWidth: window width (from geomtry-reader)
+    * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
    func navigationSplitView(winWidth: CGFloat) -> some View {

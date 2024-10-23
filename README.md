@@ -120,6 +120,8 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Complete comment doc etc 
 
+- Figure out how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
+
 ## Future improvements:
 
 - Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it

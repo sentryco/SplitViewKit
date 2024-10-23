@@ -53,6 +53,7 @@ extension ColumnWidthKind {
     * - Fixme: ⚠️️ rename to isNarrowFit or isSnugFit?
     * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ move into UIDeviceOrientation scope? or some scope
+    * - Fixme: ⚠️️ make this static? or move out of this scope if it cant be static?
     * - Parameters:
     *   - winWidth: The width of the window.
     *   - isLandscape: A Boolean value indicating whether the device is in landscape orientation.

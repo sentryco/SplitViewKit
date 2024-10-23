@@ -42,6 +42,9 @@ extension SplitViewContainer {
     * - Note: GeomReader fires when moving from 70% to full. (iPad)
     * - Note: SizeClass does not fire when moving from 70% to fullscreen.
     * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesnt need geomreader, skip using it in that case etc?
+    * - Fixme: ⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️⚠️️ so the issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens
+    * - Fixme: ⚠️️ we can try to regen view
+    * - Fixme: 🏀 we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
@@ -51,10 +54,14 @@ extension SplitViewContainer {
          let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
          // - Fixme: ⚠️️ maybe if we load new view on size change?
          if isLandscape { // - Fixme: ⚠️️ Add doc
-            if sizeClass == .compact {
+            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
                navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
             } else { //if sizeClass == .regular
-               navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               if columnWidth.isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
+                  navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               } else {
+                  navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               }
             }
          } else {
             navigationSplitView(winWidth: geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal

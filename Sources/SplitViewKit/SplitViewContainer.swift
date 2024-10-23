@@ -56,6 +56,9 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     * - Description: When set to `true`, the split view container will show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
     */
    internal let isDebug: Bool
+   // - Fixme: ⚠️️ add doc
+   // - Fixme: ⚠️️ this can be optional, as we only use it as a view refresher
+   @State internal var geometryChange: GeometryChange?
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.

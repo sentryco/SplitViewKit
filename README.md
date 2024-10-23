@@ -108,6 +108,8 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Also consider showing back button instead of sidebar toggle button in compact mode 👈
 
+- Consider using automatic instead of ballanced. If things can be simpler. Look into it. 
+
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
 
 - Test support for dark / lightmode (make different b/w gifs etc) 

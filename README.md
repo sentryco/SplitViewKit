@@ -102,9 +102,11 @@ These are some of the resources that was founds when solving edge cases for the 
 
 ## Todo:
  
-- When going to compact mode. Widths are not updated (currently orientation change only updates this) 🏀
+- we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. these now work. but the refresh code should be one call. use copilot to figure it out etc. 
 
-- Look for an event that is called when we go into different compact / regular modes etc. maybe the view will / did load etc? 👈
+- check with copilot if anything changed with NavigationSplitView from ios 17 to ios 18
+
+- Also consider showing back button instead of sidebar toggle button in compact mode 👈
 
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
 
@@ -121,6 +123,8 @@ These are some of the resources that was founds when solving edge cases for the 
 - Complete comment doc etc 
 
 - Figure out how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
+
+ 
 
 ## Future improvements:
 

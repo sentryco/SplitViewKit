@@ -51,14 +51,7 @@ extension SplitViewContainer {
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
-         let _ = { // Closure hack to call this within the viewscope
-            self.geometryChange = .init( // updates state if it changed, which in turn updates view
-               sizeClass: self.sizeClass,
-               isLandscape: isLandscape,
-               winSize: geometry.size
-            )
-         }()
-         navigationSplitView(winWidth: geometry.size.width)
+         navigationSplitView(winSize: geometry.size)
       }
    }
    /**
@@ -73,9 +66,27 @@ extension SplitViewContainer {
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
-   func navigationSplitView(winWidth: CGFloat) -> some View {
+   func navigationSplitView(winSize: CGSize) -> some View {
+      let geomChange = GeometryChange( // updates state if it changed, which in turn updates view
+         sizeClass: self.sizeClass,
+         isLandscape: isLandscape,
+         winSize: winSize
+      )
+      if self.geometryChange != geomChange { // change happened
+         Swift.print("✅ geometryChange has changed")
+         self.geometryChange = geomChange // set to prev to current
+         return navSplitView(winWidth: winSize.width)
+      } else { // no change happened
+         Swift.print("🚫 geometryChange has not changed")
+         return navSplitView(winWidth: winSize.width)
+      }
+   }
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   func navSplitView(winWidth: CGFloat) -> some View {
       let _ = {
-         Swift.print("refresh navigationSplitView")
+         Swift.print("navSplitView - refresh")
       }()
       return NavigationSplitView( // Initializes a NavigationSplitView
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement

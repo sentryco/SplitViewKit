@@ -6,7 +6,7 @@ import SwiftUI
 //   case orientation
 //   case winSize
 //}
-internal struct GeometryChange {
+internal struct GeometryChange: Equatable {
    internal let sizeClass: UserInterfaceSizeClass?
    internal let isLandscape: Bool
    internal let winSize: CGSize

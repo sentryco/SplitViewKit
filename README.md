@@ -102,7 +102,12 @@ These are some of the resources that was founds when solving edge cases for the 
 
 ## Todo:
  
+
 - we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. these now work. but the refresh code should be one call. use copilot to figure it out etc. 
+
+- Maybe try sending an enum to navview to refresh view?
+
+- Print columnwidths to see if they are being updated correctly 🏀
 
 - check with copilot if anything changed with NavigationSplitView from ios 17 to ios 18
 
@@ -126,7 +131,7 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Figure out how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
 
-- new gif where it starts in 30% then 70% then 100%
+- add new gif where it starts in 30% then 70% then 100%
 
 ## Future improvements:
 

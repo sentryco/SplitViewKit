@@ -44,14 +44,20 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc?
     * - Fixme: ⚠️️ so the issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens
     * - Fixme: ⚠️️ we can try to regen view
-    * - Fixme: 🏀 we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
+    * - Fixme: ⚠️️ we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
+    * - Fixme: ⚠️️ we might be able to
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
-         navigationSplitView(winSize: geometry.size)
+         geometryChange(
+            isLandscape: isLandscape,
+            sizeClass: sizeClass,
+            winWidth: geometry.size.width,
+            closure: navigationSplitView
+         )
       }
    }
    /**
@@ -66,25 +72,7 @@ extension SplitViewContainer {
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
-   func navigationSplitView(winSize: CGSize) -> some View {
-      let geomChange = GeometryChange( // updates state if it changed, which in turn updates view
-         sizeClass: self.sizeClass,
-         isLandscape: isLandscape,
-         winSize: winSize
-      )
-      if self.geometryChange != geomChange { // change happened
-         Swift.print("✅ geometryChange has changed")
-         self.geometryChange = geomChange // set to prev to current
-         return navSplitView(winWidth: winSize.width)
-      } else { // no change happened
-         Swift.print("🚫 geometryChange has not changed")
-         return navSplitView(winWidth: winSize.width)
-      }
-   }
-   /**
-    * - Fixme: ⚠️️ add doc
-    */
-   func navSplitView(winWidth: CGFloat) -> some View {
+   func navigationSplitView(winWidth: CGFloat) -> some View {
       let _ = {
          Swift.print("navSplitView - refresh")
       }()
@@ -117,19 +105,17 @@ extension SplitViewContainer {
       } // else nothing
    }
 }
-
-//         let _  = geometry.size.width > geometry.size.height // ⚠️️ For some reason we have to have this here, elaborate?: I thinkn its just because we have to reference geomtryreader to activate some internal mechanism etc
-// - Fixme: ⚠️️ maybe if we load new view on size change?
-//         if isLandscape { // - Fixme: ⚠️️ Add doc
-//            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-//               navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//            } else { // if sizeClass == .regular
-//               if columnWidth.isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
-//                  navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//               } else {
-//                  navigationSplitView(winWidth: geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//               }
-//            }
-//         } else {
-//            navigationSplitView(winWidth: geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
-//         }
+// this doesnt work because we try to update state change inside view chang geomproxy etc
+//      if self.geometryChange != geomChange { // change happened
+//         Swift.print("✅ geometryChange has changed")
+//         geometryChange = geomChange // set to prev to current
+//         return navSplitView(winWidth: winSize.width)
+//      } else { // no change happened
+//         Swift.print("🚫 geometryChange has not changed")
+//         return navSplitView(winWidth: winSize.width)
+//      }
+//      let geomChange = GeometryChange( // updates state if it changed, which in turn updates view
+//         sizeClass: self.sizeClass,
+//         isLandscape: isLandscape,
+//         winSize: winSize
+//      )

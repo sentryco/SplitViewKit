@@ -58,7 +58,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    internal let isDebug: Bool
    // - Fixme: ⚠️️ add doc
    // - Fixme: ⚠️️ this can be optional, as we only use it as a view refresher
-   @State internal var geometryChange: GeometryChange?
+//   /*@State */internal var geometryChange: GeometryChange?
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.

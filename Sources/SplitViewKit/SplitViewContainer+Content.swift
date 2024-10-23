@@ -54,7 +54,7 @@ extension SplitViewContainer {
          }()
          geometryChange(
             isLandscape: isLandscape,
-            sizeClass: sizeClass,
+            sizeClass: sizeClass.reBind,
             winWidth: geometry.size.width,
             closure: navigationSplitView
          )

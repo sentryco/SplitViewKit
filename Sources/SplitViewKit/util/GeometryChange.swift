@@ -3,9 +3,9 @@ import SwiftUI
 // - Fixme: ⚠️️ we might be able to make this a stateobject and use the DeviceOrientation
 // - Fixme: ⚠️️ move to columWidth file?
 // - Fixme: ⚠️️ we might have to account for all cases, lets see if reordering the cases works first
-func geometryChange(isLandscape: Bool, sizeClass: UserInterfaceSizeClass?, winWidth: CGFloat, closure: (_ winWidth: CGFloat) -> some View) -> some View {
+func geometryChange(isLandscape: Bool, sizeClass: Binding<UserInterfaceSizeClass?>, winWidth: CGFloat, closure: (_ winWidth: CGFloat) -> some View) -> some View {
    if isLandscape { // - Fixme: ⚠️️ Add doc
-      if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
+      if sizeClass.wrappedValue == .compact { // this fixes things going into compact. but not 70% to regular
          return closure(winWidth) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
       } else { // if sizeClass == .regular
          if isNarrow(isLandscape: isLandscape, winWidth: winWidth) {
@@ -18,7 +18,6 @@ func geometryChange(isLandscape: Bool, sizeClass: UserInterfaceSizeClass?, winWi
       return closure(winWidth) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
    }
 }
-
 //   switch true {
 //   case isLandscape, sizeClass == .compact:
 //      Swift.print("👉 isLandscape, compact")

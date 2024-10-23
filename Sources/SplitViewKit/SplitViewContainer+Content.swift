@@ -57,24 +57,24 @@ extension SplitViewContainer {
          geometryChange(
 //            isLandscape: ,
             //sizeClass: sizeClass.reBind,
-            geometry: geometry,
-            closure: navigationSplitView
+            geometry: geometry
+//            closure: navigationSplitView
          )
       }
    }
-   func geometryChange(/*isLandscape: Bool, */geometry: GeometryProxy, closure: (_ winWidth: CGFloat) -> some View) -> some View {
+   func geometryChange(/*isLandscape: Bool, */geometry: GeometryProxy /*closure: (_ winWidth: CGFloat) -> some View*/) -> some View {
       if isLandscape { // - Fixme: ⚠️️ Add doc
          if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-            closure(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+            navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
          } else { // if sizeClass == .regular
             if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
-               closure(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
             } else {
-               closure(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
             }
          }
       } else {
-         closure(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
+         navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
       }
    }
    /**

@@ -54,14 +54,15 @@ extension SplitViewContainer {
          }()
 //         let closure: (_ winWidth: CGFloat) -> some View = navigationSplitView
          switch true {
-         case isLandscape, sizeClass == .compact:
-            Swift.print("👉 isLandscape, compact")
-            return navigationSplitView(geometry.size.width)
+         
          case isLandscape, sizeClass == .regular, isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
             Swift.print("👉 isLandscape, regular, isNarrow")
             return navigationSplitView(geometry.size.width)
          case isLandscape, sizeClass == .regular, !isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
             Swift.print("👉 isLandscape, regular, fullscreen")
+            return navigationSplitView(geometry.size.width)
+         case isLandscape, sizeClass == .compact:
+            Swift.print("👉 isLandscape, compact")
             return navigationSplitView(geometry.size.width)
          default:
             Swift.print("👉 default")

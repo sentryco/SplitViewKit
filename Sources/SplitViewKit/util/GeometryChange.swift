@@ -2,16 +2,17 @@ import SwiftUI
 // - Fixme: ⚠️️ add doc
 // - Fixme: ⚠️️ we might be able to make this a stateobject and use the DeviceOrientation
 // - Fixme: ⚠️️ move to columWidth file?
+// - Fixme: ⚠️️ we might have to account for all cases, lets see if reordering the cases works first
 func geometryChange(isLandscape: Bool, sizeClass: UserInterfaceSizeClass?, winWidth: CGFloat, closure: (_ winWidth: CGFloat) -> some View) -> some View {
    switch true {
-   case isLandscape: 
-      Swift.print("👉 isLandscape")
+   case /*columnWidth.*/isNarrow(isLandscape: isLandscape, winWidth: winWidth):
+      Swift.print("👉 isNarrow")
       return closure(winWidth)
    case sizeClass == .compact:
       Swift.print("👉 compact")
       return closure(winWidth)
-   case /*columnWidth.*/isNarrow(isLandscape: isLandscape, winWidth: winWidth):
-      Swift.print("👉 isNarrow")
+   case isLandscape:
+      Swift.print("👉 isLandscape")
       return closure(winWidth)
    default:
       Swift.print("👉 default")

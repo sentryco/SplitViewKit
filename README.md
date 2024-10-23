@@ -126,7 +126,7 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Figure out how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
 
- 
+- new gif where it starts in 30% then 70% then 100%
 
 ## Future improvements:
 

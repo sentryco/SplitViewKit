@@ -9,7 +9,9 @@ import SplitViewKit
  * - Fixme: ⚠️️⚠️️⚠️️ why are these calls return optional?
  */
 public struct CustomColumnWidth: ColumnWidthKind {
-   // - Note: Must be present when struct is public
+   /**
+    * - Note: Must be present when struct is public
+    */
    public init() {}
 }
 #if os(iOS)
@@ -26,12 +28,13 @@ extension CustomColumnWidth {
          isLandscape: isLandscape,
          winWidth: winWidth
       )
-      Swift.print("✨ sideBarColumn - isNarrow:  \(isNarrow) - isLandscape: \(isLandscape)")
-      return .init(
+      let width = ColumnWidth(
          min: nil,
          ideal: isNarrow ? 200 : 340,
          max: nil
       )
+      Swift.print("✨ sideBarColumn - isNarrow:  \(isNarrow) - isLandscape: \(isLandscape) width: \(width)")
+      return width
    }
    /**
     * Returns a `ColumnWidth` instance for the main column based on the device orientation and window width.
@@ -45,12 +48,13 @@ extension CustomColumnWidth {
          isLandscape: isLandscape,
          winWidth: winWidth
       )
-      Swift.print("✨ mainColumn - isNarrow: \(isNarrow) isLandscape: \(isLandscape)")
-      return .init(
+      let width: ColumnWidth = .init(
          min: nil,
          ideal: isNarrow ? 240 : 300,
          max: nil
       )
+      Swift.print("✨ mainColumn - isNarrow: \(isNarrow) isLandscape: \(isLandscape) width: \(width)")
+      return width
    }
    /**
     * This function generates a `ColumnWidth` instance for the detail column of the SplitView.
@@ -59,13 +63,14 @@ extension CustomColumnWidth {
     *   - winWidth: The width of the window.
     * - Returns: A `ColumnWidth` instance with the ideal width set to 500. The minimum and maximum widths are not set (nil).
     */
-   public func detailColumn(winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */ /*isLandScape: Bool = isLandscape, */
-      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape)")
-      return .init(
-         min: nil, // deviceOrientation.isLandscape ? 500 : 400,
+   public func detailColumn(winWidth: CGFloat) -> ColumnWidth? {
+      let width = ColumnWidth(
+         min: nil,
          ideal: 500,
          max: nil
       )
+      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape) width: \(width)")
+      return width
    }
 }
 #elseif os(macOS) // ⚠️️ hack for macOS, because .navigationDestination(item doesn't work for macOS aperantly

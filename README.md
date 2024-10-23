@@ -105,13 +105,12 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. these now work. but the refresh code should be one call. use copilot to figure it out etc. 
 
-- Maybe try sending an enum to navview to refresh view?
 
 - Print columnwidths to see if they are being updated correctly 🏀
 
 - check with copilot if anything changed with NavigationSplitView from ios 17 to ios 18
 
-- Also consider showing back button instead of sidebar toggle button in compact mode 👈
+- Also consider showing back button instead of sidebar toggle button in compact mode 👈👈👈
 
 - Consider using automatic instead of ballanced. If things can be simpler. Look into it. 
 
@@ -142,3 +141,4 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider looking into using TupleView ? Research how it works etc. And how it might fit in here?
 - Consider adding an option for 70% landscape mode could be to not use .all, and use .double instead
 - Consider adding basic implementation on how to retain column-widths with user-default for macOS
+- Consider adding sidebar / main / detail column widths to debug container

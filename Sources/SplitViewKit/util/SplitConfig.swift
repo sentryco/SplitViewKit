@@ -40,8 +40,8 @@ public class SplitConfig: ObservableObject {
 extension SplitConfig { 
    /**
     * - Description: Determines if the sidebar is currently visible based on the column visibility and size class.
-    * - Fixme: ⚠️️ rename to to something else?
-    * - Fixme: ⚠️️ his is also true if 1 col + preferredCompactColumn == .sidebar I think
+    * - Fixme: ⚠️️ Rename to to something else?
+    * - Fixme: ⚠️️ His is also true if 1 col + preferredCompactColumn == .sidebar I think
     * - Parameter sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */

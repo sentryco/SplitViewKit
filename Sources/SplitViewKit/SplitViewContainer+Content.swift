@@ -45,7 +45,7 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️ so the issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens
     * - Fixme: ⚠️️ we can try to regen view
     * - Fixme: ⚠️️ we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
-    * - Fixme: ⚠️️ we might be able to
+    * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
     */
    var splitViewContainer: some View {
       GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc

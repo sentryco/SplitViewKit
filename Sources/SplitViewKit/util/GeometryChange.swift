@@ -4,10 +4,18 @@ import SwiftUI
 // - Fixme: ⚠️️ move to columWidth file?
 func geometryChange(isLandscape: Bool, sizeClass: UserInterfaceSizeClass?, winWidth: CGFloat, closure: (_ winWidth: CGFloat) -> some View) -> some View {
    switch true {
-   case isLandscape: closure(winWidth)
-   case sizeClass == .compact: closure(winWidth)
-   case /*columnWidth.*/isNarrow(isLandscape: isLandscape, winWidth: winWidth): closure(winWidth)
-   default: closure(winWidth) // else regular, not narrow, not landscape
+   case isLandscape: 
+      Swift.print("👉 isLandscape")
+      return closure(winWidth)
+   case sizeClass == .compact:
+      Swift.print("👉 compact")
+      return closure(winWidth)
+   case /*columnWidth.*/isNarrow(isLandscape: isLandscape, winWidth: winWidth):
+      Swift.print("👉 isNarrow")
+      return closure(winWidth)
+   default:
+      Swift.print("👉 default")
+      return closure(winWidth) // else regular, not narrow, not landscape
    }
 }
 

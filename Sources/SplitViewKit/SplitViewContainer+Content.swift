@@ -52,12 +52,25 @@ extension SplitViewContainer {
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
-         geometryChange(
-            isLandscape: isLandscape,
-            sizeClass: sizeClass.reBind,
-            winWidth: geometry.size.width,
-            closure: navigationSplitView
-         )
+         if isLandscape { // - Fixme: ⚠️️ Add doc
+            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
+               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+            } else { // if sizeClass == .regular
+               if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
+                  navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               } else {
+                  navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+               }
+            }
+         } else {
+            navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
+         }
+//         geometryChange(
+//            isLandscape: isLandscape,
+//            sizeClass: sizeClass.reBind,
+//            winWidth: geometry.size.width,
+//            closure: navigationSplitView
+//         )
       }
    }
    /**
@@ -72,7 +85,7 @@ extension SplitViewContainer {
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
-   func navigationSplitView(winWidth: CGFloat) -> some View {
+   func navigationSplitView(_ winWidth: CGFloat) -> some View {
       let _ = {
          Swift.print("navSplitView - refresh")
       }()

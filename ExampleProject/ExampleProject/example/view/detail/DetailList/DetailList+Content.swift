@@ -12,6 +12,8 @@ extension DetailList {
             getRow(title: title)
          }
       }
+      // - Fixme: ⚠️️ this should be 12. like main and sidebar. not sure why it isnt, figure it out
+      .padding(.vertical, 24) // - Fixme: ⚠️️ doc this etc
    }
 }
 /**

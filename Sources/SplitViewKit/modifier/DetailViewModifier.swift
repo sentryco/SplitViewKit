@@ -7,14 +7,16 @@ struct DetailViewModifier: ViewModifier {
     * The width of the window in which the detail view is displayed.
     */
    let winWidth: CGFloat
-   // - Fixme: ⚠️️ add doc
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
    let columnWidth: ColumnWidthKind
    /**
     * Body
-    * - Note: there is also: `navigationSplitViewColumnWidth`
-    * - Fixme: ⚠️️ remove the optionality in columnWidth
-    * - Fixme: ⚠️️ add doc regarding why columnWidth is optional
-    * - Fixme: ⚠️️ add description
+    * - Note: There is also: `navigationSplitViewColumnWidth`
+    * - Fixme: ⚠️️ Remove the optionality in columnWidth
+    * - Fixme: ⚠️️ Add doc regarding why columnWidth is optional
+    * - Fixme: ⚠️️ Add description
     */
    func body(content: Content) -> some View {
       if let columnWidth = columnWidth.detailColumn(winWidth: winWidth) {

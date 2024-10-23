@@ -20,7 +20,6 @@ extension DetailView {
          .ignoresSafeArea(.all)
          // .toolbar(.hidden, for: .navigationBar) // Hides default navbar (⚠️️ seems like this is needed here aswell)
          #endif
-         .padding(.vertical, 12) // - Fixme: ⚠️️ doc this etc
    }
 }
 /**

@@ -12,16 +12,29 @@ struct IconButtonStyle: ButtonStyle {
    var bgColor: Color //.opacity(0.8)
    var fillColor: Color
    /**
-    * makeBody Method: This method sets up the view for the button. It uses an Image view with the system icon name provided. The icon's foreground color, font size, padding, background color, and corner radius are set according to the instructions.
+    * This method sets up the view for the button. It uses an Image view with the system icon name provided. The icon's foreground color, font size, padding, background color, and corner radius are set according to the instructions.
+    * - Note: Square Background: The ZStack ensures the background is uniformly square (40x40 in this case).
+    * - Note: Icon Aspect Ratio: By using .aspectRatio(contentMode: .fit) and constraining the icon's maximum size (frame(maxWidth: 24, maxHeight: 24)), the icon will maintain its aspect ratio and fit within the square.
+    * - Note: Background: The bgColor background is defined as a square with rounded corners using .clipShape(RoundedRectangle(cornerRadius: 8)).
+    * - Note: Now, no matter what the shape of the icon is, the background will always be square, and the icon will fit neatly within that square. You can adjust the frame(width: height:) values to make the background larger or smaller as needed.
+    * - Fixme: ⚠️️ try to make all this relativly sized etc
     */
    func makeBody(configuration: Configuration) -> some View {
-      Image(systemName: iconName)
-         .foregroundColor(fillColor) // Icon fill color
-         .font(.system(size: 24)) // Icon size
-         .padding(4) // Padding around icon
-         .background(bgColor) // Background color
-         .clipShape(RoundedRectangle(cornerRadius: 8)) // Rounded corners
-         .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+      ZStack {
+         // Ensuring the background is always square
+         bgColor
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .frame(width: 36, height: 36) // Background is square
+
+         // Icon with aspect ratio maintained
+         Image(systemName: iconName)
+            .foregroundColor(fillColor)
+            .font(.system(size: 20)) // Icon size
+            .aspectRatio(contentMode: .fit) // Maintain aspect ratio for the icon
+            .frame(maxWidth: 20, maxHeight: 20) // Limit the icon's size within the square
+      }
+      .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+      .animation(.easeInOut, value: configuration.isPressed) // Optional: animation for press effect
    }
 }
 /**
@@ -37,7 +50,11 @@ extension Button {
     * - Returns: A view modifier that applies the specified IconButtonStyle to the button.
     */
    func iconButtonStyle(iconName: String, bgColor: Color = Color.darkGray, fillColor: Color = Color.whiteOrBlack.opacity(0.8)) -> some View {
-      let style = IconButtonStyle(iconName: iconName, bgColor: bgColor, fillColor: fillColor)
+      let style = IconButtonStyle(
+         iconName: iconName,
+         bgColor: bgColor,
+         fillColor: fillColor
+      )
       return self.buttonStyle(style)
    }
 }
@@ -49,6 +66,8 @@ extension Button {
    Button(action: {
       Swift.print("press")
    }) {}
-   .iconButtonStyle(iconName: "square.lefthalf.fill")
+   .iconButtonStyle(iconName: "arrow.left.and.right") // square.lefthalf.fill or arrow.left.and.right.square
    .environment(\.colorScheme, .dark) // dark
 }
+
+

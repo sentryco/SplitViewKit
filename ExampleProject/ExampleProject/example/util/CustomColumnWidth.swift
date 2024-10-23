@@ -12,7 +12,6 @@ public struct CustomColumnWidth: ColumnWidthKind {
    // - Note: Must be present when struct is public
    public init() {}
 }
-
 #if os(iOS)
 extension CustomColumnWidth {
    /**
@@ -27,6 +26,7 @@ extension CustomColumnWidth {
          isLandscape: isLandscape,
          winWidth: winWidth
       )
+      Swift.print("✨ sideBarColumn - isNarrow:  \(isNarrow) - isLandscape: \(isLandscape)")
       return .init(
          min: nil,
          ideal: isNarrow ? 200 : 340,
@@ -45,6 +45,7 @@ extension CustomColumnWidth {
          isLandscape: isLandscape,
          winWidth: winWidth
       )
+      Swift.print("✨ mainColumn - isNarrow: \(isNarrow) isLandscape: \(isLandscape)")
       return .init(
          min: nil,
          ideal: isNarrow ? 240 : 300,
@@ -59,7 +60,8 @@ extension CustomColumnWidth {
     * - Returns: A `ColumnWidth` instance with the ideal width set to 500. The minimum and maximum widths are not set (nil).
     */
    public func detailColumn(winWidth: CGFloat) -> ColumnWidth? { /*deviceOrientation: UIDeviceOrientation = */ /*isLandScape: Bool = isLandscape, */
-      .init(
+      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape)")
+      return .init(
          min: nil, // deviceOrientation.isLandscape ? 500 : 400,
          ideal: 500,
          max: nil

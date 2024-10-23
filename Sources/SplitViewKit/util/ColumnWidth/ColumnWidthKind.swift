@@ -29,7 +29,8 @@ public protocol ColumnWidthKind {
    func detailColumn(winWidth: CGFloat) -> ColumnWidth?
 }
 /**
- * Defaults
+ * Defaults (overriden by implementer)
+ * - Fixme: ⚠️️ add more description
  */
 extension ColumnWidthKind {
    public func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
@@ -47,16 +48,17 @@ extension ColumnWidthKind {
  */
 extension ColumnWidthKind {
    /**
+    * - Abstract: - Fixme: ⚠️️ add this
+    * - Description: This function checks if the window is considered narrow based on the device orientation and window width.
     * - Fixme: ⚠️️ rename to isNarrowFit or isSnugFit?
     * - Fixme: ⚠️️ add doc
     * - Fixme: ⚠️️ move into UIDeviceOrientation scope? or some scope
-    * - Description: This function checks if the window is considered narrow based on the device orientation and window width.
     * - Parameters:
     *   - winWidth: The width of the window.
     *   - isLandscape: A Boolean value indicating whether the device is in landscape orientation.
     * - Returns: A Boolean value indicating whether the window is considered narrow.
     */
-   public func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool { /*deviceOrientation: UIDeviceOrientation*/
+   public func isNarrow(isLandscape: Bool = true, winWidth: CGFloat) -> Bool {
       #if os(iOS)
       let isWindowWidthLessThanScreenWidth: Bool = winWidth < UIScreen.main.bounds.width
       return !isLandscape || isWindowWidthLessThanScreenWidth // deviceOrientation.isPortrait

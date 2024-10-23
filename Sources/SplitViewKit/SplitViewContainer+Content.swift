@@ -53,28 +53,20 @@ extension SplitViewContainer {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
 //         let closure: (_ winWidth: CGFloat) -> some View = navigationSplitView
-         
-         geometryChange(
-//            isLandscape: ,
-            //sizeClass: sizeClass.reBind,
-            geometry: geometry
-//            closure: navigationSplitView
-         )
-      }
-   }
-   func geometryChange(/*isLandscape: Bool, */geometry: GeometryProxy /*closure: (_ winWidth: CGFloat) -> some View*/) -> some View {
-      if isLandscape { // - Fixme: ⚠️️ Add doc
-         if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-            navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-         } else { // if sizeClass == .regular
-            if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
-               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-            } else {
-               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-            }
+         switch true {
+         case isLandscape, sizeClass == .compact:
+            Swift.print("👉 isLandscape, compact")
+            return navigationSplitView(geometry.size.width)
+         case isLandscape, sizeClass == .regular, isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
+            Swift.print("👉 isLandscape, regular, isNarrow")
+            return navigationSplitView(geometry.size.width)
+         case isLandscape, sizeClass == .regular, !isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
+            Swift.print("👉 isLandscape, regular, fullscreen")
+            return navigationSplitView(geometry.size.width)
+         default:
+            Swift.print("👉 default")
+            return navigationSplitView(geometry.size.width) // else regular, not narrow, not landscape
          }
-      } else {
-         navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
       }
    }
    /**
@@ -136,3 +128,24 @@ extension SplitViewContainer {
 //         isLandscape: isLandscape,
 //         winSize: winSize
 //      )
+//   func geometryChange(/*isLandscape: Bool, */geometry: GeometryProxy /*closure: (_ winWidth: CGFloat) -> some View*/) -> some View {
+//      if isLandscape { // - Fixme: ⚠️️ Add doc
+//         if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
+//            navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+//         } else { // if sizeClass == .regular
+//            if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
+//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+//            } else {
+//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+//            }
+//         }
+//      } else {
+//         navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
+//      }
+//   }
+//         geometryChange(
+////            isLandscape: ,
+//            //sizeClass: sizeClass.reBind,
+//            geometry: geometry
+////            closure: navigationSplitView
+//         )

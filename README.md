@@ -64,11 +64,11 @@ Add this to xcode or your SPM package file:
  
 ## Gotchas:
 
-- In SplitView, when in Portrait it can either occupy 40% of 60% of the screen
+- In SplitView, when in Portrait it can either occupy 40% of 60% of the screen ("Slide-over-mode" on iPad is the same as 30% split-view)
 - In Landscape it can occupy 30%, 50%, and 70% of the screen
 - There are some bugs in `NavigationSplitView` [https://forums.developer.apple.com/forums/thread/708721](https://forums.developer.apple.com/forums/thread/708721) 
 - Using `NavigationSplitView` is highly recommended over building your own SplitView with HStack etc. As a lot of features come toll free with `NavigationSplitView` 
- 
+
 ## References
 
 Here are some general tutorials and articles on how to use `NavigationSplitView` that was useful to read while building this framework.

@@ -5,14 +5,14 @@ import SwiftUI
 // - Fixme: ⚠️️ we might have to account for all cases, lets see if reordering the cases works first
 func geometryChange(isLandscape: Bool, sizeClass: UserInterfaceSizeClass?, winWidth: CGFloat, closure: (_ winWidth: CGFloat) -> some View) -> some View {
    switch true {
-   case /*columnWidth.*/isNarrow(isLandscape: isLandscape, winWidth: winWidth):
-      Swift.print("👉 isNarrow")
+   case isLandscape, sizeClass == .compact:
+      Swift.print("👉 isLandscape, compact")
       return closure(winWidth)
-   case sizeClass == .compact:
-      Swift.print("👉 compact")
+   case isLandscape, sizeClass == .regular, isNarrow(isLandscape: isLandscape, winWidth: winWidth):
+      Swift.print("👉 isLandscape, regular, isNarrow")
       return closure(winWidth)
-   case isLandscape:
-      Swift.print("👉 isLandscape")
+   case isLandscape, sizeClass == .regular, !isNarrow(isLandscape: isLandscape, winWidth: winWidth):
+      Swift.print("👉 isLandscape, regular, fullscreen")
       return closure(winWidth)
    default:
       Swift.print("👉 default")

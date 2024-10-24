@@ -61,18 +61,18 @@ extension SplitViewContainer {
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
-//         let _ = {
-//            DispatchQueue.main.async {
-//               winWidth = geometry.size.width
-//            }
-//         }()
-         navigationSplitView()
-            .id(refreshID)
-            .onAppear {
-               Swift.print("✨ onAppear")
-               winWidth = geometry.size.width
+         let _ = {
+            DispatchQueue.main.async {
                refreshID = UUID()
             }
+         }()
+         navigationSplitView()
+            .id(refreshID)
+//            .onAppear {
+//               Swift.print("✨ onAppear")
+//               winWidth = geometry.size.width
+//               refreshID = UUID()
+//            }
       }
       
          

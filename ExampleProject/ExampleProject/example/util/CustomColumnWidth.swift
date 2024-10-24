@@ -33,7 +33,7 @@ extension CustomColumnWidth {
          ideal: isNarrow ? 200 : 340,
          max: nil
       )
-      Swift.print("✨ sideBarColumn - isNarrow:  \(isNarrow) - isLandscape: \(isLandscape) width: \(width)")
+//      Swift.print("✨ sideBarColumn - isNarrow:  \(isNarrow) - isLandscape: \(isLandscape) width: \(width)")
       return width
    }
    /**
@@ -53,7 +53,7 @@ extension CustomColumnWidth {
          ideal: isNarrow ? 240 : 300,
          max: nil
       )
-      Swift.print("✨ mainColumn - isNarrow: \(isNarrow) isLandscape: \(isLandscape) width: \(width)")
+//      Swift.print("✨ mainColumn - isNarrow: \(isNarrow) isLandscape: \(isLandscape) width: \(width)")
       return width
    }
    /**
@@ -69,7 +69,7 @@ extension CustomColumnWidth {
          ideal: 500,
          max: nil
       )
-      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape) width: \(width)")
+//      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape) width: \(width)")
       return width
    }
 }

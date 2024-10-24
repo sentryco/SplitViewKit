@@ -49,7 +49,7 @@ extension SplitViewContainer {
          navigationSplitView(geometry.size.width)
             .id(refreshID) // used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
-               if oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc
+               if sizeClass == .regular && oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
                   Swift.print("size is new")
                   refreshID = UUID() // regenerate view
                }

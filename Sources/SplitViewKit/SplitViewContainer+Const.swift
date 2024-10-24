@@ -2,6 +2,7 @@ import SwiftUI
 /**
  * Const - typealias
  * - Description: Signatures for the splitview column closures
+ * - Note: sizeClass needs to be a binding or else UI doesnt react on changes. 
  * - Fixme: ⚠️️ why is not splitconfig a binding here? I guess because its an ObservedObject and they dont need to be bindings? look into it
  * - Fixme: ⚠️️ consider moving these aliases out of this scope?
  */

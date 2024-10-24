@@ -4,7 +4,7 @@
 
 > Easily config multi-column apps (iPad and macOS)
 
-<img width="436" alt="img" src="https://s1.gifyu.com/images/SOKpX.gif">
+<img width="438" alt="img" src="https://s1.gifyu.com/images/SOdFU.gif">
 
 # Table of Contents
 
@@ -28,7 +28,7 @@
 
 1. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
 2. The framework supports providing your own `column-width` calculations. Letting you set your own "responsive breakpoints"
-3. The framework supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes
+3. The framework supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes. Adding UI above the splitview is also supported.
 
 ## Example:
 
@@ -95,10 +95,6 @@ These are some of the resources that was founds when solving edge cases for the 
 - UIKit UIInterfaceOrientation Documentation [https://developer.apple.com/documentation/uikit/uiinterfaceorientation](https://developer.apple.com/documentation/uikit/uiinterfaceorientation)
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
-
-## Compact mode demo:
-
-<img width="436" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
 

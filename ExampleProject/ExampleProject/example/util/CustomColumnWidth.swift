@@ -69,7 +69,7 @@ extension CustomColumnWidth {
          ideal: 500,
          max: nil
       )
-//      Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape) width: \(width)")
+      // Swift.print("✨ detailColumn: \(winWidth) isLandscape: \(isLandscape) width: \(width)")
       return width
    }
 }

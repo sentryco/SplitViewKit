@@ -111,11 +111,11 @@ extension ExampleView {
     * - Description: Displays a floating debug container that provides real-time information about the current configuration of the navigation split view, including the focused column and column configuration settings.
     * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
     */
-   /*@ViewBuilder */func debugContainer(splitConfig: SplitConfig, sizeClass: UserInterfaceSizeClass?) -> some View {
+   /*@ViewBuilder */func debugContainer(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
 //      if isDebug {
          DebugContainer(
             // - Fixme: ⚠️️ remove rebind on splitconfig aswell
-            splitConfig: splitConfig.reBind/**/, // nav-split-view config
+            splitConfig: splitConfig, // nav-split-view config
             sizeClass: sizeClass/*.reBind*/
          )
 //      } // else nothing

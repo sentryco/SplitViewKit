@@ -21,13 +21,13 @@ struct DebugContainer: View {
     * - Fixme: ⚠️️ make this ObservedObject instead? etc that would avoid rebinding etc
     * - Fixme: ⚠️️ why does this need to be binding and not other places?, test without binding?
     */
-   @Binding var splitConfig: SplitConfig
+   /*@Binding */var splitConfig: SplitConfig
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     * - Fixme: ⚠️️ figure out how to avoid rebinding on environment variable?
     */
-   /*@Binding */var sizeClass: UserInterfaceSizeClass?
+   /**/@Binding var sizeClass: UserInterfaceSizeClass?
 }
 /**
  * Content
@@ -42,7 +42,7 @@ extension DebugContainer {
          Spacer() // Pins content to the bottom
          HStack {
             Spacer() // Pins content to center
-            DebugView(splitConfig: /**/$splitConfig, sizeClass: sizeClass)
+            DebugView(splitConfig: /**/splitConfig, sizeClass: $sizeClass)
             Spacer() // Pins content to center
          }
       }
@@ -51,6 +51,7 @@ extension DebugContainer {
 extension DebugContainer {
    /**
     * - Description: This is a subview within the DebugContainer that displays the current configuration of the SplitView, including the column visibility, preferred compact column, size class, and device orientation.
+    * - Fixme: ⚠️️ Move to own file
     */
    struct DebugView: View {
       static let fontSize: CGFloat = 18
@@ -59,11 +60,11 @@ extension DebugContainer {
       /**
        * - Description: A binding to the SplitConfig object, which holds the configuration state for the SplitView.
        */
-      @Binding var splitConfig: SplitConfig
+      var splitConfig: SplitConfig
       /**
        * - Description: Used to detect if app is compact or regular mode etc
        */
-      /*@Binding */var sizeClass: UserInterfaceSizeClass?
+      /* */@Binding var sizeClass: UserInterfaceSizeClass?
       var body: some View {
          VStack(spacing: Self.vSpacing) {
             HStack(spacing: Self.hSpacing) {
@@ -136,8 +137,8 @@ extension DebugContainer {
    return ZStack {
       Color.darkGray.opacity(0.4).edgesIgnoringSafeArea(.all) // Gray background view covering entire screen
       DebugContainer.DebugView(
-         splitConfig: .constant(splitConfig),
-         sizeClass: /*.constant*/(.regular)
+         splitConfig: (splitConfig),
+         sizeClass: /**/.constant(.regular)
       )
       // .frame(maxWidth: .infinity)
       // .background(Color.blackOrWhite)
@@ -155,8 +156,8 @@ extension DebugContainer {
    return ZStack {
       Color.darkGray.opacity(0.4).edgesIgnoringSafeArea(.all) // Gray background view covering entire screen
       DebugContainer(
-         splitConfig: .constant(splitConfig),
-         sizeClass: /*.constant*/(.regular)
+         splitConfig: /*.constant*/(splitConfig),
+         sizeClass: /**/.constant(.regular)
       )
       .environment(\.colorScheme, .dark)
    }

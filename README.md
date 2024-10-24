@@ -98,13 +98,9 @@ These are some of the resources that was founds when solving edge cases for the 
 
 ## Todo:
 
-- 🏀 Also consider showing back button instead of sidebar toggle button in compact mode 👈👈👈
-
 - Complete comment doc etc (Format the description comments to be 80 character wide)
 
-- Add new gif where it starts in 30% then 70% then 100%
-
-- Test to see if macOS works out of the box (tmrw)
+- Test to see if macOS works out of the box
 
 ## Future improvements:
 

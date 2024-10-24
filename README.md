@@ -98,8 +98,7 @@ These are some of the resources that was founds when solving edge cases for the 
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
 ## Todo:
-
-- Complete comment doc etc (Format the description comments to be 80 character wide)
+- Complete comment doc etc (Format the description comments to be 80 character wide) 👈
 - Test to see if macOS works out of the box
 
 ## Future improvements:
@@ -117,3 +116,4 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider adding info around how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme (might be out of scope)
 - Consider making selections in the lists not show in compact mode. In the example project.
 - Consider moving some debug tools from the SplitViewKit to the example project 
+- Consider rebuilding NavigationSplitView with HStack. It might be a better solution and might not be very complicated to do. Rather then trying to wrap NavigationSplitView to fix NavigationSplitView shortcomings. The current wrapper works. But complexity cost is more than it should be. A HStack based solution that mimicks NavigationSplitView could reduce complexity and serve the same purpose.

@@ -54,12 +54,15 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     */
    @StateObject internal var splitConfig: SplitConfig
    /**
-    * - Fixme: ⚠️️ add description
+    * - Description: Used to store responsive break-points for iPad. And default columnwidths for mac etc.
+    * - Note: The implimenter can setup userdefaults for the mac app in order to persist last used columnwidths etc. if needed etc
     */
    internal let columnWidth: ColumnWidthKind
    /**
-    * - Abstract: Clever way to regenerate window on `orientation`, `sizeclass` and `window-resize` (iPad)
-    * - Note: As a last resort, you can force a view to redraw by changing its identity
+    * - Abstract: Clever way to regenerate window on `window-resize` (iPad)
+    * - Note: As a last resort, you can force a view to redraw by changing it's identity
+    * - Note: using a refreshID is less invasive than using a state for winWidth. We dont have an init winWidth for instance. and more bindings might be required etc. it would also cause aditional redraws with zero as the value etc. I think
+    * - Fixme: ⚠️️ there might be other was than using refreshID. Try to refactor it out later
     */
    @State internal var refreshID = UUID()
    /**

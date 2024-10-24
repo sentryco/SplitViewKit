@@ -19,11 +19,6 @@ extension SplitViewContainer {
     */
    public var body: some View {
       splitViewContainer
-         .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
-             Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
-//             refreshID = UUID() // Force redraw of navSplitView
-//            sizingClass = sizeClass
-         }
          .overlay { // We add overlay if debug closure returns a view, if not its skipped
             if let debugView = self.debug(splitConfig, sizeClass.reBind/*$,$sizingClass */) {
                debugView
@@ -48,11 +43,10 @@ extension SplitViewContainer {
    var splitViewContainer: some View {
       GeometryReader { geometry in
          navigationSplitView(geometry.size.width)
-            .id(refreshID) // used to refresh view when sizeClass change, and winSize change
+            .id(refreshID) // Used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
-               if /*sizeClass*/sizeClass == .regular && oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
-                   Swift.print("size is new")
-//                  refreshID = UUID() // Re-generate view
+               if sizeClass == .regular && oldSize != newSize { // ⚠️️ Only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
+                  refreshID = UUID() // Re-generates view
                }
             }
       }
@@ -60,7 +54,6 @@ extension SplitViewContainer {
    /**
     * Create navigationSplitView
     * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
-    * - Fixme: ⚠️️ Try to find a different way to pass horizontalSizeClass 👈 rebinding!
     * - Fixme: ⚠️️ Make a binding `navigationSplitViewStyle: NavigationSplitViewStyle
     * - Fixme: ⚠️️ Try to figure out a better way to use sizeClass with out rebinding it etc
     * - Fixme: ⚠️️ We might need to wrap detail in `NavigationStack` in some cases where presenting became an issue. or not. if not. remove this fixme
@@ -87,3 +80,8 @@ extension SplitViewContainer {
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
    }
 }
+//         .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
+//             Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
+//             refreshID = UUID() // Force redraw of navSplitView
+//            sizingClass = sizeClass
+//         }

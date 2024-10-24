@@ -49,17 +49,15 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
     */
    var splitViewContainer: some View {
-      navigationSplitView()
-         .id(refreshID)
-         .trackSize { oldSize, newSize in
-            if oldSize != newSize {
-               print("Size changed from \(oldSize) to \(newSize)")
-               refreshID = UUID()
-               winWidth = newSize.width
-            } else {
-               Swift.print("size is the same")
+      GeometryReader { geometry in
+         navigationSplitView(geometry.size.width)
+            .id(refreshID)
+            .onChange(of: geometry.size) { oldSize, newSize in
+               if oldSize != newSize {
+                  refreshID = UUID()
+               }
             }
-         }
+      }
    }
    /**
     * Create navigationSplitView
@@ -73,7 +71,7 @@ extension SplitViewContainer {
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
-   func navigationSplitView(/*_ winWidth: CGFloat*/) -> some View {
+   func navigationSplitView(_ winWidth: CGFloat) -> some View {
       let _ = {
          Swift.print("navSplitView - refresh")
       }()

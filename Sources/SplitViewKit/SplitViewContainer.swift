@@ -46,6 +46,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
+   // - Fixme: ⚠️️ add dispatch async main to see if that works in the onchange
+   @State internal var sizingClass: UserInterfaceSizeClass? // = .regular // - Fixme: ⚠️️ make this non optional later, maybe the optiality is holding back the refresh to take effect?
    /**
     * State object for managing the configuration of the split view.
     * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
@@ -58,7 +60,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     */
    internal let columnWidth: ColumnWidthKind
    /**
-    * - Abstract: Clever way to regen window on orientation, sizeclass and window-resize (iPad)
+    * - Abstract: Clever way to regenerate window on `orientation`, `sizeclass` and `window-resize` (iPad)
     * - Note: As a last resort, you can force a view to redraw by changing its identity
     */
    @State internal var refreshID = UUID()

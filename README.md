@@ -100,12 +100,11 @@ These are some of the resources that was founds when solving edge cases for the 
 ## Todo:
 
 - Complete comment doc etc (Format the description comments to be 80 character wide)
-
 - Test to see if macOS works out of the box
 
 ## Future improvements:
 
-- Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it
+- Consider adding better support for 2-coulmn working right out of the box. Or add notes on how to do it (combining 2Column mode with prominentDetail)
 - Consider experimenting with overflow working in detail column (maybe not, better to contain content)
 - Consider adding buttons that toggle different split-view modes? (explore how this should look first etc)
 - Consider improving the datamodel in the example project. Make it simpler
@@ -113,7 +112,8 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider adding an option for 70% landscape mode could be to not use .all, and use .double instead
 - Consider adding basic implementation on how to retain column-widths with user-default for macOS
 - Consider adding sidebar / main / detail column widths to debug container
-- Consider looking into how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
-- Consider checking that lightmode works well (make different b/w gifs etc)
-- Consider adding info around how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
-- Consider making selections in the lists not show in compact mode. 
+- Consider looking into how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) (surface level research on this came up empty)
+- Consider checking that lightmode works well in the example project
+- Consider adding info around how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme (might be out of scope)
+- Consider making selections in the lists not show in compact mode. In the example project.
+- Consider moving some debug tools from the SplitViewKit to the example project 

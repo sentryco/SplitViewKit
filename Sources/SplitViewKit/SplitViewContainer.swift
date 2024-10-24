@@ -19,7 +19,7 @@ import SwiftUI
  *  medium (iPad portrait): [Compact-SideBar, primary, Detail] (here we might need to just have a reveal btn that shows sidebar etc)
  *  large (iPad, macOS): [SideBar, primary, detail]
  */
-public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, DebugView: View>: View {
+public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, OverlayView: View>: View {
    /**
     * Left `side-menu-bar`
     * - Description: Represents the sidebar component of the split view. This sidebar acts as a navigation or menu column in the split view layout, typically containing navigation links or menu items that control what is displayed in the main content area.
@@ -39,7 +39,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     * Indicates whether the split view container should display debugging information
     * - Description: When not nil, the split view container can show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
     */
-   @ViewBuilder internal var debug: DebugAlias
+   @ViewBuilder internal var overlay: OverlayAlias
    /**
     * - Abstract: Used to detect if the app is in compact or regular mode.
     * - Description: This environment property helps in determining the horizontal size class of the current environment. It's crucial for adapting the UI elements based on the available space. It should be accessed from the correct scope to ensure accurate detection of the mode, as incorrect scope access can lead to misidentification between compact and regular modes.
@@ -62,6 +62,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     * - Abstract: Clever way to regenerate window on `window-resize` (iPad)
     * - Note: As a last resort, you can force a view to redraw by changing it's identity
     * - Note: using a refreshID is less invasive than using a state for winWidth. We dont have an init winWidth for instance. and more bindings might be required etc. it would also cause aditional redraws with zero as the value etc. I think
+    * - Note: it might make more sense to use size state if we deside you use a sizetracker. 
     * - Fixme: ⚠️️ there might be other was than using refreshID. Try to refactor it out later
     */
    @State internal var refreshID = UUID()
@@ -79,13 +80,13 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
                detail: @escaping DetailAlias,
-               debug: @escaping DebugAlias = { _,_ in nil }, // - Fixme: ⚠️️ move empty closure to default const?
+               overlay: @escaping OverlayAlias = { _,_ in nil }, // - Fixme: ⚠️️ move empty closure to default const?
                columnWidth: ColumnWidthKind = DefaultColumnWidth(),
                splitConfig: SplitConfig = .init()) {
       self.sideBar = sideBar
       self.content = content
       self.detail = detail
-      self.debug = debug
+      self.overlay = overlay
       self.columnWidth = columnWidth
       self._splitConfig = .init(wrappedValue: splitConfig)
    }

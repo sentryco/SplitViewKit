@@ -20,8 +20,8 @@ extension SplitViewContainer {
    public var body: some View {
       splitViewContainer
          .overlay { // We add overlay if debug closure returns a view, if not its skipped
-            if let debugView = self.debug(splitConfig, sizeClass.reBind/*$,$sizingClass */) {
-               debugView
+            if let overlayView = self.overlay(splitConfig, sizeClass.reBind) {
+               overlayView
             }
          }
    }
@@ -33,18 +33,15 @@ extension SplitViewContainer {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
-    * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader
-    * - Note: GeomReader fires when moving from 70% to full. (iPad)
-    * - Note: SizeClass does not fire when moving from 70% to fullscreen.
+    * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader. GeomReader fires when moving from 70% to full. (iPad) SizeClass does not fire when moving from 70% to fullscreen.
     * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is
-    * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc?
-    * - Fixme: ⚠️️ This is only relevant for iOS / iPad, so we could skip the geomreader for macos 👈
+    * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc? i guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos
     */
    var splitViewContainer: some View {
-      GeometryReader { geometry in
-         navigationSplitView(geometry.size.width)
+      GeometryReader { geometry in // - Fixme: ⚠️️ doc this line
+         navigationSplitView(geometry.size.width) // - Fixme: ⚠️️ doc this line
             .id(refreshID) // Used to refresh view when sizeClass change, and winSize change
-            .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
+            .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ Add doc
                if sizeClass == .regular && oldSize != newSize { // ⚠️️ Only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
                   refreshID = UUID() // Re-generates view
                }
@@ -54,10 +51,8 @@ extension SplitViewContainer {
    /**
     * Create navigationSplitView
     * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
-    * - Fixme: ⚠️️ Make a binding `navigationSplitViewStyle: NavigationSplitViewStyle
-    * - Fixme: ⚠️️ Try to figure out a better way to use sizeClass with out rebinding it etc
-    * - Fixme: ⚠️️ We might need to wrap detail in `NavigationStack` in some cases where presenting became an issue. or not. if not. remove this fixme
-    * - Fixme: ⚠️️ Add more doc to the different lines
+    * - Note: We rebidn sizeClass because environment variables Because you have to apply envirotnment variables to views that are regenerated down the hirarchy. So param drilling is easier to understand etc. less abstract
+    * - Note: We dont use navigationSplitViewStyle as a state because we only set it at setup.
     * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
     * - Note: We got rid of environmentObject and now do param drill instead, param-drill the sizeClass and splitConfig, environment variables is confusing if its not passed correctly, it can jump to compact in the wrong scope where it should be regular etc, and doesnt attach if views are replaced, like detailview etc 
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
@@ -68,20 +63,15 @@ extension SplitViewContainer {
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, sizeClass.reBind/*$sizingClass*/)
+         sideBar(splitConfig, sizeClass.reBind)  // - Fixme: ⚠️️ Doc this line
             .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } content: {
-         content(splitConfig, sizeClass.reBind/*$sizingClass*/)
+         content(splitConfig, sizeClass.reBind)  // - Fixme: ⚠️️ Doc this line
             .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } detail: {
-         detail(splitConfig, sizeClass.reBind/*$sizingClass*/) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, sizeClass.reBind) // - Fixme: ⚠️️ Doc this line
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
    }
 }
-//         .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
-//             Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
-//             refreshID = UUID() // Force redraw of navSplitView
-//            sizingClass = sizeClass
-//         }

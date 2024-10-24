@@ -3,8 +3,8 @@ import SwiftUI
  * Const - typealias
  * - Description: Signatures for the splitview column closures
  * - Note: sizeClass needs to be a binding or else UI doesnt react on changes. 
+ * - Important: ⚠️️ These aliases needs to stay inside this cope. as they use generics from the scope
  * - Fixme: ⚠️️ why is not splitconfig a binding here? I guess because its an ObservedObject and they dont need to be bindings? look into it
- * - Fixme: ⚠️️ consider moving these aliases out of this scope?
  */
 extension SplitViewContainer {
    /**
@@ -26,8 +26,8 @@ extension SplitViewContainer {
    public typealias DetailAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> Detail
    /**
     * - Fixme: ⚠️️ add doc
-    * - Fixme: ⚠️️ name this OverlayAlias, suitable for debugging or floating UI that can change the splitview UI, since we get the splitview bindings etc
+    * - Note: suitable for debugging or floating UI that can change the splitview UI, since we get the splitview bindings etc
     */
-   public typealias DebugAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> DebugView?
+   public typealias OverlayAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> OverlayView?
 }
 

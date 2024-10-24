@@ -43,7 +43,7 @@ extension ExampleView {
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
     * - Returns: A view that represents the sidebar of the application, configured according to the provided split configuration and size class.
     */
-   @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
+   @ViewBuilder func sideBarView(splitConfig: SplitConfig, sizeClass: UserInterfaceSizeClass?/*Binding<UserInterfaceSizeClass?>*/) -> some View {
       SideBarView(
          selectedSideBarIndex: $selectedSideBarIndex, // Selected-sidebar-index binding
          sizeClass: sizeClass,
@@ -62,7 +62,7 @@ extension ExampleView {
     *   - sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ Add doc
     */
-   @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
+   @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: UserInterfaceSizeClass?/*Binding<UserInterfaceSizeClass?>*/) -> some View {
       let items: DataModels = DataModel.dataModel.getMainModels(
          sideBarItemIndex: selectedSideBarIndex,
          splitConfig: splitConfig
@@ -95,7 +95,7 @@ extension ExampleView {
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions.
     * - Returns: Returns a view configured as a detail view for the selected item, based on the current split configuration and size class.
     */
-   func detailView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
+   func detailView(splitConfig: SplitConfig, sizeClass: UserInterfaceSizeClass?/*Binding<UserInterfaceSizeClass?>*/) -> some View {
       DetailView.initiate( // Generate DetailView via model
          sideBarData: DataModel.dataModel,
          sideBarItemIndex: selectedSideBarIndex,
@@ -103,5 +103,19 @@ extension ExampleView {
          splitConfig: splitConfig, // navSplitConfig
          sizeClass: sizeClass
       )
+   }
+   /**
+    * Adds floating debug-text that informs the viewer about column-config, focused-column
+    * - Description: Displays a floating debug container that provides real-time information about the current configuration of the navigation split view, including the focused column and column configuration settings.
+    * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
+    */
+   /*@ViewBuilder */func debugContainer(splitConfig: SplitConfig) -> some View {
+//      if isDebug {
+         DebugContainer(
+            // - Fixme: ⚠️️ remove rebind on splitconfig aswell
+            splitConfig: splitConfig.reBind, // nav-split-view config
+            sizeClass: sizeClass/*.reBind*/
+         )
+//      } // else nothing
    }
 }

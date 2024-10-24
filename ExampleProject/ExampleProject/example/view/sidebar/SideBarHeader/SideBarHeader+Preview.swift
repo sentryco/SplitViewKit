@@ -5,7 +5,7 @@ import SplitViewKit
 #Preview(traits: .fixedLayout(width: 700, height: 300)) {
    SideBarHeader(
       title: "Sidebar",
-      sizeClass: .constant(.regular),
+      sizeClass: /*.constant*/(.regular),
       splitConfig: .init()
    )
    .background(Color.black/*blackOrWhite*/.opacity(1))

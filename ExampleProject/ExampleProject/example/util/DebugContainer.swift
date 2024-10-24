@@ -87,7 +87,7 @@ extension DebugContainer {
             Text("Config: ").foregroundColor(Color.white) +
             Text("\(splitConfig.columnVisibility.description)").foregroundColor(Color.white.opacity(0.7))
          }
-            .font(.system(size: Self.fontSize))
+         .font(.system(size: Self.fontSize))
       }
       /**
        * - Description: Displays the current preferred compact column of the SplitView.
@@ -97,7 +97,7 @@ extension DebugContainer {
             Text("Column: ").foregroundColor(Color.white) +
             Text("\(splitConfig.preferredCompactColumn.description)").foregroundColor(Color.white.opacity(0.7))
          }
-            .font(.system(size: Self.fontSize))
+         .font(.system(size: Self.fontSize))
       }
       /**
        * - Description: Displays the current size class of the SplitView.
@@ -107,7 +107,7 @@ extension DebugContainer {
             Text("Size: ").foregroundColor(Color.white) +
             Text("\(sizeClass?.description ?? "")").foregroundColor(Color.white.opacity(0.7))
          }
-            .font(.system(size: Self.fontSize))
+         .font(.system(size: Self.fontSize))
       }
       /**
        * - Description: Displays the current orientation of the SplitView.
@@ -117,7 +117,7 @@ extension DebugContainer {
             Text("Orientation: ").foregroundColor(Color.white) +
             Text("\(isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
          }
-            .font(.system(size: Self.fontSize))
+         .font(.system(size: Self.fontSize))
       }
    }
 }

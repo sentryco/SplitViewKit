@@ -17,18 +17,6 @@ extension UserInterfaceSizeClass {
       }
    }
 }
-/**
- * Optional extension
- */
-extension Optional where Wrapped == UserInterfaceSizeClass {
-   /**
-    * Convenient rebinder (Environtment -> Binding)
-    * - Fixme: ⚠️️ Add description
-    */
-   var reBind: Binding<Self> {
-      .init(get: { self }, set: { _ in })
-   }
-}
 #if os(iOS)
 /**
  * Helper
@@ -47,3 +35,15 @@ extension UserInterfaceSizeClass {
    }
 }
 #endif
+/**
+ * Optional extension
+ */
+//extension Optional where Wrapped == UserInterfaceSizeClass {
+//   /**
+//    * Convenient rebinder (Environtment -> Binding)
+//    * - Fixme: ⚠️️ Add description
+//    */
+//   var reBind: Binding<Self> {
+//      .init(get: { self }, set: { _ in })
+//   }
+//}

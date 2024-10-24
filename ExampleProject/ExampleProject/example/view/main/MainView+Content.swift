@@ -30,7 +30,7 @@ extension MainView {
       MainHeader(
          title: title,
          splitConfig: splitConfig,
-         sizeClass: $sizeClass
+         sizeClass: /*$*/sizeClass
       )
       .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }

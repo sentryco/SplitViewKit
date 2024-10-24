@@ -1,6 +1,7 @@
 import SwiftUI
 /**
  * Content
+ * - Important: ⚠️️ The task is to redraw navSplitView on size,sizeclass and orientation change. Doing bindings on columnWidth values etc, doesnt update the navsplitview
  * - Note: We use navigationsplitview, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
  * - Note: `navSplitView` might have built in support for resizing on iPad etc, so we don't have to build it etc. a problem might be navbar, that we opt not to use,
  */
@@ -18,20 +19,15 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️⚠️️ maybe toggle on isDebug and not create the ZStack etc
     */
    public var body: some View {
-      ZStack {
-         splitViewContainer // Bellow debug container
-         debugContainer // Floats above navSplitView
-      }
-      // - Fixme: ⚠️️ keep in mind 70% splitview is still regular, try to see if there is an event still from regular to regular
-      .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
-//         if newValue == .compact {
-//            print("👉 Switched to compact size class")
-//         } else if newValue == .regular {
-//            print("👉 Switched to regular size class")
-//         }
-         refreshID = UUID()
-      }
-      // - Fixme: ⚠️️ we could try to rebind sizeClass to a state? to get rid of id?
+      splitViewContainer
+         .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
+            refreshID = UUID() // Force redraw of navSplitView
+         }
+         .overlay { // - Fixme: ⚠️️ doc this
+            if let debugView = self.debug(splitConfig, sizeClass) {
+               debugView
+            }
+         }
    }
 }
 /**
@@ -91,20 +87,6 @@ extension SplitViewContainer {
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
-   }
-   /**
-    * Adds floating debug-text that informs the viewer about column-config, focused-column
-    * - Description: Displays a floating debug container that provides real-time information about the current configuration of the navigation split view, including the focused column and column configuration settings.
-    * - Fixme: ⚠️️ try to avoid rebinding these? or move them into object scope etc?
-    */
-   @ViewBuilder var debugContainer: some View {
-      if isDebug {
-         DebugContainer(
-            // - Fixme: ⚠️️ remove rebind on splitconfig aswell
-            splitConfig: splitConfig.reBind, // nav-split-view config
-            sizeClass: sizeClass/*.reBind*/
-         )
-      } // else nothing
    }
 }
 // this doesnt work because we try to update state change inside view chang geomproxy etc
@@ -202,3 +184,8 @@ extension SplitViewContainer {
 //         }()
 //
 //      }
+//         if newValue == .compact {
+//            print("👉 Switched to compact size class")
+//         } else if newValue == .regular {
+//            print("👉 Switched to regular size class")
+//         }

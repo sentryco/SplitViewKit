@@ -49,7 +49,7 @@ extension DetailView {
       DetailHeader(
          title: title,
          splitConfig: splitConfig,
-         sizeClass: $sizeClass
+         sizeClass: /*$*/sizeClass
       )
          .background(isTest ? .indigo.opacity(0.5) : .whiteOrBlack.opacity(0.06)) // warn    debug
    }

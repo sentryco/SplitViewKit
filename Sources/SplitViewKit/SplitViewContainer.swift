@@ -19,7 +19,7 @@ import SwiftUI
  *  medium (iPad portrait): [Compact-SideBar, primary, Detail] (here we might need to just have a reveal btn that shows sidebar etc)
  *  large (iPad, macOS): [SideBar, primary, detail]
  */
-public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: View {
+public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, DebugView: View>: View {
    /**
     * Left `side-menu-bar`
     * - Description: Represents the sidebar component of the split view. This sidebar acts as a navigation or menu column in the split view layout, typically containing navigation links or menu items that control what is displayed in the main content area.
@@ -36,12 +36,15 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     */
    @ViewBuilder internal var detail: DetailAlias
    /**
+    * - Fixme: ⚠️️ add doc
+    */
+   @ViewBuilder internal var debug: DebugAlias
+   /**
     * - Abstract: Used to detect if the app is in compact or regular mode.
     * - Description: This environment property helps in determining the horizontal size class of the current environment. It's crucial for adapting the UI elements based on the available space. It should be accessed from the correct scope to ensure accurate detection of the mode, as incorrect scope access can lead to misidentification between compact and regular modes.
     * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
-//   @State var sizeClassInstance: UserInterfaceSizeClass?
    /**
     * State object for managing the configuration of the split view.
     * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
@@ -57,7 +60,7 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     * Indicates whether the split view container should display debugging information.
     * - Description: When set to `true`, the split view container will show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
     */
-   internal let isDebug: Bool
+//   internal let isDebug: Bool
    // - Fixme: ⚠️️ add doc
    // - Fixme: ⚠️️ this can be optional, as we only use it as a view refresher
 //   /*@State */internal var geometryChange: GeometryChange?
@@ -65,7 +68,6 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    // add .id(refreshID) on view and call  refreshID = UUID() in an update
    // - Fixme: ⚠️️ add doc
    @State internal var refreshID = UUID()
-//   @State internal var winWidth: CGFloat = .zero
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.
@@ -80,14 +82,18 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
                detail: @escaping DetailAlias,
+               debug: @escaping DebugAlias,
                columnWidth: ColumnWidthKind = DefaultColumnWidth(),
-               splitConfig: SplitConfig = .init(),
-               isDebug: Bool = false) {
+               splitConfig: SplitConfig = .init()//,
+               /*isDebug: Bool = false*/) {
       self.sideBar = sideBar
       self.content = content
       self.detail = detail
+      self.debug = debug
       self.columnWidth = columnWidth
       self._splitConfig = .init(wrappedValue: splitConfig)
-      self.isDebug = isDebug
+//      self.isDebug = isDebug
    }
 }
+//   @State internal var winWidth: CGFloat = .zero
+//   @State var sizeClassInstance: UserInterfaceSizeClass?

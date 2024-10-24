@@ -14,6 +14,6 @@ import SplitViewKit
       items: items,
       selectedItem: .constant(nil), // - Fixme: ⚠️️ Make this state?
       splitConfig: .init(),
-      sizeClass: .constant(.regular)
+      sizeClass: /*.constant*/(.regular)
    )
 }

@@ -15,7 +15,7 @@ struct SideBarHeader: View {
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
-   @Binding var sizeClass: UserInterfaceSizeClass?
+   /*@Binding */var sizeClass: UserInterfaceSizeClass?
    /**
     * - Description: The split configuration of the sidebar
     */

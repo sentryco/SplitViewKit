@@ -63,7 +63,7 @@ extension SplitConfig {
     * Convenient rebinder
     * - Fixme: ⚠️️ Add description
     */
-   internal var reBind: Binding<SplitConfig> {
+   public var reBind: Binding<SplitConfig> {
       .init(get: { self }, set: { _ in })
    }
 }

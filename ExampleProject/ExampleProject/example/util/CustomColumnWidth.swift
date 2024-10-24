@@ -3,10 +3,10 @@ import SplitViewKit
 /**
  * Const
  * - Note: Must be public to be initiatable in init
- * - Fixme: ⚠️️ add support for serving different values for landscape and portraite mode, ask copilot how etc
- * - Fixme: ⚠️️ add support for inserting these from the splitviewcontainer init
- * - Fixme: ⚠️️ we also have to account for compact size of navsplitview here
- * - Fixme: ⚠️️⚠️️⚠️️ why are these calls return optional?
+ * - Fixme: ⚠️️ Add support for serving different values for landscape and portraite mode, ask copilot how etc
+ * - Fixme: ⚠️️ Add support for inserting these from the splitviewcontainer init
+ * - Fixme: ⚠️️ We also have to account for compact size of navsplitview here
+ * - Fixme: ⚠️️⚠️️⚠️️ Why are these calls return optional?
  */
 public struct CustomColumnWidth: ColumnWidthKind {
    /**

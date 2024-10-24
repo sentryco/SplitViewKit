@@ -14,6 +14,13 @@ extension DetailList {
       }
       // - Fixme: ⚠️️ this should be 12. like main and sidebar. not sure why it isnt, figure it out
       .padding(.vertical, 24) // - Fixme: ⚠️️ doc this etc
+      .sheet(isPresented: $isSheetPresented) {
+         // Content of the sheet goes here
+         Button("Dismiss") {
+            isSheetPresented.toggle()
+         }
+         .toggleButtonStyle
+      }
    }
 }
 /**
@@ -25,18 +32,11 @@ extension DetailList {
     */
    func getRow(title: String) -> some View {
       Button {
-         isSheetPresented = true
          Swift.print("Open sheet: \(title)")
+         isSheetPresented.toggle()
       } label: {
          Text(title)
             .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))
-      }
-      .sheet(isPresented: $isSheetPresented) {
-         // Content of the sheet goes here
-         Button("Dismiss") {
-            isSheetPresented.toggle()
-         }
-         .toggleButtonStyle
       }
    }
 }

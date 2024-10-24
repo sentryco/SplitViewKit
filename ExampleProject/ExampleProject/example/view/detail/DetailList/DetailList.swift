@@ -2,7 +2,7 @@ import SwiftUI
 /**
  * - Description: This view represents a list of details, where each item can be interacted with to present more information in a modal sheet.
  * - Fixme: ⚠️️ add preview 👈
- * - Fixme: ⚠️️ rename to DetailStack?
+ * - Fixme: ⚠️️ rename to DetailStack? or DetailContainer?
  */
 struct DetailList: View {
    /**

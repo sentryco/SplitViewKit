@@ -40,17 +40,22 @@ extension SideBarHeader {
     * - Note: We animate the hiding showing of sidebar toggle button because it looks nice
     * - Note: "70% splitview mode" for iPad is considered regular
     * - Note: The animation is only really visible If we drag the sidebar to visibility. Very subtle, but looks better when accounted for
+    * - Fixme: ⚠️️ Rename to sideBarToggleButton
     */
    @ViewBuilder var toggleButton: some View {
-      Button(action: { // Hide sidebar
-         if sizeClass == .regular { // If 3 column
-            splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectivly hides sidebar
-         } // else we are in compact mode. So just switch to main
-         splitConfig.preferredCompactColumn = .content
+      let button = Button(action: { // Hide sidebar
+         splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectivly hides sidebar
       }) {}
-         .iconButtonStyle(iconName: "square.lefthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
-         .opacity(splitConfig.columnVisibility == .all ? 1.0 : 0.0) // Only show this if sidebar is hidden
+      if sizeClass == .regular { // If 3 column
+         button
+            .iconButtonStyle(iconName: "square.lefthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
+            .opacity(splitConfig.columnVisibility == .all ? 1.0 : 0.0) // Only show this if sidebar is hidden
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
-         .animation(.easeInOut(duration: 0.3), value: splitConfig.columnVisibility == .all)
+            .animation(.easeInOut(duration: 0.3), value: splitConfig.columnVisibility == .all)
+      } else { // hide button in compact mode
+         Color.clear.frame(width: 36, height: 36)
+      }
    }
 }
+// else we are in compact mode. So just switch to main
+// splitConfig.preferredCompactColumn = .content

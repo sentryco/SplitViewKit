@@ -10,9 +10,9 @@ struct SizeTracker: ViewModifier {
          .background(
             GeometryReader { geometry in
                Color.clear
-                  .onAppear {
-                     currentSize = geometry.size
-                  }
+//                  .onAppear {
+//                     currentSize = geometry.size
+//                  }
                   .onChange(of: geometry.size) { oldSize, newSize in
                      previousSize = currentSize
                      currentSize = newSize

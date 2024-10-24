@@ -54,7 +54,7 @@ extension SplitViewContainer {
          .trackSize { oldSize, newSize in
             if oldSize != newSize {
                print("Size changed from \(oldSize) to \(newSize)")
-//               refreshID = UUID()
+               refreshID = UUID()
                winWidth = newSize.width
             } else {
                Swift.print("size is the same")

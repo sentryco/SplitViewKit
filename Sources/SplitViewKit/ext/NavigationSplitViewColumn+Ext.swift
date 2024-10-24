@@ -7,6 +7,7 @@ extension NavigationSplitViewColumn {
    /**
     * - Description: This computed property provides a textual description of the NavigationSplitViewColumn. It is useful for debugging and logging purposes.
     * - Returns: A string representing the column. It returns "sidebar" for the sidebar column, "main" for the content column, and "detail" for the detail column. If the column is not supported, it returns "Not supported".
+    * - Fixme: ⚠️️ consider moving this description into example project
     */
    public var description: String {
       switch self {

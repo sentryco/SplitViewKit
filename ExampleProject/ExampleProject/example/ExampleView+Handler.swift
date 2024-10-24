@@ -11,8 +11,8 @@ extension ExampleView {
     *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
     *   - sizeClass: The current size class of the user interface, which may affect layout decisions.
     */
-   func handleSideBarChange(_ splitConfig: SplitConfig, _ sizeClass: UserInterfaceSizeClass?/*Binding<UserInterfaceSizeClass?>*/) {
-      guard let sizeClass: UserInterfaceSizeClass = sizeClass/*.wrappedValue*/ else { print("⚠️️ error"); return }
+   func handleSideBarChange(_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>/*UserInterfaceSizeClass?*/) {
+      guard let sizeClass: UserInterfaceSizeClass = sizeClass.wrappedValue/**/ else { print("⚠️️ error"); return }
       switch sizeClass {
       case .regular: // Only auto select mainitem if all columns are visible etc
          $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc

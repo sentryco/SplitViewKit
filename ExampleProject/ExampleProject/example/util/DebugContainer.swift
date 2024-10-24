@@ -42,7 +42,7 @@ extension DebugContainer {
          Spacer() // Pins content to the bottom
          HStack {
             Spacer() // Pins content to center
-            DebugView(splitConfig: /*$*/splitConfig, sizeClass: sizeClass)
+            DebugView(splitConfig: /**/$splitConfig, sizeClass: sizeClass)
             Spacer() // Pins content to center
          }
       }

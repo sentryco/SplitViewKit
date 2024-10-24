@@ -3,6 +3,7 @@ import SwiftUI
 extension NavigationSplitViewStyle {
    /**
     * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ consider moving this description into example project
     */
    public var description: String {
       switch true {

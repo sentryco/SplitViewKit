@@ -24,7 +24,7 @@ extension SplitViewContainer {
             refreshID = UUID() // Force redraw of navSplitView
          }
          .overlay { // - Fixme: ⚠️️ doc this
-            if let debugView = self.debug(splitConfig, sizeClass) {
+            if let debugView = self.debug(splitConfig, sizeClass.reBind) {
                debugView
             }
          }
@@ -70,20 +70,17 @@ extension SplitViewContainer {
     * - Returns: Nav-split-view
     */
    func navigationSplitView(_ winWidth: CGFloat) -> some View {
-      let _ = {
-         Swift.print("navSplitView - refresh")
-      }()
-      return NavigationSplitView( // Initializes a NavigationSplitView
+      NavigationSplitView( // Initializes a NavigationSplitView
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, sizeClass/*.reBind*/)
+         sideBar(splitConfig, sizeClass.reBind)
             .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } content: {
-         content(splitConfig, sizeClass/*.reBind*/)
+         content(splitConfig, sizeClass.reBind)
             .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc (this caution might not be relevant anymore)
-         detail(splitConfig, sizeClass/*.reBind*/) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, sizeClass.reBind) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
@@ -189,3 +186,6 @@ extension SplitViewContainer {
 //         } else if newValue == .regular {
 //            print("👉 Switched to regular size class")
 //         }
+//      let _ = {
+//         Swift.print("navSplitView - refresh")
+//      }()

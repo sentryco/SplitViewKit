@@ -30,7 +30,7 @@ extension MainView {
       MainHeader(
          title: title,
          splitConfig: splitConfig,
-         sizeClass: /*$*/sizeClass
+         sizeClass: /**/$sizeClass
       )
       .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
@@ -46,7 +46,6 @@ extension MainView {
       }
 //      .contentMargins(.horizontal, .zero) // Sets the horizontal margins of the content to zero, effectively aligning the content flush with the horizontal edges of its container.
       .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
-
    }
    /**
     * mainList

@@ -35,7 +35,7 @@ public struct DetailView: View {
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
-   /*@Binding */var sizeClass: UserInterfaceSizeClass?
+   /* */@Binding var sizeClass: UserInterfaceSizeClass?
 }
 /**
  * DetailView init
@@ -50,7 +50,7 @@ extension DetailView {
     *   - mainItemIndex: The index of the selected item in the main list, used to fetch the detailed data for the detail view.
     * - Returns: A `DetailView` configured with the data corresponding to the selected main item.
     */
-   static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig, sizeClass: UserInterfaceSizeClass?/*Binding<UserInterfaceSizeClass?>*/) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
+   static func initiate(sideBarData: SideBarData, sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>/*UserInterfaceSizeClass?*/) -> some View {  /*<ObservableObject>*//*, isDetailFullScreen: Binding<Bool>*/
       // - Fixme: ⚠️️ Use safeArray here, and return optional, add fileprivate helper?
       let mainModel: MainModel = sideBarData[sideBarItemIndex].content[mainItemIndex]
       let detailView = DetailView(

@@ -13,7 +13,7 @@ import SplitViewKit
       selectedMainIndex: .constant(0), // - Fixme: ⚠️️ Make this state?
       items: items,
       selectedItem: .constant(nil), // - Fixme: ⚠️️ Make this state?
-      splitConfig: .init(),
+      splitConfig: .constant(.init()),
       sizeClass: /*.constant*/(.regular)
    )
 }

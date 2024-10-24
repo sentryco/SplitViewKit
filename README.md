@@ -27,8 +27,8 @@
 ## Solution:
 
 1. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
-2. The framework supports providing your own `column-width` calculations. Lettin you set your own responsive breakpoints
-3. The framework supports providing your own navigation UI for the different modes, by reacting to sizeClass, orientation and winSize changes
+2. The framework supports providing your own `column-width` calculations. Letting you set your own "responsive breakpoints"
+3. The framework supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes
 
 ## Example:
 
@@ -101,31 +101,14 @@ These are some of the resources that was founds when solving edge cases for the 
 <img width="436" alt="img" src="https://s11.gifyu.com/images/SOKpP.gif">
 
 ## Todo:
- 
 
-- we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. these now work. but the refresh code should be one call. use copilot to figure it out etc. 
- 
-- check with copilot if anything changed with NavigationSplitView from ios 17 to ios 18
+- 🏀 Also consider showing back button instead of sidebar toggle button in compact mode 👈👈👈
 
-- Also consider showing back button instead of sidebar toggle button in compact mode 👈👈👈
- 
-- Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
+- Complete comment doc etc (Format the description comments to be 80 character wide)
 
-- Test support for dark / lightmode (make different b/w gifs etc) 
+- Add new gif where it starts in 30% then 70% then 100%
 
-- Test to see if macOS works out of the box 
-
-- Remove hybridcolor dep from debugcontainer. 
-
-- or maybe add debug container through init wrapper
-
-- Format the description comments to be 80 character wide
-
-- Complete comment doc etc 
-
-- Figure out how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
-
-- add new gif where it starts in 30% then 70% then 100%
+- Test to see if macOS works out of the box (tmrw)
 
 ## Future improvements:
 
@@ -137,3 +120,6 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider adding an option for 70% landscape mode could be to not use .all, and use .double instead
 - Consider adding basic implementation on how to retain column-widths with user-default for macOS
 - Consider adding sidebar / main / detail column widths to debug container
+- Consider looking into how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
+- Consider checking that lightmode works well (make different b/w gifs etc)
+- Consider adding info around how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme

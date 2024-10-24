@@ -15,15 +15,14 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
-    * - Fixme: ⚠️️ This is only relevant for iOS, so we could skip the geomreader for macos 👈
-    * - Fixme: ⚠️️⚠️️ maybe toggle on isDebug and not create the ZStack etc
+    *
     */
    public var body: some View {
       splitViewContainer
          .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
             refreshID = UUID() // Force redraw of navSplitView
          }
-         .overlay { // - Fixme: ⚠️️ doc this
+         .overlay { // We add overlay if debug closure returns a view, if not its skipped
             if let debugView = self.debug(splitConfig, sizeClass.reBind) {
                debugView
             }
@@ -37,14 +36,12 @@ extension SplitViewContainer {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
+    * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader
     * - Note: GeomReader fires when moving from 70% to full. (iPad)
     * - Note: SizeClass does not fire when moving from 70% to fullscreen.
     * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is
-    * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc?
-    * - Fixme: ⚠️️ so the issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens
-    * - Fixme: ⚠️️ we can try to
-    * - Fixme: ⚠️️ we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
-    * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
+    * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc?
+    * - Fixme: ⚠️️ This is only relevant for iOS / iPad, so we could skip the geomreader for macos 👈
     */
    var splitViewContainer: some View {
       GeometryReader { geometry in
@@ -86,106 +83,3 @@ extension SplitViewContainer {
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
    }
 }
-// this doesnt work because we try to update state change inside view chang geomproxy etc
-//      if self.geometryChange != geomChange { // change happened
-//         Swift.print("✅ geometryChange has changed")
-//         geometryChange = geomChange // set to prev to current
-//         return navSplitView(winWidth: winSize.width)
-//      } else { // no change happened
-//         Swift.print("🚫 geometryChange has not changed")
-//         return navSplitView(winWidth: winSize.width)
-//      }
-//      let geomChange = GeometryChange( // updates state if it changed, which in turn updates view
-//         sizeClass: self.sizeClass,
-//         isLandscape: isLandscape,
-//         winSize: winSize
-//      )
-//   func geometryChange(/*isLandscape: Bool, */geometry: GeometryProxy /*closure: (_ winWidth: CGFloat) -> some View*/) -> some View {
-//      if isLandscape { // - Fixme: ⚠️️ Add doc
-//         if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-//            navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//         } else { // if sizeClass == .regular
-//            if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
-//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//            } else {
-//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//            }
-//         }
-//      } else {
-//         navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
-//      }
-//   }
-//         geometryChange(
-////            isLandscape: ,
-//            //sizeClass: sizeClass.reBind,
-//            geometry: geometry
-////            closure: navigationSplitView
-//         )
-//switch true {
-//   
-//case isLandscape, sizeClass == .regular, isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
-//   Swift.print("👉 isLandscape, regular, isNarrow")
-//   return navigationSplitView(geometry.size.width)
-//case isLandscape, sizeClass == .regular, !isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width):
-//   Swift.print("👉 isLandscape, regular, fullscreen")
-//   return navigationSplitView(geometry.size.width)
-//case isLandscape, sizeClass == .compact:
-//   Swift.print("👉 isLandscape, compact")
-//   return navigationSplitView(geometry.size.width)
-//default:
-//   Swift.print("👉 default")
-//   return navigationSplitView(geometry.size.width) // else regular, not narrow, not landscape
-//   }
-
-// 🏀
-
-//      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
-//         let _ = {
-//            Swift.print("📐 Geometry changed: \(geometry.size) ")
-//         }()
-//         if isLandscape { // - Fixme: ⚠️️ Add doc
-//            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//            } else { // if sizeClass == .regular
-//               isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) ? navigationSplitView(geometry.size.width) : navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-//            }
-//         } else {
-//            navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
-//         }
-//      }
-//            .onAppear {
-//               Swift.print("✨ onAppear")
-//               winWidth = geometry.size.width
-//               refreshID = UUID()
-//            }
-//      .onAppear {
-//         Swift.print("✨ onAppear")
-//         refreshID = UUID()
-//      }
-//      .onChange(of: winWidth) { oldValue, newValue in
-//         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
-//         refreshID = UUID()
-//      }
-
-
-//         .background(
-//            GeometryReader { proxy in
-//               Color.clear.onAppear {
-//                  winWidth = proxy.size.width
-//               }
-//            }
-//         )
-//      GeometryReader { (_ geometry: GeometryProxy) in
-//         let _ = {
-//            Swift.print("📐 Geometry changed: \(geometry.size) ")
-//         }()
-//
-//      }
-//         if newValue == .compact {
-//            print("👉 Switched to compact size class")
-//         } else if newValue == .regular {
-//            print("👉 Switched to regular size class")
-//         }
-//      let _ = {
-//         Swift.print("navSplitView - refresh")
-//      }()

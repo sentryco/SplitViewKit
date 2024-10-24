@@ -36,7 +36,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     */
    @ViewBuilder internal var detail: DetailAlias
    /**
-    * - Fixme: ⚠️️ add doc
+    * Indicates whether the split view container should display debugging information
+    * - Description: When not nil, the split view container can show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
     */
    @ViewBuilder internal var debug: DebugAlias
    /**
@@ -57,16 +58,9 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     */
    internal let columnWidth: ColumnWidthKind
    /**
-    * Indicates whether the split view container should display debugging information.
-    * - Description: When set to `true`, the split view container will show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
+    * - Abstract: Clever way to regen window on orientation, sizeclass and window-resize (iPad)
+    * - Note: As a last resort, you can force a view to redraw by changing its identity
     */
-//   internal let isDebug: Bool
-   // - Fixme: ⚠️️ add doc
-   // - Fixme: ⚠️️ this can be optional, as we only use it as a view refresher
-//   /*@State */internal var geometryChange: GeometryChange?
-   // As a last resort, you can force a view to redraw by changing its identity:
-   // add .id(refreshID) on view and call  refreshID = UUID() in an update
-   // - Fixme: ⚠️️ add doc
    @State internal var refreshID = UUID()
    /**
     * Init
@@ -75,25 +69,21 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     *   - sideBar: menuColumn content closure (left)
     *   - content: mainColumn content closure (center)
     *   - detail: detailColumn content closure (right)
-    *   - isDebug: Indicates if debugging information should be displayed. Useful for development and troubleshooting.
-    *   - columnWidth: - Fixme: ⚠️️ add doc
+    *   - columnWidth: Bring your own responsive break-points for splitview
     *   - splitConfig: Allows us to set initial config state (Not intended for injecting another state elsewhere)
+    *   - debug: Can be used to overlay debug consol or UI to control splitview
     */
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
                detail: @escaping DetailAlias,
-               debug: @escaping DebugAlias,
+               debug: @escaping DebugAlias = { _,_ in nil }, // - Fixme: ⚠️️ move empty closure to default const?
                columnWidth: ColumnWidthKind = DefaultColumnWidth(),
-               splitConfig: SplitConfig = .init()//,
-               /*isDebug: Bool = false*/) {
+               splitConfig: SplitConfig = .init()) {
       self.sideBar = sideBar
       self.content = content
       self.detail = detail
       self.debug = debug
       self.columnWidth = columnWidth
       self._splitConfig = .init(wrappedValue: splitConfig)
-//      self.isDebug = isDebug
    }
 }
-//   @State internal var winWidth: CGFloat = .zero
-//   @State var sizeClassInstance: UserInterfaceSizeClass?

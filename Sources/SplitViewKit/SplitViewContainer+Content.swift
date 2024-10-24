@@ -22,10 +22,10 @@ extension SplitViewContainer {
          splitViewContainer // Bellow debug container
          debugContainer // Floats above navSplitView
       }
-      .onAppear {
-         Swift.print("✨ onAppear")
-         refreshID = UUID()
-      }
+//      .onAppear {
+//         Swift.print("✨ onAppear")
+//         refreshID = UUID()
+//      }
       // - Fixme: ⚠️️ keep in mind 70% splitview is still regular, try to see if there is an event still from regular to regular
       .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
          if newValue == .compact {
@@ -69,7 +69,9 @@ extension SplitViewContainer {
          navigationSplitView()
             .id(refreshID)
             .onAppear {
+               Swift.print("✨ onAppear")
                winWidth = geometry.size.width
+               refreshID = UUID()
             }
       }
       

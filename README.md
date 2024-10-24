@@ -123,3 +123,4 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider looking into how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
 - Consider checking that lightmode works well (make different b/w gifs etc)
 - Consider adding info around how to remove the ability to create multiple windows of the same app on iPad. Write a note about it in the readme
+- Consider making selections in the lists not show in compact mode. 

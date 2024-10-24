@@ -8,19 +8,19 @@ extension MainHeader {
     */
    var body: some View {
       VStack {
-         HStack { // button
-            toggleButton // top-left
+         HStack { // button (top-left)
+            button
             Spacer()
          }
-         HStack { // title
-            titleText // bottom-left
+         HStack { // title (bottom-left)
+            titleText
             Spacer()
          }
       }
-      // - Fixme: ⚠️️ could this cause an issue, is it needed?
-      .frame(maxWidth: .infinity) // ⚠️️ forces the view to not shrink to text, but rather expand to its parent width
-      .padding(.horizontal) // adds left and right padding
-      .padding(.vertical)
+      // - Fixme: ⚠️️ Could this cause an issue, is it needed?
+      .frame(maxWidth: .infinity) // ⚠️️ Forces the view to not shrink to text, but rather expand to its parent width
+      .padding(.horizontal) // Adds left and right padding
+      .padding(.vertical) 
    }
 }
 /**
@@ -28,23 +28,44 @@ extension MainHeader {
  */
 extension MainHeader {
    /**
+    * SideBarToggleButton or backbutton
+    */
+   @ViewBuilder var button: some View {
+      if sizeClass == .regular {
+         toggleButton
+      } else { // if compact
+         backButton
+      }
+   }
+   /**
     * - Description: A button that toggles the visibility of the sidebar depending on the current size class.
     * - Note: We should show this if in compact mode, Show this only if toggle is true
     * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     * - Fixme: ⚠️️ Try to move anim and opacity into the button style
+    * - Fixme: ⚠️️ Add abstract
+    * - Fixme: ⚠️️ Rename to sideBarToggleButton
     */
-   @ViewBuilder var toggleButton: some View {
+   var toggleButton: some View {
       Button(action: { // Show sidebar
-         if sizeClass == .regular {
-            splitConfig.columnVisibility = .all // shows all 3 columns
-         } else { // if compact
-            dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
-         }
+         splitConfig.columnVisibility = .all // shows all 3 columns
       }) {}
          .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden
       // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
       .animation(.easeInOut(duration: 0.3), value: splitConfig.isShowingSideBar(sizeClass: sizeClass))
+   }
+   /**
+    * Back button
+    * - Description: Provides a custom back button when in compact mode, which allows users to navigate back to the previous view. This button is visible only in compact mode to enhance usability on smaller screens.
+    */
+   var backButton: some View {
+      Button(action: {
+         dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
+      }) {}
+         .iconButtonStyle(iconName: "chevron.left")
+      // Only show if in compact mode
+         .opacity(sizeClass == .compact ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+         .animation(.easeInOut(duration: 0.3), value: sizeClass == .compact)
    }
    /**
     * Title text

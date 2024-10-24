@@ -22,10 +22,6 @@ extension SplitViewContainer {
          splitViewContainer // Bellow debug container
          debugContainer // Floats above navSplitView
       }
-//      .onAppear {
-//         Swift.print("✨ onAppear")
-//         refreshID = UUID()
-//      }
       // - Fixme: ⚠️️ keep in mind 70% splitview is still regular, try to see if there is an event still from regular to regular
       .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
          if newValue == .compact {
@@ -35,10 +31,6 @@ extension SplitViewContainer {
          }
          refreshID = UUID()
       }
-//      .onChange(of: winWidth) { oldValue, newValue in
-//         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
-//         refreshID = UUID()
-//      }
    }
 }
 /**
@@ -57,34 +49,17 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
     */
    var splitViewContainer: some View {
-      GeometryReader { (_ geometry: GeometryProxy) in
-         let _ = {
-            Swift.print("📐 Geometry changed: \(geometry.size) ")
-         }()
-         let _ = {
-            DispatchQueue.main.async {
-               winWidth = geometry.size.width
-               refreshID = UUID()
-            }
-         }()
-         navigationSplitView()
-            .id(refreshID)
-//            .onAppear {
-//               Swift.print("✨ onAppear")
-//               winWidth = geometry.size.width
+      navigationSplitView()
+         .id(refreshID)
+         .trackSize { oldSize, newSize in
+            if oldSize != newSize {
+               print("Size changed from \(oldSize) to \(newSize)")
 //               refreshID = UUID()
-//            }
-      }
-      
-         
-//         .background(
-//            GeometryReader { proxy in
-//               Color.clear.onAppear {
-//                  winWidth = proxy.size.width
-//               }
-//            }
-//         )
-         
+               winWidth = newSize.width
+            } else {
+               Swift.print("size is the same")
+            }
+         }
    }
    /**
     * Create navigationSplitView
@@ -197,4 +172,32 @@ extension SplitViewContainer {
 //         } else {
 //            navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
 //         }
+//      }
+//            .onAppear {
+//               Swift.print("✨ onAppear")
+//               winWidth = geometry.size.width
+//               refreshID = UUID()
+//            }
+//      .onAppear {
+//         Swift.print("✨ onAppear")
+//         refreshID = UUID()
+//      }
+//      .onChange(of: winWidth) { oldValue, newValue in
+//         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
+//         refreshID = UUID()
+//      }
+
+
+//         .background(
+//            GeometryReader { proxy in
+//               Color.clear.onAppear {
+//                  winWidth = proxy.size.width
+//               }
+//            }
+//         )
+//      GeometryReader { (_ geometry: GeometryProxy) in
+//         let _ = {
+//            Swift.print("📐 Geometry changed: \(geometry.size) ")
+//         }()
+//
 //      }

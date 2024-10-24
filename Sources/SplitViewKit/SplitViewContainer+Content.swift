@@ -63,6 +63,7 @@ extension SplitViewContainer {
          }()
          let _ = {
             DispatchQueue.main.async {
+               winWidth = geometry.size.width
                refreshID = UUID()
             }
          }()

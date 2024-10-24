@@ -48,23 +48,16 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
     */
    var splitViewContainer: some View {
-      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
+      GeometryReader { (_ geometry: GeometryProxy) in
          let _ = {
             Swift.print("📐 Geometry changed: \(geometry.size) ")
          }()
-         if isLandscape { // - Fixme: ⚠️️ Add doc
-            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
-               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-            } else { // if sizeClass == .regular
-               if isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) {
-                  navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-               } else {
-                  navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
-               }
+         let _ = {
+            DispatchQueue.main.async {
+               winWidth = geometry.size.width
             }
-         } else {
-            navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
-         }
+         }()
+         navigationSplitView()
       }
    }
    /**
@@ -79,7 +72,7 @@ extension SplitViewContainer {
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
-   func navigationSplitView(_ winWidth: CGFloat) -> some View {
+   func navigationSplitView(/*_ winWidth: CGFloat*/) -> some View {
       let _ = {
          Swift.print("navSplitView - refresh")
       }()
@@ -162,3 +155,20 @@ extension SplitViewContainer {
 //   Swift.print("👉 default")
 //   return navigationSplitView(geometry.size.width) // else regular, not narrow, not landscape
 //   }
+
+// 🏀
+
+//      GeometryReader { (_ geometry: GeometryProxy) in // ⚠️️ Geom-reader refreshes view on orientation change etc,  needed to refresh columnwidths, there seem to be no other way to do that for swiftui based splitnavview etc
+//         let _ = {
+//            Swift.print("📐 Geometry changed: \(geometry.size) ")
+//         }()
+//         if isLandscape { // - Fixme: ⚠️️ Add doc
+//            if sizeClass == .compact { // this fixes things going into compact. but not 70% to regular
+//               navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+//            } else { // if sizeClass == .regular
+//               isNarrow(isLandscape: isLandscape, winWidth: geometry.size.width) ? navigationSplitView(geometry.size.width) : navigationSplitView(geometry.size.width) // ⚠️️ This is the same as the other, but it refreshes the view, and recalculates columnwidths etc, which is what we need
+//            }
+//         } else {
+//            navigationSplitView(geometry.size.width) // ⚠️️ We can't load the same variable, or else it will not refresh. so we reference it again like this to referesh. seems strange but it is what it is, there might be another solution to this stange behaviour, more exploration could be ideal
+//         }
+//      }

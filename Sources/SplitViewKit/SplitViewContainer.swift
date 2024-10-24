@@ -59,6 +59,10 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
    // - Fixme: ⚠️️ add doc
    // - Fixme: ⚠️️ this can be optional, as we only use it as a view refresher
 //   /*@State */internal var geometryChange: GeometryChange?
+   // As a last resort, you can force a view to redraw by changing its identity:
+   // add .id(refreshID) on view and call  refreshID = UUID() in an update
+//   @State internal var refreshID = UUID()
+   @State internal var winWidth: CGFloat = .zero
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.

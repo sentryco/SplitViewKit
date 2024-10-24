@@ -31,6 +31,7 @@ extension SplitViewContainer {
          }
          refreshID = UUID()
       }
+      // - Fixme: ⚠️️ we could try to rebind sizeClass to a state? to get rid of id?
    }
 }
 /**
@@ -42,19 +43,20 @@ extension SplitViewContainer {
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
     * - Note: GeomReader fires when moving from 70% to full. (iPad)
     * - Note: SizeClass does not fire when moving from 70% to fullscreen.
+    * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is
     * - Fixme: ⚠️️⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc?
     * - Fixme: ⚠️️ so the issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens
-    * - Fixme: ⚠️️ we can try to regen view
+    * - Fixme: ⚠️️ we can try to
     * - Fixme: ⚠️️ we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. use copilot
     * - Fixme: ⚠️️ try doing geometry reader on a pixel. and update state. that way. check copilot
     */
    var splitViewContainer: some View {
       GeometryReader { geometry in
          navigationSplitView(geometry.size.width)
-            .id(refreshID)
-            .onChange(of: geometry.size) { oldSize, newSize in
-               if oldSize != newSize {
-                  refreshID = UUID()
+            .id(refreshID) // used to refresh view when sizeClass change, and winSize change
+            .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
+               if oldSize != newSize { // only repain view if size has actually changed, avoids infinite loop etc
+                  refreshID = UUID() // regenerate view
                }
             }
       }
@@ -88,7 +90,8 @@ extension SplitViewContainer {
          detail(splitConfig, sizeClass.reBind) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
-      .navigationSplitViewStyle(.balanced) // `.automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
+      .navigationSplitViewStyle(.automatic)
+//      .navigationSplitViewStyle(.balanced) // `.automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column

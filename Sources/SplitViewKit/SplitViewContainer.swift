@@ -41,10 +41,12 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View>: Vi
     * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
+//   @State var sizeClassInstance: UserInterfaceSizeClass?
    /**
     * State object for managing the configuration of the split view.
     * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
     * - Fixme: ⚠️️ could we make this optional?
+    * - Fixme: ⚠️️⚠️️⚠️️ remove this as well. we can pass two params. thats fine. less helper code that way
     */
    @StateObject internal var splitConfig: SplitConfig
    /**

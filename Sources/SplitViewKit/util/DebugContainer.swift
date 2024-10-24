@@ -26,7 +26,7 @@ struct DebugContainer: View {
     * - Note: Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. so param drilling is probably better to avoid future hard to find bugs
     * - Fixme: ⚠️️ figure out how to avoid rebinding on environment variable?
     */
-   @Binding var sizeClass: UserInterfaceSizeClass?
+   /*@Binding */var sizeClass: UserInterfaceSizeClass?
 }
 /**
  * Content
@@ -41,7 +41,7 @@ extension DebugContainer {
          Spacer() // Pins content to the bottom
          HStack {
             Spacer() // Pins content to center
-            DebugView(splitConfig: $splitConfig, sizeClass: $sizeClass)
+            DebugView(splitConfig: $splitConfig, sizeClass: sizeClass)
             Spacer() // Pins content to center
          }
       }
@@ -62,7 +62,7 @@ extension DebugContainer {
       /**
        * - Description: Used to detect if app is compact or regular mode etc
        */
-      @Binding var sizeClass: UserInterfaceSizeClass?
+      /*@Binding */var sizeClass: UserInterfaceSizeClass?
       var body: some View {
          VStack(spacing: Self.vSpacing) {
             HStack(spacing: Self.hSpacing) {
@@ -136,7 +136,7 @@ extension DebugContainer {
       Color.darkGray.opacity(0.4).edgesIgnoringSafeArea(.all) // Gray background view covering entire screen
       DebugContainer.DebugView(
          splitConfig: .constant(splitConfig),
-         sizeClass: .constant(.regular)
+         sizeClass: /*.constant*/(.regular)
       )
       // .frame(maxWidth: .infinity)
       // .background(Color.blackOrWhite)
@@ -155,7 +155,7 @@ extension DebugContainer {
       Color.darkGray.opacity(0.4).edgesIgnoringSafeArea(.all) // Gray background view covering entire screen
       DebugContainer(
          splitConfig: .constant(splitConfig),
-         sizeClass: .constant(.regular)
+         sizeClass: /*.constant*/(.regular)
       )
       .environment(\.colorScheme, .dark)
    }

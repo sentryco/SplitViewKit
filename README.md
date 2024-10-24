@@ -21,14 +21,14 @@
 ## Problem:
 
 1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for.
-2. Managing column widths for different modes is a challenge.
-3. Managing the navigation UI in different modes is a challenge 
+2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but isn't poorly implemented from a usability POV
+3. Customizing the navigation-bar in different modes is complex 
 
 ## Solution:
 
 1. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
-2. The framework supports providing your own `column-width` calculations 
-3. The framework supports providing your own navigation UI for the different modes 
+2. The framework supports providing your own `column-width` calculations. Lettin you set your own responsive breakpoints
+3. The framework supports providing your own navigation UI for the different modes, by reacting to sizeClass, orientation and winSize changes
 
 ## Example:
 
@@ -104,16 +104,11 @@ These are some of the resources that was founds when solving edge cases for the 
  
 
 - we need a clever way to regen window on orientation, sizeclass and window resize. do research on forcing view to update. these now work. but the refresh code should be one call. use copilot to figure it out etc. 
-
-
-- Print columnwidths to see if they are being updated correctly 🏀
-
+ 
 - check with copilot if anything changed with NavigationSplitView from ios 17 to ios 18
 
 - Also consider showing back button instead of sidebar toggle button in compact mode 👈👈👈
-
-- Consider using automatic instead of ballanced. If things can be simpler. Look into it. 
-
+ 
 - Figure out how to avoid subduing the colors in compact mode (maybe because of hybrid color?, try pure black etc?) 
 
 - Test support for dark / lightmode (make different b/w gifs etc) 

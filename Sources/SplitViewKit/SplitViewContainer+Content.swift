@@ -24,11 +24,11 @@ extension SplitViewContainer {
       }
       // - Fixme: ⚠️️ keep in mind 70% splitview is still regular, try to see if there is an event still from regular to regular
       .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
-         if newValue == .compact {
-            print("👉 Switched to compact size class")
-         } else if newValue == .regular {
-            print("👉 Switched to regular size class")
-         }
+//         if newValue == .compact {
+//            print("👉 Switched to compact size class")
+//         } else if newValue == .regular {
+//            print("👉 Switched to regular size class")
+//         }
          refreshID = UUID()
       }
       // - Fixme: ⚠️️ we could try to rebind sizeClass to a state? to get rid of id?
@@ -55,7 +55,7 @@ extension SplitViewContainer {
          navigationSplitView(geometry.size.width)
             .id(refreshID) // used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
-               if oldSize != newSize { // only repain view if size has actually changed, avoids infinite loop etc
+               if oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc
                   refreshID = UUID() // regenerate view
                }
             }
@@ -81,17 +81,16 @@ extension SplitViewContainer {
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, sizeClass.reBind)
+         sideBar(splitConfig, sizeClass/*.reBind*/)
             .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } content: {
-         content(splitConfig, sizeClass.reBind)
+         content(splitConfig, sizeClass/*.reBind*/)
             .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } detail: { // ⚠️️ Caution, this isn't called, if we use NavLink to present detail, to use this you have to not use navlink and instead use manual binding to show hide content etc (this caution might not be relevant anymore)
-         detail(splitConfig, sizeClass.reBind) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, sizeClass/*.reBind*/) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
-      .navigationSplitViewStyle(.automatic)
-//      .navigationSplitViewStyle(.balanced) // `.automatic will slide detail to the side, .prominent will make detail fullscreen, and other columns hover over
+      .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column
@@ -101,8 +100,9 @@ extension SplitViewContainer {
    @ViewBuilder var debugContainer: some View {
       if isDebug {
          DebugContainer(
+            // - Fixme: ⚠️️ remove rebind on splitconfig aswell
             splitConfig: splitConfig.reBind, // nav-split-view config
-            sizeClass: sizeClass.reBind
+            sizeClass: sizeClass/*.reBind*/
          )
       } // else nothing
    }

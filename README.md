@@ -97,8 +97,10 @@ These are some of the resources that was founds when solving edge cases for the 
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
+
 ## Todo:
 - Complete comment doc etc (Format the description comments to be 80 character wide) 👈
+- Use copilot to write missing doc in the kit 👈
 - Test to see if macOS works out of the box
 
 ## Future improvements:

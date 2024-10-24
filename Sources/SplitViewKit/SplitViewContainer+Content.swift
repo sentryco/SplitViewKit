@@ -2,20 +2,11 @@ import SwiftUI
 /**
  * Content
  * - Important: ⚠️️ The task is to redraw navSplitView on size,sizeclass and orientation change. Doing bindings on columnWidth values etc, doesnt update the navsplitview
- * - Note: We use navigationsplitview, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
- * - Note: `navSplitView` might have built in support for resizing on iPad etc, so we don't have to build it etc. a problem might be navbar, that we opt not to use,
  */
 extension SplitViewContainer {
    /**
     * Body
     * - Description: This is the main body of the `SplitViewContainer`. It manages the layout and state of the navigation split view, handling orientation changes and view updates.
-    * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
-    * - Note: It's also possible to do this with `.onRotation` and then toggle the two views. the clue is to load a new view. But using geomreader, there is less need for a state variable etc
-    * - Note: Here is a way to track rotation change (it does not rerender view, you need geomreader for that): https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-device-rotation
-    * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
-    * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
-    * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
-    * - Fixme: ⚠️️ Maybe do sizeclass refresh on orientation event. and put it in dispatch main async closure to make sure it apply to view stack?. I guess we still have to use geometryproxy to get width. but maybe we could use the SizeTracker to update ciew hirarchy instead. avoids wrapping entire view in geomrader etc
     */
    public var body: some View {
       splitViewContainer
@@ -33,8 +24,9 @@ extension SplitViewContainer {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
+    * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
     * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader. GeomReader fires when moving from 70% to full. (iPad) SizeClass does not fire when moving from 70% to fullscreen.
-    * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is
+    * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is. See SizeTracker code in the swift tips post on eon.codes etc
     * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc? i guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos
     */
    var splitViewContainer: some View {
@@ -51,10 +43,8 @@ extension SplitViewContainer {
    /**
     * Create navigationSplitView
     * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
-    * - Note: We rebidn sizeClass because environment variables Because you have to apply envirotnment variables to views that are regenerated down the hirarchy. So param drilling is easier to understand etc. less abstract
-    * - Note: We dont use navigationSplitViewStyle as a state because we only set it at setup.
+    * - Note: We use `Navigationsplitview`, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
     * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
-    * - Note: We got rid of environmentObject and now do param drill instead, param-drill the sizeClass and splitConfig, environment variables is confusing if its not passed correctly, it can jump to compact in the wrong scope where it should be regular etc, and doesnt attach if views are replaced, like detailview etc 
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */
@@ -72,6 +62,6 @@ extension SplitViewContainer {
          detail(splitConfig, sizeClass.reBind) // - Fixme: ⚠️️ Doc this line
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
-      .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
+      .navigationSplitViewStyle(.balanced)
    }
 }

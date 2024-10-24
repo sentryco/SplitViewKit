@@ -9,9 +9,9 @@ extension NavigationSplitViewVisibility {
     * - Note: `.doubleColumn` shows main and detail  (no sidebar)
     * - Note: `.all` (3 panes) sideBar, main, detail
     * - Note: `.automatic` the system decides the best view based on the device and its orientation. Remember, the columnVisibility uses a binding because it updates automatically when the user interacts with your app.
-    * - Fixme: ⚠️️ consider moving this description into example project
+    * - Note: We keep this in the example project to keep the kit code as small as possible
     */
-   public var description: String {
+   internal var description: String {
       switch self {
          // - Fixme: ⚠️️ add doc for this case
       case NavigationSplitViewVisibility.all: "all 3 columns"

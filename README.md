@@ -47,6 +47,7 @@ struct ContentView: View {
             sideBar: { splitConfig, sizeClass in Color.red }, // Set your sidebar content here
             content: { splitConfig, sizeClass in Color.green }, // Set your center content here
             detail: { splitConfig, sizeClass in Color.blue }, // Set your detail content here
+            debug: { _, _ in nil } // Add debug-view here, or use it for floating UI above the view
             columnWidth: DefaultColumnWidth(), // Set custom column widths here
             splitConfig: SplitConfig() // set initial column arrangment here
         )

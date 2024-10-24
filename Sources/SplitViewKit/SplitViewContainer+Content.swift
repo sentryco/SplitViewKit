@@ -29,6 +29,11 @@ extension SplitViewContainer {
          } else if newValue == .regular {
             print("👉 Switched to regular size class")
          }
+         refreshID = UUID()
+      }
+      .onChange(of: winWidth) { oldValue, newValue in
+         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
+         refreshID = UUID()
       }
    }
 }
@@ -58,6 +63,7 @@ extension SplitViewContainer {
             }
          }()
          navigationSplitView()
+            .id(refreshID)
       }
    }
    /**

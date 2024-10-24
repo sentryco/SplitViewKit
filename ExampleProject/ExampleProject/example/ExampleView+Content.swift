@@ -113,7 +113,7 @@ extension ExampleView {
 //      if isDebug {
          DebugContainer(
             // - Fixme: ⚠️️ remove rebind on splitconfig aswell
-            splitConfig: splitConfig.reBind, // nav-split-view config
+            splitConfig: splitConfig/*.reBind*/, // nav-split-view config
             sizeClass: sizeClass/*.reBind*/
          )
 //      } // else nothing

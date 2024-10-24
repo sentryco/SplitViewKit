@@ -8,7 +8,7 @@ extension UserInterfaceSizeClass {
     * - Note: 70% landscape -> regular
     * - Note: 50% -> Compact
     */
-   var description: String {
+   public var description: String {
       switch self {
       case .compact: "compact"
       case .regular: "regular"

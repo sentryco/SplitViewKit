@@ -1,5 +1,6 @@
 import SwiftUI
 import HybridColor
+import SplitViewKit
 /**
  * - Abstract: SplitView analytics
  * - Description: This section provides an overview of the DebugContainer, which is used for displaying debug information related to the SplitView configuration and state.

@@ -4,7 +4,7 @@ extension NavigationSplitViewStyle {
    /**
     * - Fixme: ⚠️️ add doc
     */
-   var description: String {
+   public var description: String {
       switch true {
          // **Balanced**: This style reduces the size of the detail view to accommodate the leading columns side-by-side.
       case self is BalancedNavigationSplitViewStyle: ""

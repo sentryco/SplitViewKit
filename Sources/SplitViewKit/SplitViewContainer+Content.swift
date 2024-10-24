@@ -31,10 +31,10 @@ extension SplitViewContainer {
          }
          refreshID = UUID()
       }
-      .onChange(of: winWidth) { oldValue, newValue in
-         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
-         refreshID = UUID()
-      }
+//      .onChange(of: winWidth) { oldValue, newValue in
+//         Swift.print("winWidth changed - oldValue: \(oldValue), newValue: \(newValue)")
+//         refreshID = UUID()
+//      }
    }
 }
 /**

@@ -51,7 +51,7 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      .onChange(of: selectedSideBarIndex) {
+      .onChange(of: selectedSideBarIndex) { // - Fixme: ⚠️️ doc this line
          handleSideBarChange(splitConfig, sizeClass)
       } // Forward state change to handleSideBarChange
    }

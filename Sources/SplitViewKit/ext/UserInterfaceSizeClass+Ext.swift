@@ -23,6 +23,7 @@ extension UserInterfaceSizeClass {
 extension Optional where Wrapped == UserInterfaceSizeClass {
    /**
     * Convenient rebinder (Environtment -> Binding)
+    * - Note: It seem very tricky to make horizontalSizeClass a two way binding. @Bindable seems to be the best way. But it doesnt work on this environment variable for some reason. There could be a way. update when discovered. for now. we sync on onChange.
     * - Fixme: ⚠️️ Add description
     */
    var reBind: Binding<Self> {

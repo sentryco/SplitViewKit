@@ -20,8 +20,8 @@ extension SplitViewContainer {
    public var body: some View {
       splitViewContainer
          .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
-            // Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
-            // refreshID = UUID() // Force redraw of navSplitView
+             Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
+//             refreshID = UUID() // Force redraw of navSplitView
 //            sizingClass = sizeClass
          }
          .overlay { // We add overlay if debug closure returns a view, if not its skipped
@@ -51,8 +51,8 @@ extension SplitViewContainer {
             .id(refreshID) // used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
                if /*sizeClass*/sizeClass == .regular && oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
-                  // Swift.print("size is new")
-                  refreshID = UUID() // Re-generate view
+                   Swift.print("size is new")
+//                  refreshID = UUID() // Re-generate view
                }
             }
       }

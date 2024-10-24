@@ -15,16 +15,17 @@ extension SplitViewContainer {
     * - Fixme: ⚠️️⚠️️ Maybe somehow make a view-modifier for this geomtry reader, and TupleView to inject the views? ask coilot?
     * - Fixme: ⚠️️ We can play with min / max / ideal etc, also consider making detail have an 👉 internal overflow 👈 etc
     * - Fixme: ⚠️️ Add the toggle main / detail btn (figure out how this should look etc)
+    * - Fixme: ⚠️️ Maybe do sizeclass refresh on orientation event. and put it in dispatch main async closure to make sure it apply to view stack?. I guess we still have to use geometryproxy to get width. but maybe we could use the SizeTracker to update ciew hirarchy instead. avoids wrapping entire view in geomrader etc
     */
    public var body: some View {
       splitViewContainer
          .onChange(of: sizeClass) { oldValue, newValue in // This works when we move from compact to regular or regular to compact.
             // Swift.print("onChange - oldValue: \(String(describing: oldValue)) newValue: \(String(describing: newValue))")
-//            refreshID = UUID() // Force redraw of navSplitView
-            sizingClass = sizeClass
+            // refreshID = UUID() // Force redraw of navSplitView
+//            sizingClass = sizeClass
          }
          .overlay { // We add overlay if debug closure returns a view, if not its skipped
-            if let debugView = self.debug(splitConfig, $sizingClass/*sizeClass.reBind*/) {
+            if let debugView = self.debug(splitConfig, sizeClass.reBind/*$,$sizingClass */) {
                debugView
             }
          }
@@ -49,7 +50,7 @@ extension SplitViewContainer {
          navigationSplitView(geometry.size.width)
             .id(refreshID) // used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ add doc
-               if /*sizeClass*/sizingClass == .regular && oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
+               if /*sizeClass*/sizeClass == .regular && oldSize != newSize { // only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
                   // Swift.print("size is new")
                   refreshID = UUID() // Re-generate view
                }
@@ -74,13 +75,13 @@ extension SplitViewContainer {
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, $sizingClass/*sizeClass.reBind*/)
+         sideBar(splitConfig, sizeClass.reBind/*$sizingClass*/)
             .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } content: {
-         content(splitConfig, $sizingClass/*sizeClass.reBind*/)
+         content(splitConfig, sizeClass.reBind/*$sizingClass*/)
             .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       } detail: {
-         detail(splitConfig, $sizingClass/*sizeClass.reBind*/) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
+         detail(splitConfig, sizeClass.reBind/*$sizingClass*/) // .constant(false) // - Fixme: ⚠️️ Doc what the .constant(false) means
             .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
       }
       .navigationSplitViewStyle(.balanced) // `.automatic will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)

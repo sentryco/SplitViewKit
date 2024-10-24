@@ -47,7 +47,8 @@ public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, Deb
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
    // - Fixme: ⚠️️ add dispatch async main to see if that works in the onchange
-   @State internal var sizingClass: UserInterfaceSizeClass? // = .regular // - Fixme: ⚠️️ make this non optional later, maybe the optiality is holding back the refresh to take effect?
+   // - Fixme: ⚠️️ It seem very tricky to make horizontalSizeClass a binding. @Bindable seems to be the best way. But it doesnt work on this environment variable for some reason. There could be a way. update when discovered. for now. we sync on onChange. 
+//   @State internal var sizingClass: UserInterfaceSizeClass? // = .regular // - Fixme: ⚠️️ make this non optional later, maybe the optiality is holding back the refresh to take effect?
    /**
     * State object for managing the configuration of the split view.
     * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.

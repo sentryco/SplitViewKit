@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 /**
  * - Fixme: ⚠️️ add description
  * - Note: The iPad will use regular for both portrait and landscape when it's running full screen

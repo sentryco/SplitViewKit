@@ -113,7 +113,7 @@ extension DebugContainer {
       var orientationView: some View {
          Group {
             Text("Orientation: ").foregroundColor(Color.white) +
-            Text("\(isLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
+            Text("\(isOrientationLandscape ? "landscape" : "portrait")").foregroundColor(Color.white.opacity(0.7))
          }
          .font(.system(size: Self.fontSize))
       }

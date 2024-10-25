@@ -16,7 +16,7 @@ extension CustomColumnWidth {
     */
    internal func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isOrientationLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
+         isLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
          winWidth: winWidth // - Fixme: ⚠️️ doc this line
       )
       let width = ColumnWidth(
@@ -34,7 +34,7 @@ extension CustomColumnWidth {
     */
    internal func mainColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isOrientationLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
+         isLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
          winWidth: winWidth // - Fixme: ⚠️️ doc this line
       )
       let width: ColumnWidth = .init(

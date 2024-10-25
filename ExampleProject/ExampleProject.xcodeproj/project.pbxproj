@@ -15,6 +15,10 @@
 		F14DAD1E2CBD7C6300B6F3FD /* ExampleProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DAD1D2CBD7C6300B6F3FD /* ExampleProjectApp.swift */; };
 		F14DAD222CBD7C6400B6F3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD212CBD7C6400B6F3FD /* Assets.xcassets */; };
 		F14DAD252CBD7C6400B6F3FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14DAD242CBD7C6400B6F3FD /* Preview Assets.xcassets */; };
+		F18881742CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188816F2CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift */; };
+		F18881752CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18881702CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift */; };
+		F18881762CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18881712CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift */; };
+		F18881772CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18881722CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift */; };
 		F199C67A2CC9ECB3009E84C1 /* DebugContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199C6792CC9ECB3009E84C1 /* DebugContainer.swift */; };
 		F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1E583332CC4149E00A59A2B /* SplitViewKit */; };
 		F1E5835A2CC416E800A59A2B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583352CC416E800A59A2B /* DataModel.swift */; };
@@ -63,6 +67,10 @@
 		F14DAD212CBD7C6400B6F3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F14DAD242CBD7C6400B6F3FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F14DAD2E2CBECF8F00B6F3FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F188816F2CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationSplitViewColumn+Ext.swift"; sourceTree = "<group>"; };
+		F18881702CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationSplitViewStyle+Ext.swift"; sourceTree = "<group>"; };
+		F18881712CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationSplitViewVisibility+Ext.swift"; sourceTree = "<group>"; };
+		F18881722CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserInterfaceSizeClass+Ext.swift"; sourceTree = "<group>"; };
 		F199C6792CC9ECB3009E84C1 /* DebugContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugContainer.swift; sourceTree = "<group>"; };
 		F1E583352CC416E800A59A2B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F1E5833A2CC416E800A59A2B /* DetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeader.swift; sourceTree = "<group>"; };
@@ -145,6 +153,17 @@
 				F14DAD242CBD7C6400B6F3FD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F18881732CCB981F000F8763 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				F188816F2CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift */,
+				F18881702CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift */,
+				F18881712CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift */,
+				F18881722CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift */,
+			);
+			path = ext;
 			sourceTree = "<group>";
 		};
 		F1E583392CC416E800A59A2B /* model */ = {
@@ -235,6 +254,7 @@
 		F1E583592CC416E800A59A2B /* example */ = {
 			isa = PBXGroup;
 			children = (
+				F18881732CCB981F000F8763 /* ext */,
 				F1E9FE492CC72DBA003C64D7 /* util */,
 				F1E583742CC418E000A59A2B /* style */,
 				F1E583392CC416E800A59A2B /* model */,
@@ -388,6 +408,7 @@
 				F1E583822CC4294100A59A2B /* SideBarList+Content.swift in Sources */,
 				F1E5836B2CC416E800A59A2B /* SideBarHeader+Content.swift in Sources */,
 				F1E583642CC416E800A59A2B /* MainHeader+Preview.swift in Sources */,
+				F18881772CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift in Sources */,
 				F1E583632CC416E800A59A2B /* MainHeader+Content.swift in Sources */,
 				F1E583602CC416E800A59A2B /* DetailView.swift in Sources */,
 				F1E583852CC42DED00A59A2B /* DetailList.swift in Sources */,
@@ -399,18 +420,21 @@
 				F1E5836E2CC416E800A59A2B /* SideBarView+Content.swift in Sources */,
 				F1E583622CC416E800A59A2B /* MainHeader.swift in Sources */,
 				F1E5837B2CC4240200A59A2B /* MainList.swift in Sources */,
+				F18881762CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift in Sources */,
 				F1E5836F2CC416E800A59A2B /* SideBarView+Preview.swift in Sources */,
 				F1E5836D2CC416E800A59A2B /* SideBarView.swift in Sources */,
 				F14DAD1E2CBD7C6300B6F3FD /* ExampleProjectApp.swift in Sources */,
 				F1E583732CC416E800A59A2B /* ExampleView+Preview.swift in Sources */,
 				F1E5835A2CC416E800A59A2B /* DataModel.swift in Sources */,
 				F1E583672CC416E800A59A2B /* MainView+Content.swift in Sources */,
+				F18881742CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift in Sources */,
 				F1E5836A2CC416E800A59A2B /* SideBarHeader.swift in Sources */,
 				F199C67A2CC9ECB3009E84C1 /* DebugContainer.swift in Sources */,
 				F1E583682CC416E800A59A2B /* MainView+Preview.swift in Sources */,
 				F13FE4CC2CC4694F0039CC7B /* MainModel.swift in Sources */,
 				F13FE4D72CC58B6A0039CC7B /* ExampleView+Handler.swift in Sources */,
 				F1E583712CC416E800A59A2B /* ExampleView+Content.swift in Sources */,
+				F18881752CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift in Sources */,
 				F1E5837D2CC4264800A59A2B /* MainList+Content.swift in Sources */,
 				F1E583782CC4215000A59A2B /* TitleTextStyle.swift in Sources */,
 			);

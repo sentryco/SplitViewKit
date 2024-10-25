@@ -9,14 +9,14 @@ extension ExampleView {
     * - Description: This property represents the visual structure of the ExampleView, organizing it into a three-column layout with sidebar, main content, and detail views. It utilizes the SplitViewContainer to manage these sections dynamically based on the current environment settings such as size class and device orientation.
     */
    public var body: some View {
-      SplitViewContainer(
+      SplitViewWrapper(
          sideBar: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
             sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
          }, content: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
             mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
          }, detail: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
             detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
-         }, debug: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
+         }, overlay: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
             debugContainer(splitConfig: splitConfig, sizeClass: sizeClass) // Add floating debug view
          },
          columnWidth: CustomColumnWidth() // - Fixme: ⚠️️ doc this line

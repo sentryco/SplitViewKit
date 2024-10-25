@@ -26,8 +26,8 @@ public class SplitConfig: ObservableObject {
     * - Description: This property determines the visibility of columns in the `NavigationSplitView` based on the current device and orientation. It adjusts between all columns visible, double column, or detail only views.
     * - Note: Required init for publc classes
     * - Parameters:
-    *   - columnVisibility: - Fixme: ⚠️️ add doc
-    *   - preferredCompactColumn: - Fixme: ⚠️️ add doc
+    *   - columnVisibility: Specifies the visibility of columns in the NavigationSplitView. It can be set to .all, .doubleColumn, or .singleColumn to control the number of visible columns based on the device's orientation and size.
+    *   - preferredCompactColumn: Determines the primary visible column in compact mode. Options include .sidebar, .content, or .detail, allowing explicit control over which column is displayed in a compact environment.
     */
    public init(columnVisibility: NavigationSplitViewVisibility = .all, preferredCompactColumn: NavigationSplitViewColumn = .content) {
       self.columnVisibility = columnVisibility
@@ -41,10 +41,9 @@ extension SplitConfig {
    /**
     * - Description: Determines if the sidebar is currently visible based on the column visibility and size class.
     * - Fixme: ⚠️️ Document in which scenario this is used etc
-    * - Fixme: ⚠️️ Rename to to something else?
     * - Fixme: ⚠️️ This is also true if 1 col + preferredCompactColumn == .sidebar I think
-    * - Parameter sizeClass: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter sizeClass: The current horizontal size class of the user interface, which determines the layout and visibility of the sidebar.
+    * - Returns: A Boolean value indicating whether the sidebar is visible based on the current `columnVisibility` and `sizeClass`.
     */
    public func isShowingSideBar(sizeClass: UserInterfaceSizeClass?) -> Bool {
       let isShowingSideBar = (columnVisibility == .all && sizeClass == .regular) || (preferredCompactColumn == .sidebar && sizeClass == .compact)

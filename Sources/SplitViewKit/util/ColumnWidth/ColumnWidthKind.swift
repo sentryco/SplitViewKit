@@ -5,25 +5,26 @@ import UIKit
 /**
  * Extend this to customize column widths
  * - Note: Kind must implement these calls
- * - Fixme: ⚠️️ add description
+ * - Description: Defines a protocol for customizing the widths of columns in a split view layout. Implement this protocol to specify different widths for sidebar, main, and detail columns based on the window width.
  */
 public protocol ColumnWidthKind {
    /**
-    * - Fixme: ⚠️️ add description
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Description: Specifies the width for the sidebar column based on the given window width.
+    * - Parameter winWidth: The width of the window which is used to determine the appropriate column width.
+    * - Returns: An optional `ColumnWidth` object specifying the width of the sidebar column. If nil, the default width is used.
     */
    func sideBarColumn(winWidth: CGFloat) -> ColumnWidth?
    /**
-    * - Fixme: ⚠️️ add description
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * Specifies the width for the main content column based on the given window width.
+    * - Parameter winWidth: The width of the window which is used to determine the appropriate column width for the main content area.
+    * - Returns: An optional `ColumnWidth` object specifying the width of the main content column. If nil, the default width is used.
     */
    func mainColumn(winWidth: CGFloat) -> ColumnWidth?
+
    /**
-    * - Fixme: ⚠️️ add description
-    * - Parameter winWidth: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * Specifies the width for the detail column based on the given window width.
+    * - Parameter winWidth: The width of the window which is used to determine the appropriate column width for the detail area.
+    * - Returns: An optional `ColumnWidth` object specifying the width of the detail column. If nil, the default width is used.
     */
    func detailColumn(winWidth: CGFloat) -> ColumnWidth?
 }

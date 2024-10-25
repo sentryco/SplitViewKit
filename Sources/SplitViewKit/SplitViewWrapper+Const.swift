@@ -8,12 +8,12 @@ import SwiftUI
 extension SplitViewWrapper {
    /**
     * Alias for a closure that returns a "Sidebar view"
-    * - Fixme: ⚠️️ add description
+    * - Description: Defines a closure type for creating a sidebar view, which is dynamically configured based on the provided `SplitConfig` and `sizeClass`.
     */
    public typealias SideBarAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> SideBar
    /**
     * Alias for a closure that returns a "Content view" (aka Main view) with a toggleColumn binding.
-    * - Fixme: ⚠️️ add description
+    * - Description: Defines a closure type for creating a main content view, dynamically configured based on the provided `SplitConfig` and `sizeClass`.
     * - Note: We inject the bidning so it can be controlled by a button
     * - Note: alternative name: `MainColumnAlias`
     */
@@ -25,7 +25,7 @@ extension SplitViewWrapper {
     */
    public typealias DetailAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> Detail
    /**
-    * - Fixme: ⚠️️ add description
+    * - Description: Defines a closure type for creating an "Overlay view" which can be conditionally displayed over the main content based on the provided `SplitConfig` and `sizeClass`.
     * - Note: suitable for debugging or floating UI that can change the splitview UI, since we get the splitview bindings etc
     */
    public typealias OverlayAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> OverlayView?

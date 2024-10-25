@@ -8,12 +8,13 @@ struct DetailViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Fixme: ⚠️️ add description
+    * The `ColumnWidthKind` protocol instance that provides custom width settings for the detail column based on the window width.
     */
    let columnWidth: ColumnWidthKind
    /**
     * Body
-    * - Fixme: ⚠️️ add description
+    * - Description: This function modifies the view by applying a custom width to the detail column of the navigation split view based on the window width. It uses the `ColumnWidthKind` protocol to determine the appropriate widths.
+    */
     * - Note: There is also: `navigationSplitViewColumnWidth`
     */
    func body(content: Content) -> some View {
@@ -35,10 +36,10 @@ struct DetailViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
-    * - Fixme: ⚠️️ add description
+    * - Description: This method applies a detail view modifier that adjusts the detail column's width according to the window width using the provided `ColumnWidthKind` instance.
     * - Parameters:
     *   - winWidth: The width of the window in which the detail view is displayed.
-    *   - columnWidth: - Fixme: ⚠️️ add doc
+    *   - columnWidth: An instance conforming to the `ColumnWidthKind` protocol, which provides custom width settings for the detail column based on the window width.
     * - Returns: A View with the detail view modifier applied.
     */
    internal func detailViewModifier(winWidth: CGFloat, columnWidth: ColumnWidthKind) -> some View{

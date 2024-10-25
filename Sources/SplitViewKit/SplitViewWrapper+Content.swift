@@ -30,10 +30,10 @@ extension SplitViewWrapper {
     * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc? i guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos
     */
    var splitViewContainer: some View {
-      GeometryReader { geometry in // - Fixme: ⚠️️ doc this line
-         navigationSplitView(geometry.size.width) // - Fixme: ⚠️️ doc this line
+      GeometryReader { geometry in // Utilizes GeometryReader to dynamically obtain the current view size
+         navigationSplitView(geometry.size.width) // Passes the current width to the navigationSplitView function
             .id(refreshID) // Used to refresh view when sizeClass change, and winSize change
-            .onChange(of: geometry.size) { oldSize, newSize in // - Fixme: ⚠️️ Add doc
+            .onChange(of: geometry.size) { oldSize, newSize in // Triggers a view refresh when the geometry size changes
                if sizeClass == .regular && oldSize != newSize { // ⚠️️ Only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
                   refreshID = UUID() // Re-generates view
                }
@@ -54,14 +54,14 @@ extension SplitViewWrapper {
          columnVisibility: $splitConfig.columnVisibility, // Binding to control column arrangement
          preferredCompactColumn: $splitConfig.preferredCompactColumn // Binding to set the preferred visible column in compact mode
       ) {
-         sideBar(splitConfig, sizeClass.reBind)  // - Fixme: ⚠️️ Doc this line
-            .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
+         sideBar(splitConfig, sizeClass.reBind)  // Provides the sidebar view, binding the split configuration and size class for dynamic updates.
+            .sideBarViewModifier(winWidth: winWidth, columnWidth: columnWidth) // Applies visual modifications to the sidebar based on window width and column width settings.
       } content: {
-         content(splitConfig, sizeClass.reBind)  // - Fixme: ⚠️️ Doc this line
-            .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
+         content(splitConfig, sizeClass.reBind)  // Displays the main content view, with bindings for split configuration and size class for responsiveness.
+            .mainViewModifier(winWidth: winWidth, columnWidth: columnWidth) // Modifies the main view's appearance based on the current window width and predefined column widths.
       } detail: {
-         detail(splitConfig, sizeClass.reBind) // - Fixme: ⚠️️ Doc this line
-            .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // - Fixme: ⚠️️ Doc this line, use copilot
+         detail(splitConfig, sizeClass.reBind) // Renders the detail view, using bindings to adapt to changes in split configuration and size class.
+            .detailViewModifier(winWidth: winWidth, columnWidth: columnWidth) // Adjusts the detail view's layout and styling based on window width and column width.
       }
       .navigationSplitViewStyle(.balanced)
    }

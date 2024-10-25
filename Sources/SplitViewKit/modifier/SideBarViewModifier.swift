@@ -2,7 +2,7 @@ import SwiftUI
 /**
  * SideBarViewModifier
  * - Abstract. We apply columnwidth to the column with this modifier
- * - Fixme: ⚠️️ add description
+ * - Description: This modifier is used to apply custom width settings to the sidebar of a navigation split view based on the window width.
  */
 fileprivate struct SideBarViewModifier: ViewModifier {
    /**
@@ -10,7 +10,7 @@ fileprivate struct SideBarViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Fixme: ⚠️️ add description
+    * - Description: The `ColumnWidthKind` protocol instance that provides custom width settings for the sidebar based on the window width.
     */
    let columnWidth: ColumnWidthKind
    /**
@@ -37,10 +37,10 @@ fileprivate struct SideBarViewModifier: ViewModifier {
 extension View {
    /**
     * Applies the SideBarViewModifier to the view.
-    * - Fixme: ⚠️️ add description
+    * - Description: This method applies a sidebar view modifier that adjusts the sidebar's width according to the window width using the provided `ColumnWidthKind` instance.
     * - Parameters:
     *   - winWidth: The width of the window in which the sidebar view is displayed.
-    *   - columnWidth: - Fixme: ⚠️️ add doc
+    *   - columnWidth: An instance conforming to the `ColumnWidthKind` protocol, which provides custom width settings for the sidebar based on the window width.
     * - Returns: A View with the sidebar view modifier applied.
     */
    internal func sideBarViewModifier(winWidth: CGFloat, columnWidth: ColumnWidthKind) -> some View {

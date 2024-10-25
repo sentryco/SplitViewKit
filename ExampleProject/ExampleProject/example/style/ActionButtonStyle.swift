@@ -31,9 +31,10 @@ extension Button {
 /**
  * Preview of the CustomToggleButtonStyle
  */
- #Preview {
+#Preview {
     Button("Toggle") {
         print("hello") // Action for the button
     }
     .toggleButtonStyle
+    .padding()
 }

@@ -11,7 +11,9 @@ struct ExampleProjectApp: App { // App Protocol: Conforms to the App protocol wh
          ExampleView()
             .background(Color.blackOrWhite.opacity(1))
             .environment(\.colorScheme, .dark) // dark
+            #if os(iOS) // Not available on macOS
             .statusBar(hidden: true) // Hide the status bar (looks better for demos)
+            #endif
             // .persistentSystemOverlays(.hidden) // Hide the Home Indicator (looks better for demos)
       }
    }

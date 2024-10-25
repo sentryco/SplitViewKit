@@ -3,11 +3,12 @@ import SwiftUI
  * - Description: Manages configuration settings for the `NavigationSplitView` in `SplitViewKit`, including visibility and preferred column in compact mode.
  * - Note: We can detect 70% mode with that custom 70% code and geometryreader etc
  * - Note: We can detect single column mode by checking `sizeclass == .compact`
+ * - Fixme: ⚠️️ Consider removing this class. We can pass two params. Thats fine. Less helper code that way
  */
 public class SplitConfig: ObservableObject {
    /**
     * I think all, will look strange for landscape 70% split-view, automatic should go to .double at that size, so use auto?
-    * - Note: Setting this to .double.. will also work fine. 
+    * - Note: Setting this to .double.. will also work fine. But is not the use case for SplitViewWrapper as of now
     */
    @Published public var columnVisibility: NavigationSplitViewVisibility
    /**
@@ -19,7 +20,6 @@ public class SplitConfig: ObservableObject {
     *                columns is the best one to show. This guess is often correct, but you can
     *                control it by setting a 👉preferred-compact-column👈 for your Split-View.
     * - Note: Can be `.sidebar`, `.detail` or `.content` (aka main-column)
-    * - Fixme: ⚠️️ Consider renaming to focusedColumnn? or not?
     */
    @Published public var preferredCompactColumn: NavigationSplitViewColumn
    /**
@@ -40,15 +40,14 @@ public class SplitConfig: ObservableObject {
 extension SplitConfig { 
    /**
     * - Description: Determines if the sidebar is currently visible based on the column visibility and size class.
+    * - Fixme: ⚠️️ Document in which scenario this is used etc
     * - Fixme: ⚠️️ Rename to to something else?
-    * - Fixme: ⚠️️ His is also true if 1 col + preferredCompactColumn == .sidebar I think
+    * - Fixme: ⚠️️ This is also true if 1 col + preferredCompactColumn == .sidebar I think
     * - Parameter sizeClass: - Fixme: ⚠️️ add doc
     * - Returns: - Fixme: ⚠️️ add doc
     */
    public func isShowingSideBar(sizeClass: UserInterfaceSizeClass?) -> Bool {
-      // Swift.print("SplitConfig - isShowingSideBar sizeClass:  \(String(describing: sizeClass))")
       let isShowingSideBar = (columnVisibility == .all && sizeClass == .regular) || (preferredCompactColumn == .sidebar && sizeClass == .compact)
-      // Swift.print("SplitConfig - isShowingSideBar:  \(isShowingSideBar)")
       return isShowingSideBar
    }
    /**
@@ -58,12 +57,5 @@ extension SplitConfig {
     */
    public var isDetailFullScreen: Bool {
       columnVisibility == .detailOnly
-   }
-   /**
-    * Convenient rebinder
-    * - Fixme: ⚠️️ Add description
-    */
-   public var reBind: Binding<SplitConfig> {
-      .init(get: { self }, set: { _ in })
    }
 }

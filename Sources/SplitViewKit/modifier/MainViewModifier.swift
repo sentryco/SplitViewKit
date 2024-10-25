@@ -2,7 +2,6 @@ import SwiftUI
 /**
  * MainViewModifier
  * - Description: This struct is a ViewModifier that modifies the main view of the application. It is responsible for setting the width of the main column in the split view according to the width of the window. It also handles the display of the toolbar and navigation split view column width for different operating systems (iOS and macOS).
- * - Fixme: ⚠️️⚠️️⚠️️ rename to MainViewModifier? 👈👈ball
  */
 fileprivate struct MainViewModifier: ViewModifier {
    /**
@@ -10,7 +9,7 @@ fileprivate struct MainViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Fixme: ⚠️️ Add doc
+    * - Fixme: ⚠️️ Add description
     */
    let columnWidth: ColumnWidthKind
    /**
@@ -18,7 +17,6 @@ fileprivate struct MainViewModifier: ViewModifier {
     * - Fixme: ⚠️️ Add description
     */
    func body(content: Content) -> some View {
-      // - Fixme: ⚠️️ Remove the optionality bellow
       if let columnWidth = columnWidth.mainColumn(winWidth: winWidth) {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
@@ -37,11 +35,17 @@ fileprivate struct MainViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
-    * - Parameter winWidth: The width of the window.
+    * - Fixme: ⚠️️ add description
+    * - Parameters:
+    *   - winWidth: The width of the window.
+    *   - columnWidth: - Fixme: ⚠️️ add doc
     * - Returns: A View with the main view modifier applied.
     */
    internal func mainViewModifier(winWidth: CGFloat, columnWidth: any ColumnWidthKind) -> some View {
-      let modifier = MainViewModifier(winWidth: winWidth, columnWidth: columnWidth)
+      let modifier = MainViewModifier(
+         winWidth: winWidth,
+         columnWidth: columnWidth
+      )
       return self.modifier(modifier)
    }
 }

@@ -7,6 +7,8 @@ import SplitViewKit
  * - Fixme: ⚠️️ Add support for inserting these from the splitviewcontainer init
  * - Fixme: ⚠️️ We also have to account for compact size of navsplitview here
  * - Fixme: ⚠️️⚠️️⚠️️ Why are these calls return optional?
+ * - Fixme: ⚠️️ Add support for storing columnwidths in userdefault, esp for macOS, for ipad the columns are fixed when using native swiftui navsplitview
+ * - Fixme: ⚠️️ Maybe store "section-fraction" size in userdefault (also check out how we did this in legacy code): https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state
  */
 public struct CustomColumnWidth: ColumnWidthKind {
    /**
@@ -25,7 +27,7 @@ extension CustomColumnWidth {
     */
    public func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isLandscape: isLandscape,
+         isOrientationLandscape: isOrientationLandscape,
          winWidth: winWidth
       )
       let width = ColumnWidth(
@@ -45,7 +47,7 @@ extension CustomColumnWidth {
     */
    public func mainColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isLandscape: isLandscape,
+         isOrientationLandscape: isOrientationLandscape,
          winWidth: winWidth
       )
       let width: ColumnWidth = .init(

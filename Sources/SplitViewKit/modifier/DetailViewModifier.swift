@@ -8,15 +8,13 @@ struct DetailViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Fixme: ⚠️️ add doc
+    * - Fixme: ⚠️️ add description
     */
    let columnWidth: ColumnWidthKind
    /**
     * Body
+    * - Fixme: ⚠️️ add description
     * - Note: There is also: `navigationSplitViewColumnWidth`
-    * - Fixme: ⚠️️ Remove the optionality in columnWidth
-    * - Fixme: ⚠️️ Add doc regarding why columnWidth is optional
-    * - Fixme: ⚠️️ Add description
     */
    func body(content: Content) -> some View {
       if let columnWidth = columnWidth.detailColumn(winWidth: winWidth) {
@@ -37,11 +35,17 @@ struct DetailViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
-    * - Parameter winWidth: The width of the window in which the detail view is displayed.
+    * - Fixme: ⚠️️ add description
+    * - Parameters:
+    *   - winWidth: The width of the window in which the detail view is displayed.
+    *   - columnWidth: - Fixme: ⚠️️ add doc
     * - Returns: A View with the detail view modifier applied.
     */
    internal func detailViewModifier(winWidth: CGFloat, columnWidth: ColumnWidthKind) -> some View{
-      let modifier = DetailViewModifier(winWidth: winWidth, columnWidth: columnWidth)
+      let modifier = DetailViewModifier(
+         winWidth: winWidth,
+         columnWidth: columnWidth
+      )
       return self.modifier(modifier)
    }
 }

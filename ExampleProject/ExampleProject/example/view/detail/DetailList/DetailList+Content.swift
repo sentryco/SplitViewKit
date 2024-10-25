@@ -12,14 +12,15 @@ extension DetailList {
             getRow(title: title)
          }
       }
-      // - Fixme: ⚠️️ this should be 12. like main and sidebar. not sure why it isnt, figure it out
+      // - Fixme: ⚠️️ Check if .contentMargins(.vertical, .zero) fixes the issue with 12 not working as padding?
+      // - Fixme: ⚠️️ This should be 12. like main and sidebar. not sure why it isnt, figure it out mayb some contentMargin
       .padding(.vertical, 24) // - Fixme: ⚠️️ doc this etc
       .sheet(isPresented: $isSheetPresented) {
          // Content of the sheet goes here
          Button("Dismiss") {
-            isSheetPresented.toggle()
+            isSheetPresented.toggle() // - Fixme: ⚠️️ doc this line?
          }
-         .toggleButtonStyle
+         .toggleButtonStyle // - Fixme: ⚠️️ doc this line?
       }
    }
 }
@@ -29,11 +30,13 @@ extension DetailList {
 extension DetailList {
    /**
     * Get row
+    * - Fixme: ⚠️️ add description
+    * - Parameter title: - Fixme: ⚠️️ add doc
+    * - Returns: - Fixme: ⚠️️ add doc
     */
    func getRow(title: String) -> some View {
       Button {
-         Swift.print("Open sheet: \(title)")
-         isSheetPresented.toggle()
+         isSheetPresented.toggle() // - Fixme: ⚠️️ doc this line
       } label: {
          Text(title)
             .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))

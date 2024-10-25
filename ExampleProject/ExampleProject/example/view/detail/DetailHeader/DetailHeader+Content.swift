@@ -38,11 +38,10 @@ extension DetailHeader {
          .padding(.vertical, 6)
    }
    /**
-    * - Description: Toggles the detail view between full-screen and regular mode.
-    * - Note: detailfullscreen btn is here to show how we can go fullscreen with detail
-    * - Note: It's a niche usecase. Not needed for most uses.
+    * - Description: Toggles the detail-view between full-screen and regular-mode.
     * - Fixme: ⚠️️ Remove default animation for this button, it looks buggy. Use copilot etc
     * - Fixme: ⚠️️ Find minimize icon
+    * - Fixme: ⚠️️ we might have to put this in the hovering layer above navsplitview. As it inherits some unintended animations at the moment
     */
    var fullScreenToggleButton: some View {
       let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right" // - Fixme: ⚠️️ describe what this icon looks like
@@ -63,7 +62,7 @@ extension DetailHeader {
     */
    var backButton: some View {
       Button(action: {
-         dismiss()
+         dismiss() // - Fixme: ⚠️️ doc this line
       }) {}
          .iconButtonStyle(iconName: "chevron.left")
       // Only show if in compact mode

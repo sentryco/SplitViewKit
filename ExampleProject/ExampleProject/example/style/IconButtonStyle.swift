@@ -5,11 +5,11 @@ import HybridColor
  * - Abstract: This defines a custom ButtonStyle where you can pass the icon name dynamically.
  * - Description: Define IconButtonStyle as a ButtonStyle with customizable icon, rounded corners, background and fill colors, icon size, and padding.
  * - Note: There is one for left arrow, right arrow, full_screen, back_chevron_icon,
- * - Fixme: ⚠️️ make it animate transperancy on showing / hiding
+ * - Fixme: ⚠️️ Make it animate transperancy on showing / hiding
  */
 struct IconButtonStyle: ButtonStyle {
    var iconName: String
-   var bgColor: Color //.opacity(0.8)
+   var bgColor: Color
    var fillColor: Color
    /**
     * This method sets up the view for the button. It uses an Image view with the system icon name provided. The icon's foreground color, font size, padding, background color, and corner radius are set according to the instructions.
@@ -17,7 +17,7 @@ struct IconButtonStyle: ButtonStyle {
     * - Note: Icon Aspect Ratio: By using .aspectRatio(contentMode: .fit) and constraining the icon's maximum size (frame(maxWidth: 24, maxHeight: 24)), the icon will maintain its aspect ratio and fit within the square.
     * - Note: Background: The bgColor background is defined as a square with rounded corners using .clipShape(RoundedRectangle(cornerRadius: 8)).
     * - Note: Now, no matter what the shape of the icon is, the background will always be square, and the icon will fit neatly within that square. You can adjust the frame(width: height:) values to make the background larger or smaller as needed.
-    * - Fixme: ⚠️️ try to make all this relativly sized etc
+    * - Fixme: ⚠️️ Try to make all this relativly sized etc
     */
    func makeBody(configuration: Configuration) -> some View {
       ZStack {
@@ -25,7 +25,6 @@ struct IconButtonStyle: ButtonStyle {
          bgColor
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .frame(width: 36, height: 36) // Background is square
-
          // Icon with aspect ratio maintained
          Image(systemName: iconName)
             .foregroundColor(fillColor)
@@ -66,8 +65,8 @@ extension Button {
    Button(action: {
       Swift.print("press")
    }) {}
-   .iconButtonStyle(iconName: "arrow.left.and.right") // square.lefthalf.fill or arrow.left.and.right.square
-   .environment(\.colorScheme, .dark) // dark
+   .iconButtonStyle(iconName: "arrow.left.and.right")
+   .environment(\.colorScheme, .dark) // dark-mode
 }
 
 

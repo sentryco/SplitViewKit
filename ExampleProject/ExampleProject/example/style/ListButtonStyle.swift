@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * - Description: Applies the list button style to the view, enhancing the appearance of the list button.
- * - Fixme: ⚠️️ Remove animated effect when tapping main items, ask copilot etc
+ * - Fixme: ⚠️️ Remove animated effect when tapping main items, check with copilot etc
  */
 struct ListButtonStyle: ButtonStyle {
    /**

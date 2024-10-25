@@ -6,12 +6,11 @@ import HybridColor
 extension SideBarHeader {
    /**
     * - Description: The header of the sidebar, which includes the title and a size class indicator.
-    * - Fixme: ⚠️️ We should hide the toggle button if column is sidebar, and size is compact, etc. deal with it later
     */
    var body: some View {
       VStack {
          HStack {
-            toggleButton // Top-left
+            sideBarToggleButton // Top-left
             Spacer()
          }
          HStack {
@@ -32,17 +31,17 @@ extension SideBarHeader {
     */
    var titleText: some View {
       Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
-         .titleTextStyle
+         .titleTextStyle // - Fixme: ⚠️️ doc this line
          .padding(.vertical, 6) // - Fixme: ⚠️️ doc this
    }
    /**
-    * - Description: The toggle button of the sidebar header
+    * - Abstract: The toggle button of the sidebar header
+    * - Fixme: ⚠️️ add description
     * - Note: We animate the hiding showing of sidebar toggle button because it looks nice
     * - Note: "70% splitview mode" for iPad is considered regular
     * - Note: The animation is only really visible If we drag the sidebar to visibility. Very subtle, but looks better when accounted for
-    * - Fixme: ⚠️️ Rename to sideBarToggleButton
     */
-   @ViewBuilder var toggleButton: some View {
+   @ViewBuilder var sideBarToggleButton: some View {
       let button = Button(action: { // Hide sidebar
          splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectivly hides sidebar
       }) {}
@@ -53,9 +52,8 @@ extension SideBarHeader {
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
             .animation(.easeInOut(duration: 0.3), value: splitConfig.columnVisibility == .all)
       } else { // hide button in compact mode
-         Color.clear.frame(width: 36, height: 36)
+         Color.clear.frame(width: 36, height: 36) // Creates a ghost area, to avoid collapsing the space when button is hidden
       }
    }
 }
-// else we are in compact mode. So just switch to main
-// splitConfig.preferredCompactColumn = .content
+

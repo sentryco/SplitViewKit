@@ -18,9 +18,9 @@ extension MainHeader {
          }
       }
       // - Fixme: ⚠️️ Could this cause an issue, is it needed?
-      .frame(maxWidth: .infinity) // ⚠️️ Forces the view to not shrink to text, but rather expand to its parent width
+      .frame(maxWidth: .infinity) // Forces the view to not shrink to text, but rather expand to it's parent width
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical) 
+      .padding(.vertical) // - Fixme: ⚠️️ doc this line
    }
 }
 /**
@@ -31,9 +31,9 @@ extension MainHeader {
     * SideBarToggleButton or backbutton
     */
    @ViewBuilder var button: some View {
-      if sizeClass == .regular {
-         toggleButton
-      } else { // if compact
+      if sizeClass == .regular { // if regular-mode
+         sideBarToggleButton
+      } else { // if compact-mode
          backButton
       }
    }
@@ -41,11 +41,9 @@ extension MainHeader {
     * - Description: A button that toggles the visibility of the sidebar depending on the current size class.
     * - Note: We should show this if in compact mode, Show this only if toggle is true
     * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
-    * - Fixme: ⚠️️ Try to move anim and opacity into the button style
-    * - Fixme: ⚠️️ Add abstract
-    * - Fixme: ⚠️️ Rename to sideBarToggleButton
+    * - Fixme: ⚠️️ Try to move anim and opacity into the button style 👈
     */
-   var toggleButton: some View {
+   var sideBarToggleButton: some View {
       Button(action: { // Show sidebar
          splitConfig.columnVisibility = .all // shows all 3 columns
       }) {}
@@ -72,7 +70,7 @@ extension MainHeader {
     * - Description: The title of the header, which is displayed prominently at the top of the view.
     */
    var titleText: some View {
-      Text(title) // center
+      Text(title) // Center
          .titleTextStyle
          .padding(.vertical, 6)
    }

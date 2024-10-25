@@ -13,12 +13,12 @@ extension SideBarList {
             #if os(iOS) // - Fixme: ⚠️️ remove this? added twice etc?
             .listRowSpacing(.zero) // ⚠️️ Only available for iOS
             #endif
-            .listRowInsets(.init())
+            .listRowInsets(.init()) // - Fixme: ⚠️️ doc this line
       }
       .scrollContentBackground(.hidden) // remove list bg
       .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
       .contentMargins(.vertical, .zero) // ⚠️️ key to removeing top margin, we cant use .contentMargins(.horizontal, .zero) as it will remove the rounded backgrounds for the section
-      .contentMargins(.horizontal, .zero)
+      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this line
       .padding(.vertical, 12) // - Fixme: ⚠️️ doc this etc
    }
    /**
@@ -38,6 +38,6 @@ extension SideBarList {
       #if os(iOS)
       .listRowSpacing(.zero) // ⚠️️ Only available for iOS
       #endif
-      .listRowInsets(.init())
+      .listRowInsets(.init()) // - Fixme: ⚠️️ doc this line
    }
 }

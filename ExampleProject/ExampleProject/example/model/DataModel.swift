@@ -5,14 +5,14 @@ import SwiftUI
  * - Description: Represents a model for debugging account information in the application.
  *                It includes properties for unique identification, display text,
  *                navigation destination, and color.
- * - Fixme: ⚠️️ should we make this identifiable as well or?
- * - Fixme: ⚠️️ Rename MainModel, maybe
- * - Fixme: ⚠️️⚠️️ Use NavLinkData instead of this? elaborate?
+ * - Note: Alternative name: `MainModel`
+ * - Note: Hashable is needed for the presentNavigation value to work
+ * - Fixme: ⚠️️ Should we make this identifiable as well or?
  * - Fixme: ⚠️️ Maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
- * - Fixme: ⚠️️ a better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
+ * - Fixme: ⚠️️ A better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
  * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
  */
- struct DataModel: Hashable { // hashable is needed for the presentNavigation value to work
+ struct DataModel: Hashable {
    /**
     * UUID is needed for hashable
     * - Description: A universally unique identifier (UUID) used to uniquely identify each instance of the `DataModel`.
@@ -20,14 +20,9 @@ import SwiftUI
     let uuid: UUID = .init()
    /**
     * - Description: The text displayed for the data model, representing the title or label of the item.
-    * - Fixme: ⚠️️ This is the title I suppose? 👈
+    * - Fixme: ⚠️️ rename to title?
     */
     let text: String
-   /**
-    * - Description: The color used to style the text of the data model, enhancing its visual distinction.
-    * - Fixme: ⚠️️⚠️️⚠️️ remove this, not in use
-    */
-//    let color: Color
 }
 /**
  * Hashable implementation

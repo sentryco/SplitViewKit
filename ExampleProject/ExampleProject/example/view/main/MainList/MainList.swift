@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * - Description: Displays a list of items, allowing the user to select an item.
- * - Fixme: ⚠️️ add preview
+ * - Fixme: ⚠️️ Add preview
  */
 struct MainList: View {
    /**

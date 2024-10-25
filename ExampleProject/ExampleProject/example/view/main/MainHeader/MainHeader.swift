@@ -12,7 +12,7 @@ struct MainHeader: View {
    let title: String
    /**
     * - Description: Configuration for the split view behavior in the header, affecting how the view adapts to different screen sizes and orientations.
-    * - Fixme: ⚠️️ Make this ObservedObject later
+    * - Fixme: ⚠️️ Possibly make this ObservedObject later
     */
    var splitConfig: SplitConfig
    /**

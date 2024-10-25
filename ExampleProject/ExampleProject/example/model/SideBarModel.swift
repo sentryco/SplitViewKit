@@ -1,7 +1,7 @@
 import Foundation
 import SplitViewKit
 /**
- * Represents the model for the sidebar in the application, containing a title and associated main content.
+ * - Description: Represents the model for the sidebar in the application, containing a title and associated main content.
  */
 struct SideBarModel {
    /**
@@ -29,7 +29,7 @@ extension SideBarData {
          getMainModel(
             sideBarItemIndex: sideBarItemIndex,
             mainItemIndex: offset,
-            splitConfig: splitConfig // navsplitconfig
+            splitConfig: splitConfig
          )
       }
    }
@@ -43,8 +43,7 @@ extension SideBarData {
     */
    func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
       .init(
-         text: self[sideBarItemIndex].content[mainItemIndex].title//,
-//         color: .clear
+         text: self[sideBarItemIndex].content[mainItemIndex].title
       )
    }
 }
@@ -56,8 +55,7 @@ extension DataModel {
     * Model structure
     * - Note: Sorted dictionary based on array of tuples
     * - Description: Represents a static dictionary that maps sidebar titles to their respective content models, facilitating easy access and management of sidebar data.
-    * - Fixme: ⚠️️ Use structs here?
-    * - Fixme: ⚠️️ Also maybe add more interesting content to detail?
+    * - Fixme: ⚠️️ Maybe add more interesting content to detail?
     */
    static let dataModel: SideBarData = [accounts, settings]
    /**
@@ -106,8 +104,8 @@ extension DataModel {
    }()
 }
 /**
- * - Note: We keep these in the MainModel scope
  * - Description: This typealias represents an array of `SideBarModel` used to structure the sidebar data in the application.
- * - Fixme: ⚠️️ rename to ...array
+ * - Note: We keep these in the MainModel scope
+ * - Fixme: ⚠️️ Rename to ...array ?
  */
 typealias SideBarData = [SideBarModel]

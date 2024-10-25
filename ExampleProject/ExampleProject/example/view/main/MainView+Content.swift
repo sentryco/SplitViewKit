@@ -12,7 +12,7 @@ extension MainView {
       vStack
          #if os(iOS)
          .toolbar(.hidden, for: .navigationBar) // Removes the top default nav-bar
-         .toolbar(removing: .sidebarToggle) // this available from ios 17 I think, might only be needed in sidebar? scope? probably
+         .toolbar(removing: .sidebarToggle) // This is available from iOS 17 I think, might only be needed in sidebar? scope? probably
          #elseif os(macOS)
          .ignoresSafeArea(.all) // Ignores all safe areas
          #endif
@@ -28,9 +28,9 @@ extension MainView {
     */
    var header: some View {
       MainHeader(
-         title: title,
-         splitConfig: splitConfig,
-         sizeClass: /**/$sizeClass
+         title: title, // - Fixme: ⚠️️ doc this line
+         splitConfig: splitConfig, // - Fixme: ⚠️️ doc this line
+         sizeClass: $sizeClass // - Fixme: ⚠️️ doc this line
       )
       .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
@@ -44,7 +44,6 @@ extension MainView {
          mainList
          Spacer() // Pins the stack to the top
       }
-//      .contentMargins(.horizontal, .zero) // Sets the horizontal margins of the content to zero, effectively aligning the content flush with the horizontal edges of its container.
       .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
    /**
@@ -53,9 +52,9 @@ extension MainView {
     */
    var mainList: some View {
       MainList(
-         selectedMainIndex: $selectedMainIndex,
-         selectedItem: $selectedItem,
-         items: items
+         selectedMainIndex: $selectedMainIndex, // - Fixme: ⚠️️ doc this line
+         selectedItem: $selectedItem, // - Fixme: ⚠️️ doc this line
+         items: items // - Fixme: ⚠️️ doc this line
       )
    }
 }

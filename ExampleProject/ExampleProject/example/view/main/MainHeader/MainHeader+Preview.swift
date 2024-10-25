@@ -8,5 +8,5 @@ import HybridColor
       sizeClass: /**/.constant(.regular)
    )
    .background(Color.blackOrWhite.opacity(1))
-   .environment(\.colorScheme, .dark) // dark
+   .environment(\.colorScheme, .dark) // dark-mode
 }

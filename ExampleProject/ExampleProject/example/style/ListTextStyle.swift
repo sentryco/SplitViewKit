@@ -30,6 +30,7 @@ extension View {
     * - Returns: A view modified with the list text style.
     */
    func listTextStyle(color: Color) -> some View {
-      self.modifier(ListTextStyle(color: color))
+      let style = ListTextStyle(color: color)
+      return self.modifier(style)
    }
 }

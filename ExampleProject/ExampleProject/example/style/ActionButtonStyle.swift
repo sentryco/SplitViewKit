@@ -31,8 +31,7 @@ extension Button {
  */
  #Preview {
     Button("Toggle") {
-        // Action for the button
-        print("hello")
+        print("hello") // Action for the button
     }
     .toggleButtonStyle
 }

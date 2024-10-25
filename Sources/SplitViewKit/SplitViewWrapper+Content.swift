@@ -3,7 +3,7 @@ import SwiftUI
  * Content
  * - Important: ⚠️️ The task is to redraw navSplitView on size,sizeclass and orientation change. Doing bindings on columnWidth values etc, doesnt update the navsplitview
  */
-extension SplitViewContainer {
+extension SplitViewWrapper {
    /**
     * Body
     * - Description: This is the main body of the `SplitViewContainer`. It manages the layout and state of the navigation split view, handling orientation changes and view updates.
@@ -20,7 +20,7 @@ extension SplitViewContainer {
 /**
  * Components
  */
-extension SplitViewContainer {
+extension SplitViewWrapper {
    /**
     * splitViewContainer
     * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
@@ -43,8 +43,9 @@ extension SplitViewContainer {
    /**
     * Create navigationSplitView
     * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
+    * - Note: We use `NavSplitView` over `HSplitView`, because we also Use navSplitview in the ipad, so we can get synergies etc
     * - Note: We use `Navigationsplitview`, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
-    * - Note: We use `.balanced` as `navigationSplitViewStyle` in this case, as `.prominent` breaks the excpected UX a bit
+    * - Note: We use `.balanced` as `navigationSplitViewStyle` we could do slideout as well. but it has its own limitations. UX isnt great etc.
     * - Parameter winWidth: window width (from geomtry-reader) needed to calculate / evalute correct columnwidths
     * - Returns: Nav-split-view
     */

@@ -9,17 +9,13 @@ import SwiftUI
  *                in the consuming code. The container supports dynamic column visibility and is
  *                designed to accommodate various device sizes and orientations, ensuring a consistent
  *                user experience across different platforms.
- * - Note: We keep this in it's own class, as it has some standard configs etc, less complexity in the implimentation file etc
- * - Note: We also might change the splitview contraption later, but not the content it consumes etc, so seperation is useful
- * - Note: We use `NavSplitView` over `HSplitView`, because we also Use navSplitview in the ipad, so we can get synergies etc
- * - Note: This has auto-hide when size gets small enough for sidebar
- * - Note: Alternative names for this: `SplitContainerView`? or `SplitViewWrapper`? 
+ * - Note: We keep this as a wrapper over `NavigationSplitView`, as it has some standard configs etc, less complexity in the implimentation file etc 
  * Mindset:
  *  small (iPhone, iPad window): [primary w/ tagbar] -> [detail]
  *  medium (iPad portrait): [Compact-SideBar, primary, Detail] (here we might need to just have a reveal btn that shows sidebar etc)
  *  large (iPad, macOS): [SideBar, primary, detail]
  */
-public struct SplitViewContainer<SideBar: View, Content: View, Detail: View, OverlayView: View>: View {
+public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, OverlayView: View>: View {
    /**
     * Left `side-menu-bar`
     * - Description: Represents the sidebar component of the split view. This sidebar acts as a navigation or menu column in the split view layout, typically containing navigation links or menu items that control what is displayed in the main content area.

@@ -6,7 +6,9 @@ import SwiftUI
 extension SplitViewWrapper {
    /**
     * Body
-    * - Description: This is the main body of the `SplitViewContainer`. It manages the layout and state of the navigation split view, handling orientation changes and view updates.
+    * - Description: This is the main body of the `SplitViewContainer`. It
+    *                manages the layout and state of the navigation split view,
+    *                handling orientation changes and view updates.
     */
    public var body: some View {
       splitViewContainer
@@ -23,7 +25,10 @@ extension SplitViewWrapper {
 extension SplitViewWrapper {
    /**
     * splitViewContainer
-    * - Description: This view is responsible for managing the layout of the split view container based on the device's orientation and window size. It uses a GeometryReader to dynamically adjust the views and their properties such as width and visibility.
+    * - Description: This view manages the layout of the split view container
+    *                based on the device's orientation and window size. It uses
+    *                a GeometryReader to dynamically adjust the views and their
+    *                properties such as width and visibility.
     * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
     * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader. GeomReader fires when moving from 70% to full. (iPad) SizeClass does not fire when moving from 70% to fullscreen.
     * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is. See SizeTracker code in the swift tips post on eon.codes etc
@@ -42,7 +47,9 @@ extension SplitViewWrapper {
    }
    /**
     * Create navigationSplitView
-    * - Description: Creates a `NavigationSplitView` with the provided configuration and views. It dynamically adjusts the layout based on the window width and orientation.
+    * - Description: Creates a `NavigationSplitView` with the provided
+    *                configuration and views. It dynamically adjusts the layout
+    *                based on the window width and orientation.
     * - Note: We use `NavSplitView` over `HSplitView`, because we also Use navSplitview in the ipad, so we can get synergies etc
     * - Note: We use `Navigationsplitview`, since it's now supported for macOS as well, and because it is more capable than HSplitView etc? https://developer.apple.com/documentation/swiftui/navigationsplitview
     * - Note: We use `.balanced` as `navigationSplitViewStyle` we could do slideout as well. but it has its own limitations. UX isnt great etc.

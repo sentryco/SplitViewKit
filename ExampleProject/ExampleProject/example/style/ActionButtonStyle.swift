@@ -1,7 +1,9 @@
 import SwiftUI
 /**
  * Creates a ToggleButonStyle for Button
- * - Description: The button should have rounded corners, have white text, and dark gray background,  it should have a little bit more padding horisontally than vertically. also make a preview
+ * - Description: The button should have rounded corners, have white text, and
+ *                dark gray background, it should have a little bit more padding
+ *                horizontally than vertically. also make a preview
  */
 struct ActionButtonStyle: ButtonStyle {
    /**
@@ -19,7 +21,7 @@ struct ActionButtonStyle: ButtonStyle {
 extension Button {
    /**
     * - Description: Applies the action button style to the button, enhancing the appearance of the action button.
-    * - Fixme: ⚠️️ rename to action....
+    * - Fixme: ⚠️️ Rename to action....
     */
    var toggleButtonStyle: some View {
       let style = ActionButtonStyle()

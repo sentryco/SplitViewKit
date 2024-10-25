@@ -29,7 +29,8 @@ extension MainList {
    }
    /**
     * rowItem
-    * - Description: Creates a button for each item in the list, which updates the selected index and item when clicked.
+    * - Description: Generates a button for each item in the list,
+    *                updating the selected index and item upon interaction.
     * - Note: Alternative name: rowButton
     * - Parameter i: The index of the item in the list.
     * - Returns: A view representing a button for the item at the specified index.

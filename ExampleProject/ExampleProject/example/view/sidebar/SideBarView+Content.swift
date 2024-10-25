@@ -2,12 +2,14 @@ import SwiftUI
 import HybridColor
 /**
  * content
- * - Description: The main content of the sidebar, which includes the header and the list of items.
+ * - Description: The main content of the sidebar, which includes the
+ *                header and the list of items.
  */
 extension SideBarView {
    /**
     * Body
-    * - Fixme: ⚠️️ add description
+    * - Description: Represents the visual structure of the SideBarView,
+    *                defining its layout and behavior across different platforms.
     */
    public var body: some View {
       vStack
@@ -26,12 +28,12 @@ extension SideBarView {
 extension SideBarView {
    /**
     * vstack
-    * - Fixme: ⚠️️ add description
+    * - Description: The main vertical stack that contains the sidebar header and the list of items.
     */
    var vStack: some View {
       VStack(spacing: .zero) {
-         sideBarHeader // - Fixme: ⚠️️ doc this line
-         list // - Fixme: ⚠️️ doc this line
+         sideBarHeader // Displays the sidebar header with title, size class, and split configuration.
+         list // Displays the list of sidebar items, allowing selection handling.
       }
       .background(isTest ? .teal.opacity(0.3) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
    }
@@ -43,9 +45,9 @@ extension SideBarView {
     */
    var sideBarHeader: some View {
       SideBarHeader(
-         title: "Sidebar", // - Fixme: ⚠️️ doc this line
-         sizeClass: $sizeClass, // - Fixme: ⚠️️ doc this line
-         splitConfig: splitConfig // - Fixme: ⚠️️ doc this line
+         title: "Sidebar", // The title displayed at the top of the sidebar.
+         sizeClass: $sizeClass, // The size class that adjusts the sidebar's layout based on the available space.
+         splitConfig: splitConfig // Configuration details for the split view behavior in the sidebar.
       )
       .background(isTest ? .green.opacity(0.5) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug
    }
@@ -54,7 +56,7 @@ extension SideBarView {
     */
    var list: some View {
       SideBarList(
-         selectedSideBarIndex: $selectedSideBarIndex // - Fixme: ⚠️️ doc this line
+         selectedSideBarIndex: $selectedSideBarIndex // Binds the selected index to the sidebar list, allowing for state management of the selected item.
       )
    }
 }

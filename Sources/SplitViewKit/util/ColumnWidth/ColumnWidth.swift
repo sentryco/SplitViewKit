@@ -1,6 +1,9 @@
 import SwiftUI
 /**
- * - Description: This file defines the `ColumnWidth` struct which is used to specify the minimum, ideal, and maximum widths for columns within a `NavigationSplitView`. This allows for flexible and adaptive UI layouts across different devices and orientations.
+ * - Description: This file defines the `ColumnWidth` struct which is used to
+ *                specify the minimum, ideal, and maximum widths for columns
+ *                within a `NavigationSplitView`. This allows for flexible and
+ *                adaptive UI layouts across different devices and orientations.
  * - Important: ⚠️️ To resize columns when the app is running, you have to force reload the navigationsplitview view. Refreshing the state is not enough. The best way is to toggle two navsplitviews in a geometryreader.
  * - Note: Here is how we can easily persist columnWidths with userdefault: https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state
  * - Note: Only some platforms enable resizing columns. If you specify a width that the current presentation environment doesn’t support, SwiftUI may use a different width for your column.

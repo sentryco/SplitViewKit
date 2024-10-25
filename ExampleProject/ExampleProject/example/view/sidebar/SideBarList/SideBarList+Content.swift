@@ -13,13 +13,13 @@ extension SideBarList {
             #if os(iOS) // - Fixme: ⚠️️ remove this? added twice etc?
             .listRowSpacing(.zero) // ⚠️️ Only available for iOS
             #endif
-            .listRowInsets(.init()) // - Fixme: ⚠️️ doc this line
+            .listRowInsets(.init()) // Sets the insets for each row in the list to zero, effectively removing any default padding or margins.
       }
       .scrollContentBackground(.hidden) // remove list bg
       .environment(\.defaultMinListRowHeight, .zero) // ⚠️️ key to resetting topSpacer in the Listcontainer
       .contentMargins(.vertical, .zero) // ⚠️️ key to removeing top margin, we cant use .contentMargins(.horizontal, .zero) as it will remove the rounded backgrounds for the section
-      .contentMargins(.horizontal, .zero) // - Fixme: ⚠️️ doc this line
-      .padding(.vertical, 12) // - Fixme: ⚠️️ doc this etc
+      .contentMargins(.horizontal, .zero) // Sets the horizontal content margins to zero, removing any default horizontal spacing.
+      .padding(.vertical, 12) // Adds vertical padding of 12 points to the list, enhancing visual separation between elements.
    }
    /**
     * List content
@@ -38,6 +38,6 @@ extension SideBarList {
       #if os(iOS)
       .listRowSpacing(.zero) // ⚠️️ Only available for iOS
       #endif
-      .listRowInsets(.init()) // - Fixme: ⚠️️ doc this line
+      .listRowInsets(.init()) // Sets the insets for each row in the list to zero, effectively removing any default padding or margins around the list items.
    }
 }

@@ -13,7 +13,8 @@ struct MainModel {
    let content: DetailData
 }
 /**
- * - Description: Represents an array of `MainModel`, used to structure the main-data in the application.
+ * - Description: Represents an array of `MainModel`, used to structure
+ *                the main-data in the application.
  * - Fixme: ⚠️️ Rename to ...array
  */
 typealias MainData = [MainModel]

@@ -9,20 +9,21 @@ internal struct CustomColumnWidth: ColumnWidthKind {}
 #if os(iOS)
 extension CustomColumnWidth {
    /**
-    * - Fixme: ⚠️️ add description
+    * - Description: Calculates the appropriate width for the sidebar column
+    *                based on the window width and device orientation.
     * - Parameters:
-    *   - winWidth: - Fixme: ⚠️️ add doc
+    *   - winWidth: The current width of the window which is used to determine the column width.
     * - Returns: Optional means use native default values
     */
    internal func sideBarColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
-         winWidth: winWidth // - Fixme: ⚠️️ doc this line
+         isLandscape: isOrientationLandscape, // Determines if the device orientation is landscape
+         winWidth: winWidth // Specifies the current width of the window
       )
       let width = ColumnWidth(
-         min: nil, // - Fixme: ⚠️️ doc this line
-         ideal: isNarrow ? 200 : 340, // - Fixme: ⚠️️ doc this line
-         max: nil // - Fixme: ⚠️️ doc this line
+         min: nil, // The minimum width is not set, allowing the sidebar to shrink as needed based on the SplitView's default behavior.
+         ideal: isNarrow ? 200 : 340, // The ideal width of the sidebar changes based on the device orientation: 200 points in narrow (portrait) mode and 340 points in wide (landscape) mode.
+         max: nil // The maximum width is not set, allowing the sidebar to expand as needed based on the SplitView's default behavior.
       )
       return width
    }
@@ -34,13 +35,13 @@ extension CustomColumnWidth {
     */
    internal func mainColumn(winWidth: CGFloat) -> ColumnWidth? {
       let isNarrow: Bool = isNarrow(
-         isLandscape: isOrientationLandscape, // - Fixme: ⚠️️ doc this line
-         winWidth: winWidth // - Fixme: ⚠️️ doc this line
+         isLandscape: isOrientationLandscape, // Determines if the device orientation is landscape, affecting column width calculations.
+         winWidth: winWidth // Specifies the current width of the window, used to adjust column widths dynamically.
       )
       let width: ColumnWidth = .init(
-         min: nil, // - Fixme: ⚠️️ doc this line
-         ideal: isNarrow ? 240 : 300, // - Fixme: ⚠️️ doc this line
-         max: nil // - Fixme: ⚠️️ doc this line
+         min: nil, // The minimum width is not set, allowing the main column to shrink as needed based on the SplitView's default behavior.
+         ideal: isNarrow ? 240 : 300, // The ideal width of the main column changes based on the device orientation: 240 points in narrow (portrait) mode and 300 points in wide (landscape) mode.
+         max: nil // The maximum width is not set, allowing the main column to expand as needed based on the SplitView's default behavior.
       )
       return width
    }
@@ -52,9 +53,9 @@ extension CustomColumnWidth {
     */
    internal func detailColumn(winWidth: CGFloat) -> ColumnWidth? {
       let width = ColumnWidth(
-         min: nil, // - Fixme: ⚠️️ doc this line
-         ideal: 500, // - Fixme: ⚠️️ doc this line
-         max: nil // - Fixme: ⚠️️ doc this line
+         min: nil, // The minimum width is not set, allowing the detail column to shrink as needed based on the SplitView's default behavior.
+         ideal: 500, // The ideal width for the detail column is set to 500 points, providing sufficient space for content display.
+         max: nil // The maximum width is not set, allowing the detail column to expand as needed based on the SplitView's default behavior.
       )
       return width
    }

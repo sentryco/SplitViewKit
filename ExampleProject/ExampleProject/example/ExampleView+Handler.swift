@@ -4,7 +4,11 @@ import SplitViewKit
 extension ExampleView {
    /**
     * Handles changes in the sidebar selection.
-    * - Description: This function updates the `selectedMainItem` based on the current sidebar index. When `selectedMainItem` is updated, the views are regenerated to reflect the new selection. This mechanism ensures that the view automatically displays the last selected item when the sidebar changes.
+    * - Description: This function updates the `selectedMainItem` based on the
+    *                current sidebar index. When `selectedMainItem` is updated,
+    *                the views are regenerated to reflect the new selection. This
+    *                mechanism ensures that the view automatically displays the
+    *                last selected item when the sidebar changes.
     * - Note: This method is not static, because we interact with instance var selectedMainItem
     * - Parameters:
     *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
@@ -15,8 +19,8 @@ extension ExampleView {
       switch sizeClass {
       case .regular: // Only auto select mainitem if all columns are visible etc
          $selectedMainItem.wrappedValue = DataModel.dataModel.getMainModel( // Only do this, if not in compact, because it will open detail mode, and skip main if in compact mode etc
-            sideBarItemIndex: selectedSideBarIndex, // - Fixme: ⚠️️ doc this line
-            mainItemIndex: selectedMainIndex, // - Fixme: ⚠️️ doc this line
+            sideBarItemIndex: selectedSideBarIndex, // The index of the currently selected item in the sidebar.
+            mainItemIndex: selectedMainIndex, // The index of the currently selected item in the main view.
             splitConfig: splitConfig // splitconfig binding
          ) // Set selected-item based on selected-indecies
       case .compact: // in compact-mode

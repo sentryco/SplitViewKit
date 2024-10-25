@@ -4,7 +4,8 @@ import SwiftUI
  */
 extension MainHeader {
    /**
-    * - Description: The main view of the header, which includes a toggle button for the sidebar and a title.
+    * - Description: The main view of the header, which includes a toggle
+    *                button for the sidebar and a title.
     */
    var body: some View {
       VStack {
@@ -20,7 +21,7 @@ extension MainHeader {
       // - Fixme: ⚠️️ Could this cause an issue, is it needed?
       .frame(maxWidth: .infinity) // Forces the view to not shrink to text, but rather expand to it's parent width
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical) // - Fixme: ⚠️️ doc this line
+      .padding(.vertical) // Adds top and bottom padding to the header view
    }
 }
 /**
@@ -54,7 +55,10 @@ extension MainHeader {
    }
    /**
     * Back button
-    * - Description: Provides a custom back button when in compact mode, which allows users to navigate back to the previous view. This button is visible only in compact mode to enhance usability on smaller screens.
+    * - Description: Provides a custom back button when in compact mode,
+    *                which allows users to navigate back to the previous view.
+    *                This button is visible only in compact mode to enhance
+    *                usability on smaller screens.
     */
    var backButton: some View {
       Button(action: {

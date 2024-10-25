@@ -14,37 +14,65 @@ import SwiftUI
 public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, OverlayView: View>: View {
    /**
     * Left `side-menu-bar`
-    * - Description: Represents the sidebar component of the split view. This sidebar acts as a navigation or menu column in the split view layout, typically containing navigation links or menu items that control what is displayed in the main content area.
+    * - Description: Represents the sidebar component of the split view.
+    *                This sidebar acts as a navigation or menu column in the
+    *                split view layout, typically containing navigation links
+    *                or menu items that control what is displayed in the main
+    *                content area.
     */
    @ViewBuilder internal var sideBar: SideBarAlias
    /**
     * Center `main-content`
-    * - Description: Represents the central content area of the split view. This is the primary view where the main application content is displayed. It typically contains the bulk of the user interface and interactive elements, serving as the focal point of user engagement within the app.
+    * - Description: Represents the central content area of the split view.
+    *                This is the primary view where the main application content
+    *                is displayed. It typically contains the bulk of the user
+    *                interface and interactive elements, serving as the focal
+    *                point of user engagement within the app.
     */
    @ViewBuilder internal var content: MainAlias
    /**
     * Right side `detail-view`
-    * - Description: Represents the detail component of the split view. This view is typically used to display more detailed information about an item selected from the main content area. It can also serve as a space for secondary actions and insights that complement the primary content.
+    * - Description: Represents the detail component of the split view. This
+    *                view is typically used to display more detailed information
+    *                about an item selected from the main content area. It can
+    *                also serve as a space for secondary actions and insights
+    *                that complement the primary content.
     */
    @ViewBuilder internal var detail: DetailAlias
    /**
     * Indicates whether the split view container should display debugging information
-    * - Description: When not nil, the split view container can show additional debugging information that can help in diagnosing layout and state management issues. This can include visual indicators or console outputs detailing the current configuration and behavior of the split view components.
+    * - Description: When not nil, the split view container can show
+    *                additional debugging information that can help in
+    *                diagnosing layout and state management issues. This
+    *                can include visual indicators or console outputs
+    *                detailing the current configuration and behavior of
+    *                the split view components.
     */
    @ViewBuilder internal var overlay: OverlayAlias
    /**
     * - Abstract: Used to detect if the app is in compact or regular mode.
-    * - Description: This environment property helps in determining the horizontal size class of the current environment. It's crucial for adapting the UI elements based on the available space. It should be accessed from the correct scope to ensure accurate detection of the mode, as incorrect scope access can lead to misidentification between compact and regular modes.
+    * - Description: This environment property helps in determining the
+    *                horizontal size class of the current environment. It's
+    *                crucial for adapting the UI elements based on the available
+    *                space. It should be accessed from the correct scope to
+    *                ensure accurate detection of the mode, as incorrect scope
+    *                access can lead to misidentification between compact and
+    *                regular modes.
     * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. So param drilling is probably better to avoid future hard to find bugs
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
    /**
     * State-object for managing the configuration of the split view
-    * - Description: `splitConfig` holds the state for various configuration settings of the split view such as column visibility and dimensions. It is crucial for dynamically adjusting the layout based on the device's orientation and size class changes.
+    * - Description: `splitConfig` holds the state for various configuration
+    *                settings of the split view such as column visibility and
+    *                dimensions. It is crucial for dynamically adjusting the
+    *                layout based on the device's orientation and size class
+    *                changes.
     */
    @StateObject internal var splitConfig: SplitConfig
    /**
-    * - Description: Used to store responsive break-points for iPad. And default columnwidths for mac etc.
+    * - Description: Used to store responsive break-points for iPad.
+    *                And default columnwidths for mac etc.
     * - Note: The implimenter can setup userdefaults for the mac app in order to persist last used columnwidths etc. if needed etc
     */
    internal let columnWidth: ColumnWidthKind

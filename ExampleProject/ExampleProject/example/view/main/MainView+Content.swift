@@ -28,9 +28,9 @@ extension MainView {
     */
    var header: some View {
       MainHeader(
-         title: title, // - Fixme: ⚠️️ doc this line
-         splitConfig: splitConfig, // - Fixme: ⚠️️ doc this line
-         sizeClass: $sizeClass // - Fixme: ⚠️️ doc this line
+         title: title, // The title of the main view, displayed in the header.
+         splitConfig: splitConfig, // Configuration for the split view behavior in the main view.
+         sizeClass: $sizeClass // A binding to the size class, used to adapt the UI for different device sizes.
       )
       .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
@@ -52,9 +52,9 @@ extension MainView {
     */
    var mainList: some View {
       MainList(
-         selectedMainIndex: $selectedMainIndex, // - Fixme: ⚠️️ doc this line
-         selectedItem: $selectedItem, // - Fixme: ⚠️️ doc this line
-         items: items // - Fixme: ⚠️️ doc this line
+         selectedMainIndex: $selectedMainIndex, // A binding to the currently selected index in the main list.
+         selectedItem: $selectedItem, // A binding to the currently selected item in the main list.
+         items: items // The collection of items to be displayed in the main list.
       )
    }
 }

@@ -3,7 +3,8 @@ import HybridColor
 import SplitViewKit
 /**
  * Content
- * - Description: This section of the code defines the content view for the DetailHeader component in the SwiftUI view hierarchy.
+ * - Description: This section of the code defines the content view for
+ *                the DetailHeader component in the SwiftUI view hierarchy.
  */
 extension DetailHeader {
    /**
@@ -57,12 +58,15 @@ extension DetailHeader {
    }
    /**
     * Back button
-    * - Description: Provides a custom back button for the detail view, which allows users to navigate back to the previous view. This button is visible only in compact mode to enhance usability on smaller screens.
+    * - Description: Provides a custom back button for the detail view, which
+    *                allows users to navigate back to the previous view. This
+    *                button is visible only in compact mode to enhance usability
+    *                on smaller screens.
     * - Note: Custom back-btn for detail-view, hide default back-btn etc... custom back-btn for detail when in compact mode
     */
    var backButton: some View {
       Button(action: {
-         dismiss() // - Fixme: ⚠️️ doc this line
+         dismiss() // This line triggers the environment's dismiss action, used to close the current view or navigate back in the navigation stack.
       }) {}
          .iconButtonStyle(iconName: "chevron.left")
       // Only show if in compact mode

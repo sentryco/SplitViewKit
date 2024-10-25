@@ -1,6 +1,8 @@
 import SwiftUI
 /**
- * - Description: Manages configuration settings for the `NavigationSplitView` in `SplitViewKit`, including visibility and preferred column in compact mode.
+ * - Description: Manages configuration settings for the `NavigationSplitView`
+ *                in `SplitViewKit`, including visibility and preferred column
+ *                in compact mode.
  * - Note: We can detect 70% mode with that custom 70% code and geometryreader etc
  * - Note: We can detect single column mode by checking `sizeclass == .compact`
  * - Fixme: ⚠️️ Consider removing this class. We can pass two params. Thats fine. Less helper code that way
@@ -23,7 +25,10 @@ public class SplitConfig: ObservableObject {
     */
    @Published public var preferredCompactColumn: NavigationSplitViewColumn
    /**
-    * - Description: This property determines the visibility of columns in the `NavigationSplitView` based on the current device and orientation. It adjusts between all columns visible, double column, or detail only views.
+    * - Description: This property determines the visibility of columns in the
+    *                `NavigationSplitView` based on the current device and
+    *                orientation. It adjusts between all columns visible, double
+    *                column, or detail only views.
     * - Note: Required init for publc classes
     * - Parameters:
     *   - columnVisibility: Specifies the visibility of columns in the NavigationSplitView. It can be set to .all, .doubleColumn, or .singleColumn to control the number of visible columns based on the device's orientation and size.
@@ -39,7 +44,8 @@ public class SplitConfig: ObservableObject {
  */
 extension SplitConfig { 
    /**
-    * - Description: Determines if the sidebar is currently visible based on the column visibility and size class.
+    * - Description: Determines if the sidebar is currently visible based on
+    *                the column visibility and size class.
     * - Fixme: ⚠️️ Document in which scenario this is used etc
     * - Fixme: ⚠️️ This is also true if 1 col + preferredCompactColumn == .sidebar I think
     * - Parameter sizeClass: The current horizontal size class of the user interface, which determines the layout and visibility of the sidebar.

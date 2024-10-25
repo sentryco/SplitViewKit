@@ -1,10 +1,14 @@
 import SwiftUI
 /**
- * - Description: Extension to add descriptive functionality to NavigationSplitViewVisibility.
+ * - Description: Extension to add descriptive functionality to
+ *                NavigationSplitViewVisibility.
  */
 extension NavigationSplitViewVisibility {
    /**
-    * - Description: This computed property provides a textual description of the NavigationSplitViewVisibility. It is useful for understanding the visibility state of different columns in a NavigationSplitView.
+    * - Description: This computed property provides a textual description
+    *                of the NavigationSplitViewVisibility. It is useful for
+    *                understanding the visibility state of different columns
+    *                in a NavigationSplitView.
     * - Note: `.detailOnly` let detail fill up all spae(doesn't work on macos, just shows same as .all) - Fixme: ⚠️️ is this correct?
     * - Note: `.doubleColumn` shows main and detail  (no sidebar)
     * - Note: `.all` (3 panes) sideBar, main, detail
@@ -13,7 +17,7 @@ extension NavigationSplitViewVisibility {
     */
    internal var description: String {
       switch self {
-         // - Fixme: ⚠️️ add doc for this case
+         // - `.all` – Display all three columns: sidebar, content, and detail.
       case NavigationSplitViewVisibility.all: "all 3 columns"
          // - `.doubleColumn` – Show the content column and detail area of a three-column navigation split view.
       case NavigationSplitViewVisibility.doubleColumn: "double-column"

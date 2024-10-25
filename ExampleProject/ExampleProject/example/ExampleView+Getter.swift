@@ -5,7 +5,10 @@ import SwiftUI
  */
 extension ExampleView {
    /**
-    * - Description: Provides a binding to rebind the selected item in macOS environments where `.navigationDestination(item)` may not function as expected. This workaround ensures that the UI updates correctly when the selected item changes.
+    * - Description: Provides a binding to rebind the selected item in macOS
+    *                environments where `.navigationDestination(item)` may not
+    *                function as expected. This workaround ensures that the UI
+    *                updates correctly when the selected item changes.
     * - Important: ⚠️️ Rebinding hack for macOS, because `.navigationDestination(item)` doesn't work for macOS aperantly
     * - Note: Alternative name: selectedItemRebound
     */

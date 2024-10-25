@@ -3,7 +3,8 @@ import SwiftUI
 extension NavigationSplitViewStyle {
    /**
     * Used to debug navigationSplitViewStyle (not in use atm)
-    * - Fixme: ⚠️️ add description
+    * - Description: Provides a textual description of the
+    *                NavigationSplitViewStyle used in the application.
     * - Note: `.automatic` will use switch between ballanced and detailProminent, .detailProminent will make detail fullscreen, and other columns hover over. (automatic is easy to implement, balanced looks better, but you have to account for responsive break-points your self, setting minWidth to children just gets clipped, no effect on parent column etc)
     * - Note: We don't use navigationSplitViewStyle as a state because we only set it at setup.
     * - Note: We keep this in the example project to keep the kit code as small as possible

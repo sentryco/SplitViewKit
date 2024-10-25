@@ -5,7 +5,10 @@ import UIKit
 /**
  * Extend this to customize column widths
  * - Note: Kind must implement these calls
- * - Description: Defines a protocol for customizing the widths of columns in a split view layout. Implement this protocol to specify different widths for sidebar, main, and detail columns based on the window width.
+ * - Description: Defines a protocol for customizing the widths of columns in
+ *                a split view layout. Implement this protocol to specify
+ *                different widths for sidebar, main, and detail columns based
+ *                on the window width.
  */
 public protocol ColumnWidthKind {
    /**
@@ -30,7 +33,8 @@ public protocol ColumnWidthKind {
 }
 /**
  * Defaults (overriden by implementer)
- * - Description: If no implementation is added by the implementer. nil is returned and default native columnwidths are applied
+ * - Description: If no implementation is added by the implementer, nil is
+ *                returned and default native column widths are applied.
  * - Note: By not using custom column-widths. DetailView will look too narrow in 70% landscape mode for iPad
  */
 extension ColumnWidthKind {
@@ -55,7 +59,8 @@ extension ColumnWidthKind {
 }
 /**
  * - Abstract: If a window is in splitmode or in portrait. the window is considered narrow
- * - Description: This function checks if the window is considered narrow based on the device orientation and window width.
+ * - Description: This function checks if the window is considered narrow
+ *                based on the device orientation and window width.
  * - Note: Alternative names: `isNarrowFit` or `isSnugFit`
  * - Fixme: ⚠️️ Move into `UIDeviceOrientation` scope? or some scope? or not?
  * - Parameters:

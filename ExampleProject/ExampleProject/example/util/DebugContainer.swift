@@ -3,7 +3,9 @@ import HybridColor
 import SplitViewKit
 /**
  * - Abstract: SplitView analytics
- * - Description: This section provides an overview of the DebugContainer, which is used for displaying debug information related to the SplitView configuration and state.
+ * - Description: This section provides an overview of the DebugContainer,
+ *                which is used for displaying debug information related to
+ *                the SplitView configuration and state.
  * - Note: We have to add debug container to the splitviewcontainer view, as we need access to the spliconfig state, which can only be acccessed inside splitviewcontainer or its injected descendants
  * - Note: Bottom center container
  * - Note: 2 texts with columnConfig: 3-col, 2-col, 1-col, focusedColumn: sidebar, main, detail
@@ -47,7 +49,10 @@ extension DebugContainer {
  */
 extension DebugContainer {
    /**
-    * - Description: This is a subview within the DebugContainer that displays the current configuration of the SplitView, including the column visibility, preferred compact column, size class, and device orientation.
+    * - Description: This is a subview within the DebugContainer that displays
+    *                the current configuration of the SplitView, including the
+    *                column visibility, preferred compact column, size class, and
+    *                device orientation.
     */
    struct DebugView: View {
       static let fontSize: CGFloat = 18

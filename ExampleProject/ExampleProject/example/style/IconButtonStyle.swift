@@ -3,7 +3,9 @@ import HybridColor
 /**
  * Implementing IconButtonStyle
  * - Abstract: This defines a custom ButtonStyle where you can pass the icon name dynamically.
- * - Description: Define IconButtonStyle as a ButtonStyle with customizable icon, rounded corners, background and fill colors, icon size, and padding.
+ * - Description: Define IconButtonStyle as a ButtonStyle with customizable
+ *                icon, rounded corners, background and fill colors, icon size,
+ *                and padding.
  * - Note: There is one for left arrow, right arrow, full_screen, back_chevron_icon,
  * - Fixme: ⚠️️ Make it animate transperancy on showing / hiding
  */

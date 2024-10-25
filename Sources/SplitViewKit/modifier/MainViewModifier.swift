@@ -14,7 +14,10 @@ fileprivate struct MainViewModifier: ViewModifier {
    let columnWidth: ColumnWidthKind
    /**
     * Body
-    * - Description: This function modifies the view by applying a custom width to the main column of the navigation split view based on the window width. It uses the `ColumnWidthKind` protocol to determine the appropriate widths.
+    * - Description: This function modifies the view by applying a custom
+    *                width to the main column of the navigation split view
+    *                based on the window width. It uses the `ColumnWidthKind`
+    *                protocol to determine the appropriate widths.
     */
    func body(content: Content) -> some View {
       if let columnWidth = columnWidth.mainColumn(winWidth: winWidth) {
@@ -35,7 +38,9 @@ fileprivate struct MainViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
-    * - Description: This method applies a main view modifier that adjusts the main column's width according to the window width using the provided `ColumnWidthKind` instance.
+    * - Description: This method applies a main view modifier that adjusts
+    *                the main column's width according to the window width
+    *                using the provided `ColumnWidthKind` instance.
     * - Parameters:
     *   - winWidth: The width of the window.
     *   - columnWidth: An instance conforming to the `ColumnWidthKind` protocol, which provides custom width settings for the main column based on the window width.

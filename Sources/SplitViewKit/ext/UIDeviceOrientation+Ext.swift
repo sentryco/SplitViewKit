@@ -16,7 +16,9 @@ public var isOrientationLandscape: Bool {
 }
 #if os(iOS)
 /**
- * - Description: Retrieves the current orientation of the device using UIDevice.current.orientation and validates it against the interface orientation from the window scene.
+ * - Description: Retrieves the current orientation of the device using
+ *                UIDevice.current.orientation and validates it against the
+ *                interface orientation from the window scene.
  * - Important: ⚠️️ This is only relevant for iOS, fenced as such
  * - Note: Because using: UIApplication.shared.statusBarOrientation.isLandscape results in this message: 'statusBarOrientation' was deprecated in iOS 13.0: Use the interfaceOrientation property of the window scene instead.
  * - Note: Some more notes here: https://stackoverflow.com/questions/65573508/swiftui-determining-current-device-and-orientation?noredirect=1&lq=1

@@ -19,7 +19,7 @@ extension SideBarHeader {
          }
       }
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical) // - Fixme: ⚠️️ doc this
+      .padding(.vertical) // Adds top and bottom padding to the VStack.
    }
 }
 /**
@@ -31,12 +31,12 @@ extension SideBarHeader {
     */
    var titleText: some View {
       Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
-         .titleTextStyle // - Fixme: ⚠️️ doc this line
-         .padding(.vertical, 6) // - Fixme: ⚠️️ doc this
+         .titleTextStyle // Applies a predefined style for title text in the sidebar header.
+         .padding(.vertical, 6) // Adds vertical padding of 6 points to the title text for better visual separation.
    }
    /**
     * - Abstract: The toggle button of the sidebar header
-    * - Fixme: ⚠️️ add description
+    * - Description: A button that toggles the visibility of the sidebar, switching between single and double column views.
     * - Note: We animate the hiding showing of sidebar toggle button because it looks nice
     * - Note: "70% splitview mode" for iPad is considered regular
     * - Note: The animation is only really visible If we drag the sidebar to visibility. Very subtle, but looks better when accounted for
@@ -47,7 +47,7 @@ extension SideBarHeader {
       }) {}
       if sizeClass == .regular { // If 3 column
          button
-            .iconButtonStyle(iconName: "square.lefthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
+            .iconButtonStyle(iconName: "square.lefthalf.fill") // Applies an icon style with a half-filled square, indicating a partial collapse or expansion state.
             .opacity(splitConfig.columnVisibility == .all ? 1.0 : 0.0) // Only show this if sidebar is hidden
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
             .animation(.easeInOut(duration: 0.3), value: splitConfig.columnVisibility == .all)
@@ -56,4 +56,3 @@ extension SideBarHeader {
       }
    }
 }
-

@@ -36,13 +36,15 @@ extension DataModel {
    }
    /**
     * Implementing hash(into:) for conformance to Hashable
-    * - Description: Combines the UUID of the `DataModel` into the hasher to ensure uniqueness.
+    * - Description: Combines the UUID of the `DataModel` into the hasher
+    *                to ensure uniqueness.
     */
    public func hash(into hasher: inout Hasher) {
       hasher.combine(uuid)
    }
 }
 /**
- * - Description: Represents an array of `DataModel`, used to structure the data models in the application.
+ * - Description: Represents an array of `DataModel`, used to structure
+ *                the data models in the application.
  */
 internal typealias DataModels = [DataModel]

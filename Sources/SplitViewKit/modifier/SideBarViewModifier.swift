@@ -2,7 +2,9 @@ import SwiftUI
 /**
  * SideBarViewModifier
  * - Abstract. We apply columnwidth to the column with this modifier
- * - Description: This modifier is used to apply custom width settings to the sidebar of a navigation split view based on the window width.
+ * - Description: This modifier is used to apply custom width settings to
+ *                the sidebar of a navigation split view based on the window
+ *                width.
  */
 fileprivate struct SideBarViewModifier: ViewModifier {
    /**
@@ -10,11 +12,16 @@ fileprivate struct SideBarViewModifier: ViewModifier {
     */
    let winWidth: CGFloat
    /**
-    * - Description: The `ColumnWidthKind` protocol instance that provides custom width settings for the sidebar based on the window width.
+    * - Description: The `ColumnWidthKind` protocol instance that provides
+    *                custom width settings for the sidebar based on the window
+    *                width.
     */
    let columnWidth: ColumnWidthKind
    /**
-    * - Description: This function modifies the view by setting the toolbar, navigation bar, and scroll indicators according to the platform (iOS or macOS). It also sets the width of the navigation split view column based on the window width.
+    * - Description: This function modifies the view by setting the toolbar,
+    *                navigation bar, and scroll indicators according to the
+    *                platform (iOS or macOS). It also sets the width of the
+    *                navigation split view column based on the window width.
     * - Note: Regarding `.toolbar(removing: .sidebarToggle)` ref: https://stackoverflow.com/a/78889492
     * - Note: if ColumnWidth is nil, default native columnwidths are used instead
     */
@@ -37,7 +44,9 @@ fileprivate struct SideBarViewModifier: ViewModifier {
 extension View {
    /**
     * Applies the SideBarViewModifier to the view.
-    * - Description: This method applies a sidebar view modifier that adjusts the sidebar's width according to the window width using the provided `ColumnWidthKind` instance.
+    * - Description: This method applies a sidebar view modifier that adjusts
+    *                the sidebar's width according to the window width using the
+    *                provided `ColumnWidthKind` instance.
     * - Parameters:
     *   - winWidth: The width of the window in which the sidebar view is displayed.
     *   - columnWidth: An instance conforming to the `ColumnWidthKind` protocol, which provides custom width settings for the sidebar based on the window width.

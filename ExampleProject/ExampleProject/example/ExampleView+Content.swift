@@ -6,20 +6,29 @@ import SplitViewKit
 extension ExampleView {
    /**
     * Body
-    * - Description: This property represents the visual structure of the ExampleView, organizing it into a three-column layout with sidebar, main content, and detail views. It utilizes the SplitViewContainer to manage these sections dynamically based on the current environment settings such as size class and device orientation.
+    * - Description: This property represents the visual structure of the
+    *                ExampleView, organizing it into a three-column layout with
+    *                sidebar, main content, and detail views. It utilizes the
+    *                SplitViewContainer to manage these sections dynamically
+    *                based on the current environment settings such as size class
+    *                and device orientation.
     */
    public var body: some View {
       SplitViewWrapper(
-         sideBar: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
-            sideBarView(splitConfig: splitConfig, sizeClass: sizeClass) // Add sideBarView
-         }, content: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
-            mainView(splitConfig: splitConfig, sizeClass: sizeClass) // Add mainView
-         }, detail: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
-            detailView(splitConfig: splitConfig, sizeClass: sizeClass) // Add DetailView
-         }, overlay: { splitConfig, sizeClass in // - Fixme: ⚠️️ doc this line
-            debugContainer(splitConfig: splitConfig, sizeClass: sizeClass) // Add floating debug view
+         sideBar: { splitConfig, sizeClass in
+            // Provides the sidebar view configured with the current split view configuration and size class.
+            sideBarView(splitConfig: splitConfig, sizeClass: sizeClass)
+         }, content: { splitConfig, sizeClass in
+            // Provides the main content view configured with the current split view configuration and size class.
+            mainView(splitConfig: splitConfig, sizeClass: sizeClass)
+         }, detail: { splitConfig, sizeClass in
+            // Provides the detail view configured with the current split view configuration and size class.
+            detailView(splitConfig: splitConfig, sizeClass: sizeClass)
+         }, overlay: { splitConfig, sizeClass in
+            // Provides a floating debug view configured with the current split view configuration and size class.
+            debugContainer(splitConfig: splitConfig, sizeClass: sizeClass)
          },
-         columnWidth: CustomColumnWidth() // - Fixme: ⚠️️ doc this line
+         columnWidth: CustomColumnWidth() // Specifies custom widths for the columns in the split view.
       )
    }
 }
@@ -29,7 +38,11 @@ extension ExampleView {
 extension ExampleView {
    /**
     * Creates the sidebar view
-    * - Description: This method constructs the sidebar view for the application, which allows users to navigate between different sections. The sidebar adapts its behavior and layout based on the current size class and the split view configuration provided.
+    * - Description: This method constructs the sidebar view for the
+    *                application, which allows users to navigate between
+    *                different sections. The sidebar adapts its behavior and
+    *                layout based on the current size class and the split view
+    *                configuration provided.
     * - Note: The selection in the first column affects the second, and the selection in the second column affects the third
     * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
     * - Fixme: ⚠️️ Consider moving the event-handler into SideBarView scope? mainview should update when we change selectedSideBarIndex etc
@@ -44,18 +57,21 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      .onChange(of: selectedSideBarIndex) { // - Fixme: ⚠️️ Doc this line
+      .onChange(of: selectedSideBarIndex) { oldIndex, newIndex in // Responds to changes in the selected sidebar index to update dependent views or states.
          handleSideBarChange(splitConfig, sizeClass)
       } // Forward state change to handleSideBarChange
    }
    /**
     * Creates the center column view (aka mainview)
-    * - Description: This function constructs the main view of the application, which displays a list of items based on the selected sidebar index. It dynamically updates the content based on user interactions with the sidebar.
+    * - Description: This function constructs the main view of the application,
+    *                which displays a list of items based on the selected sidebar
+    *                index. It dynamically updates the content based on user
+    *                interactions with the sidebar.
     * - Fixme: ⚠️️ Move navigationDestination to a handleMainSelectionStateChange method?
     * - Parameters:
-    *   - splitConfig: - Fixme: ⚠️️ add doc
-    *   - sizeClass: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ Add doc
+    *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
+    *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
+    * - Returns: A view that represents the main content area of the application, configured according to the provided split configuration and size class.
     */
    @ViewBuilder func mainView(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>/*UserInterfaceSizeClass? */ ) -> some View {
       let items: DataModels = DataModel.dataModel.getMainModels(
@@ -83,7 +99,10 @@ extension ExampleView {
    }
    /**
     * There is also the option of using binding
-    * - Description: This function generates the detail view for the selected item. It uses the current sidebar and main item indices to fetch the appropriate data and configures the view based on the current split configuration and size class.
+    * - Description: This function generates the detail view for the selected
+    *                item. It uses the current sidebar and main item indices to
+    *                fetch the appropriate data and configures the view based on
+    *                the current split configuration and size class.
     * - Parameters:
     *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions.
@@ -100,16 +119,19 @@ extension ExampleView {
    }
    /**
     * Adds floating debug-text that informs the viewer about column-config, focused-column
-    * - Description: Displays a floating debug container that provides real-time information about the current configuration of the navigation split view, including the focused column and column configuration settings.
+    * - Description: Displays a floating debug container that provides real-time
+    *                information about the current configuration of the navigation
+    *                split view, including the focused column and column
+    *                configuration settings.
     * - Parameters:
-    *   - splitConfig: - Fixme: ⚠️️ add doc
-    *   - sizeClass: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
+    *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
+    * - Returns: A view that displays debugging information about the current configuration of the navigation split view, including the focused column and column configuration settings.
     */
    func debugContainer(splitConfig: SplitConfig, sizeClass: Binding<UserInterfaceSizeClass?>) -> some View {
       DebugContainer(
          splitConfig: splitConfig, // nav-split-view config
-         sizeClass: sizeClass // - Fixme: ⚠️️ doc this line
+         sizeClass: sizeClass // Passes the current user interface size class to the debug container.
       )
    }
 }

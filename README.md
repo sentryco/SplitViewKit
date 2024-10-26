@@ -104,6 +104,7 @@ These are some of the resources that was founds when solving edge cases for the 
 ## Todo:
 
 - Use darker transperancy background for sidebar for macOS
+- Add some sort of minHeight for detail column on macOS
 
 ## Future improvements:
 

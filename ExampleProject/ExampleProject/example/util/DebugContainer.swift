@@ -42,6 +42,9 @@ extension DebugContainer {
             Spacer() // Pins content to center
          }
       }
+      #if os(macOS)
+      .padding(.vertical) // Add space up from the bottom for macOS, not needed for iOS as safe-area does the same thing for iOS
+      #endif
    }
 }
 /**
@@ -73,7 +76,9 @@ extension DebugContainer {
                columnView
             }
             HStack(spacing: Self.hSpacing) {
-               sizeView
+               #if os(iOS)
+               sizeView // sizeclass is only available for iOS
+               #endif
                orientationView
             }
          }

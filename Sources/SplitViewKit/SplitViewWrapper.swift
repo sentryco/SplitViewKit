@@ -104,7 +104,7 @@ public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, Overl
    public init(sideBar: @escaping SideBarAlias,
                content: @escaping MainAlias,
                detail: @escaping DetailAlias,
-               overlay: @escaping OverlayAlias = { _,_ in nil }, // - Fixme: ⚠️️ move empty closure to default const?
+               overlay: @escaping OverlayAlias = { _,_ in nil }, // - Fixme: ⚠️️ Move empty closure to default const?
                columnWidth: ColumnWidthKind = DefaultColumnWidth(),
                splitConfig: SplitConfig = .init()) {
       self.sideBar = sideBar

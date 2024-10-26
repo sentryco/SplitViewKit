@@ -100,7 +100,6 @@ These are some of the resources that was founds when solving edge cases for the 
 ## Todo:
 
 - Move the debug view a bit up from the bottom of the app for macOS
-- Remove default styling for list items in detaillist macos 👈
 
 ## Future improvements:
 

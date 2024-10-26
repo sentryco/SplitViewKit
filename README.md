@@ -99,8 +99,6 @@ These are some of the resources that was founds when solving edge cases for the 
 
 
 ## Todo:
-- Complete comment doc etc (Format the description comments to be 80 character wide) 👈
-- Use copilot to write missing doc in the kit 👈
 - Test to see if macOS works out of the box
 
 ## Future improvements:

@@ -97,16 +97,10 @@ These are some of the resources that was founds when solving edge cases for the 
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
-
 ## Todo:
-- Test to see if macOS works out of the box
-- Test detail fullscreen button on macos 
+
 - Move the debug view a bit up from the bottom of the app for macOS
-- Show ghost buttons for main and detail headers macos
-- Figure out sidebar header height on macos
-- Add animation for sidebar visibility toggling macos
-- Remove default styling for list items in detaillist macos
-- There is a horizontal padding issue for sidebar for macos 
+- Remove default styling for list items in detaillist macos 👈
 
 ## Future improvements:
 

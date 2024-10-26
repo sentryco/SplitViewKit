@@ -20,7 +20,7 @@ extension DetailList {
          let button = Button("Dismiss") {
             isSheetPresented.toggle() // Toggles the state of `isSheetDetailPresented` to show or hide the detail sheet.
          }
-         .buttonStyle(ActionButtonStyle()) // Applies the `ActionButtonStyle` to the button for a consistent toggle effect.
+         .actionButtonStyle // Applies the `ActionButtonStyle` to the button for a consistent toggle effect.
          #if os(macOS) // Sheets needs some sizng for macOS. These are just fixed sizes.
          // Makes sheet sizing for macOS. Dynamic / Responsive
          let screenSize = NSApplication.shared.windows.first?.frame.size ?? CGSize(width: 600, height: 400)
@@ -48,5 +48,8 @@ extension DetailList {
          Text(title)
             .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))
       }
+      #if os(macOS)
+      .buttonStyle(PlainButtonStyle()) // Apply plain button style to remove default macOS styling
+      #endif
    }
 }

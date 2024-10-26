@@ -93,6 +93,8 @@ public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, Overl
    /**
     * Init
     * - Description: Initializes the split view container with the provided views and configuration settings.
+    * - Important: ⚠️️ Seems like we have to pass a closure for overlay. Use EmptyView
+    * - Fixme: ⚠️️ Try to figure out if we can ignore overlay if it's not needed. Will probably require some researh etc
     * - Parameters:
     *   - sideBar: menuColumn content closure (left)
     *   - content: mainColumn content closure (center)

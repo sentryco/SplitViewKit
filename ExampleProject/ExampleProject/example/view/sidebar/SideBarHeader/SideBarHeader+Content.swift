@@ -8,7 +8,7 @@ extension SideBarHeader {
     * - Description: The header of the sidebar, which includes the title and a size class indicator.
     */
    var body: some View {
-      VStack(spacing: .zero) {
+      VStack(/**/spacing: .zero) {
          HStack {
             sideBarToggleButton // Top-left
             Spacer()
@@ -21,7 +21,12 @@ extension SideBarHeader {
          .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
+      #if os(iOS)
       .padding(.vertical) // Adds top and bottom padding to the VStack.
+      #else
+      .padding(.top, 32) // We need aditional padding for macOS, because of windowUI in the top
+      .padding(.bottom, .zero)
+      #endif
    }
 }
 /**
@@ -42,6 +47,7 @@ extension SideBarHeader {
     * - Note: We animate the hiding showing of sidebar toggle button because it looks nice
     * - Note: "70% splitview mode" for iPad is considered regular
     * - Note: The animation is only really visible If we drag the sidebar to visibility. Very subtle, but looks better when accounted for
+    * - Note: We could also do sizeClass != .compact. to toggle opacity etc, It would work for mac and ipad
     */
    @ViewBuilder var sideBarToggleButton: some View {
       let button = Button(action: { // Hide sidebar

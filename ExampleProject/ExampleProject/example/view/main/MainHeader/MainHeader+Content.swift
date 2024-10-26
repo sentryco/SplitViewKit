@@ -23,7 +23,12 @@ extension MainHeader {
       // - Fixme: ⚠️️ Could this cause an issue, is it needed?
       .frame(maxWidth: .infinity) // Forces the view to not shrink to text, but rather expand to it's parent width
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical) // Adds top and bottom padding to the header view
+      #if os(iOS)
+      .padding(.vertical) // Adds top and bottom padding to the VStack.
+      #else
+      .padding(.top, 32) // We need aditional padding for macOS, because of windowUI in the top
+      .padding(.bottom, .zero)
+      #endif
    }
 }
 /**
@@ -32,6 +37,7 @@ extension MainHeader {
 extension MainHeader {
    /**
     * SideBarToggleButton or backbutton
+    * - Fixme: ⚠️️ Show ghost buttons for main headers, see sidebarheader regarding how to do it
     */
    @ViewBuilder var button: some View {
       if !splitConfig.isShowingSideBar(sizeClass: sizeClass)/*sizeClass == .regular*/ { // if regular-mode
@@ -44,12 +50,13 @@ extension MainHeader {
     * - Description: A button that toggles the visibility of the sidebar depending on the current size class.
     * - Note: We should show this if in compact mode, Show this only if toggle is true
     * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
+    * - Note: We could also do sizeClass != .compact. to toggle opacity etc, It would work for mac and ipad
     * - Fixme: ⚠️️ Try to move anim and opacity into the button style 👈
     */
    var sideBarToggleButton: some View {
       Button(action: { // Show sidebar
          // - Fixme: ⚠️️ animate this transition, but only for macOS
-         splitConfig.columnVisibility = .all // shows all 3 columns
+         splitConfig.columnVisibility = .all // Shows all 3 columns
       }) {}
          .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden

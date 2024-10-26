@@ -19,6 +19,7 @@ extension SideBarView {
       #elseif os(macOS) // For macOS apps
       .toolbar(removing: .sidebarToggle) // Hides the sidebar toggle for macos
       .scrollIndicators(.hidden) // Important, or else scrollbar is shown when resizing etc
+      .ignoresSafeArea(.container, edges: .top) // this removes the offset in the sidebar for macos
       #endif
    }
 }

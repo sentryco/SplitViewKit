@@ -18,6 +18,7 @@ extension Optional where Wrapped == UserInterfaceSizeClass {
 #if os(iOS)
 /**
  * Helper
+ * - Note: macOS does not have size classes. It is possible to recreate it. Check copilot. It might not be needed tho.
  */
 extension UserInterfaceSizeClass {
    /**

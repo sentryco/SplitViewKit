@@ -25,7 +25,12 @@ extension DetailHeader {
          .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical) // - Fixme: ⚠️️ doc this line
+      #if os(iOS)
+      .padding(.vertical) // Adds top and bottom padding to the VStack.
+      #else
+      .padding(.top, 32) // We need aditional padding for macOS, because of windowUI in the top
+      .padding(.bottom, .zero)
+      #endif
    }
 }
 /**
@@ -42,9 +47,10 @@ extension DetailHeader {
    }
    /**
     * - Description: Toggles the detail-view between full-screen and regular-mode.
+    * - Note: DetailMode is not available for macOS. since siclass == .regular will return false makes this button is not visible for macOS
     * - Fixme: ⚠️️ Remove default animation for this button, it looks buggy. Use copilot etc
     * - Fixme: ⚠️️ Find minimize icon
-    * - Fixme: ⚠️️ we might have to put this in the hovering layer above navsplitview. As it inherits some unintended animations at the moment
+    * - Fixme: ⚠️️ We might have to put this in the hovering layer above navsplitview. As it inherits some unintended animations at the moment
     */
    var fullScreenToggleButton: some View {
       let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right" // - Fixme: ⚠️️ describe what this icon looks like
@@ -54,9 +60,9 @@ extension DetailHeader {
          splitConfig.columnVisibility = splitConfig.isDetailFullScreen ? .all : .detailOnly
       }) {}
          .iconButtonStyle(iconName: iconName)
-         .opacity(sizeClass != .compact /*sizeClass == .regular*/ ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+         .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
-         .animation(.easeInOut(duration: 0.3), value: sizeClass != .compact/*sizeClass == .regular*/)
+         .animation(.easeInOut(duration: 0.3), value: sizeClass == .regular)
    }
    /**
     * Back button
@@ -65,6 +71,7 @@ extension DetailHeader {
     *                button is visible only in compact mode to enhance usability
     *                on smaller screens.
     * - Note: Custom back-btn for detail-view, hide default back-btn etc... custom back-btn for detail when in compact mode
+    * - Note: `sizeClass == .compact` will return false for macOS. We don't want backbutton for macOS as it has no compact-mode for `NavigationSplitView`
     */
    var backButton: some View {
       Button(action: {

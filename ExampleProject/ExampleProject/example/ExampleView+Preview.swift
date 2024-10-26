@@ -13,9 +13,9 @@ import HybridColor
  */
 #Preview(traits: .fixedLayout(width: 800, height: 500)) {
    ExampleView()
-      .background(Color.blackOrWhite.opacity(1))
       .environment(\.colorScheme, .dark) // dark
-      #if os(iOS) // Not available on macOS
-      .statusBar(hidden: true) // Hide the status bar (looks better for demos)
+      #if os(iOS)
+      .background(Color.blackOrWhite.opacity(1))
+      .statusBar(hidden: true) // Hide the status bar (looks better for demos) (Not available on macOS)
       #endif
 }

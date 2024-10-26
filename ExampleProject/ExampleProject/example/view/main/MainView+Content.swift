@@ -32,7 +32,11 @@ extension MainView {
          splitConfig: splitConfig, // Configuration for the split view behavior in the main view.
          sizeClass: $sizeClass // A binding to the size class, used to adapt the UI for different device sizes.
       )
+      #if os(iOS)
       .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      #else
+      .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      #endif
    }
    /**
     * vStack
@@ -44,7 +48,11 @@ extension MainView {
          mainList
          Spacer() // Pins the stack to the top
       }
+      #if os(iOS)
       .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      #else
+      .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      #endif
    }
    /**
     * mainList

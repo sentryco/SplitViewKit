@@ -36,7 +36,11 @@ extension SideBarView {
          sideBarHeader // Displays the sidebar header with title, size class, and split configuration.
          list // Displays the list of sidebar items, allowing selection handling.
       }
+      #if os(iOS)
       .background(isTest ? .teal.opacity(0.3) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+      #else
+      .background(isTest ? .teal.opacity(0.3) : .blackOrWhite.opacity(0.1)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+      #endif
    }
    /**
     * Header
@@ -50,7 +54,11 @@ extension SideBarView {
          sizeClass: $sizeClass, // The size class that adjusts the sidebar's layout based on the available space.
          splitConfig: splitConfig // Configuration details for the split view behavior in the sidebar.
       )
+      #if os(iOS)
       .background(isTest ? .green.opacity(0.5) : .whiteOrBlack.opacity(0.1)) // ⚠️️ debug
+      #else
+      .background(isTest ? .green.opacity(0.5) : .whiteOrBlack.opacity(0.05)) // ⚠️️ debug
+      #endif
    }
    /**
     * - Description: The list of items in the sidebar.

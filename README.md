@@ -97,9 +97,13 @@ These are some of the resources that was founds when solving edge cases for the 
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
+
+## macOS: 
+<img width="401" alt="img" src="https://s11.gifyu.com/images/SO8Yn.gif">
+
 ## Todo:
 
-- Move the debug view a bit up from the bottom of the app for macOS
+- Use darker transperancy background for sidebar for macOS
 
 ## Future improvements:
 

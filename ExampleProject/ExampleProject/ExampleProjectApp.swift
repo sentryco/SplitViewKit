@@ -14,9 +14,9 @@ struct ExampleProjectApp: App { // App Protocol: Conforms to the App protocol wh
       WindowGroup {  // WindowGroup: A scene type used for apps that manage one or more windows on a platform.
          ExampleView()
             .background(Color.blackOrWhite.opacity(1))
-            .environment(\.colorScheme, .dark) // dark
-            #if os(iOS) // Not available on macOS
-            .statusBar(hidden: true) // Hide the status bar (looks better for demos)
+            #if os(iOS)
+            // .environment(\.colorScheme, .dark) // dark
+            .statusBar(hidden: true) // Hide the status bar (looks better for demos) (Not available on macOS)
             #endif
             // .persistentSystemOverlays(.hidden) // Hide the Home Indicator (looks better for demos)
       }
@@ -32,4 +32,4 @@ struct ExampleProjectApp: App { // App Protocol: Conforms to the App protocol wh
  *                developers to visually identify different areas of the
  *                interface by applying distinct background colors.
  */
-internal var isTest: Bool = true
+internal var isTest: Bool = false

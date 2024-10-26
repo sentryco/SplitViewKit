@@ -11,16 +11,18 @@ extension DetailHeader {
     * Body
     */
    var body: some View {
-      VStack {
+      VStack(spacing: .zero) {
          HStack { // hstack
             backButton // btn to left
             Spacer()
             fullScreenToggleButton // btn to right
          }
+         .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
          HStack { // hstack with title to left
             titleText
             Spacer()
          }
+         .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
       .padding(.vertical)

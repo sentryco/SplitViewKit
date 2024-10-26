@@ -58,10 +58,4 @@ struct ExampleView: View {
       self.selectedMainItem = selectedMainItem
    }
 }
-/**
- * Debugging with background colors
- * - Description: This section is used for debugging purposes, allowing
- *                developers to visually identify different areas of the
- *                interface by applying distinct background colors.
- */
-internal var isTest: Bool = false
+

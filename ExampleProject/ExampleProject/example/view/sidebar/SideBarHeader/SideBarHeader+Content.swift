@@ -8,15 +8,17 @@ extension SideBarHeader {
     * - Description: The header of the sidebar, which includes the title and a size class indicator.
     */
    var body: some View {
-      VStack {
+      VStack(spacing: .zero) {
          HStack {
             sideBarToggleButton // Top-left
             Spacer()
          }
+         .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
          HStack {
             titleText // Bottom-left
             Spacer()
          }
+         .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
       .padding(.vertical) // Adds top and bottom padding to the VStack.
@@ -52,7 +54,8 @@ extension SideBarHeader {
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
             .animation(.easeInOut(duration: 0.3), value: splitConfig.columnVisibility == .all)
       } else { // hide button in compact mode
-         Color.clear.frame(width: 36, height: 36) // Creates a ghost area, to avoid collapsing the space when button is hidden
+         (isTest ? Color.blue : Color.clear) // Creates a ghost area, to avoid collapsing the space when button is hidden
+            .frame(width: 36, height: 36)
       }
    }
 }

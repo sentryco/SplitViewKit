@@ -11,7 +11,7 @@ import HybridColor
  * - Note: Preview does not seem to support resizing window atm
  * - Note: We have to add the statusBar remover for this preview, to simulate exactly how it looks like in simulator etc
  */
-#Preview(traits: .fixedLayout(width: 700, height: 500)) {
+#Preview(traits: .fixedLayout(width: 800, height: 500)) {
    ExampleView()
       .background(Color.blackOrWhite.opacity(1))
       .environment(\.colorScheme, .dark) // dark

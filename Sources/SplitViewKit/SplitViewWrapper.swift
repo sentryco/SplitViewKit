@@ -58,7 +58,14 @@ public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, Overl
     *                ensure accurate detection of the mode, as incorrect scope
     *                access can lead to misidentification between compact and
     *                regular modes.
-    * - Important: ⚠️ Needs to be called from the correct scope. Jumps to compact when it should be regular in the wrong scope etc. So param drilling is probably better to avoid future hard to find bugs
+    * - Important: ⚠️ Needs to be called from the correct scope. Jumps to
+    *              compact when it should be regular in the wrong scope etc.
+    *              So param drilling is probably better to avoid future hard
+    *              to find bugs
+    * - Important: ⚠️️ `UserInterfaceSizeClass` is not natively available on
+    *              macOS. When you try to use `@Environment(\.horizontalSizeClass)`
+    *              or `@Environment(\.verticalSizeClass)` on macOS, you'll
+    *              encounter errors stating that these properties are unavailable.
     */
    @Environment(\.horizontalSizeClass) internal var sizeClass: UserInterfaceSizeClass?
    /**

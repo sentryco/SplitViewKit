@@ -26,7 +26,7 @@ extension DetailList {
          let screenSize = NSApplication.shared.windows.first?.frame.size ?? CGSize(width: 600, height: 400)
          button.frame(width: screenSize.width * 0.6, height: screenSize.height * 0.6)
          #else
-         button // no sizing needed for iPad
+         button // No sizing needed for iPad
          #endif
       }
    }

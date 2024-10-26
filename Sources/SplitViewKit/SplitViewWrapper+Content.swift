@@ -33,13 +33,14 @@ extension SplitViewWrapper {
     * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader. GeomReader fires when moving from 70% to full. (iPad) SizeClass does not fire when moving from 70% to fullscreen.
     * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is. See SizeTracker code in the swift tips post on eon.codes etc
     * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc? i guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos
+    * - Fixme: ⚠️️ consider doing != .compact as that carries with it support for macOS. Altho may not be needed for macOS
     */
    var splitViewContainer: some View {
       GeometryReader { geometry in // Utilizes GeometryReader to dynamically obtain the current view size
          navigationSplitView(geometry.size.width) // Passes the current width to the navigationSplitView function
             .id(refreshID) // Used to refresh view when sizeClass change, and winSize change
             .onChange(of: geometry.size) { oldSize, newSize in // Triggers a view refresh when the geometry size changes
-               if sizeClass == .regular && oldSize != newSize { // ⚠️️ Only repaint view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
+               if sizeClass == .regular && oldSize != newSize { // ⚠️️ Only redraw view if size has actually changed, avoids infinite loop etc, we only need this in regular mode, it causes issues with popup sheet in compact mode
                   refreshID = UUID() // Re-generates view
                }
             }

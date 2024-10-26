@@ -25,7 +25,7 @@ extension DetailHeader {
          .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
-      .padding(.vertical)
+      .padding(.vertical) // - Fixme: ⚠️️ doc this line
    }
 }
 /**
@@ -54,9 +54,9 @@ extension DetailHeader {
          splitConfig.columnVisibility = splitConfig.isDetailFullScreen ? .all : .detailOnly
       }) {}
          .iconButtonStyle(iconName: iconName)
-         .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
+         .opacity(sizeClass != .compact /*sizeClass == .regular*/ ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
-         .animation(.easeInOut(duration: 0.3), value: sizeClass == .regular)
+         .animation(.easeInOut(duration: 0.3), value: sizeClass != .compact/*sizeClass == .regular*/)
    }
    /**
     * Back button

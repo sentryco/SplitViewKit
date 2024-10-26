@@ -106,6 +106,7 @@ These are some of the resources that was founds when solving edge cases for the 
 - Figure out sidebar header height on macos
 - Add animation for sidebar visibility toggling macos
 - Remove default styling for list items in detaillist macos
+- There is a horizontal padding issue for sidebar for macos 
 
 ## Future improvements:
 

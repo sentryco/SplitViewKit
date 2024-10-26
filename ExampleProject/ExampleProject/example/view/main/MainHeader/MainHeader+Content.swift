@@ -34,7 +34,7 @@ extension MainHeader {
     * SideBarToggleButton or backbutton
     */
    @ViewBuilder var button: some View {
-      if sizeClass == .regular { // if regular-mode
+      if !splitConfig.isShowingSideBar(sizeClass: sizeClass)/*sizeClass == .regular*/ { // if regular-mode
          sideBarToggleButton
       } else { // if compact-mode
          backButton
@@ -48,6 +48,7 @@ extension MainHeader {
     */
    var sideBarToggleButton: some View {
       Button(action: { // Show sidebar
+         // - Fixme: ⚠️️ animate this transition, but only for macOS
          splitConfig.columnVisibility = .all // shows all 3 columns
       }) {}
          .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like

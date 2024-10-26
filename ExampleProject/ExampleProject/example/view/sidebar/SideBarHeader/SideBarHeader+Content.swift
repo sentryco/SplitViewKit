@@ -45,9 +45,10 @@ extension SideBarHeader {
     */
    @ViewBuilder var sideBarToggleButton: some View {
       let button = Button(action: { // Hide sidebar
+         // - Fixme: ⚠️️ animate this transition, but only for macOS
          splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectivly hides sidebar
       }) {}
-      if sizeClass == .regular { // If 3 column
+      if splitConfig.isShowingSideBar(sizeClass: sizeClass)/*sizeClass == .regular*/ { // If 3 column
          button
             .iconButtonStyle(iconName: "square.lefthalf.fill") // Applies an icon style with a half-filled square, indicating a partial collapse or expansion state.
             .opacity(splitConfig.columnVisibility == .all ? 1.0 : 0.0) // Only show this if sidebar is hidden

@@ -6,6 +6,7 @@ import HybridColor
  * - Note: To hide the title bar for a macOS app in SwiftUI, you can use the .windowStyle() modifier on the WindowGroup within your App structure. Specifically, you can apply the HiddenTitleBarWindowStyle() to achieve this effect. This will remove the title bar from the window, giving your app a more modern, clean appearance.
  * - Note: More info regarding windowStyle: https://developer.apple.com/documentation/swiftui/windowgroup/windowstyle(_:)
  * - Note: More info regarding windowStyle: https://stackoverflow.com/questions/70501890/how-can-i-hide-title-bar-in-swiftui-for-macos-app
+ * - Note: The Xcode preview doesn't accurately reflect the hidden title bar. However, when you build and run the project, the title bar should be hidden as expected
  */
 @main
 struct ExampleProjectApp: App { // App Protocol: Conforms to the App protocol which is required for SwiftUI apps.

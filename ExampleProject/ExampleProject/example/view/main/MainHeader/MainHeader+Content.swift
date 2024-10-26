@@ -55,8 +55,13 @@ extension MainHeader {
     */
    var sideBarToggleButton: some View {
       Button(action: { // Show sidebar
-         // - Fixme: ⚠️️ animate this transition, but only for macOS
-         splitConfig.columnVisibility = .all // Shows all 3 columns
+         #if os(macOS)
+         withAnimation(.easeInOut(duration: 0.3)) {
+            splitConfig.columnVisibility = .all // Shows all 3 columns
+         }
+         #else
+         splitConfig.columnVisibility = .all // Shows all 3 columns without animation for other platforms
+         #endif
       }) {}
          .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden

@@ -52,7 +52,14 @@ extension SideBarHeader {
    @ViewBuilder var sideBarToggleButton: some View {
       let button = Button(action: { // Hide sidebar
          // - Fixme: ⚠️️ animate this transition, but only for macOS
-         splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectivly hides sidebar
+         #if os(macOS)
+         let animation = Animation.easeInOut(duration: 0.3)
+         withAnimation(animation) {
+            splitConfig.columnVisibility = .doubleColumn // Go to double column, this effectively hides the sidebar
+         }
+         #else
+         splitConfig.columnVisibility = .doubleColumn // Change without animation for other platforms
+         #endif
       }) {}
       if splitConfig.isShowingSideBar(sizeClass: sizeClass)/*sizeClass == .regular*/ { // If 3 column
          button

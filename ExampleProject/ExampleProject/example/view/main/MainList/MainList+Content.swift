@@ -13,6 +13,7 @@ extension MainList {
          rowViews
       }
       .padding(.vertical, 12) // Add top and bottom padding for the list etc
+      .padding(.horizontal) // Adds horizontal padding
    }
    /**
     * List content

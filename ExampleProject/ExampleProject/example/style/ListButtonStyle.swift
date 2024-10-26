@@ -22,7 +22,7 @@ struct ListButtonStyle: ButtonStyle {
       HStack(spacing: 0) {
          configuration.label // text instance
             .foregroundStyle(textColor)
-            .padding(.horizontal)
+            // .padding(.horizontal)
             .font(.system(size: 24, weight: .regular))
          Spacer()
       }

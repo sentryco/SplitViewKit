@@ -73,7 +73,9 @@ extension DebugContainer {
          VStack(spacing: Self.vSpacing) {
             HStack(spacing: Self.hSpacing) {
                configView
-               columnView
+               #if os(iOS)
+               columnView // prefered column is only relevant for iOS
+               #endif
             }
             HStack(spacing: Self.hSpacing) {
                #if os(iOS)

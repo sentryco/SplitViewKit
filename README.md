@@ -43,7 +43,7 @@ import SplitViewKit
 struct ContentView: View {
     var body: some View {
         // Interact and react to splitview via splitConfig and sizeClass parameters
-        SplitViewContainer(
+        SplitViewWrapper(
             sideBar: { splitConfig, sizeClass in Color.red }, // Set your sidebar content here
             content: { splitConfig, sizeClass in Color.green }, // Set your center content here
             detail: { splitConfig, sizeClass in Color.blue }, // Set your detail content here

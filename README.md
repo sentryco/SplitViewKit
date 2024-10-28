@@ -21,7 +21,7 @@
 ## Problem:
 
 1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for.
-2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but isn't poorly implemented from a usability POV
+2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but is poorly implemented from a usability POV
 3. Customizing the navigation-bar in different modes is complex 
 
 ## Solution:

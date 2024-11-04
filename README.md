@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/82f166cd-a7a2-42a4-abdf-03a085794f57)](https://codebeat.co/projects/github-com-sentryco-splitviewkit-main)
 
 # SplitViewKit
 

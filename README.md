@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/SplitViewKit/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/82f166cd-a7a2-42a4-abdf-03a085794f57)](https://codebeat.co/projects/github-com-sentryco-splitviewkit-main)
 
 # SplitViewKit
 
@@ -21,7 +22,7 @@
 ## Problem:
 
 1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for.
-2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but isn't poorly implemented from a usability POV
+2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but is poorly implemented from a usability POV
 3. Customizing the navigation-bar in different modes is complex 
 
 ## Solution:
@@ -43,7 +44,7 @@ import SplitViewKit
 struct ContentView: View {
     var body: some View {
         // Interact and react to splitview via splitConfig and sizeClass parameters
-        SplitViewContainer(
+        SplitViewWrapper(
             sideBar: { splitConfig, sizeClass in Color.red }, // Set your sidebar content here
             content: { splitConfig, sizeClass in Color.green }, // Set your center content here
             detail: { splitConfig, sizeClass in Color.blue }, // Set your detail content here

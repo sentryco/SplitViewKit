@@ -87,6 +87,7 @@ public struct SplitViewWrapper<SideBar: View, Content: View, Detail: View, Overl
     * - Abstract: Clever way to regenerate window on `window-resize` (iPad)
     * - Note: We force a view to redraw by changing it's identity
     * - Note: Using a refreshID is less invasive than using a state for winWidth. We don't have an init winWidth for instance. and more bindings might be required etc. it would also cause aditional redraws with zero as the value etc. I think. It might make more sense to use size state if we deside you use a sizetracker.
+    * - Note: Its also possible to use combines `objectWillChange.send()` and ObservedObject. see RefreshableObject in database lib. or check with co-pilot
     * - Fixme: ⚠️️ There might be other was than using refreshID. Try to refactor it out later
     */
    @State internal var refreshID = UUID()

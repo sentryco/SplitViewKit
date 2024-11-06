@@ -62,7 +62,7 @@ extension DataModel {
     * Accounts
     * - Description: Represents the "Accounts" section in the sidebar, containing individual account information.
     */
-   static fileprivate let accounts: SideBarModel = {
+   fileprivate static let accounts: SideBarModel = {
       SideBarModel(title: "Accounts", content: [ // sidebar-item
          MainModel(
             title: "Account one", // main-item
@@ -82,7 +82,7 @@ extension DataModel {
     * Settings
     * - Description: Represents the "Settings" section in the sidebar, containing settings information.
     */
-   static fileprivate let settings: SideBarModel = {
+   fileprivate static let settings: SideBarModel = {
       SideBarModel(title: "Settings", content: [
          MainModel(
             title: "Setting 1",

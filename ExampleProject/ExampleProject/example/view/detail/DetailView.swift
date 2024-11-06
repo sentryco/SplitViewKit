@@ -17,7 +17,7 @@ struct DetailView: View {
     *                navigating back in a navigation stack.
     * - Note: It seems fine to keep this here
     */
-   #if os(iOS) 
+   #if os(iOS)
    @Environment(\.dismiss) var dismiss: DismissAction
    #endif
    /**
@@ -65,7 +65,7 @@ extension DetailView {
       let detailView = DetailView(
          title: mainModel.title,
          detailData: mainModel.content,
-         splitConfig: splitConfig, 
+         splitConfig: splitConfig,
          sizeClass: sizeClass
       )
       return detailView

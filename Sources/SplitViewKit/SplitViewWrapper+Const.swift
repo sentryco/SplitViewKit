@@ -36,4 +36,3 @@ extension SplitViewWrapper {
     */
    public typealias OverlayAlias = (_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) -> OverlayView?
 }
-

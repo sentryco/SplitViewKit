@@ -66,10 +66,9 @@ extension Button {
 #Preview {
    Button(action: {
       Swift.print("press")
-   }) {}
+   }) {
+   }
    .iconButtonStyle(iconName: "arrow.left.and.right")
    .padding()
    .environment(\.colorScheme, .dark) // dark-mode
 }
-
-

@@ -57,7 +57,7 @@ extension ExampleView {
          sizeClass: sizeClass,
          splitConfig: splitConfig
       )
-      .onChange(of: selectedSideBarIndex) { oldIndex, newIndex in // Responds to changes in the selected sidebar index to update dependent views or states.
+      .onChange(of: selectedSideBarIndex) { _, _ in // Responds to changes in the selected sidebar index to update dependent views or states.
          handleSideBarChange(splitConfig, sizeClass)
       } // Forward state change to handleSideBarChange
    }
@@ -82,7 +82,7 @@ extension ExampleView {
          title: DataModel.dataModel[selectedSideBarIndex].title,
          selectedMainIndex: $selectedMainIndex,
          items: items,
-         selectedItem: $selectedMainItem, 
+         selectedItem: $selectedMainItem,
          splitConfig: splitConfig,
          sizeClass: sizeClass
       )

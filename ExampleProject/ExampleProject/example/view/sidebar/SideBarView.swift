@@ -20,4 +20,3 @@ public struct SideBarView: View {
     */
    var splitConfig: SplitConfig
 }
-

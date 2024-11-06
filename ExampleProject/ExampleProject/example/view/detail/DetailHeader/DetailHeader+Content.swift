@@ -41,7 +41,7 @@ extension DetailHeader {
     * - Description: Displays the title of the detail view.
     */
    var titleText: some View {
-      Text(title) 
+      Text(title)
          .titleTextStyle
          .padding(.vertical, 6)
    }
@@ -58,7 +58,8 @@ extension DetailHeader {
          // This line toggles the visibility of columns based on whether the detail view is currently in full-screen mode.
          // If in full-screen mode, it shows all columns; otherwise, it shows only the detail column.
          splitConfig.columnVisibility = splitConfig.isDetailFullScreen ? .all : .detailOnly
-      }) {}
+      }) {
+      }
          .iconButtonStyle(iconName: iconName)
          .opacity(sizeClass == .regular ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc
          // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
@@ -76,7 +77,8 @@ extension DetailHeader {
    var backButton: some View {
       Button(action: {
          dismiss() // This line triggers the environment's dismiss action, used to close the current view or navigate back in the navigation stack.
-      }) {}
+      }) {
+      }
          .iconButtonStyle(iconName: "chevron.left")
       // Only show if in compact mode
       .opacity(sizeClass == .compact ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc

@@ -37,4 +37,3 @@ struct MainView: View {
     */
    @Binding var sizeClass: UserInterfaceSizeClass?
 }
-

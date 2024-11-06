@@ -62,7 +62,8 @@ extension MainHeader {
          #else
          splitConfig.columnVisibility = .all // Shows all 3 columns without animation for other platforms
          #endif
-      }) {}
+      }) {
+      }
          .iconButtonStyle(iconName: "square.righthalf.fill") // - Fixme: ⚠️️ describe what this icon looks like
       .opacity(splitConfig.isShowingSideBar(sizeClass: sizeClass) ? 0.0 : 1.0) // Only show this if sidebar is hidden
       // Animate opacity changes smoothly with .easeInOut(duration: 0.3) based on sidebar visibility.
@@ -78,7 +79,8 @@ extension MainHeader {
    var backButton: some View {
       Button(action: {
          dismiss() // (⚠️️ API bug) this is how we consistantly can go back to sidebar in compact mode
-      }) {}
+      }) {
+      }
          .iconButtonStyle(iconName: "chevron.left")
       // Only show if in compact mode
          .opacity(sizeClass == .compact ? 1.0 : 0.0) // We use opacity to not change the topbar height to be more narrow etc

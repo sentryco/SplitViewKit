@@ -42,7 +42,7 @@ public class SplitConfig: ObservableObject {
 /**
  * Getter
  */
-extension SplitConfig { 
+extension SplitConfig {
    /**
     * - Description: Determines if the sidebar is currently visible based on
     *                the column visibility and size class.

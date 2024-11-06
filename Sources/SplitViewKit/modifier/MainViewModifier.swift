@@ -24,9 +24,9 @@ fileprivate struct MainViewModifier: ViewModifier {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
                min: columnWidth.min,  // Sets the minimum width of the navigation split view column
-               ideal:columnWidth.ideal, // Sets the ideal width of the navigation split view column
+               ideal: columnWidth.ideal, // Sets the ideal width of the navigation split view column
                max: columnWidth.max // Sets the maximum width of the navigation split view column
-            )  
+            )
       } else {
          content // If there is no columnWidth, we use native default column widths etc
       }

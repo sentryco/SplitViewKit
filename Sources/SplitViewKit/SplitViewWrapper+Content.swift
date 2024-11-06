@@ -74,4 +74,3 @@ extension SplitViewWrapper {
       .navigationSplitViewStyle(.balanced)
    }
 }
-

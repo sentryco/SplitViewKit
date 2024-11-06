@@ -58,4 +58,3 @@ struct ExampleView: View {
       self.selectedMainItem = selectedMainItem
    }
 }
-

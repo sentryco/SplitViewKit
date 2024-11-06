@@ -24,9 +24,9 @@ struct DetailViewModifier: ViewModifier {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column
                min: columnWidth.min,  // Sets the minimum width of the navigation split view column
-               ideal:columnWidth.ideal, // Sets the ideal width of the navigation split view column
+               ideal: columnWidth.ideal, // Sets the ideal width of the navigation split view column
                max: columnWidth.max // Sets the maximum width of the navigation split view column
-            )  
+            )
       } else {
          content // If there is no columnwidth, we use native default column widths etc
       }
@@ -46,7 +46,7 @@ extension View {
     *   - columnWidth: An instance conforming to the `ColumnWidthKind` protocol, which provides custom width settings for the detail column based on the window width.
     * - Returns: A View with the detail view modifier applied.
     */
-   internal func detailViewModifier(winWidth: CGFloat, columnWidth: ColumnWidthKind) -> some View{
+   internal func detailViewModifier(winWidth: CGFloat, columnWidth: ColumnWidthKind) -> some View {
       let modifier = DetailViewModifier(
          winWidth: winWidth,
          columnWidth: columnWidth

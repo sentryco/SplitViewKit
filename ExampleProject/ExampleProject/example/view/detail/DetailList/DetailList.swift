@@ -18,7 +18,7 @@ struct DetailList: View {
     * Initializes a `DetailList` with the specified detail data.
     * - Parameter detailData: The data to display in the list.
     */
-   public init(detailData: DetailData) {
+   init(detailData: DetailData) {
       self.detailData = detailData
    }
 }

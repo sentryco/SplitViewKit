@@ -32,9 +32,9 @@ internal func getDeviceOrientation() -> UIDeviceOrientation {
    if #available(iOS 15, *) {
       interfaceOrientation = UIApplication.shared.connectedScenes
       // Keep only the first `UIWindowScene`
-         .first(where: { $0 is UIWindowScene })
+         .first { $0 is UIWindowScene }
       // Get its associated windows
-         .flatMap({ $0 as? UIWindowScene })?.interfaceOrientation
+         .flatMap { $0 as? UIWindowScene }?.interfaceOrientation
    } else {
       interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
    }
@@ -51,19 +51,14 @@ internal func getDeviceOrientation() -> UIDeviceOrientation {
       switch interfaceOrientation {
       case .portrait:
          orientation = .portrait
-         break
-      case .landscapeRight:
+         case .landscapeRight:
          orientation = .landscapeLeft
-         break
-      case .landscapeLeft:
+         case .landscapeLeft:
          orientation = .landscapeRight
-         break
-      case .portraitUpsideDown:
+         case .portraitUpsideDown:
          orientation = .portraitUpsideDown
-         break
-      default:
+         default:
          orientation = .unknown
-         break
       }
    }
    return orientation

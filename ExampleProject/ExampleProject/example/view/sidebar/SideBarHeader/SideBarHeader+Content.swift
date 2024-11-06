@@ -60,7 +60,8 @@ extension SideBarHeader {
          #else
          splitConfig.columnVisibility = .doubleColumn // Change without animation for other platforms
          #endif
-      }) {}
+      }) {
+      }
       if splitConfig.isShowingSideBar(sizeClass: sizeClass)/*sizeClass == .regular*/ { // If 3 column
          button
             .iconButtonStyle(iconName: "square.lefthalf.fill") // Applies an icon style with a half-filled square, indicating a partial collapse or expansion state.

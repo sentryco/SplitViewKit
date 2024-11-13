@@ -6,7 +6,7 @@ extension DetailList {
    /**
     * - Description: This extension provides the layout and behavior for the list of details in the `DetailList` view.
     */
-   var body: some View {
+   internal var body: some View {
       VStack(spacing: .zero) { // Vertical stack
          ForEach(detailData, id: \.self) { (_ title: String) in
             getRow(title: title)
@@ -29,27 +29,5 @@ extension DetailList {
          button // No sizing needed for iPad
          #endif
       }
-   }
-}
-/**
- * Components
- */
-extension DetailList {
-   /**
-    * Get row
-    * - Description: Creates a button styled row for each title in the detail list.
-    * - Parameter title: The text to be displayed on the button within the list.
-    * - Returns: A view representing a row in the list, which is a button containing the title text.
-    */
-   func getRow(title: String) -> some View {
-      Button {
-         isSheetPresented.toggle() // Toggles the state of `isSheetPresented` to show or hide the sheet.
-      } label: {
-         Text(title)
-            .listTextStyle(color: Color.whiteOrBlack.opacity(0.8))
-      }
-      #if os(macOS)
-      .buttonStyle(PlainButtonStyle()) // Apply plain button style to remove default macOS styling
-      #endif
    }
 }

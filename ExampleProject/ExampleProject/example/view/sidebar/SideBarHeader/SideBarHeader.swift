@@ -8,20 +8,20 @@ import SplitViewKit
  * - Note: We use custom struct for header. We don't reuse across
  *         columns because each header has different toggle buttons etc
  */
-struct SideBarHeader: View {
+internal struct SideBarHeader: View {
    /**
     * - Description: The title text of the sidebar header
     */
-   let title: String
+   internal let title: String
    /**
     * - Description: Used to detect if app is compact or regular mode etc
     * - Note: Needs to be called from the correct scope. Jumps to compact
     *         when it should be regular in the wrong scope etc. so param
     *         drilling is probably better to avoid future hard to find bugs
     */
-   @Binding var sizeClass: UserInterfaceSizeClass?
+   @Binding internal var sizeClass: UserInterfaceSizeClass?
    /**
     * - Description: The split configuration of the sidebar
     */
-   var splitConfig: SplitConfig
+   internal var splitConfig: SplitConfig
 }

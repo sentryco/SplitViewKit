@@ -14,7 +14,7 @@ import SwiftUI
  * - Fixme: ⚠️️ Spread index binding into the respective views, instead of storing them here?
  * - Fixme: ⚠️️ Clearify around "selected-index" and "selected-item" etc. unify? its unclear atm why we have both etc
  */
-struct ExampleView: View {
+internal struct ExampleView: View {
    /**
     * State variable to track the selected index in the sidebar
     * - Abstract: Used to track the current sidebar item selection
@@ -22,7 +22,7 @@ struct ExampleView: View {
     *                item, used to manage user interactions and state within
     *                the sidebar.
     */
-   @State var selectedSideBarIndex: Int = 0
+   @State internal var selectedSideBarIndex: Int = 0
    /**
     * This state variable is defined at this scope because it is required by both the main and detail views.
     * - Abstract: Used to track the current main item selection
@@ -34,14 +34,14 @@ struct ExampleView: View {
     * - Note: We can make this optional. But that requires placeholder views for main and detail
     * - Fixme: ⚠️️ It's possible to remove this and just use selectedMainItem. will require parsing with uuid etc, and passing main-model into detail. do it later
     */
-   @State var selectedMainIndex: Int = 0
+   @State internal var selectedMainIndex: Int = 0
    /**
     * State variable to track the currently selected item
     * - Description: Tracks the currently selected item in the main view,
     *                which triggers updates to the detail view when changed.
     * - Note: When this is set, mainview changes
     */
-   @State var selectedMainItem: DataModel?
+   @State internal var selectedMainItem: DataModel?
    /**
     * - Description: Initializes the ExampleView with optional predefined
     *                selections for sidebar, main content, and detail views.
@@ -52,7 +52,7 @@ struct ExampleView: View {
     *   - selectedMainIndex: The index of the currently selected item in the main view. This index is crucial for determining which detail view to show.
     *   - selectedMainItem: The data model of the item currently selected in the main view. This model is used to populate the detail view with specific item details.
     */
-   init(selectedSideBarIndex: Int = 0, selectedMainIndex: Int = 0, selectedMainItem: DataModel? = nil) {
+   internal init(selectedSideBarIndex: Int = 0, selectedMainIndex: Int = 0, selectedMainItem: DataModel? = nil) {
       self.selectedSideBarIndex = selectedSideBarIndex
       self.selectedMainIndex = selectedMainIndex
       self.selectedMainItem = selectedMainItem

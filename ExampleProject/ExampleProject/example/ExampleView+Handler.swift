@@ -15,7 +15,7 @@ extension ExampleView {
     *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
     *   - sizeClass: The current size class of the user interface, which may affect layout decisions.
     */
-   func handleSideBarChange(_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) {
+   internal func handleSideBarChange(_ splitConfig: SplitConfig, _ sizeClass: Binding<UserInterfaceSizeClass?>) {
       guard let sizeClass: UserInterfaceSizeClass = sizeClass.wrappedValue else { print("⚠️️ SizeClass not available"); return } // Merging switch and guard doesnt seem possible
       switch sizeClass {
       case .regular: // Only auto select mainitem if all columns are visible etc

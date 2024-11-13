@@ -3,11 +3,11 @@ import HybridColor
 /**
  * Define a custom view modifier for the title text style
  */
-struct TitleTextStyle: ViewModifier {
+fileprivate struct TitleTextStyle: ViewModifier {
    /**
     * - Description: Applies the title text style to the view, enhancing the appearance of the title text.
     */
-   func body(content: Content) -> some View {
+   fileprivate func body(content: Content) -> some View {
       content
          .foregroundColor(Color.whiteOrBlack.opacity(0.8))
          .font(.system(size: 32, weight: .bold))
@@ -20,7 +20,7 @@ extension View {
    /**
     * - Description: Applies the title text style to the view, enhancing the appearance of the title text.
     */
-   var titleTextStyle: some View {
+   internal var titleTextStyle: some View {
       let style = TitleTextStyle()
       return self.modifier(style)
    }

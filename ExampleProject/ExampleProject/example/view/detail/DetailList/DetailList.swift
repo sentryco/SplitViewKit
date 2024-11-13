@@ -4,11 +4,11 @@ import SwiftUI
  * - Note: Alt names: `DetailStack` or `DetailContainer`
  * - Fixme: ⚠️️ add preview 👈
  */
-struct DetailList: View {
+internal struct DetailList: View {
    /**
     * Stores the detail-data associated with a specific item-selected from the main-view.
     */
-   let detailData: DetailData
+   internal let detailData: DetailData
    /**
     * Tracks whether the detail-modal-sheet is presented
     *  - Fixme: ⚠️️ Add alert for settings items in the example code
@@ -18,7 +18,7 @@ struct DetailList: View {
     * Initializes a `DetailList` with the specified detail data.
     * - Parameter detailData: The data to display in the list.
     */
-   init(detailData: DetailData) {
+   internal init(detailData: DetailData) {
       self.detailData = detailData
    }
 }

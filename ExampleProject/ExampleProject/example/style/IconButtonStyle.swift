@@ -6,13 +6,22 @@ import HybridColor
  * - Description: Define IconButtonStyle as a ButtonStyle with customizable
  *                icon, rounded corners, background and fill colors, icon size,
  *                and padding.
- * - Note: There is one for left arrow, right arrow, full_screen, back_chevron_icon,
+ * - Note: There is one for left arrow, `right_arrow`, `full_screen`, `back_chevron_icon`
  * - Fixme: ⚠️️ Make it animate transperancy on showing / hiding
  */
-struct IconButtonStyle: ButtonStyle {
-   var iconName: String
-   var bgColor: Color
-   var fillColor: Color
+fileprivate struct IconButtonStyle: ButtonStyle {
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   fileprivate var iconName: String
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   fileprivate var bgColor: Color
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   fileprivate var fillColor: Color
    /**
     * This method sets up the view for the button. It uses an Image view with the system icon name provided. The icon's foreground color, font size, padding, background color, and corner radius are set according to the instructions.
     * - Note: Square Background: The ZStack ensures the background is uniformly square (40x40 in this case).
@@ -21,7 +30,7 @@ struct IconButtonStyle: ButtonStyle {
     * - Note: Now, no matter what the shape of the icon is, the background will always be square, and the icon will fit neatly within that square. You can adjust the frame(width: height:) values to make the background larger or smaller as needed.
     * - Fixme: ⚠️️ Try to make all this relativly sized etc
     */
-   func makeBody(configuration: Configuration) -> some View {
+   fileprivate func makeBody(configuration: Configuration) -> some View {
       ZStack {
          // Ensuring the background is always square
          bgColor
@@ -50,7 +59,7 @@ extension Button {
     *   - fillColor: The color of the icon.
     * - Returns: A view modifier that applies the specified IconButtonStyle to the button.
     */
-   func iconButtonStyle(iconName: String, bgColor: Color = Color.darkGray, fillColor: Color = Color.whiteOrBlack.opacity(0.8)) -> some View {
+   internal func iconButtonStyle(iconName: String, bgColor: Color = Color.darkGray, fillColor: Color = Color.whiteOrBlack.opacity(0.8)) -> some View {
       let style = IconButtonStyle(
          iconName: iconName,
          bgColor: bgColor,

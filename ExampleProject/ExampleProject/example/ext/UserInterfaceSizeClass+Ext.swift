@@ -12,7 +12,7 @@ extension UserInterfaceSizeClass {
     * - Note: 30% 50% -> Compact
     * - Fixme: ⚠️️ double check if portrait 100% is regular as well?
     */
-   public var description: String {
+   internal var description: String {
       switch self {
       case .compact: "compact"
       case .regular: "regular"

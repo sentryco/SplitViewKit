@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,19 @@
 		F18881762CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18881712CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift */; };
 		F18881772CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18881722CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift */; };
 		F199C67A2CC9ECB3009E84C1 /* DebugContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199C6792CC9ECB3009E84C1 /* DebugContainer.swift */; };
-		F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1E583332CC4149E00A59A2B /* SplitViewKit */; };
+		F19DC1BD2CE4351400FD66D0 /* HybridColor in Frameworks */ = {isa = PBXBuildFile; productRef = F19DC1BC2CE4351400FD66D0 /* HybridColor */; };
+		F19DC1C02CE4353B00FD66D0 /* SplitViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = F19DC1BF2CE4353B00FD66D0 /* SplitViewKit */; };
+		F19DC1C22CE4355900FD66D0 /* DetailHeader+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1C12CE4355900FD66D0 /* DetailHeader+Component.swift */; };
+		F19DC1C42CE4356100FD66D0 /* DetailList+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1C32CE4356100FD66D0 /* DetailList+Component.swift */; };
+		F19DC1C62CE4356900FD66D0 /* MainList+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1C52CE4356900FD66D0 /* MainList+Component.swift */; };
+		F19DC1C82CE4357400FD66D0 /* SideBarList+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1C72CE4357400FD66D0 /* SideBarList+Component.swift */; };
+		F19DC1CA2CE4358700FD66D0 /* ExampleView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1C92CE4358700FD66D0 /* ExampleView+Component.swift */; };
+		F19DC1CC2CE4359100FD66D0 /* DetailView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1CB2CE4359100FD66D0 /* DetailView+Component.swift */; };
+		F19DC1CE2CE435A500FD66D0 /* SideBarView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1CD2CE435A500FD66D0 /* SideBarView+Component.swift */; };
+		F19DC1D02CE435C000FD66D0 /* DetailView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1CF2CE435C000FD66D0 /* DetailView+Init.swift */; };
+		F19DC1D22CE435CF00FD66D0 /* MainHeader+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1D12CE435CF00FD66D0 /* MainHeader+Component.swift */; };
+		F19DC1D42CE435DB00FD66D0 /* MainView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1D32CE435DB00FD66D0 /* MainView+Component.swift */; };
+		F19DC1D62CE435EB00FD66D0 /* SideBarHeader+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC1D52CE435EB00FD66D0 /* SideBarHeader+Component.swift */; };
 		F1E5835A2CC416E800A59A2B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583352CC416E800A59A2B /* DataModel.swift */; };
 		F1E5835E2CC416E800A59A2B /* DetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E5833A2CC416E800A59A2B /* DetailHeader.swift */; };
 		F1E5835F2CC416E800A59A2B /* DetailHeader+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E5833B2CC416E800A59A2B /* DetailHeader+Content.swift */; };
@@ -52,7 +64,6 @@
 		F1E583852CC42DED00A59A2B /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583842CC42DED00A59A2B /* DetailList.swift */; };
 		F1E583872CC430E800A59A2B /* DetailList+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E583862CC430E800A59A2B /* DetailList+Content.swift */; };
 		F1E9FE442CC6EE4A003C64D7 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FE432CC6EE4A003C64D7 /* IconButtonStyle.swift */; };
-		F1E9FE472CC725EB003C64D7 /* HybridColor in Frameworks */ = {isa = PBXBuildFile; productRef = F1E9FE462CC725EB003C64D7 /* HybridColor */; };
 		F1E9FE4A2CC72DBA003C64D7 /* CustomColumnWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9FE482CC72DBA003C64D7 /* CustomColumnWidth.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +83,17 @@
 		F18881712CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationSplitViewVisibility+Ext.swift"; sourceTree = "<group>"; };
 		F18881722CCB981F000F8763 /* UserInterfaceSizeClass+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserInterfaceSizeClass+Ext.swift"; sourceTree = "<group>"; };
 		F199C6792CC9ECB3009E84C1 /* DebugContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugContainer.swift; sourceTree = "<group>"; };
+		F19DC1C12CE4355900FD66D0 /* DetailHeader+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailHeader+Component.swift"; sourceTree = "<group>"; };
+		F19DC1C32CE4356100FD66D0 /* DetailList+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailList+Component.swift"; sourceTree = "<group>"; };
+		F19DC1C52CE4356900FD66D0 /* MainList+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainList+Component.swift"; sourceTree = "<group>"; };
+		F19DC1C72CE4357400FD66D0 /* SideBarList+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarList+Component.swift"; sourceTree = "<group>"; };
+		F19DC1C92CE4358700FD66D0 /* ExampleView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleView+Component.swift"; sourceTree = "<group>"; };
+		F19DC1CB2CE4359100FD66D0 /* DetailView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+Component.swift"; sourceTree = "<group>"; };
+		F19DC1CD2CE435A500FD66D0 /* SideBarView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarView+Component.swift"; sourceTree = "<group>"; };
+		F19DC1CF2CE435C000FD66D0 /* DetailView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+Init.swift"; sourceTree = "<group>"; };
+		F19DC1D12CE435CF00FD66D0 /* MainHeader+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainHeader+Component.swift"; sourceTree = "<group>"; };
+		F19DC1D32CE435DB00FD66D0 /* MainView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Component.swift"; sourceTree = "<group>"; };
+		F19DC1D52CE435EB00FD66D0 /* SideBarHeader+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideBarHeader+Component.swift"; sourceTree = "<group>"; };
 		F1E583352CC416E800A59A2B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F1E5833A2CC416E800A59A2B /* DetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeader.swift; sourceTree = "<group>"; };
 		F1E5833B2CC416E800A59A2B /* DetailHeader+Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailHeader+Content.swift"; sourceTree = "<group>"; };
@@ -111,8 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1E9FE472CC725EB003C64D7 /* HybridColor in Frameworks */,
-				F1E583342CC4149E00A59A2B /* SplitViewKit in Frameworks */,
+				F19DC1BD2CE4351400FD66D0 /* HybridColor in Frameworks */,
+				F19DC1C02CE4353B00FD66D0 /* SplitViewKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F14DAD1C2CBD7C6300B6F3FD /* ExampleProject */,
+				F19DC1BE2CE4353B00FD66D0 /* Frameworks */,
 				F14DAD1B2CBD7C6300B6F3FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +189,13 @@
 			path = ext;
 			sourceTree = "<group>";
 		};
+		F19DC1BE2CE4353B00FD66D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F1E583392CC416E800A59A2B /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E5833A2CC416E800A59A2B /* DetailHeader.swift */,
+				F19DC1C12CE4355900FD66D0 /* DetailHeader+Component.swift */,
 				F1E5833B2CC416E800A59A2B /* DetailHeader+Content.swift */,
 			);
 			path = DetailHeader;
@@ -192,6 +223,8 @@
 				F1E5833C2CC416E800A59A2B /* DetailHeader */,
 				F1E583832CC42DDA00A59A2B /* DetailList */,
 				F1E5833E2CC416E800A59A2B /* DetailView+Content.swift */,
+				F19DC1CB2CE4359100FD66D0 /* DetailView+Component.swift */,
+				F19DC1CF2CE435C000FD66D0 /* DetailView+Init.swift */,
 				F1E5833D2CC416E800A59A2B /* DetailView.swift */,
 			);
 			path = detail;
@@ -202,6 +235,7 @@
 			children = (
 				F1E583402CC416E800A59A2B /* MainHeader.swift */,
 				F1E583412CC416E800A59A2B /* MainHeader+Content.swift */,
+				F19DC1D12CE435CF00FD66D0 /* MainHeader+Component.swift */,
 				F1E583422CC416E800A59A2B /* MainHeader+Preview.swift */,
 			);
 			path = MainHeader;
@@ -214,6 +248,7 @@
 				F1E583432CC416E800A59A2B /* MainHeader */,
 				F1E583462CC416E800A59A2B /* MainView.swift */,
 				F1E583472CC416E800A59A2B /* MainView+Content.swift */,
+				F19DC1D32CE435DB00FD66D0 /* MainView+Component.swift */,
 				F1E583482CC416E800A59A2B /* MainView+Preview.swift */,
 			);
 			path = main;
@@ -224,6 +259,7 @@
 			children = (
 				F1E5834C2CC416E800A59A2B /* SideBarHeader.swift */,
 				F1E5834D2CC416E800A59A2B /* SideBarHeader+Content.swift */,
+				F19DC1D52CE435EB00FD66D0 /* SideBarHeader+Component.swift */,
 				F1E5834E2CC416E800A59A2B /* SideBarHeader+Preview.swift */,
 			);
 			path = SideBarHeader;
@@ -236,6 +272,7 @@
 				F1E5834F2CC416E800A59A2B /* SideBarHeader */,
 				F1E583502CC416E800A59A2B /* SideBarView.swift */,
 				F1E583512CC416E800A59A2B /* SideBarView+Content.swift */,
+				F19DC1CD2CE435A500FD66D0 /* SideBarView+Component.swift */,
 				F1E583522CC416E800A59A2B /* SideBarView+Preview.swift */,
 			);
 			path = sidebar;
@@ -261,6 +298,7 @@
 				F1E583542CC416E800A59A2B /* view */,
 				F1E583552CC416E800A59A2B /* ExampleView.swift */,
 				F1E583562CC416E800A59A2B /* ExampleView+Content.swift */,
+				F19DC1C92CE4358700FD66D0 /* ExampleView+Component.swift */,
 				F13FE4D62CC58B6A0039CC7B /* ExampleView+Handler.swift */,
 				F1E583572CC416E800A59A2B /* ExampleView+Getter.swift */,
 				F1E583582CC416E800A59A2B /* ExampleView+Preview.swift */,
@@ -284,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E5837A2CC4240200A59A2B /* MainList.swift */,
+				F19DC1C52CE4356900FD66D0 /* MainList+Component.swift */,
 				F1E5837C2CC4264800A59A2B /* MainList+Content.swift */,
 			);
 			path = MainList;
@@ -293,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E5837F2CC4284800A59A2B /* SideBarList.swift */,
+				F19DC1C72CE4357400FD66D0 /* SideBarList+Component.swift */,
 				F1E583812CC4294100A59A2B /* SideBarList+Content.swift */,
 			);
 			path = SideBarList;
@@ -302,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E583842CC42DED00A59A2B /* DetailList.swift */,
+				F19DC1C32CE4356100FD66D0 /* DetailList+Component.swift */,
 				F1E583862CC430E800A59A2B /* DetailList+Content.swift */,
 			);
 			path = DetailList;
@@ -333,8 +374,8 @@
 			);
 			name = ExampleProject;
 			packageProductDependencies = (
-				F1E583332CC4149E00A59A2B /* SplitViewKit */,
-				F1E9FE462CC725EB003C64D7 /* HybridColor */,
+				F19DC1BC2CE4351400FD66D0 /* HybridColor */,
+				F19DC1BF2CE4353B00FD66D0 /* SplitViewKit */,
 			);
 			productName = ExampleProject;
 			productReference = F14DAD1A2CBD7C6300B6F3FD /* ExampleProject.app */;
@@ -365,8 +406,8 @@
 			);
 			mainGroup = F14DAD112CBD7C6300B6F3FD;
 			packageReferences = (
-				F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */,
-				F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */,
+				F19DC1BA2CE434FA00FD66D0 /* XCLocalSwiftPackageReference "../../SplitViewKit" */,
+				F19DC1BB2CE4351400FD66D0 /* XCRemoteSwiftPackageReference "HybridColor" */,
 			);
 			productRefGroup = F14DAD1B2CBD7C6300B6F3FD /* Products */;
 			projectDirPath = "";
@@ -402,8 +443,11 @@
 				F1E583612CC416E800A59A2B /* DetailView+Content.swift in Sources */,
 				F1E583662CC416E800A59A2B /* MainView.swift in Sources */,
 				F1E5835F2CC416E800A59A2B /* DetailHeader+Content.swift in Sources */,
+				F19DC1C42CE4356100FD66D0 /* DetailList+Component.swift in Sources */,
+				F19DC1D62CE435EB00FD66D0 /* SideBarHeader+Component.swift in Sources */,
 				F13FE4D32CC473F40039CC7B /* DetailData.swift in Sources */,
 				F1E583692CC416E800A59A2B /* ListButtonStyle.swift in Sources */,
+				F19DC1CC2CE4359100FD66D0 /* DetailView+Component.swift in Sources */,
 				F1E9FE4A2CC72DBA003C64D7 /* CustomColumnWidth.swift in Sources */,
 				F1E583822CC4294100A59A2B /* SideBarList+Content.swift in Sources */,
 				F1E5836B2CC416E800A59A2B /* SideBarHeader+Content.swift in Sources */,
@@ -415,16 +459,22 @@
 				F1E5835E2CC416E800A59A2B /* DetailHeader.swift in Sources */,
 				F1E5836C2CC416E800A59A2B /* SideBarHeader+Preview.swift in Sources */,
 				F13FE4D52CC478540039CC7B /* ListTextStyle.swift in Sources */,
+				F19DC1C22CE4355900FD66D0 /* DetailHeader+Component.swift in Sources */,
 				F1E583702CC416E800A59A2B /* ExampleView.swift in Sources */,
 				F1E9FE442CC6EE4A003C64D7 /* IconButtonStyle.swift in Sources */,
 				F1E5836E2CC416E800A59A2B /* SideBarView+Content.swift in Sources */,
 				F1E583622CC416E800A59A2B /* MainHeader.swift in Sources */,
+				F19DC1CA2CE4358700FD66D0 /* ExampleView+Component.swift in Sources */,
 				F1E5837B2CC4240200A59A2B /* MainList.swift in Sources */,
 				F18881762CCB981F000F8763 /* NavigationSplitViewVisibility+Ext.swift in Sources */,
 				F1E5836F2CC416E800A59A2B /* SideBarView+Preview.swift in Sources */,
 				F1E5836D2CC416E800A59A2B /* SideBarView.swift in Sources */,
+				F19DC1D22CE435CF00FD66D0 /* MainHeader+Component.swift in Sources */,
+				F19DC1D02CE435C000FD66D0 /* DetailView+Init.swift in Sources */,
 				F14DAD1E2CBD7C6300B6F3FD /* ExampleProjectApp.swift in Sources */,
+				F19DC1C82CE4357400FD66D0 /* SideBarList+Component.swift in Sources */,
 				F1E583732CC416E800A59A2B /* ExampleView+Preview.swift in Sources */,
+				F19DC1D42CE435DB00FD66D0 /* MainView+Component.swift in Sources */,
 				F1E5835A2CC416E800A59A2B /* DataModel.swift in Sources */,
 				F1E583672CC416E800A59A2B /* MainView+Content.swift in Sources */,
 				F18881742CCB981F000F8763 /* NavigationSplitViewColumn+Ext.swift in Sources */,
@@ -432,10 +482,12 @@
 				F199C67A2CC9ECB3009E84C1 /* DebugContainer.swift in Sources */,
 				F1E583682CC416E800A59A2B /* MainView+Preview.swift in Sources */,
 				F13FE4CC2CC4694F0039CC7B /* MainModel.swift in Sources */,
+				F19DC1CE2CE435A500FD66D0 /* SideBarView+Component.swift in Sources */,
 				F13FE4D72CC58B6A0039CC7B /* ExampleView+Handler.swift in Sources */,
 				F1E583712CC416E800A59A2B /* ExampleView+Content.swift in Sources */,
 				F18881752CCB981F000F8763 /* NavigationSplitViewStyle+Ext.swift in Sources */,
 				F1E5837D2CC4264800A59A2B /* MainList+Content.swift in Sources */,
+				F19DC1C62CE4356900FD66D0 /* MainList+Component.swift in Sources */,
 				F1E583782CC4215000A59A2B /* TitleTextStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,16 +707,15 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sentryco/SplitViewKit";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		F19DC1BA2CE434FA00FD66D0 /* XCLocalSwiftPackageReference "../../SplitViewKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../SplitViewKit;
 		};
-		F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */ = {
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F19DC1BB2CE4351400FD66D0 /* XCRemoteSwiftPackageReference "HybridColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sentryco/HybridColor";
 			requirement = {
@@ -675,15 +726,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F1E583332CC4149E00A59A2B /* SplitViewKit */ = {
+		F19DC1BC2CE4351400FD66D0 /* HybridColor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F1E583322CC4149E00A59A2B /* XCRemoteSwiftPackageReference "SplitViewKit" */;
-			productName = SplitViewKit;
-		};
-		F1E9FE462CC725EB003C64D7 /* HybridColor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F1E9FE452CC725EB003C64D7 /* XCRemoteSwiftPackageReference "HybridColor" */;
+			package = F19DC1BB2CE4351400FD66D0 /* XCRemoteSwiftPackageReference "HybridColor" */;
 			productName = HybridColor;
+		};
+		F19DC1BF2CE4353B00FD66D0 /* SplitViewKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F19DC1BA2CE434FA00FD66D0 /* XCLocalSwiftPackageReference "../../SplitViewKit" */;
+			productName = SplitViewKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

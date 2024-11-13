@@ -1,5 +1,5 @@
 {
-  "originHash" : "3f064c3ff2610aa62a0cdd02c2330a803a4b7e83f9bddc499506d4df75a12967",
+  "originHash" : "f8b4d809d4bc0e937cbd95af9b97848601e6888cac97dad999943b204d260ed7",
   "pins" : [
     {
       "identity" : "hybridcolor",
@@ -7,16 +7,7 @@
       "location" : "https://github.com/sentryco/HybridColor",
       "state" : {
         "branch" : "main",
-        "revision" : "6592be98979ff0201e94f0b7a29e98f3c292715b"
-      }
-    },
-    {
-      "identity" : "splitviewkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sentryco/SplitViewKit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "14a2cf5af6ea65713a97f970545365d19e8d0010"
+        "revision" : "08310836ed7a7c36c9cc9955f62c2befbf6084e0"
       }
     }
   ],

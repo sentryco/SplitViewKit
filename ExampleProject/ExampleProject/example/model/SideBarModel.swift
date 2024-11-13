@@ -3,15 +3,15 @@ import SplitViewKit
 /**
  * - Description: Represents the model for the sidebar in the application, containing a title and associated main content.
  */
-struct SideBarModel {
+internal struct SideBarModel {
    /**
     * The title of the sidebar, used as a heading or label.
     */
-   let title: String
+   internal let title: String
    /**
     * The main content of the sidebar, which holds the primary data displayed in the sidebar.
     */
-   let content: MainData
+   internal let content: MainData
 }
 /**
  * Getters
@@ -24,7 +24,7 @@ extension SideBarData {
     *   - splitConfig: The configuration for the split view.
     * - Returns: An array of DataModel objects representing the main content of the sidebar.
     */
-   func getMainModels(sideBarItemIndex: Int, splitConfig: SplitConfig) -> DataModels {
+   internal func getMainModels(sideBarItemIndex: Int, splitConfig: SplitConfig) -> DataModels {
       self.enumerated().map { (_ offset: Int, _ element: Element) in
          getMainModel(
             sideBarItemIndex: sideBarItemIndex,
@@ -41,7 +41,7 @@ extension SideBarData {
     *   - splitConfig: The configuration for the split view, affecting how the view adapts to different screen sizes and orientations.
     * - Returns: An optional DataModel if indices are within the range, otherwise nil.
     */
-   func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
+   internal func getMainModel(sideBarItemIndex: Int, mainItemIndex: Int, splitConfig: SplitConfig) -> DataModel { /*isDetailFullScreen: Binding<Bool>*/
       .init(
          text: self[sideBarItemIndex].content[mainItemIndex].title
       )
@@ -57,7 +57,7 @@ extension DataModel {
     * - Description: Represents a static dictionary that maps sidebar titles to their respective content models, facilitating easy access and management of sidebar data.
     * - Fixme: ⚠️️ Maybe add more interesting content to detail?
     */
-   static let dataModel: SideBarData = [accounts, settings]
+   internal static let dataModel: SideBarData = [accounts, settings]
    /**
     * Accounts
     * - Description: Represents the "Accounts" section in the sidebar, containing individual account information.
@@ -108,4 +108,4 @@ extension DataModel {
  * - Note: We keep these in the MainModel scope
  * - Fixme: ⚠️️ Rename to ...array ?
  */
-typealias SideBarData = [SideBarModel]
+internal typealias SideBarData = [SideBarModel]

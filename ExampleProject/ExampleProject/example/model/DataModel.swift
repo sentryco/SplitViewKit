@@ -12,17 +12,17 @@ import SwiftUI
  * - Fixme: ⚠️️ A better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
  * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
  */
- struct DataModel: Hashable {
+internal struct DataModel: Hashable {
    /**
     * UUID is needed for hashable
     * - Description: A universally unique identifier (UUID) used to uniquely identify each instance of the `DataModel`.
     */
-    let uuid: UUID = .init()
+   internal let uuid: UUID = .init()
    /**
     * - Description: The text displayed for the data model, representing the title or label of the item.
     * - Fixme: ⚠️️ rename to title?
     */
-    let text: String
+   internal let text: String
 }
 /**
  * Hashable implementation
@@ -31,7 +31,7 @@ extension DataModel {
    /**
     * - Description: Compares two `DataModel` instances for equality based on their UUID.
     */
-   public static func == (lhs: DataModel, rhs: DataModel) -> Bool {
+   internal static func == (lhs: DataModel, rhs: DataModel) -> Bool {
       lhs.uuid == rhs.uuid
    }
    /**
@@ -39,7 +39,7 @@ extension DataModel {
     * - Description: Combines the UUID of the `DataModel` into the hasher
     *                to ensure uniqueness.
     */
-   public func hash(into hasher: inout Hasher) {
+   internal func hash(into hasher: inout Hasher) {
       hasher.combine(uuid)
    }
 }

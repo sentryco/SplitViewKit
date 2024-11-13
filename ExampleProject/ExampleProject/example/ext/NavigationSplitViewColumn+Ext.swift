@@ -14,7 +14,7 @@ extension NavigationSplitViewColumn {
     * - Returns: A string representing the column. It returns "sidebar" for the sidebar column, "main" for the content column, and "detail" for the detail column. If the column is not supported, it returns "Not supported".
     * - Note: We keep this in the example project to keep the kit code as small as possible
     */
-   public var description: String {
+   internal var description: String {
       switch self {
       case NavigationSplitViewColumn.sidebar: "sidebar"
       case NavigationSplitViewColumn.content: "main"

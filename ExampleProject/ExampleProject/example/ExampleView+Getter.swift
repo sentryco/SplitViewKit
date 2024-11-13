@@ -12,7 +12,7 @@ extension ExampleView {
     * - Important: ⚠️️ Rebinding hack for macOS, because `.navigationDestination(item)` doesn't work for macOS aperantly
     * - Note: Alternative name: selectedItemRebound
     */
-   var rebind: Binding<Bool> {
+   internal var rebind: Binding<Bool> {
       Binding<Bool>(
          get: { // Returns true if there is a selected main item, otherwise false
             $selectedMainItem.wrappedValue != nil

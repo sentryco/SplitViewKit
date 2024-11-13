@@ -7,11 +7,11 @@ fileprivate struct MainViewModifier: ViewModifier {
    /**
     * - Description: The width of the window. This value is used to calculate the width of the main column in the split view.
     */
-   let winWidth: CGFloat
+   fileprivate let winWidth: CGFloat
    /**
     * - Description: The `ColumnWidthKind` protocol instance that provides custom width settings for the main column based on the window width.
     */
-   let columnWidth: ColumnWidthKind
+   fileprivate let columnWidth: ColumnWidthKind
    /**
     * Body
     * - Description: This function modifies the view by applying a custom
@@ -19,7 +19,7 @@ fileprivate struct MainViewModifier: ViewModifier {
     *                based on the window width. It uses the `ColumnWidthKind`
     *                protocol to determine the appropriate widths.
     */
-   func body(content: Content) -> some View {
+   fileprivate func body(content: Content) -> some View {
       if let columnWidth = columnWidth.mainColumn(winWidth: winWidth) {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column

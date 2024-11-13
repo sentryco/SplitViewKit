@@ -5,11 +5,11 @@ import SwiftUI
  *                dark gray background, it should have a little bit more padding
  *                horizontally than vertically. also make a preview
  */
-struct ActionButtonStyle: ButtonStyle {
+fileprivate struct ActionButtonStyle: ButtonStyle {
    /**
     * - Description: Applies the action button style to the view, enhancing the appearance of the action button.
     */
-    func makeBody(configuration: Configuration) -> some View {
+   fileprivate func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(.horizontal, 4)
             .padding(.vertical, 6)
@@ -22,7 +22,7 @@ extension Button {
    /**
     * - Description: Applies the action button style to the button, enhancing the appearance of the action button.
     */
-   var actionButtonStyle: some View {
+   internal var actionButtonStyle: some View {
       let style = ActionButtonStyle()
       return self.buttonStyle(style)
    }

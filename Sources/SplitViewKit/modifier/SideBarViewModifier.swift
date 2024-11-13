@@ -10,13 +10,13 @@ fileprivate struct SideBarViewModifier: ViewModifier {
    /**
     * - Description: The width of the window
     */
-   let winWidth: CGFloat
+   fileprivate let winWidth: CGFloat
    /**
     * - Description: The `ColumnWidthKind` protocol instance that provides
     *                custom width settings for the sidebar based on the window
     *                width.
     */
-   let columnWidth: ColumnWidthKind
+   fileprivate let columnWidth: ColumnWidthKind
    /**
     * - Description: This function modifies the view by setting the toolbar,
     *                navigation bar, and scroll indicators according to the
@@ -25,7 +25,7 @@ fileprivate struct SideBarViewModifier: ViewModifier {
     * - Note: Regarding `.toolbar(removing: .sidebarToggle)` ref: https://stackoverflow.com/a/78889492
     * - Note: if ColumnWidth is nil, default native columnwidths are used instead
     */
-   func body(content: Content) -> some View {
+   fileprivate func body(content: Content) -> some View {
       if let columnWidth: ColumnWidth = columnWidth.sideBarColumn(winWidth: winWidth) {
          content
             .navigationSplitViewColumnWidth( // Sets the width of the navigation split view column

@@ -3,12 +3,12 @@ import HybridColor
 import SplitViewKit
 /**
  * - Abstract: SplitView analytics
- * - Description: This section provides an overview of the DebugContainer,
+ * - Description: This section provides an overview of the `DebugContainer`,
  *                which is used for displaying debug information related to
  *                the SplitView configuration and state.
  * - Note: We have to add debug container to the splitviewcontainer view, as we need access to the spliconfig state, which can only be acccessed inside splitviewcontainer or its injected descendants
  * - Note: Bottom center container
- * - Note: 2 texts with columnConfig: 3-col, 2-col, 1-col, focusedColumn: sidebar, main, detail
+ * - Note: 2 texts with columnConfig: `3-col`, `2-col`, `1-col`, focusedColumn: `sidebar`, `main`, `detail`
  * - Note: We get debug data from the states of: `NavigationSplitViewColumn` and `NavigationSplitViewVisibility`
  * - Fixme: ⚠️️ Add 70% mode window indication?
  */
@@ -30,7 +30,7 @@ struct DebugContainer: View {
  */
 extension DebugContainer {
    /**
-    * - Description: The body property of the DebugContainer, which defines the view hierarchy for displaying debug information.
+    * - Description: The body property of the `DebugContainer, which defines the view hierarchy for displaying debug information.
     * - Note: This view is structured to pin its content to the bottom center of the screen, utilizing a VStack and HStack for layout.
     */
    var body: some View {

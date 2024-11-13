@@ -21,15 +21,17 @@
 
 ## Problem:
 
-1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for.
+1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for. Adding this complxity in the app scope makes the code uneccecaraly complex.
 2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but is poorly implemented from a usability POV
 3. Customizing the navigation-bar in different modes is complex 
+4. MacOS and iPad has slighly different nuances of how SplitView works. 
 
 ## Solution:
 
-1. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
-2. The framework supports providing your own `column-width` calculations. Letting you set your own "responsive breakpoints"
-3. The framework supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes. Adding UI above the splitview is also supported.
+1. Move the complexity that comes with implementing splitview support to this kit. Instead of sprinkling split-view code all over your app. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
+2. The kit supports providing your own `column-width` calculations. Letting you set your own "responsive breakpoints"
+3. The kit supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes. Adding UI above the splitview is also supported.
+4. The kit handles the different ways SplitView works for iPad and macOS. Side effects are documented etc. 
 
 ## Example:
 
@@ -98,7 +100,6 @@ These are some of the resources that was founds when solving edge cases for the 
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
 - SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
 
-
 ## macOS: 
 <img width="401" alt="img" src="https://s11.gifyu.com/images/SO8Yn.gif">
 
@@ -106,6 +107,11 @@ These are some of the resources that was founds when solving edge cases for the 
 
 - Use darker transperancy background for sidebar for macOS
 - Add some sort of minHeight for detail column on macOS
+- Remove unit-test
+- Add UI-tests
+- Constrain code doc comments to 80char max etc
+- Reference local relative path in example project, instead of remote path
+- Using a propertywrapper might be better for making variables reactive to views
 
 ## Future improvements:
 

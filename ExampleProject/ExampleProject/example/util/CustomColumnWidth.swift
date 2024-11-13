@@ -2,6 +2,7 @@ import Foundation
 import SplitViewKit
 /**
  * Const
+ * - Fixme: ⚠️️ Add description
  * - Fixme: ⚠️️ Add support for storing columnwidths in userdefault, esp for macOS, for ipad the columns are fixed when using native swiftui navsplitview see: https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state etc
  * - Fixme: ⚠️️ Maybe store "section-fraction" size in userdefault (also check out how we did this in legacy code)
  */

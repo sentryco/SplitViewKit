@@ -11,15 +11,15 @@ import HybridColor
  */
 fileprivate struct IconButtonStyle: ButtonStyle {
    /**
-    * - Fixme: ⚠️️ add doc
+    * The name of the system icon to be used for the button.
     */
    fileprivate var iconName: String
    /**
-    * - Fixme: ⚠️️ add doc
+    * The background color of the button.
     */
    fileprivate var bgColor: Color
    /**
-    * - Fixme: ⚠️️ add doc
+    * The color of the icon.
     */
    fileprivate var fillColor: Color
    /**

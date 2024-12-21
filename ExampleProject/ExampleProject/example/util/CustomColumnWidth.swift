@@ -1,8 +1,10 @@
 import Foundation
 import SplitViewKit
 /**
- * Const
- * - Fixme: ⚠️️ Add description
+ * CustomColumnWidth
+ * - Description: A struct conforming to ColumnWidthKind, used to define custom column widths for a SplitView.
+ *                It provides methods to calculate the appropriate widths for sidebar, main, and detail columns
+ *                based on the window width and device orientation.
  * - Fixme: ⚠️️ Add support for storing columnwidths in userdefault, esp for macOS, for ipad the columns are fixed when using native swiftui navsplitview see: https://github.com/stevengharris/SplitView#using-userdefaults-for-split-state etc
  * - Fixme: ⚠️️ Maybe store "section-fraction" size in userdefault (also check out how we did this in legacy code)
  */

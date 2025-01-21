@@ -3,15 +3,15 @@
 
 # SplitViewKit
 
-> Easily config multi-column apps (iPad and macOS)
+> Easily configure multi-column apps (iPad and macOS)
 
 <img width="438" alt="img" src="https://s1.gifyu.com/images/SOdFU.gif">
 
 # Table of Contents
 
-1. [Problem](#problems)
+1. [Problem](#problem)
 2. [Solution](#solution)
-3. [Example Usage](#example-usage)
+3. [Example](#example)
 4. [Installation](#installation)
 5. [Gotchas](#gotchas)
 6. [References](#references)
@@ -19,44 +19,44 @@
 8. [Todo](#todo)
 9. [Future Improvements](#future-improvements)
 
-## Problem:
+## Problem
 
-1. `NavigationSplitView` Is fairly easy to setup. But has many edge cases to account for. Adding this complxity in the app scope makes the code uneccecaraly complex.
-2. Managing column-widths for different modes is challanging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but is poorly implemented from a usability POV
+1. `NavigationSplitView` is fairly easy to setup. But has many edge cases to account for. Adding this complexity in the app scope makes the code unnecessarily complex.
+2. Managing column-widths for different modes is challenging. Unless you use `navigationSplitViewStyle: .automatic` which solves it but is poorly implemented from a usability POV
 3. Customizing the navigation-bar in different modes is complex 
-4. MacOS and iPad has slighly different nuances of how SplitView works. 
+4. MacOS and iPad have slightly different nuances of how SplitView works. 
 
-## Solution:
+## Solution
 
 1. Move the complexity that comes with implementing splitview support to this kit. Instead of sprinkling split-view code all over your app. There is an `Example-project` included in this package, that makes it easier to understand how to work with `NavigationSplitView`
 2. The kit supports providing your own `column-width` calculations. Letting you set your own "responsive breakpoints"
 3. The kit supports providing your own "navigation-UI" for the different modes, by reacting to sizeClass, orientation and winSize changes. Adding UI above the splitview is also supported.
 4. The kit handles the different ways SplitView works for iPad and macOS. Side effects are documented etc. 
 
-## Example:
+## Example
 
 - To use `SplitViewContainer`, you need to provide three SwiftUI views: `SideBar`, `Content`, and `Detail`. These views represent the left side menu-bar, the center main content, and the right side detail-view. 
 - You can control the column visibility and preferred compact column through the `columnVisibility` and `preferredCompactColumn` properties in the SplitConfig struct.
 - There is also a comprehensive example project included in this package. See the xcode project for more details.
 
 ```swift
-import SwiftUI
-import SplitViewKit
-
-struct ContentView: View {
-    var body: some View {
-        // Interact and react to splitview via splitConfig and sizeClass parameters
-        SplitViewWrapper(
-            sideBar: { splitConfig, sizeClass in Color.red }, // Set your sidebar content here
-            content: { splitConfig, sizeClass in Color.green }, // Set your center content here
-            detail: { splitConfig, sizeClass in Color.blue }, // Set your detail content here
-            debug: { _, _ in nil } // Add debug-view here, or use it for floating UI above the view
-            columnWidth: DefaultColumnWidth(), // Set custom column widths here
-            splitConfig: SplitConfig() // set initial column arrangment here
-        )
-    }
-}
+SplitViewWrapper(
+    sideBar: { splitConfig, sizeClass in
+        SideBarView() // Your custom sidebar view
+    }, // Set your sidebar content here
+    content: { splitConfig, sizeClass in
+        ContentView() // Your main content view
+    }, // Set your center content here
+    detail: { splitConfig, sizeClass in
+        DetailView() // Your detail view
+    }, // Set your detail content here
+    debug: { _, _ in nil }, // Add debug-view here, or use it for floating UI above the view
+    columnWidth: DefaultColumnWidth(), // Set custom column widths here
+    splitConfig: SplitConfig() // Set initial column arrangement here
+)
 ```
+
+> **Note:** Replace `SideBarView()`, `ContentView()`, and `DetailView()` with your actual SwiftUI views.
 
 ## Installation
 
@@ -82,7 +82,7 @@ Here are some general tutorials and articles on how to use `NavigationSplitView`
 - Comprehensive SplitNavigationView [https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/](https://eon.codes/blog/2024/02/02/NavigationSplitView-in-swiftui/) 
 - WWDC video on navigationsplitview: [https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com](https://developer.apple.com/videos/play/wwdc2022/10054/?ref=appcoda.com)
 - Very comprehensive custom split-view completely built from the ground up: [https://github.com/stevengharris/SplitView](https://github.com/stevengharris/SplitView)
-- Pretty gd: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
+- Informative guide on `NavigationSplitView`: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
 
 ## Resources:
 
@@ -98,7 +98,7 @@ These are some of the resources that was founds when solving edge cases for the 
 - Stack Overflow Answer on Device Orientation [https://stackoverflow.com/a/78889492](https://stackoverflow.com/a/78889492)
 - UIKit UIInterfaceOrientation Documentation [https://developer.apple.com/documentation/uikit/uiinterfaceorientation](https://developer.apple.com/documentation/uikit/uiinterfaceorientation)
 - SwiftUI SplitView Compact Column Control [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
-- SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/https://developer.apple.com/videos/play/wwdc2022/10058/)
+- SwiftUI on iPad: Organize your interface: [https://developer.apple.com/videos/play/wwdc2022/10058/](https://developer.apple.com/videos/play/wwdc2022/10058/)
 
 ## macOS: 
 <img width="401" alt="img" src="https://s11.gifyu.com/images/SO8Yn.gif">
@@ -130,3 +130,13 @@ These are some of the resources that was founds when solving edge cases for the 
 - Consider moving some debug tools from the SplitViewKit to the example project 
 - Consider improving the model data in the example project. See https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/ and https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
 - Consider rebuilding NavigationSplitView with HStack. It might be a better solution and might not be very complicated to do. Rather then trying to wrap NavigationSplitView to fix NavigationSplitView shortcomings. The current wrapper works. But complexity cost is more than it should be. A HStack based solution that mimicks NavigationSplitView could reduce complexity and serve the same purpose. The implimentation would recuire a NavigationStack in compact mode. And HStack with 3 columns in regular mode. A drag implementation would be needed to account for draggable sidebar and main column. Also from swip in from left functionality would have to be implemented. Which is probably the most complicated part. They would also have to work for mac and ipad. However there is probably similar kits out there that we could extract solutions from.
+- Add ObservableObject to example project:
+
+```swift
+class ExampleViewModel: ObservableObject {
+    @Published var selectedSideBarIndex: Int = 0
+    @Published var selectedMainIndex: Int = 0
+    @Published var selectedItem: DataModel?
+}
+@StateObject private var viewModel = ExampleViewModel()
+```

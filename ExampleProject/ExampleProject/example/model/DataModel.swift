@@ -11,6 +11,7 @@ import SwiftUI
  * - Fixme: ⚠️️ Maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
  * - Fixme: ⚠️️ A better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
  * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
+ * - Fixme: ⚠️️ Consider using Identifiable protocol for lists. and replace uuid with:  let id = UUID()
  */
 internal struct DataModel: Hashable {
    /**

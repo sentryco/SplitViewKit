@@ -2,6 +2,7 @@ import SwiftUI
 /**
  * - Description: Displays a list of items, allowing the user to select an item.
  * - Fixme: ⚠️️ Add preview
+ * fixme: why do we have selectedMainIndex and selectedItem?
  */
 internal struct MainList: View {
    /**
@@ -16,4 +17,12 @@ internal struct MainList: View {
     * - Description: The list of items to display in the main list.
     */
    internal var items: DataModels
+}
+// Fixme: Move to its own file
+#Preview {
+   MainList(
+      selectedMainIndex: .constant(0),
+      selectedItem: .constant(nil),
+      items: [DataModel(text: "Example Item")]
+   )
 }

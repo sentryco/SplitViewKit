@@ -1,6 +1,6 @@
 import SwiftUI
 /**
- * - Description: Extension to add descriptive functionality to
+ * - Description: Extension to add informative functionality to
  *                NavigationSplitViewVisibility.
  */
 extension NavigationSplitViewVisibility {

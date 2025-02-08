@@ -8,7 +8,7 @@ import SplitViewKit
  *                split configuration.
  * - Note: Alternative name: `DetailColumnView`
  * - Note: Adding some kind of overflow in detail would be nic. But maybe best to make min-width for detail etc. simpler. User sees all content at all time.
- * - Fixme: ⚠️️ Add preview 👈
+ * - Fixme: ⚠️️ Add preview 👈 use copilot
  */
 internal struct DetailView: View {
    /**

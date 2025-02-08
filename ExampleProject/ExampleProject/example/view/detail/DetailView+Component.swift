@@ -17,7 +17,7 @@ extension DetailView {
       }
       .contentMargins(.vertical, .zero) // ⚠️️ Seems like this is key for the detail list only, or else we get a big gap at the top
       .contentMargins(.horizontal, .zero) // Sets horizontal content margins to zero, ensuring the content extends fully from left to right without any padding.
-      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ debug - has effect only if we add .scrollContentBackground(.hidden)
+      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ Debug - has effect only if we add .scrollContentBackground(.hidden)
    }
    /**
     * Detail header

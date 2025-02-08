@@ -23,7 +23,7 @@ extension SideBarView {
     * Header
     * - Description: The header of the sidebar, which includes the title and a size class indicator.
     * - Note: Headers are pushed down slightly because of native safe-frame etc
-    * - Fixme: ⚠️️ Add more info about safe-area and how it affects header content etc
+    * - Fixme: ⚠️️ Add more info about safe-area and how it affects header content etc, use copilot?
     */
    fileprivate var sideBarHeader: some View {
       SideBarHeader(

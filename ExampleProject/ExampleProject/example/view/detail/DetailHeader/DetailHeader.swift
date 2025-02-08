@@ -6,7 +6,7 @@ import SplitViewKit
  *                the application. It includes a title, manages the split view
  *                configuration, and adapts to different size classes. The header
  *                also provides a dismiss action to navigate back.
- * - Fixme: ⚠️️ Add preview
+ * - Fixme: ⚠️️ Add preview, use copilot
  */
 internal struct DetailHeader: View {
    /**

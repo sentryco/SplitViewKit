@@ -9,7 +9,7 @@ extension ExampleView {
     *                environments where `.navigationDestination(item)` may not
     *                function as expected. This workaround ensures that the UI
     *                updates correctly when the selected item changes.
-    * - Important: ⚠️️ Rebinding hack for macOS, because `.navigationDestination(item)` doesn't work for macOS aperantly
+    * - Important: ⚠️️ Rebinding hack for macOS, because `.navigationDestination(item)` doesn't work for macOS aperantly, elaborate on this, use copilot?
     * - Note: Alternative name: selectedItemRebound
     */
    internal var rebind: Binding<Bool> {

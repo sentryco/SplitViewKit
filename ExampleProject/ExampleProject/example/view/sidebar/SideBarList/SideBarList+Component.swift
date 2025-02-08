@@ -6,7 +6,7 @@ extension SideBarList {
    /**
     * List content
     * - Description: The content of the list of items in the sidebar.
-    * - Fixme: ⚠️️ Get model from init param instead?
+    * - Fixme: ⚠️️ Get model from init param instead? yes possibly, and make this static instead? or figure out how to use a model view approache?
     * - Fixme: ⚠️️ Use enumerated on the ForEach instead?
     */
    internal var sideBarListContent: some View {

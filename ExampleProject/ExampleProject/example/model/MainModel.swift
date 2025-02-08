@@ -15,6 +15,6 @@ internal struct MainModel {
 /**
  * - Description: Represents an array of `MainModel`, used to structure
  *                the main-data in the application.
- * - Fixme: ⚠️️ Rename to ...array
+ * - Note: Alt name `MainArray``
  */
 internal typealias MainData = [MainModel]

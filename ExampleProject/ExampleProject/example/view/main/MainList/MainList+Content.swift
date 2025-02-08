@@ -6,7 +6,7 @@ extension MainList {
    /**
     * listContainer
     * - Description: Container for the list of items in the MainList view, using a VStack to align items vertically.
-    * - Fixme: ⚠️️ We should probably use list?, because its more suitable for the case
+    * - Fixme: ⚠️️ We should probably use list?, because its more suitable for the case etc, use copilot
     */
    internal var body: some View {
       VStack(spacing: .zero) {

@@ -7,7 +7,7 @@ import HybridColor
  *                icon, rounded corners, background and fill colors, icon size,
  *                and padding.
  * - Note: There is one for left arrow, `right_arrow`, `full_screen`, `back_chevron_icon`
- * - Fixme: ⚠️️ Make it animate transperancy on showing / hiding
+ * - Fixme: ⚠️️ Make it animate transperancy on showing / hiding (add via copilot)
  */
 fileprivate struct IconButtonStyle: ButtonStyle {
    /**
@@ -28,7 +28,7 @@ fileprivate struct IconButtonStyle: ButtonStyle {
     * - Note: Icon Aspect Ratio: By using .aspectRatio(contentMode: .fit) and constraining the icon's maximum size (frame(maxWidth: 24, maxHeight: 24)), the icon will maintain its aspect ratio and fit within the square.
     * - Note: Background: The bgColor background is defined as a square with rounded corners using .clipShape(RoundedRectangle(cornerRadius: 8)).
     * - Note: Now, no matter what the shape of the icon is, the background will always be square, and the icon will fit neatly within that square. You can adjust the frame(width: height:) values to make the background larger or smaller as needed.
-    * - Fixme: ⚠️️ Try to make all this relativly sized etc
+    * - Fixme: ⚠️️ Try to make all this relativly sized etc, confer with copilot
     */
    fileprivate func makeBody(configuration: Configuration) -> some View {
       ZStack {

@@ -28,7 +28,7 @@ internal struct MainView: View {
    /**
     * - Description: Used to configure the split view behavior in the MainView.
     * - Note: This property allows for customization of the split view behavior, enabling or disabling the split view based on user interaction or application state.
-    * - Fixme: ⚠️️ Make this ObservedObject later
+    * - Fixme: ⚠️️ Make this ObservedObject later, figure out pros and const first, use copilot
     */
    internal var splitConfig: SplitConfig
    /**

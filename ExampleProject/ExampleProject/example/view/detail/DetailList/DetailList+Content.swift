@@ -5,6 +5,8 @@ import SwiftUI
 extension DetailList {
    /**
     * - Description: This extension provides the layout and behavior for the list of details in the `DetailList` view.
+    * - Fixme: ⚠️️ Check if .contentMargins(.vertical, .zero) fixes the issue with 12 not working as padding?
+    * - Fixme: ⚠️️ This should be 12. like main and sidebar. not sure why it isnt, figure it out mayb some contentMargin
     */
    internal var body: some View {
       VStack(spacing: .zero) { // Vertical stack
@@ -12,8 +14,6 @@ extension DetailList {
             getRow(title: title)
          }
       }
-      // - Fixme: ⚠️️ Check if .contentMargins(.vertical, .zero) fixes the issue with 12 not working as padding?
-      // - Fixme: ⚠️️ This should be 12. like main and sidebar. not sure why it isnt, figure it out mayb some contentMargin
       .padding(.vertical, 24) // Applies vertical padding of 24 points to the VStack to ensure consistent spacing around the content.
       .sheet(isPresented: $isSheetPresented) {
          // Content of the sheet goes here

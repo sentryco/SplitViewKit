@@ -11,8 +11,8 @@ import SwiftUI
  * - Note: We manage selection-state in this implementation scope, and not in the helper SplitViewWrapper
  * - Note: Consider adding placeholder views when there is no selection etc (currently there is always a selection)
  * - Note: When going into compact mode. Selections should not be visible, but persisted in the binding. so that when mode turns to regular. the selections show in the UI
- * - Fixme: ⚠️️ Spread index binding into the respective views, instead of storing them here?
- * - Fixme: ⚠️️ Clearify around "selected-index" and "selected-item" etc. unify? its unclear atm why we have both etc
+ * - Fixme: ⚠️️ Spread index binding into the respective views, instead of storing them here? rational? pros and cons? ask copilot to analyse this?
+ * - Fixme: ⚠️️ Clearify around "selected-index" and "selected-item" etc. unify? its unclear atm why we have both etc, yepp unify, ask copilot regarding approache
  */
 internal struct ExampleView: View {
    /**
@@ -32,7 +32,7 @@ internal struct ExampleView: View {
     * - Note: We keep this at this scope, because both main and detail needs it
     *         we could store it in main, and have a binding here, but for now this is how it is
     * - Note: We can make this optional. But that requires placeholder views for main and detail
-    * - Fixme: ⚠️️ It's possible to remove this and just use selectedMainItem. will require parsing with uuid etc, and passing main-model into detail. do it later
+    * - Fixme: ⚠️️ It's possible to remove this and just use selectedMainItem. will require parsing with uuid etc, and passing main-model into detail. do it later, yepp
     */
    @State internal var selectedMainIndex: Int = 0
    /**

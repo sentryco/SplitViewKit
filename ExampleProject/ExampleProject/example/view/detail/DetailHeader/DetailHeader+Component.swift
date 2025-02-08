@@ -16,8 +16,8 @@ extension DetailHeader {
     * - Description: Toggles the detail-view between full-screen and regular-mode.
     * - Note: DetailMode is not available for macOS. since siclass == .regular will return false makes this button is not visible for macOS
     * - Fixme: ⚠️️ Remove default animation for this button, it looks buggy. Use copilot etc
-    * - Fixme: ⚠️️ Find minimize icon
-    * - Fixme: ⚠️️ We might have to put this in the hovering layer above navsplitview. As it inherits some unintended animations at the moment
+    * - Fixme: ⚠️️ Find minimize icon, elaborate?
+    * - Fixme: ⚠️️ We might have to put this in the hovering layer above navsplitview. As it inherits some unintended animations at the moment, elaborate?
     */
    internal var fullScreenToggleButton: some View {
       let iconName: String = splitConfig.isDetailFullScreen ? "arrow.left.and.right" : "arrow.left.and.right" // - Fixme: ⚠️️ describe what this icon looks like

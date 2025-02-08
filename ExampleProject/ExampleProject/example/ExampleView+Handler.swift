@@ -10,7 +10,7 @@ extension ExampleView {
     *                mechanism ensures that the view automatically displays the
     *                last selected item when the sidebar changes.
     * - Note: This method is not static, because we interact with instance var selectedMainItem
-    * - Fixme: ⚠️️ Probably add support for this for macOS? Seems to work fine without it for some reason.
+    * - Fixme: ⚠️️ Probably add support for this for macOS? Seems to work fine without it for some reason. elaborate?
     * - Parameters:
     *   - splitConfig: The configuration for the split view, controlling the layout and behavior.
     *   - sizeClass: The current size class of the user interface, which may affect layout decisions.

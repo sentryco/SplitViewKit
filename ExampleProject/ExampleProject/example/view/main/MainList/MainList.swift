@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * - Description: Displays a list of items, allowing the user to select an item.
- * - Fixme: ⚠️️ Add preview
+ * - Fixme: ⚠️️ Add preview, use copilot
  * fixme: why do we have selectedMainIndex and selectedItem?
  */
 internal struct MainList: View {

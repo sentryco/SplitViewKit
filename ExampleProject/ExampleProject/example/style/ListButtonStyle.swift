@@ -2,7 +2,7 @@ import SwiftUI
 /**
  * - Description: Applies the list button style to the view, enhancing the appearance of the list button.
  * - Fixme: ⚠️️ Remove animated effect when tapping main items, check with copilot etc
- * - Fixme: ⚠️️ Add preview
+ * - Fixme: ⚠️️ Add preview, use copilot
  */
 fileprivate  struct ListButtonStyle: ButtonStyle {
    /**
@@ -22,7 +22,6 @@ fileprivate  struct ListButtonStyle: ButtonStyle {
       HStack(spacing: 0) {
          configuration.label // text instance
             .foregroundStyle(textColor)
-            // .padding(.horizontal)
             .font(.system(size: 24, weight: .regular))
          Spacer()
       }

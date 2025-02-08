@@ -4,7 +4,7 @@ import SplitViewKit
  * - Description: A custom struct for the header of the main view.
  * - Note: We use custom struct for header. we don't reuse across
  *         columns because each header has different toggle buttons etc
- * - Fixme: ⚠️️ Main header should have back button maybe, if we cant get back to sidebar in compact mode etc? if so, we must hide show-side menu. so flip these etc
+ * - Fixme: ⚠️️ Main header should have back button maybe, if we cant get back to sidebar in compact mode etc? if so, we must hide show-side menu. so flip these etc. This can be added, thre is code in the code using this kit etc
  */
 internal struct MainHeader: View {
    /**
@@ -16,7 +16,7 @@ internal struct MainHeader: View {
     * - Description: Configuration for the split view behavior in the header,
     *                affecting how the view adapts to different screen sizes and
     *                orientations.
-    * - Fixme: ⚠️️ Possibly make this ObservedObject later
+    * - Fixme: ⚠️️ Possibly make this ObservedObject later. Do some pros and cons research etc
     */
    internal var splitConfig: SplitConfig
    /**

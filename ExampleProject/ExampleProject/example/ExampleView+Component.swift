@@ -13,7 +13,7 @@ extension ExampleView {
     *                configuration provided.
     * - Note: The selection in the first column affects the second, and the selection in the second column affects the third
     * - Note: Ref the apple bug: https://forums.developer.apple.com/forums/thread/708721
-    * - Fixme: ⚠️️ Consider moving the event-handler into SideBarView scope? mainview should update when we change selectedSideBarIndex etc
+    * - Fixme: ⚠️️ Consider moving the event-handler into SideBarView scope? mainview should update when we change selectedSideBarIndex etc, elaborate?
     * - Parameters:
     *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
@@ -36,6 +36,7 @@ extension ExampleView {
     *                index. It dynamically updates the content based on user
     *                interactions with the sidebar.
     * - Fixme: ⚠️️ Move navigationDestination to a handleMainSelectionStateChange method?
+    * - Fixme: ⚠️️ Move navigationDestination into main body maybe? if it makes sense? elaborate?
     * - Parameters:
     *   - splitConfig: The configuration object for the split view, which determines the layout and interaction behavior of the split view components.
     *   - sizeClass: A binding to the current size class of the user interface, which may affect layout decisions and adaptive behaviors.
@@ -54,7 +55,6 @@ extension ExampleView {
          splitConfig: splitConfig,
          sizeClass: sizeClass
       )
-      // - Fixme: ⚠️️ Move this into main body maybe? if it makes sense?
       #if os(iOS)
       .navigationDestination(item: $selectedMainItem) { (_ item: DataModel) in // Attach navDest code to view, when selectedMainItem changes, this changes
          detailView(splitConfig: splitConfig, sizeClass: sizeClass)

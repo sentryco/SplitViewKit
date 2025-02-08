@@ -5,7 +5,7 @@ import HybridColor
  * - Description: This preview serves as a minimalistic reference
  *                implementation for the `SplitViewWrapper`, showcasing
  *                essential functionalities.
- * - Important: ⚠️️ Sheets cannot be shown when using preview with macOS target. Works fine for iPad as target
+ * - Important: ⚠️️ Sheets cannot be shown when using preview with macOS target. But works fine for iPad as target,
  * - Note: Great example of `NavigationSplitViewController` https://stackoverflow.com/questions/77464914/navigationstack-inside-navigationsplitview-detail-in-swiftui
  * - Note: To test window resizing etc. Use simulator. There is an example xcode project that can be used for that purpouse
  * - Note: Preview does not seem to support resizing window atm

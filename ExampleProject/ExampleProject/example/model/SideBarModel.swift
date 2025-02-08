@@ -55,7 +55,7 @@ extension DataModel {
     * Model structure
     * - Note: Sorted dictionary based on array of tuples
     * - Description: Represents a static dictionary that maps sidebar titles to their respective content models, facilitating easy access and management of sidebar data.
-    * - Fixme: ⚠️️ Maybe add more interesting content to detail?
+    * - Fixme: ⚠️️ Maybe add more interesting content to detail? Use copilot to suggest mock data?
     */
    internal static let dataModel: SideBarData = [accounts, settings]
    /**

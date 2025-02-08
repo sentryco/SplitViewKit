@@ -6,9 +6,10 @@ import HybridColor
 extension SideBarHeader {
    /**
     * - Description: The title text of the sidebar header
+    * - Fixme: ⚠️️ Toggle title somehow between accounts and Settings? elaborate?
     */
    internal var titleText: some View {
-      Text(title) // - Fixme: ⚠️️ Toggle this somehow between accounts and Settings?
+      Text(title) 
          .titleTextStyle // Applies a predefined style for title text in the sidebar header.
          .padding(.vertical, 6) // Adds vertical padding of 6 points to the title text for better visual separation.
    }
@@ -22,7 +23,6 @@ extension SideBarHeader {
     */
    @ViewBuilder internal var sideBarToggleButton: some View {
       let button = Button(action: { // Hide sidebar
-         // - Fixme: ⚠️️ animate this transition, but only for macOS
          #if os(macOS)
          let animation = Animation.easeInOut(duration: 0.3)
          withAnimation(animation) {

@@ -1,7 +1,7 @@
 import SwiftUI
 /**
  * Content
- * - Important: ⚠️️ The task is to redraw navSplitView on size,sizeclass and orientation change. Doing bindings on columnWidth values etc, doesnt update the navsplitview
+ * - Important: ⚠️️ The task is to redraw navSplitView on size, sizeclass and orientation change. Doing bindings on columnWidth values etc, doesnt update the navsplitview
  */
 extension SplitViewWrapper {
    /**

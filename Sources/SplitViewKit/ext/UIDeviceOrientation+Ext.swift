@@ -16,6 +16,7 @@ public var isOrientationLandscape: Bool {
 }
 #if os(iOS)
 /**
+ * Retrieves the current valid device orientation, correcting unknown states using the interface orientation.
  * - Description: Retrieves the current orientation of the device using
  *                UIDevice.current.orientation and validates it against the
  *                interface orientation from the window scene.
@@ -24,6 +25,7 @@ public var isOrientationLandscape: Bool {
  * - Note: Some more notes here: https://stackoverflow.com/questions/65573508/swiftui-determining-current-device-and-orientation?noredirect=1&lq=1
  * - Note: Rotating to a new orientation does not update the view, but it works if we use GeometryReader. to instantiate a new view
  * - Note: ⚠️️ This can also be used: `UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation` look into it
+ * fixme: double check with copilot if this is the best way to do this?
  */
 internal func getDeviceOrientation() -> UIDeviceOrientation {
    var orientation = UIDevice.current.orientation

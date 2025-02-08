@@ -1,19 +1,23 @@
 import SwiftUI
 /**
  * MainViewModifier
+ * - Abstract: A ViewModifier that adjusts the main column's width and toolbar settings in a navigation split view based on the window size and operating system.
  * - Description: This struct is a ViewModifier that modifies the main view of the application. It is responsible for setting the width of the main column in the split view according to the width of the window. It also handles the display of the toolbar and navigation split view column width for different operating systems (iOS and macOS).
  */
 fileprivate struct MainViewModifier: ViewModifier {
    /**
+    * - Abstract: Adjusts the main split view column width based on the window size, enabling responsive layouts.
     * - Description: The width of the window. This value is used to calculate the width of the main column in the split view.
     */
    fileprivate let winWidth: CGFloat
    /**
+    * - Abstract: Specifies the width parameters for the main column in the split view, adapting to the window's width.
     * - Description: The `ColumnWidthKind` protocol instance that provides custom width settings for the main column based on the window width.
     */
    fileprivate let columnWidth: ColumnWidthKind
    /**
     * Body
+    * - Abstract: Modifies the view by applying a custom width to the main column of the navigation split view based on the window width.
     * - Description: This function modifies the view by applying a custom
     *                width to the main column of the navigation split view
     *                based on the window width. It uses the `ColumnWidthKind`
@@ -38,6 +42,7 @@ fileprivate struct MainViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
+    * - Abstract: Applies a main view modifier that adjusts the main column's width based on the window size and provided column width specifications.
     * - Description: This method applies a main view modifier that adjusts
     *                the main column's width according to the window width
     *                using the provided `ColumnWidthKind` instance.

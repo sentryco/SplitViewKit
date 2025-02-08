@@ -3,6 +3,7 @@ import XCTest
 // fix  Remove SplitViewKitTests Unit tests. from code and github actions
 final class SplitViewKitTests: XCTestCase {
     func testExample() throws {
+        // fixme: remove this if not in use etc, setup uitests instead?
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
 

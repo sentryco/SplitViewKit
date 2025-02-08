@@ -5,6 +5,7 @@ import SwiftUI
 extension SplitViewWrapper {
    /**
     * splitViewContainer
+    * - Abstract: Constructs a `NavigationSplitView` with the provided configuration and views, adapting the layout based on the window width and orientation.
     * - Description: This view manages the layout of the split view container
     *                based on the device's orientation and window size. It uses
     *                a GeometryReader to dynamically adjust the views and their
@@ -12,8 +13,8 @@ extension SplitViewWrapper {
     * - Note: The `GeometryReader` solution was found here: https://stackoverflow.com/questions/57441654/swiftui-repaint-view-components-on-device-rotation
     * - Note: The issue is that since we are in regular and move to full. the sizeclass has not changed. so no view update happens. as such we need to rely on detecting winSize change and for that we use geomreader. GeomReader fires when moving from 70% to full. (iPad) SizeClass does not fire when moving from 70% to fullscreen.
     * - Note: We can also use geometry reader on a clear pixel, but that requires an extra state for size. unless using geomreader on entire stack has performance issues, we keep it as is. See SizeTracker code in the swift tips post on eon.codes etc
-    * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geomreader, skip using it in that case etc? i guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos
-    * - Fixme: ⚠️️ consider doing != .compact as that carries with it support for macOS. Altho may not be needed for macOS
+    * - Fixme: ⚠️️ Maybe toggle on OS. macOS doesn't need geometry-reader, skip using it in that case etc? I guess leave it for now. This is only relevant for iOS / iPad, so we could skip the geomreader for macos, check with copilot?
+    * - Fixme: ⚠️️ consider doing != .compact as that carries with it support for macOS. Altho may not be needed for macOS, check with copilot?
     */
    internal var splitViewContainer: some View {
       GeometryReader { geometry in // Utilizes GeometryReader to dynamically obtain the current view size
@@ -28,6 +29,7 @@ extension SplitViewWrapper {
    }
    /**
     * Create navigationSplitView
+    * - Abstract: Constructs a `NavigationSplitView` with dynamic configuration, adjusting its components and layout according to the current window width.
     * - Description: Creates a `NavigationSplitView` with the provided
     *                configuration and views. It dynamically adjusts the layout
     *                based on the window width and orientation.

@@ -5,6 +5,7 @@ import SwiftUI
 extension Optional where Wrapped == UserInterfaceSizeClass {
    /**
     * Convenient rebinder (Environtment -> Binding)
+    * - Abstract: Provides a binding to the optional `UserInterfaceSizeClass`, enabling dynamic updates to the UI based on size class changes.
     * - Description: Provides a binding to the optional `UserInterfaceSizeClass`
     *                to facilitate the propagation of size class changes through
     *                the view hierarchy.
@@ -22,6 +23,7 @@ extension Optional where Wrapped == UserInterfaceSizeClass {
  */
 extension UserInterfaceSizeClass {
    /**
+    * - Abstract: Determines whether the device is in a 70% landscape mode based on window width and orientation.
     * - Description: Determines if the device is in a landscape mode where
     *                the window occupies approximately 70% of the screen width,
     *                typically used for adaptive layouts in larger devices like

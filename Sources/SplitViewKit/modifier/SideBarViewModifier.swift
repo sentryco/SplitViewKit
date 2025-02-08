@@ -8,16 +8,19 @@ import SwiftUI
  */
 fileprivate struct SideBarViewModifier: ViewModifier {
    /**
-    * - Description: The width of the window
+     * The width of the window in which the sidebar view is displayed.
+     * - Description: This value is used to calculate the width of the sidebar column in the split view.
     */
    fileprivate let winWidth: CGFloat
    /**
+    * - Abstract: Specifies the width parameters for the sidebar column in the split view, adapting to the window's width.
     * - Description: The `ColumnWidthKind` protocol instance that provides
     *                custom width settings for the sidebar based on the window
     *                width.
     */
    fileprivate let columnWidth: ColumnWidthKind
    /**
+    * - Abstract: Modifies the view by applying a custom width to the sidebar of the navigation split view based on the window width.
     * - Description: This function modifies the view by setting the toolbar,
     *                navigation bar, and scroll indicators according to the
     *                platform (iOS or macOS). It also sets the width of the
@@ -44,6 +47,7 @@ fileprivate struct SideBarViewModifier: ViewModifier {
 extension View {
    /**
     * Applies the SideBarViewModifier to the view.
+    * - Abstract: A View extension that applies the SideBarViewModifier to adjust the sidebar's width in a navigation split view based on the window width.
     * - Description: This method applies a sidebar view modifier that adjusts
     *                the sidebar's width according to the window width using the
     *                provided `ColumnWidthKind` instance.

@@ -1,14 +1,17 @@
 import SwiftUI
 /**
+ * - Abstract: A `ViewModifier` that adjusts the width of the detail column in a navigation split view based on the window width.
  * - Description: This struct is a ViewModifier that modifies the detail view in a split view setup. It adjusts the width of the navigation split view column based on the window width.
  */
 fileprivate struct DetailViewModifier: ViewModifier {
    /**
     * The width of the window in which the detail view is displayed.
+    * - Description: This value is used to calculate the width of the detail column in the split view.
     */
    fileprivate let winWidth: CGFloat
    /**
     * The `ColumnWidthKind` protocol instance that provides custom width settings for the detail column based on the window width.
+    * - Description: The `ColumnWidthKind` protocol instance that provides custom width settings for the detail column based on the window width. It specifies the minimum, ideal, and maximum widths to ensure the detail view adapts seamlessly to various window sizes and orientations.
     */
    fileprivate let columnWidth: ColumnWidthKind
    /**
@@ -38,6 +41,7 @@ fileprivate struct DetailViewModifier: ViewModifier {
 extension View {
    /**
     * Convenient
+    * - Abstract: Applies a detail view modifier that adjusts the detail column's width based on the window size and provided column width specifications.
     * - Description: This method applies a detail view modifier that adjusts
     *                the detail column's width according to the window width
     *                using the provided `ColumnWidthKind` instance.

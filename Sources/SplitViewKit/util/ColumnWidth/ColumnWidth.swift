@@ -1,5 +1,6 @@
 import SwiftUI
 /**
+ * - Abstract: Defines the structure for managing column widths in a `NavigationSplitView`, allowing customization of minimum, ideal, and maximum widths to ensure responsive and adaptive user interfaces across different devices and orientations.
  * - Description: This file defines the `ColumnWidth` struct which is used to
  *                specify the minimum, ideal, and maximum widths for columns
  *                within a `NavigationSplitView`. This allows for flexible and
@@ -16,20 +17,25 @@ import SwiftUI
 public struct ColumnWidth {
    /**
     * Min size
+    * - Description: The minimum width of the column. If set to `nil`, the column width is not constrained on the lower end.
     * - Note: Behaves differently for macOS and iPad
     */
    public let min: CGFloat?
    /**
     * Default size used
+    * - Description: Ideal size for the column. This value represents the preferred width that the column should occupy when possible, within the constraints of the minimum and maximum widths.
     * - Note: Behaves differently for macOS and iPad
     */
    public let ideal: CGFloat
    /**
     * Max size
+    * - Description: The maximum width of the column. If set to `nil`, the column width is not constrained on the upper end.
     * - Note: Behaves differently for macOS and iPad
     */
    public let max: CGFloat?
    /**
+    * Initializes a new `ColumnWidth` instance with the specified minimum, ideal, and maximum widths for a column.
+    * This configuration allows for flexible and adaptive layouts within a `NavigationSplitView`, accommodating different devices and orientations.
     * - Parameters:
     *   - min: The minimum width of the column. If nil, the column width is not constrained on the lower end.
     *   - ideal: The recommended width of the column. This width is used when possible within the constraints of the minimum and maximum widths.

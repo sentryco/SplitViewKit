@@ -4,7 +4,7 @@ import SwiftUI
  *                NavigationSplitViewColumn enumeration. It adds a computed
  *                property that returns a string representation of the column,
  *                which can be useful for debugging and logging purposes.
- * - Note: this is how you navigate to different columns: https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/
+ * - Note: This is how you navigate to different columns: https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/
  */
 extension NavigationSplitViewColumn {
    /**

@@ -7,11 +7,11 @@ import SwiftUI
  *                navigation destination, and color.
  * - Note: Alternative name: `MainModel`
  * - Note: Hashable is needed for the presentNavigation value to work
- * - Fixme: ⚠️️ Should we make this identifiable as well or?
- * - Fixme: ⚠️️ Maybe structure sidebar model like this: ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
- * - Fixme: ⚠️️ A better model: https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
- * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping
- * - Fixme: ⚠️️ Consider using Identifiable protocol for lists. and replace uuid with:  let id = UUID()
+ * - Fixme: ⚠️️ Should we make this identifiable as well or? Check with copilot etc
+ * - Fixme: ⚠️️ Maybe structure sidebar model like this (use copilot?): ref: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
+ * - Fixme: ⚠️️ A better model: (use copilot?): https://medium.com/@jpmtech/swiftui-navigationsplitview-30ce87b5de03
+ * - Fixme: ⚠️️ Remove mainIndex -> the "main index" and "main model" uuid does duplicate index keeping (use copilot?):
+ * - Fixme: ⚠️️ Consider using Identifiable protocol for lists. and replace uuid with:  let id = UUID() (use copilot?):
  */
 internal struct DataModel: Hashable {
    /**
@@ -21,7 +21,7 @@ internal struct DataModel: Hashable {
    internal let uuid: UUID = .init()
    /**
     * - Description: The text displayed for the data model, representing the title or label of the item.
-    * - Fixme: ⚠️️ rename to title?
+    * - Note: Alt name: title
     */
    internal let text: String
 }

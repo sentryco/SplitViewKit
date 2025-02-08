@@ -10,7 +10,7 @@ extension UserInterfaceSizeClass {
     * - Note: 100% landscape -> regular
     * - Note: 70% landscape -> regular
     * - Note: 30% 50% -> Compact
-    * - Fixme: ⚠️️ double check if portrait 100% is regular as well?
+    * - Fixme: ⚠️️ Double check if portrait 100% is regular as well?
     */
    internal var description: String {
       switch self {

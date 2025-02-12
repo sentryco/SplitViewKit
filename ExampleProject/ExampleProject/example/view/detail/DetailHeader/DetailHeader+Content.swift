@@ -17,12 +17,12 @@ extension DetailHeader {
             Spacer()
             fullScreenToggleButton // btn to right
          }
-         .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
+         // .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
          HStack { // hstack with title to left
             titleText
             Spacer()
          }
-         .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
+         // .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
       #if os(iOS)

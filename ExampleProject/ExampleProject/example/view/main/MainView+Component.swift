@@ -15,9 +15,9 @@ extension MainView {
          Spacer() // Pins the stack to the top
       }
       #if os(iOS)
-      .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      // .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
       #else
-      .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      // .background(isTest ? .blue.opacity(0.3) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
       #endif
    }
    /**
@@ -30,7 +30,7 @@ extension MainView {
          splitConfig: splitConfig, // Configuration for the split view behavior in the main view.
          sizeClass: $sizeClass // A binding to the size class, used to adapt the UI for different device sizes.
       )
-      .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
+      // .background(isTest ? .pink.opacity(0.5) : .whiteOrBlack.opacity(0.07)) // ⚠️️ debug
    }
    /**
     * mainList

@@ -17,7 +17,7 @@ extension DetailView {
       }
       .contentMargins(.vertical, .zero) // ⚠️️ Seems like this is key for the detail list only, or else we get a big gap at the top
       .contentMargins(.horizontal, .zero) // Sets horizontal content margins to zero, ensuring the content extends fully from left to right without any padding.
-      .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ Debug - has effect only if we add .scrollContentBackground(.hidden)
+      // .background(isTest ? .orange.opacity(0.3) : .whiteOrBlack.opacity(0.06)) // ⚠️️ Debug - has effect only if we add .scrollContentBackground(.hidden)
    }
    /**
     * Detail header
@@ -33,7 +33,7 @@ extension DetailView {
          splitConfig: splitConfig, // Configuration object that manages the split view behavior, adapting to different screen sizes and orientations.
          sizeClass: sizeClass // Represents the current size class of the user interface, used to adjust UI elements accordingly.
       )
-      .background(isTest ? .indigo.opacity(0.5) : .whiteOrBlack.opacity(0.06))
+      // .background(isTest ? .indigo.opacity(0.5) : .whiteOrBlack.opacity(0.06))
    }
    /**
     * List

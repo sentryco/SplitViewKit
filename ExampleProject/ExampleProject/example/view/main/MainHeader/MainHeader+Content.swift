@@ -13,12 +13,12 @@ extension MainHeader {
             button
             Spacer()
          }
-         .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
+         // .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
          HStack { // title (bottom-left)
             titleText
             Spacer()
          }
-         .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
+         // .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       // - Fixme: ⚠️️ Could this cause an issue, is it needed?
       .frame(maxWidth: .infinity) // Forces the view to not shrink to text, but rather expand to it's parent width

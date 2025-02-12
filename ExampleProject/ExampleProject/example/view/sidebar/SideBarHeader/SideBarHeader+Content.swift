@@ -13,12 +13,12 @@ extension SideBarHeader {
             sideBarToggleButton // Top-left
             Spacer()
          }
-         .background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
+         //.background(isTest ? .pink.opacity(0.5) : .clear) // ⚠️️ debug
          HStack {
             titleText // Bottom-left
             Spacer()
          }
-         .background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
+        //.background(isTest ? .purple.opacity(0.5) : .clear) // ⚠️️ debug
       }
       .padding(.horizontal) // Adds left and right padding
       #if os(iOS)

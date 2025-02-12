@@ -7,6 +7,6 @@ import HybridColor
       splitConfig: .init(),
       sizeClass: .constant(.regular)
    )
-   .background(Color.blackOrWhite.opacity(1))
+   .background(Color.blackOrWhite)
    .environment(\.colorScheme, .dark) // dark-mode
 }

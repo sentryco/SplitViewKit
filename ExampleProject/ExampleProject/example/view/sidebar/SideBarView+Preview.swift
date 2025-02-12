@@ -10,6 +10,6 @@ import SplitViewKit
       sizeClass: .constant(.regular),
       splitConfig: .init()
    )
-      .background(Color.blackOrWhite.opacity(1))
+      .background(Color.blackOrWhite)
       .environment(\.colorScheme, .dark) // dark-mode
 }

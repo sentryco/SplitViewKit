@@ -15,7 +15,7 @@ import HybridColor
    ExampleView()
       .environment(\.colorScheme, .dark) // dark
       #if os(iOS)
-      .background(Color.blackOrWhite.opacity(1))
+      .background(Color.blackOrWhite)
       .statusBar(hidden: true) // Hide the status bar (looks better for demos) (Not available on macOS)
       #endif
 }
